@@ -4,10 +4,14 @@ export default function ActiveMeydanlarSection({
   loading,
   activeMeydanlar,
   visibleMeydanlar,
+  expandedMeydanId,
+  getPlannedPersonnelNames,
+  getPlannedPersonnelDetails,
   getActiveCount,
   getScheduledCount,
   showAllMeydanlar,
   initialVisibleCount,
+  onToggleMeydan,
   onToggleShowAll,
 }) {
   return (
@@ -24,15 +28,66 @@ export default function ActiveMeydanlarSection({
 
       {!loading && activeMeydanlar.length ? (
         <>
-          <div className="meydan-grid">
-            {visibleMeydanlar.map((meydan) => (
-              <MeydanCard
-                key={meydan.id}
-                meydan={meydan}
-                aktifSayisi={getActiveCount(meydan.id)}
-                planliSayisi={getScheduledCount(meydan.id)}
-              />
-            ))}
+          <div className="active-meydan-list">
+            {visibleMeydanlar.map((meydan) => {
+              const plannedCount = getScheduledCount(meydan.id);
+              const activeCount = getActiveCount(meydan.id);
+              const plannedNames = getPlannedPersonnelNames(meydan.id);
+              const plannedDetails = getPlannedPersonnelDetails(meydan.id);
+              const previewNames = plannedNames.slice(0, 2).join(', ');
+              const remainingPlannedCount = Math.max(0, plannedNames.length - 2);
+
+              return (
+                <article
+                  key={meydan.id}
+                  className={`active-meydan-row${expandedMeydanId === meydan.id ? ' is-expanded' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="active-meydan-row__trigger"
+                    aria-expanded={expandedMeydanId === meydan.id}
+                    aria-controls={`active-meydan-panel-${meydan.id}`}
+                    onClick={() => onToggleMeydan(meydan.id)}
+                  >
+                    <span className="active-meydan-row__main">
+                      <span className="active-meydan-row__title">{meydan.isim}</span>
+                      <span className="active-meydan-row__summary">
+                        {plannedNames.length
+                          ? `${previewNames}${remainingPlannedCount ? ` +${remainingPlannedCount}` : ''}`
+                          : 'Bugün planlı personel yok'}
+                      </span>
+                      <span className="active-meydan-row__meta">
+                        <span className="active-meydan-row__pill active-meydan-row__pill--planned">
+                          Planlı: {plannedCount}
+                        </span>
+                        <span className="active-meydan-row__pill active-meydan-row__pill--active">
+                          Görevde: {activeCount}
+                        </span>
+                      </span>
+                    </span>
+                    <span className={`active-meydan-row__chevron${expandedMeydanId === meydan.id ? ' is-open' : ''}`} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m9 6 6 6-6 6" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <div
+                    id={`active-meydan-panel-${meydan.id}`}
+                    className={`active-meydan-row__panel${expandedMeydanId === meydan.id ? ' is-open' : ''}`}
+                  >
+                    <MeydanCard
+                      meydan={meydan}
+                      aktifSayisi={activeCount}
+                      planliSayisi={plannedCount}
+                      plannedPersonnelNames={plannedNames}
+                      plannedPersonnelDetails={plannedDetails}
+                      interactiveMode="embedded"
+                    />
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
           {activeMeydanlar.length > initialVisibleCount ? (

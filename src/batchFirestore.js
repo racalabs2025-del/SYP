@@ -280,6 +280,8 @@ export async function batchAddVardiyalar(vardiyalar, options = {}) {
 
       batch.set(doc(collection(db, 'vardiyalar')), {
         ...operation.data,
+        kaynak: 'plan-ekle',
+        yuklemeKaynagi: 'excel-import',
         createdAt: serverTimestamp(),
       });
     });

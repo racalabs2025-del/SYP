@@ -366,6 +366,186 @@
   line-height: 1.1;
 }
 
+.meydan-yonetimi-group-panel {
+  display: grid;
+  gap: 20px;
+  padding: 8px 0 4px;
+}
+
+.meydan-yonetimi-group-panel__intro {
+  display: grid;
+  gap: 14px;
+}
+
+.meydan-yonetimi-group-panel__intro h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.8vw, 2.45rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.meydan-yonetimi-group-panel__intro p {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.meydan-yonetimi-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.meydan-yonetimi-subnav__item {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid rgba(167, 193, 220, 0.88);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 247, 252, 0.98));
+  color: rgba(18, 42, 76, 0.9);
+  font-size: 0.99rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(11, 57, 104, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+  position: relative;
+}
+
+.meydan-yonetimi-subnav__item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 73, 142, 0.42);
+  box-shadow: 0 12px 28px rgba(11, 57, 104, 0.12);
+}
+
+.meydan-yonetimi-subnav__item:focus-visible {
+  outline: 3px solid rgba(0, 124, 191, 0.22);
+  outline-offset: 2px;
+}
+
+.meydan-yonetimi-subnav__item.is-active {
+  border-color: rgba(0, 73, 142, 0.26);
+  background: linear-gradient(135deg, rgba(0, 73, 142, 0.96), rgba(31, 102, 171, 0.92));
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(0, 73, 142, 0.22);
+}
+
+.meydan-yonetimi-subnav__item.is-active::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: -9px;
+  height: 14px;
+  border-radius: 0 0 14px 14px;
+  background: linear-gradient(180deg, rgba(0, 73, 142, 0.18), rgba(0, 73, 142, 0));
+  pointer-events: none;
+}
+
+.meydan-yonetimi-subnav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--color-brand-dark);
+  opacity: 0.82;
+  flex-shrink: 0;
+}
+
+.meydan-yonetimi-subnav__icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+
+.meydan-yonetimi-subnav__item.is-active .meydan-yonetimi-subnav__icon {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.meydan-yonetimi-subnav__label {
+  white-space: nowrap;
+}
+
+.meydan-yonetimi-group-panel__body {
+  position: relative;
+  padding-top: 6px;
+}
+
+.meydan-yonetimi-group-panel__body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(239, 246, 252, 0.96));
+  border: 1px solid rgba(181, 203, 225, 0.72);
+  box-shadow: 0 18px 42px rgba(15, 52, 94, 0.08);
+  pointer-events: none;
+}
+
+.meydan-yonetimi-group-panel__body > .panel-section {
+  position: relative;
+  margin-bottom: 0;
+  padding: 22px;
+  border: none;
+  border-radius: 28px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+@media (max-width: 640px) {
+  .meydan-yonetimi-group-panel {
+    gap: 18px;
+  }
+
+  .meydan-yonetimi-group-panel__intro h2 {
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+  }
+
+  .meydan-yonetimi-group-panel__intro p {
+    max-width: none;
+    font-size: 0.98rem;
+  }
+
+  .meydan-yonetimi-subnav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .meydan-yonetimi-subnav__item {
+    width: 100%;
+    min-height: 52px;
+    justify-content: flex-start;
+    padding: 0 14px;
+    border-radius: 18px;
+  }
+
+  .meydan-yonetimi-subnav__label {
+    white-space: normal;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .meydan-yonetimi-subnav__item.is-active::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .meydan-yonetimi-group-panel__body > .panel-section {
+    padding: 18px;
+    border-radius: 24px;
+  }
+}
+
 .dashboard-hero,
 .detail-hero {
   margin-bottom: 18px;
@@ -601,6 +781,165 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
+}
+
+.active-meydan-list {
+  display: grid;
+  gap: 12px;
+}
+
+.active-meydan-row {
+  border: 1px solid rgba(196, 212, 228, 0.78);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 253, 0.98));
+  box-shadow: 0 14px 34px rgba(13, 53, 96, 0.07);
+  overflow: hidden;
+}
+
+.active-meydan-row.is-expanded {
+  border-color: rgba(0, 73, 142, 0.22);
+  box-shadow: 0 18px 40px rgba(13, 53, 96, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 248, 253, 1));
+}
+
+.active-meydan-row__trigger {
+  width: 100%;
+  min-height: 72px;
+  padding: 18px 18px 17px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+}
+
+.active-meydan-row__trigger:hover {
+  background: rgba(0, 73, 142, 0.03);
+}
+
+.active-meydan-row__trigger:focus-visible {
+  outline: 3px solid rgba(0, 124, 191, 0.2);
+  outline-offset: -3px;
+}
+
+.active-meydan-row__main {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.active-meydan-row__title {
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.active-meydan-row__summary {
+  color: #607087;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active-meydan-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-meydan-row__pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.active-meydan-row__pill--planned {
+  background: rgba(0, 73, 142, 0.09);
+  color: var(--color-brand-dark);
+}
+
+.active-meydan-row__pill--active {
+  background: rgba(21, 128, 61, 0.12);
+  color: #166534;
+}
+
+.active-meydan-row__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(0, 73, 142, 0.07);
+  color: var(--color-brand-dark);
+  flex-shrink: 0;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.active-meydan-row__chevron svg {
+  width: 18px;
+  height: 18px;
+}
+
+.active-meydan-row__chevron.is-open {
+  transform: rotate(90deg);
+  background: rgba(0, 73, 142, 0.14);
+}
+
+.active-meydan-row__panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 260ms ease, opacity 180ms ease, padding 180ms ease;
+  padding: 0 14px;
+}
+
+.active-meydan-row__panel.is-open {
+  max-height: 620px;
+  opacity: 1;
+  padding: 0 14px 14px;
+}
+
+@media (max-width: 767px) {
+  .active-meydan-row__trigger {
+    min-height: 78px;
+    padding: 16px;
+  }
+
+  .active-meydan-row__title {
+    font-size: 1rem;
+  }
+
+  .active-meydan-row__summary {
+    white-space: normal;
+    font-size: 0.88rem;
+  }
+
+  .active-meydan-row__meta {
+    gap: 7px;
+  }
+
+  .active-meydan-row__pill {
+    min-height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .active-meydan-row__panel,
+  .active-meydan-row__panel.is-open {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 .management-grid {
@@ -3462,6 +3801,12 @@
   color: #4f5f73;
 }
 
+.basvuru-aging-note {
+  margin: 8px 2px 0;
+  font-size: 0.72rem;
+  color: #5f6b7a;
+}
+
 .basvuru-aging-hint {
   font-size: 0.73rem;
   color: var(--color-text-muted);
@@ -4110,7 +4455,7 @@
    ========================================= */
 .personel-stats-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 24px;
 }
@@ -4158,6 +4503,121 @@
    ========================================= */
 .personel-chart-panel {
   min-width: 0;
+}
+
+/* =========================================
+   PersonelDetail — Haftalık Vardiya
+   ========================================= */
+.personel-week-panel {
+  margin-bottom: 24px;
+}
+
+.personel-week-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.personel-week-list__item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.personel-week-list__item.is-today {
+  border-color: rgba(0, 73, 142, 0.45);
+  box-shadow: 0 0 0 2px rgba(0, 73, 142, 0.08);
+}
+
+.personel-week-list__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef2f7;
+  background: #f8fafc;
+}
+
+.personel-week-list__item.is-today .personel-week-list__head {
+  background: #00498E;
+  border-bottom-color: transparent;
+}
+
+.personel-week-list__head strong {
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.personel-week-list__head span {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 73, 142, 0.08);
+}
+
+.personel-week-list__item.is-today .personel-week-list__head strong,
+.personel-week-list__item.is-today .personel-week-list__head span {
+  color: #fff;
+}
+
+.personel-week-list__item.is-today .personel-week-list__head span {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.personel-week-list__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.personel-week-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.personel-week-list__row:first-child {
+  border-top: none;
+}
+
+.personel-week-list__meydan {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 0;
+}
+
+.personel-week-list__meydan-link {
+  text-decoration: none;
+}
+
+.personel-week-list__meydan-link:hover {
+  color: #00498E;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.personel-week-list__time {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.personel-week-list__empty {
+  margin: 0;
+  padding: 12px;
+  font-size: 12px;
+  color: #94a3b8;
 }
 
 .personel-chart-empty {
@@ -4227,6 +4687,14 @@
    ========================================= */
 @media (max-width: 767px) {
   .personel-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .personel-stat-card--songorev {
+    grid-column: 1 / -1;
+  }
+
+  .personel-week-list {
     grid-template-columns: 1fr;
   }
 
@@ -4246,6 +4714,16 @@
 }
 
 @media (max-width: 480px) {
+  .personel-week-list__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .personel-week-list__time {
+    font-size: 11px;
+  }
+
   .app-header__date {
     display: none;
   }
@@ -4273,5 +4751,104 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+/* =========================================
+   Dönem Sorgulama — PersonelDetail & MeydanDetail
+   ========================================= */
+.personel-range-filters,
+.meydan-range-filters {
+  margin-bottom: 14px;
+}
+
+.personel-range-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.personel-range-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.personel-range-list__item {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f6f9fd;
+  border: 1px solid rgba(198, 212, 228, 0.6);
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+.personel-range-list__date {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.personel-range-list__meydan {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personel-range-list__saat {
+  font-size: 0.78rem;
+  color: #607087;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.meydan-range-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meydan-range-list__item {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #f6f9fd;
+  border: 1px solid rgba(198, 212, 228, 0.6);
+  border-radius: 10px;
+}
+
+.meydan-range-list__rank {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.meydan-range-list__name {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.meydan-range-list__count {
+  font-size: 0.78rem;
+  color: #607087;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+  .personel-range-list__item {
+    grid-template-columns: 90px 1fr auto;
   }
 }

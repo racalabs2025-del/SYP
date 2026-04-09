@@ -7,6 +7,7 @@ import {
   normalizePersonelKey,
   PERSONEL_BASVURU_PERIOD_KEY,
   PERSONEL_BASVURU_PERIOD_LABEL,
+  toPlannedWorkDays,
 } from '../src/utils/personelBasvuru.js';
 
 const PERSONEL_BASVURU_ROWS = [
@@ -62,10 +63,12 @@ async function run() {
 
   PERSONEL_BASVURU_ROWS.forEach(([personelAdi, toplamKayit]) => {
     const docId = getPersonelBasvuruDocId(personelAdi);
+    const plannedWorkDays = toPlannedWorkDays(toplamKayit);
     batch.set(doc(db, 'personelBasvuruOzetleri', docId), {
       personelAdi,
       normalizedAd: normalizePersonelKey(personelAdi),
-      toplamKayit,
+      toplamKayitRaw: toplamKayit,
+      toplamKayit: plannedWorkDays,
       periodKey: PERSONEL_BASVURU_PERIOD_KEY,
       periodLabel: PERSONEL_BASVURU_PERIOD_LABEL,
       updatedAt: serverTimestamp(),

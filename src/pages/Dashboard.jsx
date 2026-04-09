@@ -26,6 +26,7 @@ import { COLLECTIONS, SUBCOLLECTIONS } from '../service/firestoreCollections';
 import { generateOperationalInsights } from '../service/operationalInsights';
 import { loadStoredOperationalInsights, saveOperationalInsights } from '../service/operationalInsightsStore';
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
+import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/session';
 import { isShiftActive, toDateKey } from '../utils/date';
 import { parseKronikExcelRows, splitToChunks } from '../utils/excelParsing';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
@@ -34,7 +35,7 @@ import KronikSorunlarSection from '../components/dashboard/KronikSorunlarSection
 import MeydanYonetimiSection from '../components/dashboard/MeydanYonetimiSection';
 import OperationalInsightsSection from '../components/dashboard/OperationalInsightsSection';
 import DataManagementSection from '../components/dashboard/DataManagementSection';
-import SectionToggleBar, { SectionLinkBar } from '../components/dashboard/SectionToggleBar';
+import SectionToggleBar, { SectionLinkBar, getSectionItem } from '../components/dashboard/SectionToggleBar';
 import StatusToast from '../components/shared/StatusToast';
 
 const ExcelUpload = lazy(() => import('../ExcelUpload'));
@@ -45,6 +46,19 @@ const FIRESTORE_BATCH_LIMIT = 350;
 const KRONIK_PREVIEW_LIMIT = 96;
 const ABOUT_VISIBLE_RESPONSIBILITY_COUNT = 4;
 const INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT = 6;
+
+const ACTIVE_MEYDAN_PRIORITY = [
+  'Bakırköy Meydanı',
+  'Kadıköy Meydanı',
+  'Bağcılar Meydanı',
+  'Maltepe Meydanı',
+  'Beylikdüzü Meydanı',
+  'Kartal Meydanı',
+  'Eyüpsultan Meydanı',
+  'Pendik Meydanı',
+];
+
+const ACTIVE_MEYDAN_PRIORITY_INDEX = new Map(ACTIVE_MEYDAN_PRIORITY.map((name, index) => [name, index]));
 
 const MEYDAN_YONETIMI_ACIKLAMA = 'Meydan Yönetimi Birimi, İstanbul Büyükşehir Belediyesine ait olup, Müdürlüğümüz sorumluluğuna verilmiş meydanlarda vatandaş memnuniyetinin artırılması, çözüm süreçlerinin iyileştirilmesi ve çözüm bekleyen konuların ivedilikle giderilmesi amacıyla faaliyet göstermektedir. Birim, meydanlardaki çalışmaların etkin ve koordineli yürütülmesi için Belediyemizin ilgili birimleriyle sürekli iletişim halindedir.';
 
@@ -83,13 +97,24 @@ const VALID_OPERATIONAL_INSIGHT_TITLES = new Set([
   'Sabit Görev Eşleşmesi',
   'Toplam Kayıt Lideri',
   'Veri Akışı',
-  'Öne Çıkan Kronik Konular',
+  'Düşük Kayıtlı Meydanlar',
+  'Yoğunluk/Kayıt Dengesi',
 ]);
 
+const MEYDAN_YONETIMI_GROUP_ITEMS = [
+  'meydan-hakkinda',
+  'ziyaret-formu',
+  'faaliyet-raporlari',
+  'personel-listesi',
+  'kronik-sorunlar',
+];
+
 function isValidInsightText(item) {
-  const title = String(item?.title || '').toLocaleLowerCase('tr-TR');
-  const text = String(item?.text || '').toLocaleLowerCase('tr-TR');
-  return VALID_OPERATIONAL_INSIGHT_TITLES.has(String(item?.title || '')) && !/calistay|çalıştay/.test(`${title} ${text}`);
+  const title = normalizeTrText(item?.title || '');
+  const text = normalizeTrText(item?.text || '');
+  const compact = `${title} ${text}`.replace(/[\s-]+/g, '');
+  const hasExcludedPlaceholder = ['ofis', 'babalik', 'babalikizni', 'calistay', 'calistayprogrami'].some((token) => compact.includes(token));
+  return VALID_OPERATIONAL_INSIGHT_TITLES.has(String(item?.title || '')) && !hasExcludedPlaceholder;
 }
 
 function normalizeTrText(value) {
@@ -129,6 +154,25 @@ function extractRaporPeriod(baslik) {
 
 function isLeaveShift(type) {
   return type === 'Izinli' || type === 'İzinli' || type === 'HAFTA TATILI' || type === 'HAFTA TATİLİ';
+}
+
+function compareActiveMeydanOrder(left, right) {
+  const leftPriority = ACTIVE_MEYDAN_PRIORITY_INDEX.get(left?.isim);
+  const rightPriority = ACTIVE_MEYDAN_PRIORITY_INDEX.get(right?.isim);
+
+  if (leftPriority !== undefined || rightPriority !== undefined) {
+    if (leftPriority === undefined) {
+      return 1;
+    }
+
+    if (rightPriority === undefined) {
+      return -1;
+    }
+
+    return leftPriority - rightPriority;
+  }
+
+  return String(left?.isim || '').localeCompare(String(right?.isim || ''), 'tr');
 }
 
 function LoadingUploadModule() {
@@ -234,11 +278,12 @@ export default function Dashboard({ onLogout }) {
   const [adminPasswordError, setAdminPasswordError] = useState(false);
   const [lastImportSummary, setLastImportSummary] = useState(null);
   const [showAllMeydanlar, setShowAllMeydanlar] = useState(false);
+  const [expandedMeydanId, setExpandedMeydanId] = useState(() => getExpandedActiveMeydanId());
   const [showAllKronik, setShowAllKronik] = useState(false);
   const [showAllAdminKronik, setShowAllAdminKronik] = useState(false);
   const [showAllMeydanYonetimiGorevleri, setShowAllMeydanYonetimiGorevleri] = useState(false);
   const [showAllMeydanYonetimiPersonel, setShowAllMeydanYonetimiPersonel] = useState(false);
-  const [activeMeydanYonetimiBolumu, setActiveMeydanYonetimiBolumu] = useState('about');
+  const [activeMeydanYonetimiBolumu, setActiveMeydanYonetimiBolumu] = useState('meydan-hakkinda');
   const [meydanFaaliyetRaporlari, setMeydanFaaliyetRaporlari] = useState([]);
   const [raporBaslik, setRaporBaslik] = useState('');
   const [uploadingRapor, setUploadingRapor] = useState(false);
@@ -468,7 +513,9 @@ export default function Dashboard({ onLogout }) {
         .map((shift) => shift.meydanId),
     );
 
-    return meydanlar.filter((meydan) => scheduledIds.has(meydan.id));
+    return meydanlar
+      .filter((meydan) => scheduledIds.has(meydan.id))
+      .sort(compareActiveMeydanOrder);
   }, [meydanlar, todayShifts]);
 
   useEffect(() => {
@@ -493,6 +540,36 @@ export default function Dashboard({ onLogout }) {
     () => (showAllMeydanlar ? activeMeydanlar : activeMeydanlar.slice(0, INITIAL_VISIBLE_MEYDAN_COUNT)),
     [activeMeydanlar, showAllMeydanlar],
   );
+
+  useEffect(() => {
+    if (!expandedMeydanId) {
+      return;
+    }
+
+    const stillVisible = activeMeydanlar.some((meydan) => meydan.id === expandedMeydanId);
+    if (!stillVisible) {
+      setExpandedMeydanId('');
+    }
+  }, [activeMeydanlar, expandedMeydanId]);
+
+  useEffect(() => {
+    if (!expandedMeydanId) {
+      return;
+    }
+
+    const isVisible = visibleMeydanlar.some((meydan) => meydan.id === expandedMeydanId);
+    if (!isVisible && !showAllMeydanlar) {
+      setShowAllMeydanlar(true);
+    }
+  }, [expandedMeydanId, showAllMeydanlar, visibleMeydanlar]);
+
+  useEffect(() => {
+    setExpandedActiveMeydanId(expandedMeydanId);
+  }, [expandedMeydanId]);
+
+  const handleToggleExpandedMeydan = useCallback((meydanId) => {
+    setExpandedMeydanId((current) => (current === meydanId ? '' : meydanId));
+  }, []);
 
   const visibleKronikSorunlar = useMemo(
     () => (showAllKronik ? kronikSorunlar : kronikSorunlar.slice(0, INITIAL_VISIBLE_KRONIK_COUNT)),
@@ -562,6 +639,56 @@ export default function Dashboard({ onLogout }) {
       })),
     [meydanMap, todayShifts],
   );
+
+  const plannedPersonnelSummaryByMeydan = useMemo(() => {
+    const summary = new Map();
+
+    todayShifts.forEach((shift) => {
+      if (!shift?.meydanId || isLeaveShift(shift.vardiyaTipi)) {
+        return;
+      }
+
+      const personelAdi = String(shift.personelAdi || '').trim();
+      if (!personelAdi) {
+        return;
+      }
+
+      const current = summary.get(shift.meydanId) || [];
+      if (!current.includes(personelAdi)) {
+        current.push(personelAdi);
+      }
+      summary.set(shift.meydanId, current);
+    });
+
+    return summary;
+  }, [todayShifts]);
+
+  const plannedPersonnelWithHoursByMeydan = useMemo(() => {
+    const summary = new Map();
+
+    todayShifts.forEach((shift) => {
+      if (!shift?.meydanId || isLeaveShift(shift.vardiyaTipi)) {
+        return;
+      }
+
+      const personelAdi = String(shift.personelAdi || '').trim();
+      if (!personelAdi) {
+        return;
+      }
+
+      const saatAraligi = String(shift.saatAraligi || '').trim() || '-';
+      const display = `${personelAdi} (${saatAraligi})`;
+      const current = summary.get(shift.meydanId) || [];
+
+      if (!current.includes(display)) {
+        current.push(display);
+      }
+
+      summary.set(shift.meydanId, current);
+    });
+
+    return summary;
+  }, [todayShifts]);
 
   const totalScheduledShiftCount = useMemo(
     () => scheduledPersonnelRows.length,
@@ -1177,107 +1304,149 @@ export default function Dashboard({ onLogout }) {
               loading={loading}
               activeMeydanlar={activeMeydanlar}
               visibleMeydanlar={visibleMeydanlar}
+              expandedMeydanId={expandedMeydanId}
+              getPlannedPersonnelNames={(meydanId) => plannedPersonnelSummaryByMeydan.get(meydanId) || []}
+              getPlannedPersonnelDetails={(meydanId) => plannedPersonnelWithHoursByMeydan.get(meydanId) || []}
               getActiveCount={getActiveCount}
               getScheduledCount={getScheduledCount}
               showAllMeydanlar={showAllMeydanlar}
               initialVisibleCount={INITIAL_VISIBLE_MEYDAN_COUNT}
+              onToggleMeydan={handleToggleExpandedMeydan}
               onToggleShowAll={() => setShowAllMeydanlar((current) => !current)}
             />
           </SectionToggleBar>
 
-          <SectionToggleBar itemKey="meydan-hakkinda" isOpen={openSections.has('meydan-hakkinda')} onToggle={toggleSection}>
-            <MeydanYonetimiSection
-              forcedSection="about"
-              meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-              visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-              toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-              aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-              showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-              onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-              meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-              raporUrls={raporUrls}
-              toggleRaporAcilimi={toggleRaporAcilimi}
-              formatFileSize={formatFileSize}
-              showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-              initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-              onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-            />
-          </SectionToggleBar>
+          <SectionToggleBar itemKey="meydan-yonetimi-grup" isOpen={openSections.has('meydan-yonetimi-grup')} onToggle={toggleSection}>
+            <section className="panel-section meydan-yonetimi-group-panel">
+              <div className="panel-section__header">
+                <div className="meydan-yonetimi-group-panel__intro">
+                  <span className="section-kicker">Meydan Yönetimi</span>
+                  <h2>Meydan Yönetim Merkezi</h2>
+                  <p>Ziyaret, rapor, personel ve kronik kayıt akışı tek panelden izlenir.</p>
+                </div>
+              </div>
 
-          <SectionToggleBar itemKey="ziyaret-formu" isOpen={openSections.has('ziyaret-formu')} onToggle={toggleSection}>
-            <MeydanYonetimiSection
-              forcedSection="ziyaret"
-              meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-              visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-              toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-              aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-              showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-              onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-              meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-              raporUrls={raporUrls}
-              toggleRaporAcilimi={toggleRaporAcilimi}
-              formatFileSize={formatFileSize}
-              showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-              initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-              onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-            />
-          </SectionToggleBar>
+              <div className="meydan-yonetimi-subnav" role="tablist" aria-label="Meydan yönetimi alt başlıkları">
+                {MEYDAN_YONETIMI_GROUP_ITEMS.map((itemKey) => {
+                  const item = getSectionItem(itemKey);
+                  if (!item) {
+                    return null;
+                  }
 
-          <SectionToggleBar itemKey="faaliyet-raporlari" isOpen={openSections.has('faaliyet-raporlari')} onToggle={toggleSection}>
-            <MeydanYonetimiSection
-              forcedSection="reports"
-              meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-              visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-              toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-              aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-              showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-              onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-              meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-              raporUrls={raporUrls}
-              toggleRaporAcilimi={toggleRaporAcilimi}
-              formatFileSize={formatFileSize}
-              showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-              initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-              onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-            />
-          </SectionToggleBar>
+                  const isActive = activeMeydanYonetimiBolumu === itemKey;
+                  return (
+                    <button
+                      key={itemKey}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      className={`meydan-yonetimi-subnav__item${isActive ? ' is-active' : ''}`}
+                      onClick={() => setActiveMeydanYonetimiBolumu(itemKey)}
+                    >
+                      <span className="meydan-yonetimi-subnav__icon">{item.icon}</span>
+                      <span className="meydan-yonetimi-subnav__label">{item.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
 
-          <SectionToggleBar itemKey="personel-listesi" isOpen={openSections.has('personel-listesi')} onToggle={toggleSection}>
-            <MeydanYonetimiSection
-              forcedSection="personel"
-              meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-              visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-              toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-              aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-              showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-              onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-              meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-              raporUrls={raporUrls}
-              toggleRaporAcilimi={toggleRaporAcilimi}
-              formatFileSize={formatFileSize}
-              showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-              initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-              onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-            />
+              <div className="meydan-yonetimi-group-panel__body">
+                {activeMeydanYonetimiBolumu === 'meydan-hakkinda' ? (
+                  <MeydanYonetimiSection
+                    forcedSection="about"
+                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
+                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
+                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
+                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
+                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
+                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
+                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+                    raporUrls={raporUrls}
+                    toggleRaporAcilimi={toggleRaporAcilimi}
+                    formatFileSize={formatFileSize}
+                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
+                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
+                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
+                  />
+                ) : null}
+
+                {activeMeydanYonetimiBolumu === 'ziyaret-formu' ? (
+                  <MeydanYonetimiSection
+                    forcedSection="ziyaret"
+                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
+                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
+                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
+                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
+                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
+                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
+                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+                    raporUrls={raporUrls}
+                    toggleRaporAcilimi={toggleRaporAcilimi}
+                    formatFileSize={formatFileSize}
+                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
+                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
+                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
+                  />
+                ) : null}
+
+                {activeMeydanYonetimiBolumu === 'faaliyet-raporlari' ? (
+                  <MeydanYonetimiSection
+                    forcedSection="reports"
+                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
+                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
+                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
+                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
+                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
+                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
+                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+                    raporUrls={raporUrls}
+                    toggleRaporAcilimi={toggleRaporAcilimi}
+                    formatFileSize={formatFileSize}
+                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
+                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
+                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
+                  />
+                ) : null}
+
+                {activeMeydanYonetimiBolumu === 'personel-listesi' ? (
+                  <MeydanYonetimiSection
+                    forcedSection="personel"
+                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
+                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
+                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
+                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
+                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
+                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
+                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+                    raporUrls={raporUrls}
+                    toggleRaporAcilimi={toggleRaporAcilimi}
+                    formatFileSize={formatFileSize}
+                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
+                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
+                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
+                  />
+                ) : null}
+
+                {activeMeydanYonetimiBolumu === 'kronik-sorunlar' ? (
+                  <KronikSorunlarSection
+                    loading={loading}
+                    kronikLoadError={kronikLoadError}
+                    kronikSorunlar={kronikSorunlar}
+                    visibleKronikSorunlar={visibleKronikSorunlar}
+                    showAllKronik={showAllKronik}
+                    initialVisibleCount={INITIAL_VISIBLE_KRONIK_COUNT}
+                    previewLimit={KRONIK_PREVIEW_LIMIT}
+                    truncateText={truncateText}
+                    onOpenKronikModal={setActiveKronikModalId}
+                    onToggleShowAll={() => setShowAllKronik((current) => !current)}
+                  />
+                ) : null}
+              </div>
+            </section>
           </SectionToggleBar>
 
           <SectionToggleBar itemKey="ai-icgoru" isOpen={openSections.has('ai-icgoru')} onToggle={toggleSection}>
             <OperationalInsightsSection insights={operationalInsights} loading={insightsLoading} />
-          </SectionToggleBar>
-
-          <SectionToggleBar itemKey="kronik-sorunlar" isOpen={openSections.has('kronik-sorunlar')} onToggle={toggleSection}>
-            <KronikSorunlarSection
-              loading={loading}
-              kronikLoadError={kronikLoadError}
-              kronikSorunlar={kronikSorunlar}
-              visibleKronikSorunlar={visibleKronikSorunlar}
-              showAllKronik={showAllKronik}
-              initialVisibleCount={INITIAL_VISIBLE_KRONIK_COUNT}
-              previewLimit={KRONIK_PREVIEW_LIMIT}
-              truncateText={truncateText}
-              onOpenKronikModal={setActiveKronikModalId}
-              onToggleShowAll={() => setShowAllKronik((current) => !current)}
-            />
           </SectionToggleBar>
 
           <SectionLinkBar

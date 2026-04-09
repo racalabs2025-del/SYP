@@ -42,6 +42,24 @@
   box-shadow: var(--shadow-sm);
 }
 
+.meydan-card--embedded {
+  cursor: default;
+  border-radius: 20px;
+  box-shadow: none;
+  gap: 10px;
+}
+
+.meydan-card--embedded:hover,
+.meydan-card--embedded:focus-visible,
+.meydan-card--embedded:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.meydan-card--embedded:focus-visible {
+  outline: none;
+}
+
 .meydan-title {
   font-size: 16px;
   font-weight: 800;
@@ -228,6 +246,51 @@
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #122033;
+}
+
+.meydan-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.meydan-card__mini-info {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(245, 249, 253, 0.92);
+  border: 1px solid rgba(201, 214, 229, 0.72);
+}
+
+.meydan-card__mini-info-label {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #5f7088;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.meydan-card__mini-info p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.meydan-card__personel-link {
+  color: var(--color-brand-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.meydan-card__personel-link:hover,
+.meydan-card__personel-link:focus-visible {
+  text-decoration: underline;
+}
+
+.meydan-card__detail-btn {
+  min-width: 132px;
 }
 
 @keyframes tooltipFadeIn {

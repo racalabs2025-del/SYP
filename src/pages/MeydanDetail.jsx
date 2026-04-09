@@ -506,6 +506,19 @@ function BasvuruGundemPanel({ meydanId }) {
     };
   }, [filteredList, showAll]);
 
+  const waitingTimeChartData = useMemo(() => {
+    if (!agingBuckets) {
+      return [];
+    }
+
+    return [
+      { label: '0-3 gün', value: agingBuckets.b0_3 },
+      { label: '4-7 gün', value: agingBuckets.b4_7 },
+      { label: '8-14 gün', value: agingBuckets.b8_14 },
+      { label: '15+ gün', value: agingBuckets.b15_plus },
+    ];
+  }, [agingBuckets]);
+
   const openCount = useMemo(() => {
     if (!stats?.durumDagilimi) return 0;
     const closed = (stats.durumDagilimi['Kapandı'] || 0) + (stats.durumDagilimi['Çözüldü'] || 0);
@@ -613,17 +626,31 @@ function BasvuruGundemPanel({ meydanId }) {
 
       {agingBuckets ? (
         <div className="basvuru-aging-wrap">
-          <h3 className="basvuru-chart-title">Açık kayıt yaş dağılımı</h3>
-          <div className="basvuru-aging-grid">
-            <article><span>0-3 gün</span><strong>{agingBuckets.b0_3}</strong></article>
-            <article><span>4-7 gün</span><strong>{agingBuckets.b4_7}</strong></article>
-            <article><span>8-14 gün</span><strong>{agingBuckets.b8_14}</strong></article>
-            <article><span>15+ gün</span><strong>{agingBuckets.b15_plus}</strong></article>
-          </div>
+          <h3 className="basvuru-chart-title">Açık kayıt bekleme süresi</h3>
+          <ResponsiveContainer width="100%" height={170}>
+            <BarChart
+              data={waitingTimeChartData}
+              layout="vertical"
+              margin={{ top: 0, right: 8, left: 0, bottom: 0 }}
+            >
+              <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
+              <YAxis
+                type="category"
+                dataKey="label"
+                width={70}
+                tick={{ fontSize: 11 }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Tooltip formatter={(value) => [value.toLocaleString('tr-TR'), 'Açık kayıt']} />
+              <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16} fill="#0f5ca8" />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="basvuru-aging-note">Bu grafik, kapanmamış kayıtların kaç gündür beklediğini gösterir.</p>
           <p className="basvuru-aging-total">Toplam açık kayıt: {agingBuckets.totalOpen}</p>
         </div>
       ) : (
-        <div className="basvuru-aging-hint">Açık kayıt yaş dağılımını görmek için "Tüm kayıtlar" görünümünü aç.</div>
+        <div className="basvuru-aging-hint">Açık kayıt bekleme süresini görmek için "Tüm kayıtlar" görünümünü aç.</div>
       )}
 
       {/* Konu dağılımı grafiği */}
@@ -938,7 +965,7 @@ export default function MeydanDetail({ onLogout }) {
     const controller = new AbortController();
     setSpotlightLoading(true);
 
-    fetchMeydanSpotlight({ meydan, weather, signal: controller.signal })
+    fetchMeydanSpotlight({ meydan, signal: controller.signal })
       .then((payload) => {
         if (!controller.signal.aborted) {
           setSpotlight(payload);
@@ -958,7 +985,7 @@ export default function MeydanDetail({ onLogout }) {
     return () => {
       controller.abort();
     };
-  }, [meydan, weather]);
+  }, [meydan]);
 
   const shiftByPersonDate = useMemo(() => {
     const map = new Map();
@@ -1040,6 +1067,25 @@ export default function MeydanDetail({ onLogout }) {
     }).length,
     [allVardiyalar, thirtyDaysAgoDateKey, todayDateKey],
   );
+
+  const [meydanRangeFrom, setMeydanRangeFrom] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-01`;
+  });
+  const [meydanRangeTo, setMeydanRangeTo] = useState(() => toDateKey(new Date()));
+
+  const meydanRangePersonelSummary = useMemo(() => {
+    if (!meydanRangeFrom || !meydanRangeTo || meydanRangeFrom > meydanRangeTo) return [];
+    const counts = new Map();
+    allVardiyalar
+      .filter((v) => !isLeaveShift(v.vardiyaTipi) && v.tarih >= meydanRangeFrom && v.tarih <= meydanRangeTo && v.personelAdi)
+      .forEach((v) => {
+        counts.set(v.personelAdi, (counts.get(v.personelAdi) || 0) + 1);
+      });
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
+  }, [allVardiyalar, meydanRangeFrom, meydanRangeTo]);
 
   return (
     <div className="app-shell">
@@ -1293,6 +1339,55 @@ export default function MeydanDetail({ onLogout }) {
                   </div>
                 </div>
               </div>
+            </section>
+
+            <section className="panel-section meydan-range-panel">
+              <div className="panel-section__header">
+                <h2>Personel Sorgulama</h2>
+                <p>Seçili tarih aralığında bu meydanda görev yapan personeller</p>
+              </div>
+              <div className="basvuru-filter-row meydan-range-filters">
+                <label className="basvuru-filter-field">
+                  <span>Başlangıç</span>
+                  <input
+                    type="date"
+                    value={meydanRangeFrom}
+                    max={meydanRangeTo || undefined}
+                    onChange={(e) => setMeydanRangeFrom(e.target.value)}
+                  />
+                </label>
+                <label className="basvuru-filter-field">
+                  <span>Bitiş</span>
+                  <input
+                    type="date"
+                    value={meydanRangeTo}
+                    min={meydanRangeFrom || undefined}
+                    onChange={(e) => setMeydanRangeTo(e.target.value)}
+                  />
+                </label>
+              </div>
+              {meydanRangePersonelSummary.length > 0 ? (
+                <>
+                  <p className="personel-range-meta">{meydanRangePersonelSummary.length} personel · {meydanRangePersonelSummary.reduce((s, p) => s + p.count, 0)} vardiya kaydı</p>
+                  <ol className="meydan-range-list">
+                    {meydanRangePersonelSummary.map(({ name, count }, idx) => (
+                      <li key={name} className="meydan-range-list__item">
+                        <span className="meydan-range-list__rank">{idx + 1}</span>
+                        <Link to={`/personel/${encodeURIComponent(name)}`} className="meydan-range-list__name personel-name-link">
+                          {name}
+                        </Link>
+                        <span className="meydan-range-list__count">{count} vardiya</span>
+                      </li>
+                    ))}
+                  </ol>
+                </>
+              ) : (
+                <div className="detail-insight__empty">
+                  {meydanRangeFrom && meydanRangeTo
+                    ? 'Seçili tarih aralığında vardiya kaydı bulunamadı.'
+                    : 'Tarih aralığı seçin.'}
+                </div>
+              )}
             </section>
 
             <BasvuruGundemPanel meydanId={id} />

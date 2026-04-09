@@ -17,6 +17,8 @@
     "seed:rapor": "node scripts/seed_first_rapor.mjs",
     "import:meydan-koordinatlari": "node scripts/import_meydan_koordinatlari.mjs",
     "import:meydan-koordinatlari:dry": "node scripts/import_meydan_koordinatlari.mjs --dry-run",
+    "vardiya:coverage": "node scripts/audit_vardiya_coverage.mjs",
+    "vardiya:coverage:apply": "node scripts/audit_vardiya_coverage.mjs --apply",
     "import:basvurular": "node scripts/import_basvurular.mjs",
     "import:basvurular:dry": "node scripts/import_basvurular.mjs --dry-run",
     "assets:login:optimize": "node scripts/optimize_login_scenes.mjs"

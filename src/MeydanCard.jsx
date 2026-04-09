@@ -1,13 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './MeydanCard.css';
 
-export default function MeydanCard({ meydan, aktifSayisi, planliSayisi }) {
+export default function MeydanCard({
+  meydan,
+  aktifSayisi,
+  planliSayisi,
+  plannedPersonnelNames = [],
+  plannedPersonnelDetails = [],
+  interactiveMode = 'standalone',
+}) {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const infoRef = useRef(null);
+  const isEmbedded = interactiveMode === 'embedded';
   const plannedStatus = planliSayisi > 0 ? 'Plan var' : 'Plan yok';
   const activeStatus = aktifSayisi > 0 ? 'Sahada ekip var' : 'Sahada ekip yok';
+  const plannedItems = plannedPersonnelDetails.length
+    ? plannedPersonnelDetails.slice(0, 4)
+    : plannedPersonnelNames.slice(0, 4);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -30,6 +41,10 @@ export default function MeydanCard({ meydan, aktifSayisi, planliSayisi }) {
   }
 
   function handleCardKeyDown(event) {
+    if (isEmbedded) {
+      return;
+    }
+
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       openDetail();
@@ -41,8 +56,12 @@ export default function MeydanCard({ meydan, aktifSayisi, planliSayisi }) {
     setShowPopup((current) => !current);
   }
 
+  const cardProps = isEmbedded
+    ? { className: 'meydan-card meydan-card--embedded' }
+    : { className: 'meydan-card', role: 'button', tabIndex: 0, onClick: openDetail, onKeyDown: handleCardKeyDown };
+
   return (
-    <article className="meydan-card" role="button" tabIndex={0} onClick={openDetail} onKeyDown={handleCardKeyDown}>
+    <article {...cardProps}>
       <div className="meydan-title-row">
         <div className="meydan-title">{meydan.isim}</div>
         {meydan.tamAd ? (
@@ -93,6 +112,42 @@ export default function MeydanCard({ meydan, aktifSayisi, planliSayisi }) {
           <span className="meydan-metric__status">{activeStatus}</span>
         </div>
       </div>
+
+      {isEmbedded ? (
+        <div className="meydan-card__mini-info">
+          <span className="meydan-card__mini-info-label">Bugün planlı personel</span>
+          {plannedItems.length ? (
+            <p>
+              {plannedItems.map((entry, index) => {
+                const raw = String(entry || '').trim();
+                const match = raw.match(/^(.+?)\s*(\(.+\))?$/);
+                const name = (match?.[1] || raw).trim();
+                const suffix = match?.[2] || '';
+
+                return (
+                  <span key={`${name}-${index}`}>
+                    <Link to={`/personel/${encodeURIComponent(name)}`} className="meydan-card__personel-link">
+                      {name}
+                    </Link>
+                    {suffix ? ` ${suffix}` : ''}
+                    {index < plannedItems.length - 1 ? ', ' : ''}
+                  </span>
+                );
+              })}
+            </p>
+          ) : (
+            <p>Bugün için planlı personel görünmüyor.</p>
+          )}
+        </div>
+      ) : null}
+
+      {isEmbedded ? (
+        <div className="meydan-card__footer">
+          <button type="button" className="btn btn-ghost meydan-card__detail-btn" onClick={openDetail}>
+            Meydan Detayına Git
+          </button>
+        </div>
+      ) : null}
     </article>
   );
 }

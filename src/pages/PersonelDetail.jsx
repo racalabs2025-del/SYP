@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeftIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import {
@@ -12,10 +12,11 @@ import {
 import Header from '../Header';
 import { db } from '../firebaseDb';
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
-import { compareShiftDatesDesc } from '../utils/date';
+import { compareShiftDatesDesc, getWeekDates, toDateKey } from '../utils/date';
 import {
   getPersonelBasvuruDocId,
   PERSONEL_BASVURU_PERIOD_LABEL,
+  toPlannedWorkDays,
 } from '../utils/personelBasvuru';
 import { SAHA_PERSONELI, normalizePhone } from '../utils/sahaPersoneli';
 
@@ -23,13 +24,147 @@ const LEAVE_TYPES = new Set(['Izinli', 'İzinli', 'HAFTA TATILI', 'HAFTA TATİL�
 const TR_MONTHS = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
 const MEYDAN_COLORS = ['#00498E', '#1F6CB6', '#0080CC', '#4D94D0', '#006699', '#3380AA', '#0055AA', '#2266BB', '#1177CC'];
 
+const SUB_LOCATION_ALIASES = [
+  { key: 'kozyatagi', label: 'Kozyatağı' },
+  { key: 'bostanci', label: 'Bostancı' },
+  { key: 'suadiye', label: 'Suadiye' },
+  { key: 'caddebostan', label: 'Caddebostan' },
+  { key: 'goztepe', label: 'Göztepe' },
+  { key: 'fikirtepe', label: 'Fikirtepe' },
+  { key: 'yogurtcu', label: 'Yoğurtçu' },
+  { key: 'fenerbahce', label: 'Fenerbahçe' },
+  { key: 'kalamis', label: 'Kalamış' },
+  { key: 'sirinevler', label: 'Şirinevler' },
+  { key: 'mecidiyekoy', label: 'Mecidiyeköy' },
+  { key: 'sarachane', label: 'Saraçhane' },
+  { key: 'aksaray', label: 'Aksaray' },
+];
+
+const PERIOD_LABEL_Q1_2026 = '01 Oca – 31 Mar 2026';
+
+// Toplam açılan kayıt sayıları — 01 Oca – 31 Mar 2026 dönemi
+const ACILAN_KAYIT_Q1_2026 = {
+  'AHMET KOCABIYIK': 32,
+  'AHMET KOCABIYİK': 32,
+  'AYKUT ARMAĞAN': 50,
+  'BERKAY DEDE': 12,
+  'ENES DURAN': 53,
+  'HAKAN HAN': 66,
+  'HAYDAR ÇOBAN': 85,
+  'HELİN ÖZDEMİR': 96,
+  'İSMAİL ÇOBAN': 33,
+  'KAMİLE ÇELİK': 103,
+  'KEMAL GÖNÜLTAŞ': 31,
+  'MUSTAFA KAYA': 38,
+  'OKTAY ARSLAN': 14,
+  'OZAN YUSUF AKBAŞ': 34,
+  'SEZAYİ KARAKOÇ': 2,
+  'ŞABAN ETİRİLİ': 49,
+  'ŞABAN ETİRLİ': 49,
+  'TUNCAY ÇATAL': 2,
+  'UĞUR AKIN': 42,
+  'VEDAT VARLIK': 46,
+  'YUSUF GÜNDOĞDU': 4,
+  'HALİL İBRAHİM BULUT': 1,
+  'HAKAN BEĞENMİŞ': 2,
+  'BEKİR GÖRMEK': 9,
+  'UMUT EMRE': 0,
+  'ZEYNEP AYDEMİR': 176,
+  'ERHAN EKİNCİ': 88,
+  'ESRA ŞEKER': 66,
+  'EMİN ERDOĞAN': 40,
+  'HÜSEYİN TÜRKAY': 42,
+  'HATİCE ADSAN': 38,
+  'ONUR ARMAĞAN': 29,
+  'HASAN BİLİCİ': 39,
+  'NİYAZİ BOL': 7,
+  'ERDEM ARABACI': 26,
+  'KADER SALMAN': 19,
+  'BURAK ÖZÇELİK': 0,
+  'ŞÜKRÜ KIDIL': 19,
+  'ŞÜKRÜ KİDİL': 19,
+  'İBRAHİM SİREK': 13,
+  'UĞUR BEYHATUN': 35,
+  'ÇAĞATAY BEYOĞLU': 24,
+  'FATİH GÜNEŞ': 24,
+  'CANER DİŞLİ': 10,
+  'KEMAL EVREN DARMAN': 11,
+};
+
+function lookupStaticCount(map, name) {
+  if (!name) return null;
+  const norm = String(name).toLocaleLowerCase('tr-TR').trim();
+  for (const [key, value] of Object.entries(map)) {
+    if (key.toLocaleLowerCase('tr-TR') === norm) return value;
+  }
+  return null;
+}
+
 function isLeave(type) {
   return LEAVE_TYPES.has(type);
 }
 
-function resolveMeydanBilgisi(meydanId, meydanMap = {}) {
+function toMeydanDisplayName(value, meydanId = '') {
+  const label = String(value || '').trim();
+  const id = String(meydanId || '').trim().toLocaleLowerCase('tr-TR');
+  const lower = label.toLocaleLowerCase('tr-TR');
+
+  if (id.includes('calistay') || lower.includes('calistay') || lower.includes('çalıştay')) {
+    return 'Çalıştay Programı';
+  }
+
+  return label || '-';
+}
+
+function normalizeSearchText(value) {
+  return String(value || '')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/[ıi]/g, 'i')
+    .replace(/[ğ]/g, 'g')
+    .replace(/[ü]/g, 'u')
+    .replace(/[ş]/g, 's')
+    .replace(/[ö]/g, 'o')
+    .replace(/[ç]/g, 'c')
+    .trim();
+}
+
+function extractSubLocationLabel(...values) {
+  const normalized = normalizeSearchText(values.filter(Boolean).join(' '));
+  if (!normalized) {
+    return '';
+  }
+
+  const found = SUB_LOCATION_ALIASES.find((item) => normalized.includes(item.key));
+  return found?.label || '';
+}
+
+function withSubLocationLabel(baseLabel, subLocationLabel) {
+  const label = String(baseLabel || '').trim();
+  const sub = String(subLocationLabel || '').trim();
+
+  if (!label || !sub) {
+    return label;
+  }
+
+  if (normalizeSearchText(label).includes(normalizeSearchText(sub))) {
+    return label;
+  }
+
+  return `${label} (${sub})`;
+}
+
+function resolveMeydanBilgisi(meydanId, meydanMap = {}, rowData = {}) {
   if (!meydanId) return '-';
   const source = meydanMap[meydanId] || {};
+  const subLocationLabel = extractSubLocationLabel(
+    rowData?.tamAd,
+    rowData?.kisaAd,
+    rowData?.meydanAdi,
+    rowData?.meydan,
+    rowData?.meydanId,
+    source.tamAd,
+    source.isim,
+  );
   const result = normalizeMeydanInput({
     meydanId,
     isim: source.isim,
@@ -39,14 +174,14 @@ function resolveMeydanBilgisi(meydanId, meydanMap = {}) {
 
   if (!result.valid) {
     return {
-      isim: String(source.isim || meydanId || '-'),
-      tamAd: String(source.tamAd || source.isim || meydanId || '-'),
+      isim: withSubLocationLabel(toMeydanDisplayName(source.isim || meydanId || '-', meydanId), subLocationLabel),
+      tamAd: withSubLocationLabel(toMeydanDisplayName(source.tamAd || source.isim || meydanId || '-', meydanId), subLocationLabel),
     };
   }
 
   return {
-    isim: source.isim || result.isim || String(meydanId || '-'),
-    tamAd: source.tamAd || result.tamAd || result.isim || String(meydanId || '-'),
+    isim: withSubLocationLabel(toMeydanDisplayName(source.isim || result.isim || String(meydanId || '-'), meydanId), subLocationLabel),
+    tamAd: withSubLocationLabel(toMeydanDisplayName(source.tamAd || result.tamAd || result.isim || String(meydanId || '-'), meydanId), subLocationLabel),
   };
 }
 
@@ -138,10 +273,11 @@ export default function PersonelDetail({ onLogout }) {
     const total = vardiyalar.length;
     const sorted = [...activeShifts].sort(compareShiftDatesDesc);
     const lastShift = sorted[0] || null;
+    const plannedWorkDays = toPlannedWorkDays(total);
 
     return {
       totalRecords: total,
-      basvuruCount: typeof basvuruSummary?.toplamKayit === 'number' ? basvuruSummary.toplamKayit : null,
+      plannedWorkDays,
       basvuruPeriodLabel: basvuruSummary?.periodLabel || PERSONEL_BASVURU_PERIOD_LABEL,
       lastShift,
     };
@@ -157,7 +293,22 @@ export default function PersonelDetail({ onLogout }) {
     });
 
     const [topMeydanId] = Array.from(counts.entries()).sort((left, right) => right[1] - left[1])[0] || [];
-    return topMeydanId ? resolveMeydanBilgisi(topMeydanId, meydanMap) : null;
+    if (!topMeydanId) {
+      return null;
+    }
+
+    const subLocationCounts = new Map();
+    vardiyalar
+      .filter((item) => !isLeave(item.vardiyaTipi) && item.meydanId === topMeydanId)
+      .forEach((item) => {
+        const subLocation = extractSubLocationLabel(item?.tamAd, item?.kisaAd, item?.meydanAdi, item?.meydan, item?.meydanId);
+        if (subLocation) {
+          subLocationCounts.set(subLocation, (subLocationCounts.get(subLocation) || 0) + 1);
+        }
+      });
+
+    const [topSubLocation = ''] = Array.from(subLocationCounts.entries()).sort((a, b) => b[1] - a[1])[0] || [];
+    return resolveMeydanBilgisi(topMeydanId, meydanMap, { tamAd: topSubLocation, kisaAd: topSubLocation, meydanId: topMeydanId });
   }, [meydanMap, vardiyalar]);
 
   const meydanDistribution = useMemo(() => {
@@ -177,6 +328,49 @@ export default function PersonelDetail({ onLogout }) {
         percent: total > 0 ? Math.round((count / total) * 100) : 0,
       }));
   }, [meydanMap, vardiyalar]);
+
+  const weeklySchedule = useMemo(() => {
+    const todayKey = toDateKey(new Date());
+    const weekDates = getWeekDates(new Date());
+
+    return weekDates.map((date) => {
+      const dateKey = toDateKey(date);
+      const shifts = vardiyalar
+        .filter((item) => item.tarih === dateKey && !isLeave(item.vardiyaTipi))
+        .sort((left, right) => String(left.saatAraligi || '').localeCompare(String(right.saatAraligi || ''), 'tr'))
+        .map((item) => ({
+          id: item.id,
+          meydanId: String(item.meydanId || '').trim(),
+          meydan: resolveMeydanBilgisi(item.meydanId, meydanMap, item).isim,
+          time: formatShiftType(item.vardiyaTipi, item.saatAraligi),
+        }));
+
+      return {
+        dateKey,
+        label: date.toLocaleDateString('tr-TR', { weekday: 'short', day: '2-digit', month: 'short' }),
+        isToday: dateKey === todayKey,
+        shifts,
+      };
+    });
+  }, [meydanMap, vardiyalar]);
+
+  const weeklyShiftCount = useMemo(
+    () => weeklySchedule.reduce((total, day) => total + day.shifts.length, 0),
+    [weeklySchedule],
+  );
+
+  const [rangeFrom, setRangeFrom] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-01`;
+  });
+  const [rangeTo, setRangeTo] = useState(() => toDateKey(new Date()));
+
+  const rangeFilteredShifts = useMemo(() => {
+    if (!rangeFrom || !rangeTo || rangeFrom > rangeTo) return [];
+    return [...vardiyalar]
+      .filter((v) => !isLeave(v.vardiyaTipi) && v.tarih >= rangeFrom && v.tarih <= rangeTo)
+      .sort(compareShiftDatesDesc);
+  }, [vardiyalar, rangeFrom, rangeTo]);
 
   return (
     <div className="app-shell">
@@ -245,16 +439,23 @@ export default function PersonelDetail({ onLogout }) {
           <>
             <div className="personel-stats-row">
               <div className="personel-stat-card">
-                <span className="personel-stat-card__label">Toplam Kayıt Sayısı</span>
-                <strong className="personel-stat-card__value">{stats.basvuruCount ?? stats.totalRecords}</strong>
-                <span className="personel-stat-card__meta">
-                  {stats.basvuruCount !== null ? stats.basvuruPeriodLabel : 'Mevcut vardiya kayıt sayısı'}
-                </span>
+                <span className="personel-stat-card__label">Planlanan Çalışma Günleri (2026)</span>
+                <strong className="personel-stat-card__value">{stats.plannedWorkDays}</strong>
               </div>
               <div className="personel-stat-card">
+                <span className="personel-stat-card__label">Toplam Açılan Kayıt</span>
+                <strong className="personel-stat-card__value">
+                  {(() => {
+                    const v = lookupStaticCount(ACILAN_KAYIT_Q1_2026, decodedName);
+                    return v !== null ? v : '-';
+                  })()}
+                </strong>
+                <span className="personel-stat-card__meta">{PERIOD_LABEL_Q1_2026}</span>
+              </div>
+              <div className="personel-stat-card personel-stat-card--songorev">
                 <span className="personel-stat-card__label">Son Görev</span>
                 <strong className="personel-stat-card__value personel-stat-card__value--sm">
-                  {stats.lastShift ? resolveMeydanBilgisi(stats.lastShift.meydanId, meydanMap).tamAd : '-'}
+                  {stats.lastShift ? resolveMeydanBilgisi(stats.lastShift.meydanId, meydanMap, stats.lastShift).tamAd : '-'}
                 </strong>
                 {stats.lastShift ? (
                   <span className="personel-stat-card__meta">
@@ -266,6 +467,50 @@ export default function PersonelDetail({ onLogout }) {
                 ) : null}
               </div>
             </div>
+
+            <section className="panel-section personel-week-panel">
+              <div className="panel-section__header">
+                <h2>Haftalık Vardiya</h2>
+                <p>Bu hafta çalışacağı meydanlar ve saatler</p>
+              </div>
+
+              {weeklyShiftCount > 0 ? (
+                <ul className="personel-week-list" aria-label="Personelin bu haftaki vardiya planı">
+                  {weeklySchedule.map((day) => (
+                    <li key={day.dateKey} className={`personel-week-list__item ${day.isToday ? 'is-today' : ''}`}>
+                      <div className="personel-week-list__head">
+                        <strong>{day.label}</strong>
+                        <span>{day.shifts.length} görev</span>
+                      </div>
+
+                      {day.shifts.length ? (
+                        <ul className="personel-week-list__rows">
+                          {day.shifts.map((shift) => (
+                            <li key={shift.id} className="personel-week-list__row">
+                              {shift.meydanId ? (
+                                <Link
+                                  to={`/meydan/${encodeURIComponent(shift.meydanId)}`}
+                                  className="personel-week-list__meydan personel-week-list__meydan-link"
+                                >
+                                  {shift.meydan}
+                                </Link>
+                              ) : (
+                                <span className="personel-week-list__meydan">{shift.meydan}</span>
+                              )}
+                              <span className="personel-week-list__time">{shift.time}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="personel-week-list__empty">Planlı görev yok</p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="personel-chart-empty">Bu hafta için planlı vardiya kaydı bulunamadı.</div>
+              )}
+            </section>
 
             {meydanDistribution.length > 0 && (
               <section className="panel-section personel-chart-panel">
@@ -308,6 +553,58 @@ export default function PersonelDetail({ onLogout }) {
                 </ul>
               </section>
             )}
+
+            <section className="panel-section personel-range-panel">
+              <div className="panel-section__header">
+                <h2>Dönem Sorgulama</h2>
+                <p>Seçili tarih aralığındaki vardiya kayıtları</p>
+              </div>
+              <div className="basvuru-filter-row personel-range-filters">
+                <label className="basvuru-filter-field">
+                  <span>Başlangıç</span>
+                  <input
+                    type="date"
+                    value={rangeFrom}
+                    max={rangeTo || undefined}
+                    onChange={(e) => setRangeFrom(e.target.value)}
+                  />
+                </label>
+                <label className="basvuru-filter-field">
+                  <span>Bitiş</span>
+                  <input
+                    type="date"
+                    value={rangeTo}
+                    min={rangeFrom || undefined}
+                    onChange={(e) => setRangeTo(e.target.value)}
+                  />
+                </label>
+              </div>
+              {rangeFilteredShifts.length > 0 ? (
+                <>
+                  <p className="personel-range-meta">{rangeFilteredShifts.length} vardiya kaydı</p>
+                  <ul className="personel-range-list">
+                    {rangeFilteredShifts.map((v) => (
+                      <li key={v.id} className="personel-range-list__item">
+                        <span className="personel-range-list__date">{formatDate(v.tarih)}</span>
+                        <Link
+                          to={`/meydan/${encodeURIComponent(v.meydanId)}`}
+                          className="personel-range-list__meydan personel-name-link"
+                        >
+                          {resolveMeydanBilgisi(v.meydanId, meydanMap, v).isim}
+                        </Link>
+                        <span className="personel-range-list__saat">{v.saatAraligi || '-'}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <div className="personel-chart-empty">
+                  {rangeFrom && rangeTo
+                    ? 'Seçili tarih aralığında vardiya kaydı bulunamadı.'
+                    : 'Tarih aralığı seçin.'}
+                </div>
+              )}
+            </section>
           </>
         ) : null}
       </main>

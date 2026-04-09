@@ -1,5 +1,106 @@
 const MAX_INSIGHTS = 6;
 
+function normalizeInsightText(value) {
+  return String(value || '')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/[ıi]/g, 'i')
+    .replace(/[ğ]/g, 'g')
+    .replace(/[ü]/g, 'u')
+    .replace(/[ş]/g, 's')
+    .replace(/[ö]/g, 'o')
+    .replace(/[ç]/g, 'c')
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isOperationalMeydanCandidate(meydanId, meydanName = '') {
+  const normalized = normalizeInsightText(`${meydanId} ${meydanName}`);
+  const compact = normalized.replace(/[\s-]+/g, '');
+
+  if (!compact) {
+    return false;
+  }
+
+  return !['ofis', 'babalik', 'babalikizni', 'calistay', 'calistayprogrami'].some((token) => compact.includes(token));
+}
+
+function filterOperationalMeydanlar(meydanlar = []) {
+  return (meydanlar || []).filter((meydan) => isOperationalMeydanCandidate(meydan?.id, meydan?.isim));
+}
+
+function filterOperationalHistoryShifts(historyShifts = [], validMeydanIds = new Set()) {
+  return (historyShifts || []).filter((shift) => validMeydanIds.has(shift?.meydanId));
+}
+
+function toCompactSource(value) {
+  return normalizeInsightText(value).replace(/[\s-]+/g, '');
+}
+
+function isPlanEkleSourceShift(shift) {
+  const sourceTokens = [
+    shift?.kaynak,
+    shift?.source,
+    shift?.importSource,
+    shift?.yuklemeKaynagi,
+  ].map(toCompactSource).filter(Boolean);
+
+  if (!sourceTokens.length) {
+    return null;
+  }
+
+  return sourceTokens.some((token) => token.includes('planekle') || token.includes('excelimport'));
+}
+
+function filterPlanEkleHistoryShifts(historyShifts = [], todayKey = '') {
+  const all = historyShifts || [];
+  const floorYear = Number(String(todayKey || '').slice(0, 4));
+  const floorDate = Number.isFinite(floorYear) ? `${floorYear}-01-01` : '';
+  const ceilingDate = /^\d{4}-\d{2}-\d{2}$/.test(String(todayKey || '').trim()) ? String(todayKey).trim() : '';
+
+  function isDateInRange(shift) {
+    const tarih = String(shift?.tarih || '').trim();
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(tarih)) {
+      return false;
+    }
+
+    if (floorDate && tarih < floorDate) {
+      return false;
+    }
+
+    if (ceilingDate && tarih > ceilingDate) {
+      return false;
+    }
+
+    return true;
+  }
+
+  const explicit = all.filter((shift) => isPlanEkleSourceShift(shift) === true && isDateInRange(shift));
+
+  if (explicit.length) {
+    return explicit;
+  }
+
+  // Legacy fallback: source field olmayan eski Plan Ekle kayıtlarını koru,
+  // ancak gap-fill ve dönem dışı kayıtları dahil etme.
+  return all.filter((shift) => {
+    const explicitSource = isPlanEkleSourceShift(shift);
+    if (explicitSource === false) {
+      return false;
+    }
+
+    if (shift?.gapFilledAt) {
+      return false;
+    }
+
+    if (!isDateInRange(shift)) {
+      return false;
+    }
+
+    return true;
+  });
+}
+
 function formatDateLabel(dateKey) {
   if (!dateKey) {
     return '';
@@ -26,6 +127,25 @@ function getDaysDiff(fromKey, toKey) {
   const to = new Date(`${toKey}T00:00:00`);
   const diff = Math.round((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
   return Math.max(0, diff);
+}
+
+function getHistoryRangeSummary(historyShifts = []) {
+  const dateKeys = (historyShifts || [])
+    .map((shift) => String(shift?.tarih || '').trim())
+    .filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value));
+
+  if (!dateKeys.length) {
+    return null;
+  }
+
+  dateKeys.sort((left, right) => left.localeCompare(right, 'tr'));
+  const from = dateKeys[0];
+  const to = dateKeys[dateKeys.length - 1];
+  return {
+    from,
+    to,
+    dayCount: getDaysDiff(from, to) + 1,
+  };
 }
 
 function createMeydanNameMap(meydanlar) {
@@ -177,51 +297,142 @@ function buildDataFlowInsight(recentShifts) {
   return null;
 }
 
-function buildTopKronikTopicsInsight(kronikSorunlar) {
-  const topicCounts = new Map();
+function buildMeydanIssueCountMap(kronikSorunlar = [], meydanlar = []) {
+  const issueCounts = new Map();
+  const meydanNameMap = createMeydanNameMap(meydanlar);
+  const normalizedNameToId = new Map(
+    Array.from(meydanNameMap.entries()).map(([id, name]) => [String(name || '').toLocaleLowerCase('tr-TR'), id]),
+  );
 
-  (kronikSorunlar || []).forEach((item) => {
-    const topic = String(item?.konuBasligi || item?.basvuruAciklamasi || '').trim();
-    if (!topic || topic === '-') {
+  kronikSorunlar.forEach((item) => {
+    const rawName = String(item?.meydanAdi || '').trim();
+    if (!rawName) {
       return;
     }
 
-    topicCounts.set(topic, (topicCounts.get(topic) || 0) + 1);
+    const key = rawName.toLocaleLowerCase('tr-TR');
+    const meydanId = normalizedNameToId.get(key);
+    if (!meydanId) {
+      return;
+    }
+
+    issueCounts.set(meydanId, (issueCounts.get(meydanId) || 0) + 1);
   });
 
-  const ranked = Array.from(topicCounts.entries()).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  return issueCounts;
+}
+
+function buildLeastRecordedMeydanInsight(historyShifts, meydanlar) {
+  const meydanNameMap = createMeydanNameMap(meydanlar);
+  const meydanCounts = new Map();
+
+  (historyShifts || []).forEach((shift) => {
+    if (!shift?.meydanId || !meydanNameMap.has(shift.meydanId)) {
+      return;
+    }
+
+    meydanCounts.set(shift.meydanId, (meydanCounts.get(shift.meydanId) || 0) + 1);
+  });
+
+  const ranked = Array.from(meydanCounts.entries())
+    .filter(([, count]) => count > 0)
+    .sort((left, right) => left[1] - right[1])
+    .slice(0, 3);
+
   if (!ranked.length) {
     return null;
   }
 
-  const list = ranked.map(([topic, count], i) => `${i + 1}. ${topic} (${count} kayıt)`).join('; ');
+  const range = getHistoryRangeSummary(historyShifts);
+
+  const list = ranked
+    .map(([meydanId, count]) => `${meydanNameMap.get(meydanId) || meydanId} (${count} vardiya)`)
+    .join(', ');
+
+  const rangeText = range
+    ? `Hesaplama araligi: ${formatDateLabel(range.from)} - ${formatDateLabel(range.to)} (${range.dayCount} gun). `
+    : '';
+
   return {
-    title: 'Öne Çıkan Kronik Konular',
-    text: `Kronik sorun kayıtlarında en sık tekrar eden başlıklar: ${list}.`,
+    title: 'Düşük Kayıtlı Meydanlar',
+    text: `${rangeText}Kayıt döneminde en az planlama kaydı bulunan alanlar: ${list}. Bu alanlarda veri giriş düzeni ayrıca kontrol edilmelidir.`,
+    severity: 'warning',
+  };
+}
+
+function buildHighTrafficLowIssueInsight(historyShifts, kronikSorunlar, meydanlar) {
+  const meydanNameMap = createMeydanNameMap(meydanlar);
+  const vardiyaCounts = new Map();
+
+  (historyShifts || []).forEach((shift) => {
+    if (!shift?.meydanId || !meydanNameMap.has(shift.meydanId)) {
+      return;
+    }
+
+    vardiyaCounts.set(shift.meydanId, (vardiyaCounts.get(shift.meydanId) || 0) + 1);
+  });
+
+  const busiest = Array.from(vardiyaCounts.entries())
+    .sort((left, right) => right[1] - left[1])
+    .slice(0, 5);
+
+  if (!busiest.length) {
+    return null;
+  }
+
+  const issueCounts = buildMeydanIssueCountMap(kronikSorunlar, meydanlar);
+  const best = busiest
+    .map(([meydanId, vardiyaCount]) => ({
+      meydanId,
+      vardiyaCount,
+      issueCount: issueCounts.get(meydanId) || 0,
+      ratio: (issueCounts.get(meydanId) || 0) / Math.max(vardiyaCount, 1),
+    }))
+    .sort((left, right) => {
+      if (left.ratio !== right.ratio) {
+        return left.ratio - right.ratio;
+      }
+      return right.vardiyaCount - left.vardiyaCount;
+    })[0];
+
+  if (!best) {
+    return null;
+  }
+
+  return {
+    title: 'Yoğunluk/Kayıt Dengesi',
+    text: `${meydanNameMap.get(best.meydanId) || best.meydanId} alanı yüksek hareketliliğe (${best.vardiyaCount} vardiya) rağmen düşük başvuru kaydı (${best.issueCount}) ile pozitif sinyal vermektedir.`,
     severity: 'info',
   };
 }
 
 function buildLocalInsights({ historyShifts = [], recentShifts = [], meydanlar = [], kronikSorunlar = [], todayKey = '' }) {
+  const planEkleHistoryShifts = filterPlanEkleHistoryShifts(historyShifts, todayKey);
+  const operationalMeydanlar = filterOperationalMeydanlar(meydanlar);
+  const operationalMeydanIds = new Set(operationalMeydanlar.map((meydan) => meydan.id));
+  const operationalHistoryShifts = filterOperationalHistoryShifts(planEkleHistoryShifts, operationalMeydanIds);
   const insights = [];
 
-  const staleMeydan = buildStaleMeydanInsight(historyShifts, meydanlar, todayKey);
+  const staleMeydan = buildStaleMeydanInsight(operationalHistoryShifts, operationalMeydanlar, todayKey);
   if (staleMeydan) insights.push(staleMeydan);
 
-  const flexiblePerson = buildFlexiblePersonInsight(historyShifts, meydanlar);
+  const flexiblePerson = buildFlexiblePersonInsight(operationalHistoryShifts, operationalMeydanlar);
   if (flexiblePerson) insights.push(flexiblePerson);
 
-  const stablePair = buildStablePairInsight(historyShifts, meydanlar);
+  const stablePair = buildStablePairInsight(operationalHistoryShifts, operationalMeydanlar);
   if (stablePair) insights.push(stablePair);
 
-  const topMeydan = buildTopMeydanInsight(historyShifts, meydanlar);
+  const topMeydan = buildTopMeydanInsight(operationalHistoryShifts, operationalMeydanlar);
   if (topMeydan) insights.push(topMeydan);
 
   const dataFlow = buildDataFlowInsight(recentShifts);
   if (dataFlow) insights.push(dataFlow);
 
-  const topKronik = buildTopKronikTopicsInsight(kronikSorunlar);
-  if (topKronik) insights.push(topKronik);
+  const leastRecorded = buildLeastRecordedMeydanInsight(operationalHistoryShifts, operationalMeydanlar);
+  if (leastRecorded) insights.push(leastRecorded);
+
+  const highTrafficLowIssue = buildHighTrafficLowIssueInsight(operationalHistoryShifts, kronikSorunlar, operationalMeydanlar);
+  if (highTrafficLowIssue) insights.push(highTrafficLowIssue);
 
   return insights.slice(0, MAX_INSIGHTS);
 }

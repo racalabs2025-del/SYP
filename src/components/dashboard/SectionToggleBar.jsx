@@ -10,6 +10,18 @@ const SECTION_ITEMS = [
     ),
   },
   {
+    key: 'meydan-yonetimi-grup',
+    label: 'Meydan Yönetimi',
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9 10h6" />
+        <path d="M9 14h6" />
+      </svg>
+    ),
+  },
+  {
     key: 'meydan-hakkinda',
     label: 'Meydan Yönetimi Hakkında',
     icon: (
@@ -113,8 +125,12 @@ const ChevronIcon = () => (
   </svg>
 );
 
+export function getSectionItem(itemKey) {
+  return SECTION_ITEMS.find((section) => section.key === itemKey) || null;
+}
+
 export default function SectionToggleBar({ itemKey, isOpen, onToggle, children }) {
-  const item = SECTION_ITEMS.find((section) => section.key === itemKey);
+  const item = getSectionItem(itemKey);
   if (!item) {
     return null;
   }
@@ -146,7 +162,7 @@ export default function SectionToggleBar({ itemKey, isOpen, onToggle, children }
 }
 
 export function SectionLinkBar({ itemKey, href }) {
-  const item = SECTION_ITEMS.find((section) => section.key === itemKey);
+  const item = getSectionItem(itemKey);
   if (!item || !href) {
     return null;
   }
