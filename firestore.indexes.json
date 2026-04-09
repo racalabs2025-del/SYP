@@ -1,0 +1,30 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "meydanBasvurulari",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "meydanId", "order": "ASCENDING" },
+        { "fieldPath": "tarih",    "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "meydanBasvurulari",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "meydanId", "order": "ASCENDING" },
+        { "fieldPath": "konu",     "order": "ASCENDING" },
+        { "fieldPath": "tarih",    "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "meydanBasvurulari",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "meydanId", "order": "ASCENDING" },
+        { "fieldPath": "ay",       "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

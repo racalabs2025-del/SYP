@@ -1,0 +1,53 @@
+// Firestore Security Rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Varsayılan: authenticated read/write (anonymous auth dahil)
+    match /{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Meydanlar - public read
+    match /meydanlar/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Vardiyalar - authenticated read/write
+    match /vardiyalar/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Kronik Sorunlar - authenticated read/write
+    match /kronikSorunlar/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Meydan Faaliyet Raporları - public read, authenticated write
+    match /meydanFaaliyetRaporlari/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Meydan Başvuruları - public read, authenticated write (import script)
+    match /meydanBasvurulari/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Meydan Başvuru İstatistikleri - public read, authenticated write
+    match /meydanBasvuruStats/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Personel Başvuru Özetleri - public read, authenticated write
+    match /personelBasvuruOzetleri/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}

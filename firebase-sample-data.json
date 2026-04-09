@@ -1,0 +1,18 @@
+{
+  "meydanlar": [
+    { "id": "aksaray", "isim": "Aksaray" },
+    { "id": "bagcilar", "isim": "Bağcılar" },
+    { "id": "bakirkoy-ozgurluk", "isim": "Bakırköy Özgürlük" },
+    { "id": "mecidiyekoy", "isim": "Mecidiyeköy" },
+    { "id": "sirinevler", "isim": "Şirinevler" },
+    { "id": "uskudar-mimar-sinan", "isim": "Üsküdar Mimar Sinan" },
+    { "id": "kartal-neyzen", "isim": "Kartal Neyzen Tevfik" },
+    { "id": "maltepe-cumhuriyet", "isim": "Maltepe Cumhuriyet" },
+    { "id": "umraniye-15temmuz", "isim": "Ümraniye 15 Temmuz Şehitler" }
+  ],
+  "vardiyalar": [
+    { "personelAdi": "Ahmet Yılmaz", "meydanId": "aksaray", "tarih": "2026-03-31", "vardiyaTipi": "1", "saatAraligi": "08:00-16:00" },
+    { "personelAdi": "Mehmet Kaya", "meydanId": "bagcilar", "tarih": "2026-03-31", "vardiyaTipi": "2", "saatAraligi": "16:00-00:00" },
+    { "personelAdi": "Ayşe Demir", "meydanId": "bakirkoy-ozgurluk", "tarih": "2026-03-31", "vardiyaTipi": "İzinli", "saatAraligi": "-" }
+  ]
+}

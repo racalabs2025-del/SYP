@@ -1,0 +1,46 @@
+{
+  "name": "syp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:full": "concurrently -k -n web,proxy -c cyan,green \"npm run dev\" \"npm run proxy:ai\"",
+    "proxy:ai": "node server/ai-proxy-server.js",
+    "build": "vite build",
+    "smoke:verify": "npm run build && npm run import:basvurular -- --dry-run",
+    "lint": "eslint .",
+    "deploy:rules": "npx firebase-tools deploy --only firestore --project foodsense-e1bf6",
+    "preview": "vite preview",
+    "migrate:meydanlar": "node scripts/migrate_canonical_meydanlar.mjs",
+    "seed:personel-basvuru": "node scripts/seed_personel_basvuru_ozetleri.mjs",
+    "seed:rapor": "node scripts/seed_first_rapor.mjs",
+    "import:meydan-koordinatlari": "node scripts/import_meydan_koordinatlari.mjs",
+    "import:meydan-koordinatlari:dry": "node scripts/import_meydan_koordinatlari.mjs --dry-run",
+    "import:basvurular": "node scripts/import_basvurular.mjs",
+    "import:basvurular:dry": "node scripts/import_basvurular.mjs --dry-run",
+    "assets:login:optimize": "node scripts/optimize_login_scenes.mjs"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "firebase": "^12.11.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.2",
+    "recharts": "^3.8.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "sharp": "^0.34.5",
+    "vite": "^8.0.1"
+  }
+}

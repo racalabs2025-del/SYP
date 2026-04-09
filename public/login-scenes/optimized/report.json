@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-04-04T07:10:07.988Z",
+  "outputDir": "public\\login-scenes\\optimized",
+  "sceneOrder": [
+    "istanbul-1",
+    "istanbul-3",
+    "istanbul-5",
+    "istanbul-2",
+    "istanbul-4"
+  ],
+  "scenes": [
+    {
+      "scene": "istanbul-1",
+      "source": "public\\login-scenes\\istanbul-1.jpg",
+      "outputs": {
+        "jpg": {
+          "path": "public\\login-scenes\\optimized\\istanbul-1.jpg",
+          "sizeKB": 449.3
+        },
+        "webp": {
+          "path": "public\\login-scenes\\optimized\\istanbul-1.webp",
+          "sizeKB": 273.9
+        },
+        "avif": {
+          "path": "public\\login-scenes\\optimized\\istanbul-1.avif",
+          "sizeKB": 188.4
+        }
+      }
+    },
+    {
+      "scene": "istanbul-3",
+      "source": "public\\login-scenes\\istanbul-3.jpg",
+      "outputs": {
+        "jpg": {
+          "path": "public\\login-scenes\\optimized\\istanbul-3.jpg",
+          "sizeKB": 474.2
+        },
+        "webp": {
+          "path": "public\\login-scenes\\optimized\\istanbul-3.webp",
+          "sizeKB": 297.4
+        },
+        "avif": {
+          "path": "public\\login-scenes\\optimized\\istanbul-3.avif",
+          "sizeKB": 204.4
+        }
+      }
+    },
+    {
+      "scene": "istanbul-5",
+      "source": "public\\login-scenes\\istanbul-5.jpg",
+      "outputs": {
+        "jpg": {
+          "path": "public\\login-scenes\\optimized\\istanbul-5.jpg",
+          "sizeKB": 908.6
+        },
+        "webp": {
+          "path": "public\\login-scenes\\optimized\\istanbul-5.webp",
+          "sizeKB": 668.2
+        },
+        "avif": {
+          "path": "public\\login-scenes\\optimized\\istanbul-5.avif",
+          "sizeKB": 488.1
+        }
+      }
+    },
+    {
+      "scene": "istanbul-2",
+      "source": "public\\login-scenes\\istanbul-2.jpg",
+      "outputs": {
+        "jpg": {
+          "path": "public\\login-scenes\\optimized\\istanbul-2.jpg",
+          "sizeKB": 896.2
+        },
+        "webp": {
+          "path": "public\\login-scenes\\optimized\\istanbul-2.webp",
+          "sizeKB": 708.7
+        },
+        "avif": {
+          "path": "public\\login-scenes\\optimized\\istanbul-2.avif",
+          "sizeKB": 502.8
+        }
+      }
+    },
+    {
+      "scene": "istanbul-4",
+      "source": "public\\login-scenes\\istanbul-4.jpg",
+      "outputs": {
+        "jpg": {
+          "path": "public\\login-scenes\\optimized\\istanbul-4.jpg",
+          "sizeKB": 593.3
+        },
+        "webp": {
+          "path": "public\\login-scenes\\optimized\\istanbul-4.webp",
+          "sizeKB": 417.7
+        },
+        "avif": {
+          "path": "public\\login-scenes\\optimized\\istanbul-4.avif",
+          "sizeKB": 310.7
+        }
+      }
+    }
+  ],
+  "totalSizeKB": {
+    "jpg": 3321.6,
+    "webp": 2365.9,
+    "avif": 1694.4
+  }
+}
