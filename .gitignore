@@ -31,3 +31,5 @@ dist-ssr
 # Raw data dumps
 Buyuk_guncelleme/
 
+
+.vercel

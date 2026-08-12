@@ -40,7 +40,6 @@ export default function Header({ onLogout = null }) {
         ) : null}
 
         <div>
-          <span className="app-header__eyebrow">Meydan Yönetimi</span>
           <strong className="app-header__title">Saha Yönetim Paneli</strong>
         </div>
       </div>

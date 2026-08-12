@@ -1,4 +1,5 @@
 {
+  "name": "saha-yonetim-paneli",
   "rewrites": [
     {
       "source": "/(.*)",
