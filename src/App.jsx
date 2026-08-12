@@ -10,6 +10,7 @@ import { auth } from './firebaseAuth';
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const LoginScreen = lazy(() => import('./pages/LoginScreen'));
 const MeydanDetail = lazy(() => import('./pages/MeydanDetail'));
+const MeydanNoteRead = lazy(() => import('./pages/MeydanNoteRead'));
 const ModuleScreen = lazy(() => import('./pages/ModuleScreen'));
 const PersonelDetail = lazy(() => import('./pages/PersonelDetail'));
 const SplashScreen = lazy(() => import('./pages/SplashScreen'));
@@ -142,6 +143,14 @@ function AppRoutes() {
             element={
               <ProtectedRoute authenticated={authenticated} authReady={authReady}>
                 <MeydanDetail onLogout={handleLogout} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/meydan/:id/not"
+            element={
+              <ProtectedRoute authenticated={authenticated} authReady={authReady}>
+                <MeydanNoteRead onLogout={handleLogout} />
               </ProtectedRoute>
             }
           />

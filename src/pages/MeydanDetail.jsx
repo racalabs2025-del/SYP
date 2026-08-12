@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CalendarDaysIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, UserGroupIcon } from '@heroicons/react/24/outline';
-import { collection, doc, getDoc, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, startAfter, where } from 'firebase/firestore';
 import { useParams, Link } from 'react-router-dom';
 import { Bar, BarChart, Cell, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import Header from '../Header';
@@ -8,7 +8,12 @@ import { db } from '../firebaseDb';
 import { fetchMeydanSpotlight } from '../service/meydanSpotlightService';
 import { fetchMeydanWeather, toWeatherErrorMessage } from '../service/weatherService';
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
+import DateRangePicker from '../components/shared/DateRangePicker';
+import { SAHA_PERSONELI } from '../utils/sahaPersoneli';
 import { getWeekDates, isShiftActive, toDateKey } from '../utils/date';
+
+const MEYDAN_GUNLUK_PAGE_SIZE = 80;
+const NOTE_PREVIEW_MAX_LENGTH = 180;
 
 function isLeaveShift(type) {
   return type === 'Izinli' || type === 'İzinli' || type === 'HAFTA TATILI' || type === 'HAFTA TATİLİ';
@@ -111,6 +116,37 @@ function formatWind(speedMs) {
 
   const kmh = Number(speedMs) * 3.6;
   return `${Math.round(kmh)} km/sa`;
+}
+
+function getTimestampMs(rawValue) {
+  if (!rawValue) {
+    return 0;
+  }
+
+  if (typeof rawValue === 'number' && Number.isFinite(rawValue)) {
+    return rawValue;
+  }
+
+  if (typeof rawValue?.toMillis === 'function') {
+    const millis = rawValue.toMillis();
+    return Number.isFinite(millis) ? millis : 0;
+  }
+
+  return 0;
+}
+
+function formatDateTime(valueMs) {
+  if (!Number.isFinite(Number(valueMs)) || Number(valueMs) <= 0) {
+    return '-';
+  }
+
+  return new Date(Number(valueMs)).toLocaleString('tr-TR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 }
 
 function ShiftBadge({ vardiya, isToday }) {
@@ -829,6 +865,15 @@ export default function MeydanDetail({ onLogout }) {
   const [error, setError] = useState('');
   const [weekOffset, setWeekOffset] = useState(0);
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
+  const [isGunlukOpen, setIsGunlukOpen] = useState(false);
+  const [gunlukNotlar, setGunlukNotlar] = useState([]);
+  const [gunlukLoading, setGunlukLoading] = useState(false);
+  const [gunlukError, setGunlukError] = useState('');
+  const [selectedPersonel, setSelectedPersonel] = useState('');
+  const [personelSearch, setPersonelSearch] = useState('');
+  const [gunlukText, setGunlukText] = useState('');
+  const [savingGunluk, setSavingGunluk] = useState(false);
+  const [expandedGunlukNotlar, setExpandedGunlukNotlar] = useState({});
 
   const visibleWeekDates = useMemo(() => {
     const baseDate = new Date();
@@ -1002,6 +1047,116 @@ export default function MeydanDetail({ onLogout }) {
     [vardiyalar],
   );
 
+  const gunlukPersonelOptions = useMemo(() => {
+    const vardiyaNames = allVardiyalar
+      .map((item) => String(item?.personelAdi || '').trim())
+      .filter(Boolean);
+    const staticNames = SAHA_PERSONELI.map((item) => String(item?.ad || '').trim()).filter(Boolean);
+
+    return Array.from(new Set([...vardiyaNames, ...staticNames]))
+      .sort((left, right) => left.localeCompare(right, 'tr'));
+  }, [allVardiyalar]);
+
+  const filteredGunlukPersoneller = useMemo(() => {
+    const needle = String(personelSearch || '').trim().toLocaleLowerCase('tr-TR');
+    if (!needle) {
+      return gunlukPersonelOptions.slice(0, 18);
+    }
+
+    return gunlukPersonelOptions
+      .filter((name) => name.toLocaleLowerCase('tr-TR').includes(needle))
+      .slice(0, 18);
+  }, [gunlukPersonelOptions, personelSearch]);
+
+  const loadGunlukNotlar = useCallback(async () => {
+    if (!id) {
+      return;
+    }
+
+    setGunlukLoading(true);
+    setGunlukError('');
+
+    try {
+      const snapshot = await getDocs(
+        query(
+          collection(db, 'meydanlar', id, 'gunlukNotlar'),
+          orderBy('createdAtMs', 'desc'),
+          limit(MEYDAN_GUNLUK_PAGE_SIZE),
+        ),
+      );
+
+      const items = snapshot.docs
+        .map((item) => ({ id: item.id, ...item.data() }))
+        .sort((left, right) => {
+          const leftMs = Number(left?.createdAtMs || getTimestampMs(left?.createdAt));
+          const rightMs = Number(right?.createdAtMs || getTimestampMs(right?.createdAt));
+          return rightMs - leftMs;
+        });
+
+      setGunlukNotlar(items);
+    } catch (requestError) {
+      setGunlukError(requestError?.message || 'Meydan günlüğü yüklenemedi.');
+    } finally {
+      setGunlukLoading(false);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (!isGunlukOpen) {
+      return;
+    }
+
+    loadGunlukNotlar();
+  }, [isGunlukOpen, loadGunlukNotlar]);
+
+  const handleAddGunlukNot = useCallback(async () => {
+    const personelAdi = String(selectedPersonel || '').trim();
+    const notIcerik = String(gunlukText || '').trim();
+
+    if (!personelAdi || !notIcerik || !id) {
+      return;
+    }
+
+    setSavingGunluk(true);
+    setGunlukError('');
+
+    try {
+      const nowMs = Date.now();
+      const ref = await addDoc(collection(db, 'meydanlar', id, 'gunlukNotlar'), {
+        meydanId: id,
+        meydanIsim: meydan?.isim || '',
+        meydanTamAd: meydan?.tamAd || meydan?.isim || '',
+        personelAdi,
+        icerik: notIcerik,
+        createdAt: serverTimestamp(),
+        createdAtMs: nowMs,
+      });
+
+      setGunlukNotlar((current) => [{
+        id: ref.id,
+        meydanId: id,
+        meydanIsim: meydan?.isim || '',
+        meydanTamAd: meydan?.tamAd || meydan?.isim || '',
+        personelAdi,
+        icerik: notIcerik,
+        createdAtMs: nowMs,
+      }, ...current]);
+
+      setGunlukText('');
+    } catch (requestError) {
+      setGunlukError(requestError?.message || 'Not kaydedilemedi.');
+    } finally {
+      setSavingGunluk(false);
+    }
+  }, [gunlukText, id, meydan?.isim, meydan?.tamAd, selectedPersonel]);
+
+  const toggleGunlukNot = useCallback((noteId) => {
+    setExpandedGunlukNotlar((current) => ({
+      ...current,
+      [noteId]: !current[noteId],
+    }));
+  }, []);
+
   const todayPersonnel = useMemo(() => {
     return allVardiyalar
       .filter((item) => item.tarih === todayDateKey && !isLeaveShift(item.vardiyaTipi))
@@ -1024,20 +1179,22 @@ export default function MeydanDetail({ onLogout }) {
     [todayPersonnel],
   );
 
+  const [filterRange, setFilterRange] = useState({ from: '', to: '', preset: 'all' });
+
+  const filteredVardiyalar = useMemo(() => {
+    return allVardiyalar.filter((item) => {
+      if (isLeaveShift(item.vardiyaTipi) || !item.tarih) return false;
+      if (filterRange.from && item.tarih < filterRange.from) return false;
+      if (filterRange.to && item.tarih > filterRange.to) return false;
+      return true;
+    });
+  }, [allVardiyalar, filterRange]);
+
   const topPeople = useMemo(() => {
     const counts = new Map();
 
-    allVardiyalar.forEach((item) => {
-      if (
-        !item.personelAdi
-        || isLeaveShift(item.vardiyaTipi)
-        || !item.tarih
-        || item.tarih < thirtyDaysAgoDateKey
-        || item.tarih > todayDateKey
-      ) {
-        return;
-      }
-
+    filteredVardiyalar.forEach((item) => {
+      if (!item.personelAdi) return;
       counts.set(item.personelAdi, (counts.get(item.personelAdi) || 0) + 1);
     });
 
@@ -1046,27 +1203,17 @@ export default function MeydanDetail({ onLogout }) {
         if (right[1] !== left[1]) {
           return right[1] - left[1];
         }
-
         return left[0].localeCompare(right[0], 'tr');
       })
       .slice(0, 3)
       .map(([name, count]) => ({
         title: name,
-        description: '',
+        description: `${count} görev`,
         link: `/personel/${encodeURIComponent(name)}`,
       }));
-  }, [allVardiyalar, thirtyDaysAgoDateKey, todayDateKey]);
+  }, [filteredVardiyalar]);
 
-  const lastThirtyDaysShiftCount = useMemo(
-    () => allVardiyalar.filter((item) => {
-      if (isLeaveShift(item.vardiyaTipi) || !item.tarih) {
-        return false;
-      }
-
-      return item.tarih >= thirtyDaysAgoDateKey && item.tarih <= todayDateKey;
-    }).length,
-    [allVardiyalar, thirtyDaysAgoDateKey, todayDateKey],
-  );
+  const lastThirtyDaysShiftCount = filteredVardiyalar.length;
 
   const [meydanRangeFrom, setMeydanRangeFrom] = useState(() => {
     const now = new Date();
@@ -1098,22 +1245,36 @@ export default function MeydanDetail({ onLogout }) {
             <div className="detail-hero__title-row">
               <h1>{meydan?.isim || 'Meydan'}</h1>
               {meydan ? (
-                <a
-                  className="map-nav-btn"
-                  href={Number.isFinite(meydan?.lat) && Number.isFinite(meydan?.lon)
-                    ? `https://www.google.com/maps/dir/?api=1&destination=${meydan.lat},${meydan.lon}&travelmode=driving`
-                    : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent((meydan.tamAd || meydan.isim) + ' İstanbul')}&travelmode=driving`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Rota oluştur"
-                  aria-label={`${meydan.isim} için Google Maps'te rota oluştur`}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  Rota
-                </a>
+                <div className="detail-hero__actions">
+                  <a
+                    className="map-nav-btn map-nav-btn--icon-only"
+                    href={Number.isFinite(meydan?.lat) && Number.isFinite(meydan?.lon)
+                      ? `https://www.google.com/maps/dir/?api=1&destination=${meydan.lat},${meydan.lon}&travelmode=driving`
+                      : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent((meydan.tamAd || meydan.isim) + ' İstanbul')}&travelmode=driving`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Rota oluştur"
+                    aria-label={`${meydan.isim} için Google Maps'te rota oluştur`}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </a>
+
+                  <button
+                    className="map-nav-btn map-nav-btn--secondary"
+                    type="button"
+                    title="Meydan günlüğünü aç"
+                    aria-label={`${meydan.isim} için Meydan Günlüğünü aç`}
+                    onClick={() => setIsGunlukOpen(true)}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 3.5h11.5a2 2 0 0 1 2 2V19a1.5 1.5 0 0 1-2.4 1.2L12 17.2l-4.1 3A1.5 1.5 0 0 1 5.5 19V3.5z" />
+                    </svg>
+                    Meydan Günlüğü
+                  </button>
+                </div>
               ) : null}
             </div>
             <p>{meydan?.tamAd || 'Seçili meydan için ekip ve plan görünümü.'}</p>
@@ -1177,33 +1338,61 @@ export default function MeydanDetail({ onLogout }) {
                 ) : null}
               </article>
 
-              <a
-                className="detail-hero__stat detail-hero__stat--spotlight"
-                href={spotlight?.searchUrl || `https://www.google.com/search?q=${encodeURIComponent(`${meydan?.isim || meydan?.tamAd || 'meydan'} hakkında bilgi`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Meydan Notu</span>
-                {spotlightLoading ? (
-                  <div className="detail-hero__spotlight-copy">
-                    <strong>Özet hazırlanıyor</strong>
-                    <small>Kaynaklar taranıyor...</small>
-                  </div>
-                ) : (
-                  <>
-                    <div className="detail-hero__spotlight-head">
-                      <div className="detail-hero__spotlight-copy">
-                        <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
-                        <small>{spotlight?.summary || 'Meydan hakkında kısa bir bilgi özeti için Google aramasına geçin.'}</small>
+              {spotlight?.readPath ? (
+                <Link
+                  className="detail-hero__stat detail-hero__stat--spotlight"
+                  to={spotlight.readPath}
+                >
+                  <span>Meydan Notu</span>
+                  {spotlightLoading ? (
+                    <div className="detail-hero__spotlight-copy">
+                      <strong>Özet hazırlanıyor</strong>
+                      <small>Kaynaklar taranıyor...</small>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="detail-hero__spotlight-head">
+                        <div className="detail-hero__spotlight-copy">
+                          <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
+                          <small>{spotlight?.summary || 'Meydan hakkında kısa bir bilgi özeti için Google aramasına geçin.'}</small>
+                        </div>
                       </div>
+                      <div className="detail-hero__spotlight-footer">
+                        <small>{spotlight?.badge || 'Detayli oku'}</small>
+                        <span aria-hidden="true">→</span>
+                      </div>
+                    </>
+                  )}
+                </Link>
+              ) : (
+                <a
+                  className="detail-hero__stat detail-hero__stat--spotlight"
+                  href={spotlight?.searchUrl || `https://www.google.com/search?q=${encodeURIComponent(`${meydan?.isim || meydan?.tamAd || 'meydan'} hakkında bilgi`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Meydan Notu</span>
+                  {spotlightLoading ? (
+                    <div className="detail-hero__spotlight-copy">
+                      <strong>Özet hazırlanıyor</strong>
+                      <small>Kaynaklar taranıyor...</small>
                     </div>
-                    <div className="detail-hero__spotlight-footer">
-                      <small>{spotlight?.badge || 'Google’da incele'}</small>
-                      <span aria-hidden="true">↗</span>
-                    </div>
-                  </>
-                )}
-              </a>
+                  ) : (
+                    <>
+                      <div className="detail-hero__spotlight-head">
+                        <div className="detail-hero__spotlight-copy">
+                          <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
+                          <small>{spotlight?.summary || 'Meydan hakkında kısa bir bilgi özeti için Google aramasına geçin.'}</small>
+                        </div>
+                      </div>
+                      <div className="detail-hero__spotlight-footer">
+                        <small>{spotlight?.badge || 'Google’da incele'}</small>
+                        <span aria-hidden="true">↗</span>
+                      </div>
+                    </>
+                  )}
+                </a>
+              )}
             </div>
           </div>
         </section>
@@ -1213,6 +1402,10 @@ export default function MeydanDetail({ onLogout }) {
 
         {!loading && !error ? (
           <section className="detail-layout">
+            <div className="detail-filter-bar" style={{ gridColumn: '1 / -1', marginBottom: '1rem' }}>
+              <DateRangePicker value={filterRange} onChange={setFilterRange} />
+            </div>
+
             <InsightPanel
               kicker=""
               title="Bu meydanda en çok görev yapan personeller"
@@ -1220,7 +1413,7 @@ export default function MeydanDetail({ onLogout }) {
               items={topPeople}
               variant="people"
               icon={UserGroupIcon}
-              badge={`Son 30 gün: ${lastThirtyDaysShiftCount} görev kaydı analiz edildi`}
+              badge={`Seçilen dönem: ${lastThirtyDaysShiftCount} görev kaydı analiz edildi`}
               emptyMessage="Bu meydan için sıralanabilecek personel verisi henüz bulunmuyor."
             />
 
@@ -1392,6 +1585,114 @@ export default function MeydanDetail({ onLogout }) {
 
             <BasvuruGundemPanel meydanId={id} />
           </section>
+        ) : null}
+
+        {isGunlukOpen ? (
+          <div className="gunluk-modal" role="dialog" aria-modal="true" aria-label="Meydan Günlüğü">
+            <div className="gunluk-modal__panel">
+              <div className="gunluk-modal__header">
+                <div>
+                  <span className="section-kicker">Meydan Günlüğü</span>
+                  <h3>{meydan?.isim || 'Meydan'} günlük notları</h3>
+                  <p>Vardiya devrinde ekiplerin birbirine not bırakması için kullanılır.</p>
+                </div>
+                <button type="button" className="btn btn-ghost" onClick={() => setIsGunlukOpen(false)}>
+                  Kapat
+                </button>
+              </div>
+
+              <div className="gunluk-modal__composer">
+                <label className="gunluk-field">
+                  <span>Günlüğe Yazan Personel</span>
+                  <input
+                    type="search"
+                    value={personelSearch}
+                    onChange={(event) => setPersonelSearch(event.target.value)}
+                    placeholder="Personel adı ara"
+                  />
+                  <div className="gunluk-personel-picks" role="listbox" aria-label="Personel seçimi">
+                    {filteredGunlukPersoneller.map((name) => (
+                      <button
+                        key={name}
+                        type="button"
+                        className={`gunluk-personel-pick${selectedPersonel === name ? ' is-selected' : ''}`}
+                        onClick={() => {
+                          setSelectedPersonel(name);
+                          setPersonelSearch(name);
+                        }}
+                      >
+                        {name}
+                      </button>
+                    ))}
+                  </div>
+                </label>
+
+                <label className="gunluk-field gunluk-field--note">
+                  <span>Günlüğe Ekle</span>
+                  <textarea
+                    value={gunlukText}
+                    onChange={(event) => setGunlukText(event.target.value)}
+                    maxLength={2000}
+                    placeholder="Bir sonraki vardiya için gerekli notu yazın..."
+                  />
+                  <div className="gunluk-field__footer">
+                    <small>{gunlukText.length}/2000</small>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={handleAddGunlukNot}
+                      disabled={savingGunluk || !selectedPersonel || !gunlukText.trim()}
+                    >
+                      {savingGunluk ? 'Kaydediliyor...' : 'Günlüğe Ekle'}
+                    </button>
+                  </div>
+                </label>
+              </div>
+
+              {gunlukError ? <div className="message message-error">{gunlukError}</div> : null}
+
+              <div className="gunluk-modal__list-wrap">
+                <h4>Önceki Notlar</h4>
+                {gunlukLoading ? <div className="message message-loading">Notlar yükleniyor...</div> : null}
+
+                {!gunlukLoading && gunlukNotlar.length ? (
+                  <ul className="gunluk-note-list">
+                    {gunlukNotlar.map((note) => {
+                      const fullText = String(note?.icerik || '').trim();
+                      const isLong = fullText.length > NOTE_PREVIEW_MAX_LENGTH;
+                      const isExpanded = Boolean(expandedGunlukNotlar[note.id]);
+                      const shownText = isLong && !isExpanded
+                        ? `${fullText.slice(0, NOTE_PREVIEW_MAX_LENGTH).trim()}...`
+                        : fullText;
+
+                      return (
+                        <li key={note.id} className="gunluk-note-item">
+                          <div className="gunluk-note-item__top">
+                            <strong>{note.personelAdi || 'Personel bilgisi yok'}</strong>
+                            <span>{formatDateTime(Number(note?.createdAtMs || getTimestampMs(note?.createdAt)))}</span>
+                          </div>
+                          <p>{shownText || 'Not içeriği yok'}</p>
+                          {isLong ? (
+                            <button
+                              type="button"
+                              className="gunluk-note-item__toggle"
+                              onClick={() => toggleGunlukNot(note.id)}
+                            >
+                              {isExpanded ? 'Daha az göster' : 'Devamını gör'}
+                            </button>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
+
+                {!gunlukLoading && !gunlukNotlar.length ? (
+                  <div className="gunluk-modal__empty">Bu meydan için henüz günlük notu bulunmuyor.</div>
+                ) : null}
+              </div>
+            </div>
+          </div>
         ) : null}
       </main>
     </div>

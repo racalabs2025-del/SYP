@@ -1,3 +1,5 @@
+import { getMeydanReadingNote } from './meydanReadingNotes';
+
 const DEEPSEEK_PROXY_ENDPOINT = '/api/deepseek';
 
 function trimText(value, maxLength) {
@@ -244,6 +246,17 @@ async function generateDeepSeekSpotlight(meydan, signal) {
 }
 
 export async function fetchMeydanSpotlight({ meydan, signal }) {
+  const localReadingNote = getMeydanReadingNote(meydan);
+  if (localReadingNote) {
+    return {
+      title: trimText(localReadingNote.title || meydan?.isim || 'Meydan Notu', 26),
+      summary: trimText(localReadingNote.summary || '', 140),
+      badge: trimText(localReadingNote.badge || 'Detayli oku', 22),
+      searchUrl: localReadingNote.readPath,
+      readPath: localReadingNote.readPath,
+    };
+  }
+
   try {
     const spotlight = await generateDeepSeekSpotlight(meydan, signal);
     if (!spotlight?.summary) {

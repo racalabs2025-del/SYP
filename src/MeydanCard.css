@@ -68,6 +68,17 @@
   letter-spacing: -0.03em;
 }
 
+.meydan-title-link {
+  text-decoration: none;
+  color: var(--color-brand-dark);
+}
+
+.meydan-title-link:hover,
+.meydan-title-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .meydan-metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

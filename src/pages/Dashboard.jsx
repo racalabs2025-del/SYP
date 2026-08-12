@@ -28,9 +28,11 @@ import { loadStoredOperationalInsights, saveOperationalInsights } from '../servi
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
 import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/session';
 import { isShiftActive, toDateKey } from '../utils/date';
-import { parseKronikExcelRows, splitToChunks } from '../utils/excelParsing';
+import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from '../utils/excelParsing';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
 import ActiveMeydanlarSection from '../components/dashboard/ActiveMeydanlarSection';
+import IstanbulFieldMap from '../components/dashboard/IstanbulFieldMap';
+import AIDailyExecutiveSummary from '../components/dashboard/AIDailyExecutiveSummary';
 import KronikSorunlarSection from '../components/dashboard/KronikSorunlarSection';
 import MeydanYonetimiSection from '../components/dashboard/MeydanYonetimiSection';
 import OperationalInsightsSection from '../components/dashboard/OperationalInsightsSection';
@@ -259,6 +261,214 @@ function getKronikFirestoreErrorMessage(error, action) {
   return error?.message || `Kronik sorunlar icin Firestore ${action} islemi basarisiz oldu.`;
 }
 
+function normalizePersonelKeyForQuality(value) {
+  return String(value || '')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/[ıi]/g, 'i')
+    .replace(/[ğ]/g, 'g')
+    .replace(/[ü]/g, 'u')
+    .replace(/[ş]/g, 's')
+    .replace(/[ö]/g, 'o')
+    .replace(/[ç]/g, 'c')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isValidIsoDateForQuality(dateKey, { minYear = 2020, maxYear = 2040 } = {}) {
+  const raw = String(dateKey || '').trim();
+  const match = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) {
+    return false;
+  }
+
+  const [, yearText, monthText, dayText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  if (!Number.isFinite(year) || year < minYear || year > maxYear) {
+    return false;
+  }
+
+  const parsed = new Date(year, month - 1, day, 12, 0, 0, 0);
+  return parsed.getFullYear() === year && parsed.getMonth() === month - 1 && parsed.getDate() === day;
+}
+
+function dayDiffInclusiveForQuality(fromDateKey, endDateKey) {
+  const from = new Date(`${fromDateKey}T00:00:00`);
+  const to = new Date(`${endDateKey}T00:00:00`);
+  if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
+    return 1;
+  }
+
+  const safeTo = to < from ? from : to;
+  const diff = Math.round((safeTo.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
+  return Math.max(1, diff + 1);
+}
+
+function listDateRangeForQuality(fromDateKey, endDateKey) {
+  const result = [];
+  const from = new Date(`${fromDateKey}T00:00:00`);
+  const to = new Date(`${endDateKey}T00:00:00`);
+  if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
+    return result;
+  }
+
+  const cursor = new Date(from);
+  const safeTo = to < from ? from : to;
+  while (cursor <= safeTo) {
+    result.push(toDateKey(cursor));
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  return result;
+}
+
+function buildDataQualityIssues({ shifts = [], leaveRows = [], meydanMap = {} }) {
+  const issues = [];
+  const dutyShiftByPersonDate = new Map();
+  const shiftDuplicateCounts = new Map();
+
+  shifts.forEach((shift) => {
+    const personelAdi = String(shift?.personelAdi || '').trim();
+    const personelKey = normalizePersonelKeyForQuality(personelAdi);
+    const tarih = String(shift?.tarih || '').trim();
+    const saatAraligi = String(shift?.saatAraligi || '').trim();
+    const vardiyaTipi = String(shift?.vardiyaTipi || '').trim();
+    const meydanId = String(shift?.meydanId || '').trim();
+    const meydanIsim = meydanMap[meydanId]?.isim || meydanId || '-';
+
+    if (!personelKey || !tarih) {
+      return;
+    }
+
+    if (!isLeaveShift(vardiyaTipi)) {
+      const personDateKey = `${personelKey}|${tarih}`;
+      const list = dutyShiftByPersonDate.get(personDateKey) || [];
+      list.push({ meydanId, meydanIsim, saatAraligi, vardiyaTipi, tarih });
+      dutyShiftByPersonDate.set(personDateKey, list);
+
+      const duplicateKey = `${personelKey}|${meydanId}|${tarih}|${saatAraligi}|${vardiyaTipi}`;
+      const existingDuplicate = shiftDuplicateCounts.get(duplicateKey) || {
+        count: 0,
+        personelAdi: personelAdi || personelKey,
+        meydanId,
+        tarih,
+        saatAraligi,
+      };
+      existingDuplicate.count += 1;
+      shiftDuplicateCounts.set(duplicateKey, existingDuplicate);
+
+      if (saatAraligi.replace(/\s+/g, '') === '08:30-16:00') {
+        issues.push({
+          id: `shift-hour-${shift.id || `${personelKey}-${tarih}-${meydanId}`}`,
+          severity: 'medium',
+          category: 'Planlama',
+          personelAdi,
+          gunSayisi: 1,
+          tarihAraligi: `${tarih} - ${tarih}`,
+          problem: `Geçersiz vardiya saat aralığı tespit edildi (${saatAraligi}).`,
+          cozum: 'Kayıt 08:30-17:00 formatına güncellenmelidir.',
+        });
+      }
+    }
+  });
+
+  shiftDuplicateCounts.forEach((item) => {
+    if ((item?.count || 0) <= 1) {
+      return;
+    }
+
+    const personelAdi = item.personelAdi || '-';
+    const meydanId = item.meydanId || '';
+    const tarih = item.tarih || '-';
+    const saatAraligi = item.saatAraligi || '-';
+    const meydanIsim = meydanMap[meydanId]?.isim || meydanId || '-';
+    issues.push({
+      id: `dup-shift-${personelAdi}-${meydanId}-${tarih}-${saatAraligi}`,
+      severity: 'high',
+      category: 'Planlama',
+      personelAdi,
+      gunSayisi: item.count,
+      tarihAraligi: `${tarih} - ${tarih}`,
+      problem: `${meydanIsim} için aynı gün (${tarih}) ve aynı saat (${saatAraligi || '-'}) ile ${item.count} adet vardiya kaydı var.`,
+      scope: 'Aynı Personel + Aynı Meydan + Aynı Tarih + Aynı Saat Aralığı',
+      cozum: 'Duplicate vardiya kayıtlarını silin ve tek kayıt bırakın.',
+    });
+  });
+
+  leaveRows.forEach((row, index) => {
+    const personelAdi = String(row?.personelAdi || '').trim();
+    const personelKey = normalizePersonelKeyForQuality(personelAdi || row?.personelAdiNorm);
+    const rawFrom = String(row?.baslangicTarihi || '').trim();
+    const rawTo = String(row?.bitisTarihi || row?.baslangicTarihi || '').trim();
+    const rawGunSayisi = Number(row?.gunSayisi);
+
+    if (!personelKey) {
+      return;
+    }
+
+    if (!isValidIsoDateForQuality(rawFrom) || !isValidIsoDateForQuality(rawTo)) {
+      issues.push({
+        id: `leave-invalid-date-${row.id || `${personelKey}-${index}`}`,
+        severity: 'high',
+        category: 'İzin',
+        personelAdi: personelAdi || personelKey,
+        gunSayisi: Number.isFinite(rawGunSayisi) ? rawGunSayisi : '-',
+        tarihAraligi: `${rawFrom || '-'} - ${rawTo || '-'}`,
+        problem: 'İzin tarih formatı/yıl aralığı geçersiz görünüyor.',
+        cozum: 'Başlangıç ve bitiş tarihlerini YYYY-MM-DD formatında ve 2020-2040 aralığında güncelleyin.',
+      });
+      return;
+    }
+
+    const fromDateKey = rawFrom <= rawTo ? rawFrom : rawTo;
+    const toDateKeyValue = rawFrom <= rawTo ? rawTo : rawFrom;
+    const expectedGunSayisi = dayDiffInclusiveForQuality(fromDateKey, toDateKeyValue);
+
+    if (Number.isFinite(rawGunSayisi) && rawGunSayisi > 0 && Math.floor(rawGunSayisi) !== expectedGunSayisi) {
+      issues.push({
+        id: `leave-daycount-${row.id || `${personelKey}-${fromDateKey}`}`,
+        severity: 'medium',
+        category: 'İzin',
+        personelAdi: personelAdi || personelKey,
+        gunSayisi: `${Math.floor(rawGunSayisi)} (beklenen ${expectedGunSayisi})`,
+        tarihAraligi: `${fromDateKey} - ${toDateKeyValue}`,
+        problem: 'İzin gün sayısı tarih aralığı ile uyuşmuyor.',
+        cozum: 'İzin gün sayısını tarih aralığına göre yeniden hesaplayıp kaydı güncelleyin.',
+      });
+    }
+
+    const overlapDates = [];
+    const overlapMeydanlar = new Set();
+    listDateRangeForQuality(fromDateKey, toDateKeyValue).forEach((dateKey) => {
+      const dayShifts = dutyShiftByPersonDate.get(`${personelKey}|${dateKey}`) || [];
+      if (dayShifts.length) {
+        overlapDates.push(dateKey);
+        dayShifts.forEach((item) => overlapMeydanlar.add(item.meydanIsim));
+      }
+    });
+
+    if (overlapDates.length) {
+      issues.push({
+        id: `leave-overlap-${row.id || `${personelKey}-${fromDateKey}`}`,
+        severity: 'high',
+        category: 'İzin/Planlama Çakışması',
+        personelAdi: personelAdi || personelKey,
+        gunSayisi: overlapDates.length,
+        tarihAraligi: `${overlapDates[0]} - ${overlapDates[overlapDates.length - 1]}`,
+        problem: `İzinli günlerde görev planı bulunuyor (${Array.from(overlapMeydanlar).slice(0, 3).join(', ') || '-'})`,
+        scope: 'Aynı Personel için İzin Tarihi ile Vardiya Tarihi çakışması',
+        cozum: 'Çakışan tarihlerde vardiya kaydını kaldırın veya izin aralığını düzeltin.',
+      });
+    }
+  });
+
+  const severityOrder = { high: 0, medium: 1, low: 2 };
+  return issues
+    .sort((left, right) => (severityOrder[left.severity] ?? 9) - (severityOrder[right.severity] ?? 9))
+    .slice(0, 200);
+}
+
 export default function Dashboard({ onLogout }) {
   const statOverlayPanelRef = useRef(null);
   const kronikModalPanelRef = useRef(null);
@@ -271,8 +481,10 @@ export default function Dashboard({ onLogout }) {
   const [loading, setLoading] = useState(true);
   const [uploadingPlan, setUploadingPlan] = useState(false);
   const [uploadingKronik, setUploadingKronik] = useState(false);
+  const [uploadingIzin, setUploadingIzin] = useState(false);
   const [status, setStatus] = useState({ type: '', text: '' });
   const [progress, setProgress] = useState(null);
+  const [izinProgress, setIzinProgress] = useState(null);
   const [adminUnlocked, setAdminUnlocked] = useState(false);
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
   const [adminPasswordError, setAdminPasswordError] = useState(false);
@@ -304,7 +516,13 @@ export default function Dashboard({ onLogout }) {
   } = useModalState('');
   const [operationalInsights, setOperationalInsights] = useState([]);
   const [insightsLoading, setInsightsLoading] = useState(false);
-  const [openSections, setOpenSections] = useState(() => new Set(['active-meydanlar']));
+  const [insightsLastUpdatedAt, setInsightsLastUpdatedAt] = useState('');
+  const [basvuruCountByMeydan, setBasvuruCountByMeydan] = useState({});
+  const [dataQualityIssues, setDataQualityIssues] = useState([]);
+  const [dataQualityUpdatedAt, setDataQualityUpdatedAt] = useState('');
+  const [qualityRefreshing, setQualityRefreshing] = useState(false);
+  const [openSections, setOpenSections] = useState(() => new Set());
+  const wasDataManagementOpenRef = useRef(false);
 
   function toggleSection(key) {
     setOpenSections((prev) => {
@@ -318,7 +536,7 @@ export default function Dashboard({ onLogout }) {
     });
   }
 
-  const uploading = uploadingPlan || uploadingKronik;
+  const uploading = uploadingPlan || uploadingKronik || uploadingIzin;
 
   const todayKey = toDateKey(new Date());
 
@@ -326,9 +544,11 @@ export default function Dashboard({ onLogout }) {
     try {
       const {
         meydanSnapshot,
+        basvuruStatsSnapshot,
         todaySnapshot,
         recentDocs,
         historyDocs,
+        personelIzinSnapshot,
         kronikResult,
         raporlarSnapshot,
       } = await fetchDashboardBaseData(db, todayKey);
@@ -393,11 +613,26 @@ export default function Dashboard({ onLogout }) {
     const normalizedHistoryShifts = normalizeShiftRows(historyDocs);
 
     const meydanList = Array.from(normalizedMeydanMap.values()).sort((left, right) => left.isim.localeCompare(right.isim, 'tr'));
+    const normalizedMeydanById = Object.fromEntries(meydanList.map((item) => [item.id, item]));
+    const personelIzinRows = (personelIzinSnapshot?.docs || []).map((snapshot) => ({ id: snapshot.id, ...snapshot.data() }));
+    const qualityIssues = buildDataQualityIssues({
+      shifts: normalizedHistoryShifts,
+      leaveRows: personelIzinRows,
+      meydanMap: normalizedMeydanById,
+    });
 
     setMeydanlar(meydanList);
     setTodayShifts(normalizedTodayShifts);
     setRecentShifts(normalizedRecentShifts);
     setHistoryShifts(normalizedHistoryShifts);
+    setDataQualityIssues(qualityIssues);
+    setDataQualityUpdatedAt(new Date().toLocaleString('tr-TR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }));
 
     if (kronikResult?.snapshot) {
       const kronikRows = kronikResult.snapshot.docs
@@ -459,6 +694,20 @@ export default function Dashboard({ onLogout }) {
     } else {
       setMeydanFaaliyetRaporlari([]);
     }
+
+    const basvuruCounts = {};
+    if (basvuruStatsSnapshot) {
+      basvuruStatsSnapshot.docs.forEach((snapshot) => {
+        const data = snapshot.data() || {};
+        const rawCount = data.toplamBasvuru ?? data.totalBasvuru ?? data.total ?? data.count;
+        const count = Number(rawCount);
+
+        if (Number.isFinite(count) && count >= 0) {
+          basvuruCounts[snapshot.id] = Math.round(count);
+        }
+      });
+    }
+    setBasvuruCountByMeydan(basvuruCounts);
     } catch (error) {
       console.error('loadDashboard error:', error);
       throw error;
@@ -495,6 +744,21 @@ export default function Dashboard({ onLogout }) {
       active = false;
     };
   }, [loadDashboard]);
+
+  useEffect(() => {
+    if (!adminUnlocked) {
+      wasDataManagementOpenRef.current = false;
+      return;
+    }
+
+    const isDataManagementOpen = openSections.has('veri-yonetimi');
+
+    if (isDataManagementOpen && !wasDataManagementOpenRef.current) {
+      handleRefreshDataQuality();
+    }
+
+    wasDataManagementOpenRef.current = isDataManagementOpen;
+  }, [adminUnlocked, openSections, handleRefreshDataQuality]);
 
   useEscapeHandler(Boolean(activeStatOverlay), closeStatOverlay);
   useEscapeHandler(Boolean(activeKronikModalId), closeKronikModal);
@@ -708,23 +972,30 @@ export default function Dashboard({ onLogout }) {
     return Math.max(0, Math.min(100, Math.round((progress.current / progress.total) * 100)));
   }, [progress]);
 
+  const izinUploadPercent = useMemo(() => {
+    if (!izinProgress?.total) {
+      return 0;
+    }
+
+    return Math.max(0, Math.min(100, Math.round((izinProgress.current / izinProgress.total) * 100)));
+  }, [izinProgress]);
+
   const activeMeydanRows = useMemo(
     () => activeMeydanlar.map((meydan) => ({ id: meydan.id, isim: meydan.isim || meydan.id })),
     [activeMeydanlar],
   );
 
-  useEffect(() => {
-    if (!meydanlar.length || loading) {
-      return undefined;
-    }
+  const refreshOperationalInsights = useCallback(async ({ silent = false, preferStored = false, signal } = {}) => {
+    setInsightsLoading(true);
 
-    const controller = new AbortController();
-
-    async function loadInsights() {
-      setInsightsLoading(true);
-      const stored = await loadStoredOperationalInsights(db, todayKey).catch(() => []);
-      if (!controller.signal.aborted && stored.length) {
-        setOperationalInsights(stored.filter(isValidInsightText));
+    try {
+      if (preferStored) {
+        const stored = await loadStoredOperationalInsights(db, todayKey).catch(() => []);
+        if (!signal?.aborted && stored.length) {
+          setOperationalInsights(stored.filter(isValidInsightText));
+          setInsightsLoading(false);
+          return;
+        }
       }
 
       const insights = await generateOperationalInsights(
@@ -733,28 +1004,50 @@ export default function Dashboard({ onLogout }) {
           historyShifts,
           meydanlar,
           kronikSorunlar,
+          basvuruCountByMeydan,
           todayKey,
         },
         {
           useAI: false,
-          signal: controller.signal,
+          signal,
         },
       );
 
-      if (!controller.signal.aborted) {
-        const sanitizedInsights = insights.filter(isValidInsightText);
-        setOperationalInsights(sanitizedInsights);
+      if (signal?.aborted) {
+        return;
+      }
+
+      const sanitizedInsights = insights.filter(isValidInsightText);
+      setOperationalInsights(sanitizedInsights);
+      setInsightsLastUpdatedAt(new Date().toLocaleString('tr-TR'));
+      saveOperationalInsights(db, todayKey, sanitizedInsights).catch(() => {});
+
+      if (!silent) {
+        setStatus({ type: 'success', text: 'AI desteği içerikleri güncellendi.' });
+      }
+    } catch (error) {
+      if (!signal?.aborted && !silent) {
+        setStatus({ type: 'error', text: `AI desteği güncellenemedi: ${error?.code || error?.message || 'bilinmeyen hata'}` });
+      }
+    } finally {
+      if (!signal?.aborted) {
         setInsightsLoading(false);
-        saveOperationalInsights(db, todayKey, sanitizedInsights).catch(() => {});
       }
     }
+  }, [basvuruCountByMeydan, historyShifts, kronikSorunlar, meydanlar, recentShifts, todayKey]);
 
-    loadInsights();
+  useEffect(() => {
+    if (!meydanlar.length || loading) {
+      return undefined;
+    }
+
+    const controller = new AbortController();
+    refreshOperationalInsights({ silent: true, preferStored: true, signal: controller.signal });
 
     return () => {
       controller.abort();
     };
-  }, [historyShifts, kronikSorunlar, loading, meydanlar, recentShifts, todayKey]);
+  }, [loading, meydanlar.length, refreshOperationalInsights]);
 
   function getScheduledCount(meydanId) {
     return scheduledShiftCountByMeydan.get(meydanId) || 0;
@@ -947,6 +1240,21 @@ export default function Dashboard({ onLogout }) {
     }
   }
 
+  async function handleRefreshDataQuality() {
+    setQualityRefreshing(true);
+    setStatus((current) => ({ ...current, text: current.type === 'error' ? current.text : '' }));
+
+    try {
+      await loadDashboard();
+      setStatus({ type: 'success', text: 'Veri kalite taraması güncellendi.' });
+    } catch (error) {
+      console.error('Data quality refresh failed.', error);
+      setStatus({ type: 'error', text: 'Veri kalite taraması yenilenemedi.' });
+    } finally {
+      setQualityRefreshing(false);
+    }
+  }
+
   async function handleDeleteAll() {
     const shouldDelete = window.confirm(
       'Tüm vardiyaları ve tanımlanmış meydanları silmek istediğinize emin misiniz? Sistem tamamen sıfırlanacaktır.',
@@ -1025,7 +1333,7 @@ export default function Dashboard({ onLogout }) {
       setStatus({
         type: skippedCount > 0 ? 'error' : 'success',
         text: skippedCount > 0
-          ? `Yükleme tamamlandı. ${ignoredCount ? `${ignoredCount} HT/izin satırı normal olarak hariç tutuldu. ` : ''}Atlanan kayıtlar için Veri Yönetimi içindeki Yükleme Detayı panelini inceleyin.`
+          ? `${skippedCount} adet kayıt geçersiz/eksik veri nedeniyle atlandı.${ignoredCount ? ` ${ignoredCount} HT/izin satırı normal olarak hariç tutuldu.` : ''}`
           : `Yükleme tamamlandı.${ignoredCount ? ` ${ignoredCount} HT/izin satırı normal olarak hariç tutuldu.` : ''}`,
       });
     } catch (error) {
@@ -1091,12 +1399,154 @@ export default function Dashboard({ onLogout }) {
       await refreshDashboard();
 
       const skippedPart = parsed.skippedRows ? `, ${parsed.skippedRows} satır atlandı` : '';
-      setStatus({ type: 'success', text: `Kronik sorun yükleme tamamlandı. ${created} yeni, ${updated} güncel kayıt işlendi${skippedPart}.` });
+      if (parsed.skippedRows) {
+        setStatus({ type: 'error', text: `${parsed.skippedRows} adet kayıt geçersiz/eksik veri nedeniyle atlandı.` });
+      } else {
+        setStatus({ type: 'success', text: `Kronik sorun yükleme tamamlandı. ${created} yeni, ${updated} güncel kayıt işlendi${skippedPart}.` });
+      }
     } catch (error) {
       console.error('Kronik sorun import failed.', error);
       setStatus({ type: 'error', text: getKronikFirestoreErrorMessage(error, 'yazma') });
     } finally {
       setUploadingKronik(false);
+    }
+  }
+
+  function normalizePersonelKey(value) {
+    return String(value || '')
+      .toLocaleLowerCase('tr-TR')
+      .replace(/[ıi]/g, 'i')
+      .replace(/[ğ]/g, 'g')
+      .replace(/[ü]/g, 'u')
+      .replace(/[ş]/g, 's')
+      .replace(/[ö]/g, 'o')
+      .replace(/[ç]/g, 'c')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function isValidLeaveDateKey(dateKey, { minYear = 2020, maxYear = 2040 } = {}) {
+    const raw = String(dateKey || '').trim();
+    const match = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) {
+      return false;
+    }
+
+    const [, yearText, monthText, dayText] = match;
+    const year = Number(yearText);
+    const month = Number(monthText);
+    const day = Number(dayText);
+    if (!Number.isFinite(year) || year < minYear || year > maxYear) {
+      return false;
+    }
+
+    const date = new Date(year, month - 1, day, 12, 0, 0, 0);
+    return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+  }
+
+  function getInclusiveDayCount(fromDateKey, toDateKey) {
+    const from = new Date(`${fromDateKey}T00:00:00`);
+    const to = new Date(`${toDateKey}T00:00:00`);
+    if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
+      return 1;
+    }
+
+    const safeTo = to < from ? from : to;
+    const diff = Math.round((safeTo.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
+    return Math.max(1, diff + 1);
+  }
+
+  async function handleIzinUpload(rawJson) {
+    setUploadingIzin(true);
+    setIzinProgress(null);
+    setStatus({ type: '', text: '' });
+
+    try {
+      if (!auth.currentUser) {
+        setStatus({ type: 'error', text: 'Firebase oturumu bulunamadi. Lutfen yeniden giris yapin.' });
+        return;
+      }
+
+      const parsed = parsePersonelIzinExcelRows(rawJson);
+
+      if (!parsed.validRows.length) {
+        setStatus({ type: 'error', text: 'Personel izin dosyasında uygun satır bulunamadı. Personel adı ve tarih alanlarını kontrol edin.' });
+        return;
+      }
+
+      let invalidDateRows = 0;
+      const validatedRows = [];
+      parsed.validRows.forEach((item) => {
+        const startRaw = String(item?.baslangicTarihi || '').trim();
+        const endRaw = String(item?.bitisTarihi || item?.baslangicTarihi || '').trim();
+
+        if (!isValidLeaveDateKey(startRaw) || !isValidLeaveDateKey(endRaw)) {
+          invalidDateRows += 1;
+          return;
+        }
+
+        const baslangicTarihi = startRaw <= endRaw ? startRaw : endRaw;
+        const bitisTarihi = startRaw <= endRaw ? endRaw : startRaw;
+        const gunSayisi = getInclusiveDayCount(baslangicTarihi, bitisTarihi);
+
+        validatedRows.push({
+          ...item,
+          baslangicTarihi,
+          bitisTarihi,
+          gunSayisi,
+        });
+      });
+
+      if (!validatedRows.length) {
+        setStatus({ type: 'error', text: 'Dosyadaki tarih alanları geçersiz görünüyor (ör. 1900). Lütfen başlangıç-bitiş tarihlerini kontrol edip tekrar yükleyin.' });
+        return;
+      }
+
+      let created = 0;
+      const chunks = splitToChunks(validatedRows, FIRESTORE_BATCH_LIMIT);
+      const totalChunks = chunks.length;
+      if (totalChunks > 0) {
+        setIzinProgress({ current: 0, total: totalChunks });
+      }
+
+      for (let index = 0; index < chunks.length; index += 1) {
+        const chunk = chunks[index];
+        const batch = writeBatch(db);
+
+        chunk.forEach((item) => {
+          const reference = doc(db, COLLECTIONS.PERSONEL_IZINLER, item.id);
+          created += 1;
+
+          batch.set(reference, {
+            personelAdi: item.personelAdi,
+            personelAdiNorm: normalizePersonelKey(item.personelAdi),
+            izinTuru: item.izinTuru,
+            baslangicTarihi: item.baslangicTarihi,
+            bitisTarihi: item.bitisTarihi,
+            gunSayisi: item.gunSayisi,
+            aciklama: item.aciklama || '',
+            updatedAt: serverTimestamp(),
+            createdAt: serverTimestamp(),
+          }, { merge: true });
+        });
+
+        await batch.commit();
+        setIzinProgress({ current: index + 1, total: totalChunks });
+      }
+
+      const totalSkipped = (parsed.skippedRows || 0) + invalidDateRows;
+      const skippedPart = totalSkipped ? `, ${totalSkipped} satır atlandı` : '';
+      if (totalSkipped > 0) {
+        setStatus({ type: 'error', text: `${totalSkipped} adet kayıt geçersiz/eksik veri nedeniyle atlandı.` });
+      } else {
+        setStatus({ type: 'success', text: `Personel izinleri yüklendi. ${created} kayıt işlendi${skippedPart}.` });
+      }
+    } catch (error) {
+      console.error('Personel izin import failed.', error);
+      setStatus({ type: 'error', text: error?.message || 'Personel izinleri yüklenemedi.' });
+    } finally {
+      setUploadingIzin(false);
+      setIzinProgress(null);
     }
   }
 
@@ -1298,6 +1748,13 @@ export default function Dashboard({ onLogout }) {
           </div>
         ) : null}
 
+        <AIDailyExecutiveSummary
+          todayShifts={todayShifts}
+          activeMeydanCount={activeMeydanlar.length}
+          dataQualityIssuesCount={dataQualityIssues.length}
+          kronikSorunlarCount={kronikSorunlar.length}
+        />
+
         <div className="section-accordion-list">
           <SectionToggleBar itemKey="active-meydanlar" isOpen={openSections.has('active-meydanlar')} onToggle={toggleSection}>
             <ActiveMeydanlarSection
@@ -1314,6 +1771,16 @@ export default function Dashboard({ onLogout }) {
               onToggleMeydan={handleToggleExpandedMeydan}
               onToggleShowAll={() => setShowAllMeydanlar((current) => !current)}
             />
+
+            <section className="panel-section" style={{ marginTop: '1.5rem' }}>
+              <div className="panel-section__header">
+                <div>
+                  <span className="section-kicker">Saha Haritası & Yoğunluk Matrisi</span>
+                  <h2>İstanbul Meydanları Canlı Yoğunluk Haritası</h2>
+                </div>
+              </div>
+              <IstanbulFieldMap todayShifts={todayShifts} activeMeydanlar={activeMeydanlar} />
+            </section>
           </SectionToggleBar>
 
           <SectionToggleBar itemKey="meydan-yonetimi-grup" isOpen={openSections.has('meydan-yonetimi-grup')} onToggle={toggleSection}>
@@ -1466,14 +1933,22 @@ export default function Dashboard({ onLogout }) {
           adminPasswordError={adminPasswordError}
           onAdminPasswordChange={(e) => { setAdminPasswordInput(e.target.value); setAdminPasswordError(false); }}
           onAdminUnlock={handleAdminUnlock}
+          onRefreshOperationalInsights={() => refreshOperationalInsights({ silent: false })}
+          insightsLoading={insightsLoading}
+          insightsLastUpdatedAt={insightsLastUpdatedAt}
+          uploadingPlan={uploadingPlan}
+          uploadingIzin={uploadingIzin}
           uploading={uploading}
           uploadingKronik={uploadingKronik}
           progress={progress}
           uploadPercent={uploadPercent}
+          izinProgress={izinProgress}
+          izinUploadPercent={izinUploadPercent}
           ExcelUpload={ExcelUpload}
           LoadingUploadModule={LoadingUploadModule}
           handleExcelUpload={handleExcelUpload}
           handleKronikUpload={handleKronikUpload}
+          handleIzinUpload={handleIzinUpload}
           raporBaslik={raporBaslik}
           setRaporBaslik={setRaporBaslik}
           uploadingRapor={uploadingRapor}
@@ -1500,6 +1975,10 @@ export default function Dashboard({ onLogout }) {
           showAllAdminKronik={showAllAdminKronik}
           setShowAllAdminKronik={setShowAllAdminKronik}
           initialVisibleAdminKronikCount={INITIAL_VISIBLE_ADMIN_KRONIK_COUNT}
+          dataQualityIssues={dataQualityIssues}
+          dataQualityUpdatedAt={dataQualityUpdatedAt}
+          onRefreshDataQuality={handleRefreshDataQuality}
+          qualityRefreshing={qualityRefreshing}
           recentShifts={recentShifts}
           visibleShiftsCount={visibleShiftsCount}
           setVisibleShiftsCount={setVisibleShiftsCount}

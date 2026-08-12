@@ -129,25 +129,6 @@ function getDaysDiff(fromKey, toKey) {
   return Math.max(0, diff);
 }
 
-function getHistoryRangeSummary(historyShifts = []) {
-  const dateKeys = (historyShifts || [])
-    .map((shift) => String(shift?.tarih || '').trim())
-    .filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value));
-
-  if (!dateKeys.length) {
-    return null;
-  }
-
-  dateKeys.sort((left, right) => left.localeCompare(right, 'tr'));
-  const from = dateKeys[0];
-  const to = dateKeys[dateKeys.length - 1];
-  return {
-    from,
-    to,
-    dayCount: getDaysDiff(from, to) + 1,
-  };
-}
-
 function createMeydanNameMap(meydanlar) {
   return new Map((meydanlar || []).map((meydan) => [meydan.id, meydan.isim || meydan.id]));
 }
@@ -322,20 +303,14 @@ function buildMeydanIssueCountMap(kronikSorunlar = [], meydanlar = []) {
   return issueCounts;
 }
 
-function buildLeastRecordedMeydanInsight(historyShifts, meydanlar) {
+function buildLeastRecordedMeydanInsight(meydanlar, basvuruCountByMeydan = {}) {
   const meydanNameMap = createMeydanNameMap(meydanlar);
-  const meydanCounts = new Map();
-
-  (historyShifts || []).forEach((shift) => {
-    if (!shift?.meydanId || !meydanNameMap.has(shift.meydanId)) {
-      return;
-    }
-
-    meydanCounts.set(shift.meydanId, (meydanCounts.get(shift.meydanId) || 0) + 1);
-  });
-
-  const ranked = Array.from(meydanCounts.entries())
-    .filter(([, count]) => count > 0)
+  const ranked = Array.from(meydanNameMap.keys())
+    .map((meydanId) => {
+      const rawCount = Number(basvuruCountByMeydan?.[meydanId]);
+      return [meydanId, rawCount];
+    })
+    .filter(([, count]) => Number.isFinite(count) && count >= 0)
     .sort((left, right) => left[1] - right[1])
     .slice(0, 3);
 
@@ -343,19 +318,13 @@ function buildLeastRecordedMeydanInsight(historyShifts, meydanlar) {
     return null;
   }
 
-  const range = getHistoryRangeSummary(historyShifts);
-
   const list = ranked
-    .map(([meydanId, count]) => `${meydanNameMap.get(meydanId) || meydanId} (${count} vardiya)`)
+    .map(([meydanId, count]) => `${meydanNameMap.get(meydanId) || meydanId} (${count} başvuru)`)
     .join(', ');
-
-  const rangeText = range
-    ? `Hesaplama araligi: ${formatDateLabel(range.from)} - ${formatDateLabel(range.to)} (${range.dayCount} gun). `
-    : '';
 
   return {
     title: 'Düşük Kayıtlı Meydanlar',
-    text: `${rangeText}Kayıt döneminde en az planlama kaydı bulunan alanlar: ${list}. Bu alanlarda veri giriş düzeni ayrıca kontrol edilmelidir.`,
+    text: `Toplam başvuru sayılarına göre en düşük kayıt bulunan alanlar: ${list}. Bu meydanlarda başvuru giriş düzeni ayrıca kontrol edilmelidir.`,
     severity: 'warning',
   };
 }
@@ -406,7 +375,7 @@ function buildHighTrafficLowIssueInsight(historyShifts, kronikSorunlar, meydanla
   };
 }
 
-function buildLocalInsights({ historyShifts = [], recentShifts = [], meydanlar = [], kronikSorunlar = [], todayKey = '' }) {
+function buildLocalInsights({ historyShifts = [], recentShifts = [], meydanlar = [], kronikSorunlar = [], basvuruCountByMeydan = {}, todayKey = '' }) {
   const planEkleHistoryShifts = filterPlanEkleHistoryShifts(historyShifts, todayKey);
   const operationalMeydanlar = filterOperationalMeydanlar(meydanlar);
   const operationalMeydanIds = new Set(operationalMeydanlar.map((meydan) => meydan.id));
@@ -428,7 +397,7 @@ function buildLocalInsights({ historyShifts = [], recentShifts = [], meydanlar =
   const dataFlow = buildDataFlowInsight(recentShifts);
   if (dataFlow) insights.push(dataFlow);
 
-  const leastRecorded = buildLeastRecordedMeydanInsight(operationalHistoryShifts, operationalMeydanlar);
+  const leastRecorded = buildLeastRecordedMeydanInsight(operationalMeydanlar, basvuruCountByMeydan);
   if (leastRecorded) insights.push(leastRecorded);
 
   const highTrafficLowIssue = buildHighTrafficLowIssueInsight(operationalHistoryShifts, kronikSorunlar, operationalMeydanlar);

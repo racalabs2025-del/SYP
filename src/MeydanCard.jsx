@@ -63,7 +63,13 @@ export default function MeydanCard({
   return (
     <article {...cardProps}>
       <div className="meydan-title-row">
-        <div className="meydan-title">{meydan.isim}</div>
+        {isEmbedded ? (
+          <Link to={`/meydan/${encodeURIComponent(meydan.id)}`} className="meydan-title meydan-title-link">
+            {meydan.isim}
+          </Link>
+        ) : (
+          <div className="meydan-title">{meydan.isim}</div>
+        )}
         {meydan.tamAd ? (
           <div className="meydan-info" ref={infoRef}>
             <button

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
-import { signInAnonymouslyUser } from '../auth';
+import { signInAnonymouslyUser, verifyPanelPassword } from '../auth';
 
 const LOGIN_SCENES = [
   '/login-scenes/optimized/istanbul-1.avif',
@@ -14,6 +14,7 @@ const LOGIN_SCENES = [
 export default function LoginScreen() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
   const navigate = useNavigate();
 
   async function handleAnonymousLogin(event) {
@@ -22,6 +23,7 @@ export default function LoginScreen() {
     setLoading(true);
 
     try {
+      verifyPanelPassword(passwordInput);
       await signInAnonymouslyUser();
       navigate('/', { replace: true });
     } catch (authError) {
@@ -51,7 +53,7 @@ export default function LoginScreen() {
 
       <main className="login-screen__main">
         <section className="login-screen__hero" aria-hidden="true">
-          <h1>İstanbul'ın meydanları tek ekranda.</h1>
+          <h1>Tüm saha ekipleri tek ekranda.</h1>
           <p>Günlük operasyon görünürlüğü.</p>
 
           <div className="login-screen__chips">
@@ -83,6 +85,23 @@ export default function LoginScreen() {
           </div>
 
           <form className="login-form" onSubmit={handleAnonymousLogin}>
+            <label htmlFor="panel-password-input" className="sr-only">Panel parolasi</label>
+            <input
+              id="panel-password-input"
+              type="password"
+              className="admin-lock__input"
+              placeholder="Panel parolasi"
+              autoComplete="current-password"
+              value={passwordInput}
+              onChange={(event) => {
+                setPasswordInput(event.target.value);
+                if (error) {
+                  setError('');
+                }
+              }}
+              required
+            />
+
             <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
               {loading ? 'Bağlanıyor...' : 'Panele Giriş Yap'}
             </button>

@@ -185,3 +185,239 @@ export function parseKronikExcelRows(rawRows = []) {
     skippedRows: skipped,
   };
 }
+
+function parseExcelDateValue(rawValue) {
+  if (rawValue === null || rawValue === undefined) {
+    return '';
+  }
+
+  if (typeof rawValue === 'number' && Number.isFinite(rawValue)) {
+    // Excel serial date (1900-based, allowing fractional days).
+    const excelEpoch = new Date(Date.UTC(1899, 11, 30));
+    const date = new Date(excelEpoch.getTime() + (Math.floor(rawValue) * 24 * 60 * 60 * 1000));
+    if (!Number.isNaN(date.getTime())) {
+      const year = date.getUTCFullYear();
+      // Reject serials that produce unrealistic years — prevents day-count or
+      // row-index numbers (2, 3, 4 …) from being mis-parsed as 1900 dates.
+      if (year < 2000 || year > 2040) return '';
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+      const day = String(date.getUTCDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+  }
+
+  const text = String(rawValue).trim();
+  if (!text) {
+    return '';
+  }
+
+  const ymdMatch = text.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+  if (ymdMatch) {
+    const [, year, month, day] = ymdMatch;
+    return `${String(Number(year)).padStart(4, '0')}-${String(Number(month)).padStart(2, '0')}-${String(Number(day)).padStart(2, '0')}`;
+  }
+
+  const dmyMatch = text.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+  if (dmyMatch) {
+    const [, day, month, year] = dmyMatch;
+    return `${String(Number(year)).padStart(4, '0')}-${String(Number(month)).padStart(2, '0')}-${String(Number(day)).padStart(2, '0')}`;
+  }
+
+  return '';
+}
+
+function normalizePersonelName(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function getDayDiffInclusive(fromDateKey, toDateKey) {
+  if (!fromDateKey || !toDateKey) {
+    return 0;
+  }
+
+  const fromDate = new Date(`${fromDateKey}T00:00:00`);
+  const toDate = new Date(`${toDateKey}T00:00:00`);
+  if (Number.isNaN(fromDate.getTime()) || Number.isNaN(toDate.getTime())) {
+    return 0;
+  }
+
+  const diff = Math.round((toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
+  return diff >= 0 ? diff + 1 : 0;
+}
+
+function looksLikePersonName(value) {
+  const text = String(value || '').trim();
+  if (!text) {
+    return false;
+  }
+
+  if (text.length < 4 || text.length > 60) {
+    return false;
+  }
+
+  if (/^\d+$/.test(text)) {
+    return false;
+  }
+
+  if (/^[\d./-]+$/.test(text)) {
+    return false;
+  }
+
+  const tokens = text.split(/\s+/).filter(Boolean);
+  if (tokens.length < 2) {
+    return false;
+  }
+
+  return /[a-zA-ZığüşöçİĞÜŞÖÇ]/.test(text);
+}
+
+function pickLikelyPersonelName(row = {}) {
+  const entries = Object.entries(row || {});
+
+  const preferredByKey = entries.find(([key, value]) => {
+    const normalizedKey = normalizeHeaderText(key);
+    if (!normalizedKey) {
+      return false;
+    }
+
+    if (normalizedKey.includes('personel') || normalizedKey.includes('adsoyad') || normalizedKey.includes('adisoyadi') || normalizedKey.includes('isimsoyisim')) {
+      return looksLikePersonName(value);
+    }
+
+    return false;
+  });
+
+  if (preferredByKey) {
+    return String(preferredByKey[1] || '').replace(/\s+/g, ' ').trim();
+  }
+
+  const fallback = entries.find(([, value]) => looksLikePersonName(value));
+  return fallback ? String(fallback[1] || '').replace(/\s+/g, ' ').trim() : '';
+}
+
+function pickLikelyDateRange(row = {}) {
+  const dateValues = [];
+
+  Object.values(row || {}).forEach((value) => {
+    const parsed = parseExcelDateValue(value);
+    if (parsed) {
+      dateValues.push(parsed);
+    }
+  });
+
+  if (!dateValues.length) {
+    return { from: '', to: '' };
+  }
+
+  dateValues.sort((left, right) => left.localeCompare(right, 'tr'));
+  return {
+    from: dateValues[0],
+    to: dateValues[dateValues.length - 1],
+  };
+}
+
+export function parsePersonelIzinExcelRows(rawRows = []) {
+  const personelAliases = ['personeladi', 'personel', 'adisoyadi', 'adsoyad', 'adisoyisim', 'calisan', 'isimsoyisim', 'adisoyadiniz'];
+  const izinTuruAliases = ['izinturu', 'izintipi', 'tur', 'izinkodu', 'izinsebebi', 'izin'];
+  const baslangicAliases = [
+    'baslangictarihi',
+    'baslangic',
+    'baslangictarih',
+    'izininbaslangici',
+    'baslangicgunu',
+    'isebaslamatarihi',
+    'isbaslamatarihi',
+    'isebaslama',
+    'isbaslama',
+    'isebaslangictarihi',
+    'isbaslangictarihi',
+    'tarih',
+  ];
+  const bitisAliases = [
+    'bitistarihi',
+    'bitis',
+    'bitistarih',
+    'izininbitisi',
+    'bitisgunu',
+    'donustarihi',
+    'isebitistarihi',
+    'isbitistarihi',
+    'isebitis',
+    'isbitis',
+  ];
+  const gunSayisiAliases = ['izingunsayisi', 'gunsayisi', 'izinsuresi', 'sure', 'toplamgun'];
+  const aciklamaAliases = ['aciklama', 'not', 'detay', 'aciklamasi', 'sebep'];
+
+  const parsedRows = [];
+  let skippedRows = 0;
+
+  rawRows.forEach((row, rowIndex) => {
+    const normalizedRow = buildNormalizedRow(row);
+
+    const personelAdi = normalizePersonelName(
+      firstNonEmpty(normalizedRow, ['personeladi', 'personel', 'adisoyadi', 'adsoyad', 'calisan'])
+      || pickRowValue(row, personelAliases)
+    ) || pickLikelyPersonelName(row);
+
+    const izinTuru = String(
+      firstNonEmpty(normalizedRow, ['izinturu', 'izintipi', 'izinsebebi', 'izin'])
+      || pickRowValue(row, izinTuruAliases)
+      || 'İzin'
+    ).trim();
+
+    const rawBaslangic = firstNonEmpty(normalizedRow, ['baslangictarihi', 'baslangic', 'tarih']) || pickRowValue(row, baslangicAliases);
+    const rawBitis = firstNonEmpty(normalizedRow, ['bitistarihi', 'bitis']) || pickRowValue(row, bitisAliases);
+    const rawGunSayisi = firstNonEmpty(normalizedRow, ['izingunsayisi', 'gunsayisi', 'izinsuresi', 'sure']) || pickRowValue(row, gunSayisiAliases);
+    const aciklama = String(
+      firstNonEmpty(normalizedRow, ['aciklama', 'not', 'detay', 'sebep'])
+      || pickRowValue(row, aciklamaAliases)
+    ).trim();
+
+    const likelyDateRange = pickLikelyDateRange(row);
+    const baslangicTarihi = parseExcelDateValue(rawBaslangic) || likelyDateRange.from;
+    const bitisTarihiFromCell = parseExcelDateValue(rawBitis);
+
+    let gunSayisiFromCell = Number(String(rawGunSayisi || '').replace(',', '.').trim());
+    if (!Number.isFinite(gunSayisiFromCell) || gunSayisiFromCell <= 0) {
+      gunSayisiFromCell = 0;
+    }
+
+    let bitisTarihi = bitisTarihiFromCell || likelyDateRange.to || baslangicTarihi;
+    if (!bitisTarihiFromCell && baslangicTarihi && gunSayisiFromCell > 1) {
+      const baslangicDate = new Date(`${baslangicTarihi}T00:00:00`);
+      baslangicDate.setDate(baslangicDate.getDate() + Math.floor(gunSayisiFromCell) - 1);
+      bitisTarihi = `${baslangicDate.getFullYear()}-${String(baslangicDate.getMonth() + 1).padStart(2, '0')}-${String(baslangicDate.getDate()).padStart(2, '0')}`;
+    }
+
+    if (!personelAdi || !baslangicTarihi || !bitisTarihi) {
+      skippedRows += 1;
+      return;
+    }
+
+    const gunSayisi = gunSayisiFromCell > 0
+      ? Math.max(1, Math.floor(gunSayisiFromCell))
+      : Math.max(1, getDayDiffInclusive(baslangicTarihi, bitisTarihi));
+    const stableId = toSafeDocId(`${personelAdi}-${baslangicTarihi}-${bitisTarihi}-${izinTuru}`);
+
+    parsedRows.push({
+      id: stableId,
+      personelAdi,
+      izinTuru: izinTuru || 'İzin',
+      baslangicTarihi,
+      bitisTarihi,
+      gunSayisi,
+      aciklama,
+      rawRowIndex: rowIndex,
+    });
+  });
+
+  const deduped = new Map();
+  parsedRows.forEach((item) => {
+    deduped.set(item.id, item);
+  });
+
+  return {
+    validRows: Array.from(deduped.values()),
+    skippedRows,
+  };
+}

@@ -1,0 +1,360 @@
+{
+  "scanned": 118,
+  "fixable": 0,
+  "unresolved": 55,
+  "archiveUnresolved": false,
+  "sampleFixable": [],
+  "sampleUnresolved": [
+    {
+      "id": "ADEM-CAN-DZ-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "ADEM CAN DÜZ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BEKR-GRMEK-1900-01-04-1900-01-08-BABALIK-ZN",
+      "personelAdi": "BEKİR GÖRMEK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "BEKR-GRMEK-1900-01-16-1900-02-01-YILLIK-ZN",
+      "personelAdi": "BEKİR GÖRMEK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-16",
+      "bitisTarihi": "1900-02-01"
+    },
+    {
+      "id": "BERKAY-DEDE-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "BERKAY DEDE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BRAHM-SREK-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "İBRAHİM SİREK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-09-1900-01-18-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-13-1900-01-26-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-13",
+      "bitisTarihi": "1900-01-26"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-20-1900-02-09-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-20",
+      "bitisTarihi": "1900-02-09"
+    },
+    {
+      "id": "BUSE-DEMREL-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "BUSE DEMİREL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "DUYGU-KARATA-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "DUYGU KARATAŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-05-1900-01-10-LM-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-05",
+      "bitisTarihi": "1900-01-10"
+    },
+    {
+      "id": "ERDEM-ARABACI-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "ERDEM ARABACI",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ERDEM-ARABACI-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "ERDEM ARABACI",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "ERHAN-EKNC-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "ERHAN EKİNCİ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "FATH-GNE-1900-01-08-1900-01-16-YILLIK-ZN",
+      "personelAdi": "FATİH GÜNEŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-08",
+      "bitisTarihi": "1900-01-16"
+    },
+    {
+      "id": "GZEM-KIZILCA-1900-01-06-1900-01-12-YILLIK-ZN",
+      "personelAdi": "GİZEM KIZILCA",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-06",
+      "bitisTarihi": "1900-01-12"
+    },
+    {
+      "id": "GZEM-KIZILCA-1900-01-09-1900-01-18-YILLIK-ZN",
+      "personelAdi": "GİZEM KIZILCA",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "HAKAN-HAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "HAKAN HAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "HALL-BRAHM-BULUT-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "HALİL İBRAHİM BULUT",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "HATCE-ADSAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "HATİCE ADSAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "HATCE-ADSAN-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "HATİCE ADSAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "HAYDAR-OBAN-1900-01-05-1900-01-10-LM-ZN",
+      "personelAdi": "HAYDAR ÇOBAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-05",
+      "bitisTarihi": "1900-01-10"
+    },
+    {
+      "id": "HELN-ZDEMR-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "HELİN ÖZDEMİR",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "KADER-SALMAN-1900-01-08-1900-01-16-YILLIK-ZN",
+      "personelAdi": "KADER SALMAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-08",
+      "bitisTarihi": "1900-01-16"
+    },
+    {
+      "id": "KEMAL-ERVEN-DARMAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "KEMAL ERVEN DARMAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "KR-KIDL-1900-01-09-1900-01-18-YILLIK-ZN",
+      "personelAdi": "ŞÜKRÜ KIDİL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-04-1900-01-08-BABALIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "ONUR-ARMAAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "ONUR ARMAĞAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OZAN-YUSUF-AKBA-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "OZAN YUSUF AKBAŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "SERHAT-AKKO-1900-01-02-1900-01-04-REFAKAT-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "SERHAT-AKKO-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "SMAL-OBAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "İSMAİL ÇOBAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UMUT-EMRE-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "UMUT EMRE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UMUT-EMRE-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "UMUT EMRE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "UUR-BEYHATUN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "UĞUR BEYHATUN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UUR-BEYHATUN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "UĞUR BEYHATUN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    }
+  ],
+  "generatedAt": "2026-04-11T12:54:05.552Z"
+}

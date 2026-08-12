@@ -21,6 +21,12 @@
     "vardiya:coverage:apply": "node scripts/audit_vardiya_coverage.mjs --apply",
     "import:basvurular": "node scripts/import_basvurular.mjs",
     "import:basvurular:dry": "node scripts/import_basvurular.mjs --dry-run",
+    "vardiya:fix-hours": "node scripts/fix_vardiya_hours.mjs",
+    "vardiya:fix-hours:apply": "node scripts/fix_vardiya_hours.mjs --apply",
+    "vardiya:dedupe": "node scripts/dedupe_vardiyalar.mjs",
+    "vardiya:dedupe:apply": "node scripts/dedupe_vardiyalar.mjs --apply",
+    "izin:fix-dates": "node scripts/fix_personel_izin_dates.mjs",
+    "izin:fix-dates:apply": "node scripts/fix_personel_izin_dates.mjs --apply",
     "assets:login:optimize": "node scripts/optimize_login_scenes.mjs"
   },
   "dependencies": {

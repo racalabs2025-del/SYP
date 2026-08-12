@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import ExcelWizardModal from './ExcelWizardModal';
 
 export default function DataManagementSection({
   adminUnlocked,
@@ -6,14 +6,22 @@ export default function DataManagementSection({
   adminPasswordError,
   onAdminPasswordChange,
   onAdminUnlock,
+  onRefreshOperationalInsights,
+  insightsLoading,
+  insightsLastUpdatedAt,
+  uploadingPlan,
+  uploadingIzin,
   uploading,
   uploadingKronik,
   progress,
   uploadPercent,
+  izinProgress,
+  izinUploadPercent,
   ExcelUpload,
   LoadingUploadModule,
   handleExcelUpload,
   handleKronikUpload,
+  handleIzinUpload,
   raporBaslik,
   setRaporBaslik,
   uploadingRapor,
@@ -40,6 +48,10 @@ export default function DataManagementSection({
   showAllAdminKronik,
   setShowAllAdminKronik,
   initialVisibleAdminKronikCount,
+  dataQualityIssues,
+  dataQualityUpdatedAt,
+  onRefreshDataQuality,
+  qualityRefreshing,
   recentShifts,
   visibleShiftsCount,
   setVisibleShiftsCount,
@@ -47,6 +59,33 @@ export default function DataManagementSection({
   handleDeleteShift,
 }) {
   const [previewReportId, setPreviewReportId] = useState('');
+  const [qualitySeverityFilter, setQualitySeverityFilter] = useState('all');
+  const [visibleQualityCount, setVisibleQualityCount] = useState(8);
+  const [wizardModalOpen, setWizardModalOpen] = useState(false);
+
+  const qualitySummary = useMemo(() => {
+    const list = Array.isArray(dataQualityIssues) ? dataQualityIssues : [];
+    return {
+      total: list.length,
+      high: list.filter((item) => item?.severity === 'high').length,
+      medium: list.filter((item) => item?.severity === 'medium').length,
+      low: list.filter((item) => item?.severity === 'low').length,
+    };
+  }, [dataQualityIssues]);
+
+  const filteredQualityIssues = useMemo(() => {
+    const list = Array.isArray(dataQualityIssues) ? dataQualityIssues : [];
+    if (qualitySeverityFilter === 'all') {
+      return list;
+    }
+
+    return list.filter((item) => item?.severity === qualitySeverityFilter);
+  }, [dataQualityIssues, qualitySeverityFilter]);
+
+  const visibleQualityIssues = useMemo(
+    () => filteredQualityIssues.slice(0, visibleQualityCount),
+    [filteredQualityIssues, visibleQualityCount],
+  );
 
   return (
     <section className="panel-section">
@@ -87,6 +126,24 @@ export default function DataManagementSection({
         </div>
       ) : (
         <>
+          <div className="management-ai-refresh">
+            <div>
+              <h3 className="management-card__title">AI Desteği İçerikleri</h3>
+              <p className="management-card__subtitle">Akıllı operasyon önerilerini başvuru ve planlama verilerine göre manuel yenileyin</p>
+              {insightsLastUpdatedAt ? (
+                <p className="management-ai-refresh__meta">Son güncelleme: {insightsLastUpdatedAt}</p>
+              ) : null}
+            </div>
+            <button
+              className="btn btn-primary"
+              type="button"
+              onClick={onRefreshOperationalInsights}
+              disabled={insightsLoading}
+            >
+              {insightsLoading ? 'AI içerikleri güncelleniyor...' : 'AI içeriklerini güncelle'}
+            </button>
+          </div>
+
           <div className="management-grid">
             <div className="management-card">
               <div className="management-card__header">
@@ -103,11 +160,22 @@ export default function DataManagementSection({
                   <p className="management-card__subtitle">Vardiya verilerini .xlsx veya .xls formatında içe aktarın</p>
                 </div>
               </div>
+              <div className="management-card__actions" style={{ marginBottom: '1rem' }}>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-block"
+                  onClick={() => setWizardModalOpen(true)}
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                >
+                  <span>🧙‍♂️ Gelişmiş Excel Sihirbazı Aç (Aylık/Haftalık)</span>
+                </button>
+              </div>
+
               <Suspense fallback={<LoadingUploadModule />}>
                 <ExcelUpload onJsonReady={handleExcelUpload} disabled={uploading} />
               </Suspense>
 
-              {uploading ? (
+              {uploadingPlan ? (
                 <div className="upload-progress message message-loading" role="status" aria-live="polite">
                   <div className="upload-progress__meta">
                     <span>{progress ? `Grup ${progress.current}/${progress.total} işleniyor...` : 'İşlem hazırlanıyor...'}</span>
@@ -146,6 +214,45 @@ export default function DataManagementSection({
                   Kronik sorun kayıtları işleniyor...
                 </div>
               ) : null}
+            </div>
+
+            <div className="management-card">
+              <div className="management-card__header">
+                <div className="management-card__icon management-card__icon--blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                    <path d="M8 14h8" />
+                    <path d="M8 18h5" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="management-card__title">Personel İzin Ekle</h3>
+                  <p className="management-card__subtitle">Yeni izin Excel tablolarını yükleyin, personel detay ekranına otomatik işlensin</p>
+                </div>
+              </div>
+
+              <Suspense fallback={<LoadingUploadModule />}>
+                <ExcelUpload onJsonReady={handleIzinUpload} disabled={uploading} />
+              </Suspense>
+
+              {uploadingIzin ? (
+                <div className="upload-progress message message-loading" role="status" aria-live="polite">
+                  <div className="upload-progress__meta">
+                    <span>{izinProgress ? `Grup ${izinProgress.current}/${izinProgress.total} işleniyor...` : 'İzin kayıtları hazırlanıyor...'}</span>
+                    <strong>{izinUploadPercent}%</strong>
+                  </div>
+                  <div className="upload-progress__track" aria-hidden="true">
+                    <div className="upload-progress__fill" style={{ width: `${izinUploadPercent}%` }} />
+                  </div>
+                </div>
+              ) : null}
+
+              <div className="management-card__body" style={{ marginTop: 12, marginBottom: 0 }}>
+                Personel adı, izin türü, başlangıç/bitiş tarihleri ve açıklama alanları olan tablolar desteklenir.
+              </div>
             </div>
 
             <div className="management-card">
@@ -338,6 +445,118 @@ export default function DataManagementSection({
               ) : null}
             </div>
           ) : null}
+
+          <div className="quality-hub-card">
+            <div className="quality-hub-card__header">
+              <div>
+                <h3>Veri Kalite Merkezi</h3>
+                <p>Planlama ve izin verilerindeki tutarsızlıklar detaylı olarak raporlanır.</p>
+              </div>
+              <div className="quality-hub-card__header-actions">
+                {dataQualityUpdatedAt ? <span className="quality-hub-card__meta">Son tarama: {dataQualityUpdatedAt}</span> : null}
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-inline"
+                  onClick={onRefreshDataQuality}
+                  disabled={qualityRefreshing}
+                >
+                  {qualityRefreshing ? 'Taranıyor...' : 'Kaliteyi Yeniden Tara'}
+                </button>
+              </div>
+            </div>
+
+            <div className="quality-hub-summary-row">
+              <article className="quality-hub-summary-card">
+                <small>Toplam</small>
+                <strong>{qualitySummary.total}</strong>
+              </article>
+              <article className="quality-hub-summary-card is-high">
+                <small>Kritik</small>
+                <strong>{qualitySummary.high}</strong>
+              </article>
+              <article className="quality-hub-summary-card is-medium">
+                <small>Orta</small>
+                <strong>{qualitySummary.medium}</strong>
+              </article>
+              <article className="quality-hub-summary-card is-low">
+                <small>Düşük</small>
+                <strong>{qualitySummary.low}</strong>
+              </article>
+            </div>
+
+            <div className="quality-hub-rule-note">
+              <strong>Duplicate vardiya ne demek?</strong>
+              <span>Aynı personel için aynı meydan, aynı tarih ve aynı saat aralığında birden fazla kayıt varsa duplicate kabul edilir.</span>
+            </div>
+
+            <div className="quality-hub-filter-row" role="group" aria-label="Kalite filtreleri">
+              <button type="button" className={`quality-filter-chip${qualitySeverityFilter === 'all' ? ' is-active' : ''}`} onClick={() => { setQualitySeverityFilter('all'); setVisibleQualityCount(8); }}>
+                Tümü
+              </button>
+              <button type="button" className={`quality-filter-chip${qualitySeverityFilter === 'high' ? ' is-active' : ''}`} onClick={() => { setQualitySeverityFilter('high'); setVisibleQualityCount(8); }}>
+                Kritik
+              </button>
+              <button type="button" className={`quality-filter-chip${qualitySeverityFilter === 'medium' ? ' is-active' : ''}`} onClick={() => { setQualitySeverityFilter('medium'); setVisibleQualityCount(8); }}>
+                Orta
+              </button>
+              <button type="button" className={`quality-filter-chip${qualitySeverityFilter === 'low' ? ' is-active' : ''}`} onClick={() => { setQualitySeverityFilter('low'); setVisibleQualityCount(8); }}>
+                Düşük
+              </button>
+            </div>
+
+            {dataQualityIssues?.length ? (
+              <>
+                <div className="quality-hub-card__banner" role="status" aria-live="polite">
+                  <strong>{dataQualityIssues.length} adet veri kalitesi uyarısı bulundu.</strong>
+                  <span>İlişkili vardiya çakışmaları ve mükerrer kayıt ikazları aşağıda sıralanmıştır.</span>
+                </div>
+
+                <ul className="quality-hub-list">
+                  {visibleQualityIssues.map((issue) => (
+                    <li key={issue.id} className={`quality-hub-item quality-hub-item--${issue.severity || 'low'}`}>
+                      <div className="quality-hub-item__head">
+                        <span className="quality-hub-item__category">{issue.category || 'Veri Kalitesi'}</span>
+                        <span className="quality-hub-item__severity">{issue.severity === 'high' ? 'Kritik' : issue.severity === 'medium' ? 'Orta' : 'Düşük'}</span>
+                      </div>
+
+                      <div className="quality-hub-item__grid">
+                        <div>
+                          <small>Personel</small>
+                          <strong>{issue.personelAdi || '-'}</strong>
+                        </div>
+                        <div>
+                          <small>Hatalı Gün</small>
+                          <strong>{issue.gunSayisi || '-'}</strong>
+                        </div>
+                        <div>
+                          <small>Tarih Aralığı</small>
+                          <strong>{issue.tarihAraligi || '-'}</strong>
+                        </div>
+                      </div>
+
+                      <p><strong>Sorun:</strong> {issue.problem}</p>
+                      {issue.scope ? <p><strong>Kural:</strong> {issue.scope}</p> : null}
+                      <p><strong>Nasıl Düzeltilir:</strong> {issue.cozum}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                {filteredQualityIssues.length > visibleQualityIssues.length ? (
+                  <div className="show-more-row">
+                    <button
+                      className="btn btn-ghost"
+                      type="button"
+                      onClick={() => setVisibleQualityCount((prev) => prev + 10)}
+                    >
+                      Daha Fazla Göster ({filteredQualityIssues.length - visibleQualityIssues.length} kayıt daha)
+                    </button>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <div className="quality-hub-card__ok">Aktif kalite hatası bulunmuyor.</div>
+            )}
+          </div>
 
           <div className="table-section">
             <div className="table-section__header">
@@ -551,6 +770,14 @@ export default function DataManagementSection({
               </div>
             ) : null}
           </div>
+          <ExcelWizardModal
+            isOpen={wizardModalOpen}
+            onClose={() => setWizardModalOpen(false)}
+            onSuccess={() => {
+              setWizardModalOpen(false);
+              if (onRefreshDataQuality) onRefreshDataQuality();
+            }}
+          />
         </>
       )}
     </section>

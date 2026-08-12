@@ -1,0 +1,711 @@
+{
+  "scanned": 118,
+  "fixable": 63,
+  "unresolved": 55,
+  "archiveUnresolved": false,
+  "sampleFixable": [
+    {
+      "id": "AATAY-BEYOLU-1899-12-31-2026-02-25-YILLIK-ZN",
+      "personelAdi": "ÇAĞATAY BEYOĞLU",
+      "from": "1899-12-31 - 2026-02-25",
+      "to": "2026-02-25 - 2026-02-25",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "AATAY-BEYOLU-1899-12-31-2026-04-08-RAPOR",
+      "personelAdi": "ÇAĞATAY BEYOĞLU",
+      "from": "1899-12-31 - 2026-04-08",
+      "to": "2026-04-08 - 2026-04-08",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ABAN-ETRL-1899-12-31-2026-01-27-YILLIK-ZN",
+      "personelAdi": "ŞABAN ETİRLİ",
+      "from": "1899-12-31 - 2026-01-27",
+      "to": "2026-01-27 - 2026-01-27",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "BERAT-SEFA-STANBUL-1899-12-31-2026-02-18-MAZERET-ZN",
+      "personelAdi": "BERAT SEFA İSTANBUL",
+      "from": "1899-12-31 - 2026-02-18",
+      "to": "2026-02-18 - 2026-02-18",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "BERAT-SEFA-STANBUL-1899-12-31-2026-02-19-RAPOR",
+      "personelAdi": "BERAT SEFA İSTANBUL",
+      "from": "1899-12-31 - 2026-02-19",
+      "to": "2026-02-19 - 2026-02-19",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "BERAT-SEFA-STANBUL-1899-12-31-2026-04-09-MAZERET-ZN",
+      "personelAdi": "BERAT SEFA İSTANBUL",
+      "from": "1899-12-31 - 2026-04-09",
+      "to": "2026-04-09 - 2026-04-09",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "BRAHM-SREK-1899-12-31-2026-03-20-YILLIK-ZN",
+      "personelAdi": "İBRAHİM SİREK",
+      "from": "1899-12-31 - 2026-03-20",
+      "to": "2026-03-20 - 2026-03-20",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "CANER-DL-1899-12-31-2026-01-13-DAR-ZN",
+      "personelAdi": "CANER DİŞLİ",
+      "from": "1899-12-31 - 2026-01-13",
+      "to": "2026-01-13 - 2026-01-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "CANER-DL-1899-12-31-2026-01-18-YILLIK-ZN",
+      "personelAdi": "CANER DİŞLİ",
+      "from": "1899-12-31 - 2026-01-18",
+      "to": "2026-01-18 - 2026-01-18",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "CANER-DL-1899-12-31-2026-03-13-YILLIK-ZN",
+      "personelAdi": "CANER DİŞLİ",
+      "from": "1899-12-31 - 2026-03-13",
+      "to": "2026-03-13 - 2026-03-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "CANSIN-BOYOLU-1899-12-31-2026-03-16-YILLIK-ZN",
+      "personelAdi": "CANSIN BOYOĞLU",
+      "from": "1899-12-31 - 2026-03-16",
+      "to": "2026-03-16 - 2026-03-16",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "CANSIN-BOYOLU-1899-12-31-2026-04-13-RAPOR",
+      "personelAdi": "CANSIN BOYOĞLU",
+      "from": "1899-12-31 - 2026-04-13",
+      "to": "2026-04-13 - 2026-04-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "DUYGU-KARATA-1899-12-31-2026-01-21-YILLIK-ZN",
+      "personelAdi": "DUYGU KARATAŞ",
+      "from": "1899-12-31 - 2026-01-21",
+      "to": "2026-01-21 - 2026-01-21",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "DUYGU-KARATA-1899-12-31-2026-02-13-YILLIK-ZN",
+      "personelAdi": "DUYGU KARATAŞ",
+      "from": "1899-12-31 - 2026-02-13",
+      "to": "2026-02-13 - 2026-02-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ENES-DURAN-1899-12-31-2026-01-18-YILLIK-ZN",
+      "personelAdi": "ENES DURAN",
+      "from": "1899-12-31 - 2026-01-18",
+      "to": "2026-01-18 - 2026-01-18",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ENES-DURAN-1899-12-31-2026-03-14-RAPOR",
+      "personelAdi": "ENES DURAN",
+      "from": "1899-12-31 - 2026-03-14",
+      "to": "2026-03-14 - 2026-03-14",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ENES-DURAN-1899-12-31-2026-03-17-MAZERET-ZN",
+      "personelAdi": "ENES DURAN",
+      "from": "1899-12-31 - 2026-03-17",
+      "to": "2026-03-17 - 2026-03-17",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ERDEM-ARABACI-1899-12-31-2026-04-10-MAZERET-ZN",
+      "personelAdi": "ERDEM ARABACI",
+      "from": "1899-12-31 - 2026-04-10",
+      "to": "2026-04-10 - 2026-04-10",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ESRA-EKER-1899-12-31-2026-01-13-DAR-ZN",
+      "personelAdi": "ESRA ŞEKER",
+      "from": "1899-12-31 - 2026-01-13",
+      "to": "2026-01-13 - 2026-01-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ESRA-EKER-1899-12-31-2026-04-01-MAZERET-ZN",
+      "personelAdi": "ESRA ŞEKER",
+      "from": "1899-12-31 - 2026-04-01",
+      "to": "2026-04-01 - 2026-04-01",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "FATH-GNE-1899-12-31-2026-01-17-RAPOR",
+      "personelAdi": "FATİH GÜNEŞ",
+      "from": "1899-12-31 - 2026-01-17",
+      "to": "2026-01-17 - 2026-01-17",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HAKAN-HAN-1899-12-31-2026-01-16-MAZERET-ZN",
+      "personelAdi": "HAKAN HAN",
+      "from": "1899-12-31 - 2026-01-16",
+      "to": "2026-01-16 - 2026-01-16",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HALL-BRAHM-BULUT-1899-12-31-2026-01-20-MAZERET-ZN",
+      "personelAdi": "HALİL İBRAHİM BULUT",
+      "from": "1899-12-31 - 2026-01-20",
+      "to": "2026-01-20 - 2026-01-20",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HALL-BRAHM-BULUT-1899-12-31-2026-02-04-RAPOR",
+      "personelAdi": "HALİL İBRAHİM BULUT",
+      "from": "1899-12-31 - 2026-02-04",
+      "to": "2026-02-04 - 2026-02-04",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HAYDAR-OBAN-1899-12-31-2026-03-25-RAPOR",
+      "personelAdi": "HAYDAR ÇOBAN",
+      "from": "1899-12-31 - 2026-03-25",
+      "to": "2026-03-25 - 2026-03-25",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HSEYN-TRKAY-1899-12-31-2026-03-17-YILLIK-ZN",
+      "personelAdi": "HÜSEYİN TÜRKAY",
+      "from": "1899-12-31 - 2026-03-17",
+      "to": "2026-03-17 - 2026-03-17",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HSEYN-TRKAY-1899-12-31-2026-04-09-RAPOR",
+      "personelAdi": "HÜSEYİN TÜRKAY",
+      "from": "1899-12-31 - 2026-04-09",
+      "to": "2026-04-09 - 2026-04-09",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "HSEYN-TRKAY-1899-12-31-2026-04-14-YILLIK-ZN",
+      "personelAdi": "HÜSEYİN TÜRKAY",
+      "from": "1899-12-31 - 2026-04-14",
+      "to": "2026-04-14 - 2026-04-14",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-01-05-MAZERET-ZN",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-01-05",
+      "to": "2026-01-05 - 2026-01-05",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-02-13-RAPOR",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-02-13",
+      "to": "2026-02-13 - 2026-02-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-03-09-YILLIK-ZN",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-03-09",
+      "to": "2026-03-09 - 2026-03-09",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-03-19-RAPOR",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-03-19",
+      "to": "2026-03-19 - 2026-03-19",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-04-08-YILLIK-ZN",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-04-08",
+      "to": "2026-04-08 - 2026-04-08",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAAN-DNERLER-1899-12-31-2026-04-27-YILLIK-ZN",
+      "personelAdi": "KAAN DİNÇERLER",
+      "from": "1899-12-31 - 2026-04-27",
+      "to": "2026-04-27 - 2026-04-27",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAMLE-ELK-1899-12-31-2026-01-13-DAR-ZN",
+      "personelAdi": "KAMİLE ÇELİK",
+      "from": "1899-12-31 - 2026-01-13",
+      "to": "2026-01-13 - 2026-01-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KAMLE-ELK-1899-12-31-2026-03-25-YILLIK-ZN",
+      "personelAdi": "KAMİLE ÇELİK",
+      "from": "1899-12-31 - 2026-03-25",
+      "to": "2026-03-25 - 2026-03-25",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KBRA-GLERYZ-1899-12-31-2026-01-13-DAR-ZN",
+      "personelAdi": "KÜBRA GÜLERYÜZ",
+      "from": "1899-12-31 - 2026-01-13",
+      "to": "2026-01-13 - 2026-01-13",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KBRA-GLERYZ-1899-12-31-2026-03-04-RAPOR",
+      "personelAdi": "KÜBRA GÜLERYÜZ",
+      "from": "1899-12-31 - 2026-03-04",
+      "to": "2026-03-04 - 2026-03-04",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "KBRA-GLERYZ-1899-12-31-2026-04-07-DOUM-GN-ZN",
+      "personelAdi": "KÜBRA GÜLERYÜZ",
+      "from": "1899-12-31 - 2026-04-07",
+      "to": "2026-04-07 - 2026-04-07",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "NYAZ-BOL-1899-12-31-2026-02-01-RAPOR",
+      "personelAdi": "NİYAZİ BOL",
+      "from": "1899-12-31 - 2026-02-01",
+      "to": "2026-02-01 - 2026-02-01",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "NYAZ-BOL-1899-12-31-2026-04-03-MAZERET-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "from": "1899-12-31 - 2026-04-03",
+      "to": "2026-04-03 - 2026-04-03",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1899-12-31-2026-03-04-MAZERET-ZN",
+      "personelAdi": "OKTAY ARSLAN",
+      "from": "1899-12-31 - 2026-03-04",
+      "to": "2026-03-04 - 2026-03-04",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ONUR-ARMAAN-1899-12-31-2026-01-14-MAZERET-ZN",
+      "personelAdi": "ONUR ARMAĞAN",
+      "from": "1899-12-31 - 2026-01-14",
+      "to": "2026-01-14 - 2026-01-14",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ONUR-ARMAAN-1899-12-31-2026-01-21-RAPOR",
+      "personelAdi": "ONUR ARMAĞAN",
+      "from": "1899-12-31 - 2026-01-21",
+      "to": "2026-01-21 - 2026-01-21",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "ONUR-ARMAAN-1899-12-31-2026-03-11-MAZERET-ZN",
+      "personelAdi": "ONUR ARMAĞAN",
+      "from": "1899-12-31 - 2026-03-11",
+      "to": "2026-03-11 - 2026-03-11",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "OZAN-YUSUF-AKBA-1899-12-31-2026-02-07-YILLIK-ZN",
+      "personelAdi": "OZAN YUSUF AKBAŞ",
+      "from": "1899-12-31 - 2026-02-07",
+      "to": "2026-02-07 - 2026-02-07",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "SERHAT-AKKO-1899-12-31-2026-03-09-REFAKAT-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "from": "1899-12-31 - 2026-03-09",
+      "to": "2026-03-09 - 2026-03-09",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "SERHAT-AKKO-1899-12-31-2026-03-10-YILLIK-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "from": "1899-12-31 - 2026-03-10",
+      "to": "2026-03-10 - 2026-03-10",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "SERHAT-AKKO-1899-12-31-2026-03-16-YILLIK-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "from": "1899-12-31 - 2026-03-16",
+      "to": "2026-03-16 - 2026-03-16",
+      "reason": "rebuild-start-from-days"
+    },
+    {
+      "id": "SERHAT-AKKO-1899-12-31-2026-03-23-MAZERET-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "from": "1899-12-31 - 2026-03-23",
+      "to": "2026-03-23 - 2026-03-23",
+      "reason": "rebuild-start-from-days"
+    }
+  ],
+  "sampleUnresolved": [
+    {
+      "id": "ADEM-CAN-DZ-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "ADEM CAN DÜZ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BEKR-GRMEK-1900-01-04-1900-01-08-BABALIK-ZN",
+      "personelAdi": "BEKİR GÖRMEK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "BEKR-GRMEK-1900-01-16-1900-02-01-YILLIK-ZN",
+      "personelAdi": "BEKİR GÖRMEK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-16",
+      "bitisTarihi": "1900-02-01"
+    },
+    {
+      "id": "BERKAY-DEDE-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "BERKAY DEDE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BRAHM-SREK-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "İBRAHİM SİREK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-09-1900-01-18-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-13-1900-01-26-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-13",
+      "bitisTarihi": "1900-01-26"
+    },
+    {
+      "id": "BURAK-ZELK-1900-01-20-1900-02-09-RAPOR",
+      "personelAdi": "BURAK ÖZÇELİK",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-20",
+      "bitisTarihi": "1900-02-09"
+    },
+    {
+      "id": "BUSE-DEMREL-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "BUSE DEMİREL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "DUYGU-KARATA-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "DUYGU KARATAŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "ENES-DURAN-1900-01-05-1900-01-10-LM-ZN",
+      "personelAdi": "ENES DURAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-05",
+      "bitisTarihi": "1900-01-10"
+    },
+    {
+      "id": "ERDEM-ARABACI-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "ERDEM ARABACI",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "ERDEM-ARABACI-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "ERDEM ARABACI",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "ERHAN-EKNC-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "ERHAN EKİNCİ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "FATH-GNE-1900-01-08-1900-01-16-YILLIK-ZN",
+      "personelAdi": "FATİH GÜNEŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-08",
+      "bitisTarihi": "1900-01-16"
+    },
+    {
+      "id": "GZEM-KIZILCA-1900-01-06-1900-01-12-YILLIK-ZN",
+      "personelAdi": "GİZEM KIZILCA",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-06",
+      "bitisTarihi": "1900-01-12"
+    },
+    {
+      "id": "GZEM-KIZILCA-1900-01-09-1900-01-18-YILLIK-ZN",
+      "personelAdi": "GİZEM KIZILCA",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "HAKAN-HAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "HAKAN HAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "HALL-BRAHM-BULUT-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "HALİL İBRAHİM BULUT",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "HATCE-ADSAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "HATİCE ADSAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "HATCE-ADSAN-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "HATİCE ADSAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "HAYDAR-OBAN-1900-01-05-1900-01-10-LM-ZN",
+      "personelAdi": "HAYDAR ÇOBAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-05",
+      "bitisTarihi": "1900-01-10"
+    },
+    {
+      "id": "HELN-ZDEMR-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "HELİN ÖZDEMİR",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "KADER-SALMAN-1900-01-08-1900-01-16-YILLIK-ZN",
+      "personelAdi": "KADER SALMAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-08",
+      "bitisTarihi": "1900-01-16"
+    },
+    {
+      "id": "KEMAL-ERVEN-DARMAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "KEMAL ERVEN DARMAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "KR-KIDL-1900-01-09-1900-01-18-YILLIK-ZN",
+      "personelAdi": "ŞÜKRÜ KIDİL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-09",
+      "bitisTarihi": "1900-01-18"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-02-1900-01-04-RAPOR",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-04-1900-01-08-BABALIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "NYAZ-BOL-1900-01-04-1900-01-08-YILLIK-ZN",
+      "personelAdi": "NİYAZİ BOL",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-04",
+      "bitisTarihi": "1900-01-08"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OKTAY-ARSLAN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "OKTAY ARSLAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    },
+    {
+      "id": "ONUR-ARMAAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "ONUR ARMAĞAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "OZAN-YUSUF-AKBA-1900-01-01-1900-01-02-YILLIK-ZN",
+      "personelAdi": "OZAN YUSUF AKBAŞ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "SERHAT-AKKO-1900-01-02-1900-01-04-REFAKAT-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "SERHAT-AKKO-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "SERHAT AKKOÇ",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "SMAL-OBAN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "İSMAİL ÇOBAN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UMUT-EMRE-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "UMUT EMRE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UMUT-EMRE-1900-01-02-1900-01-04-YILLIK-ZN",
+      "personelAdi": "UMUT EMRE",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-02",
+      "bitisTarihi": "1900-01-04"
+    },
+    {
+      "id": "UUR-BEYHATUN-1900-01-01-1900-01-02-RAPOR",
+      "personelAdi": "UĞUR BEYHATUN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-01",
+      "bitisTarihi": "1900-01-02"
+    },
+    {
+      "id": "UUR-BEYHATUN-1900-01-03-1900-01-06-YILLIK-ZN",
+      "personelAdi": "UĞUR BEYHATUN",
+      "reason": "both-invalid",
+      "baslangicTarihi": "1900-01-03",
+      "bitisTarihi": "1900-01-06"
+    }
+  ],
+  "generatedAt": "2026-04-11T12:53:55.533Z"
+}
