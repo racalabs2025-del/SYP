@@ -50,18 +50,45 @@ VERİLER:
 
 Kısa, öz ve yönetim sunumuna uygun formatta yaz.
 `;
-
     try {
-      const res = await fetch('http://127.0.0.1:8787/api/deepseek', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: [{ role: 'user', content: userPrompt }],
-        }),
-      });
+      let res;
+
+      // 1. Try relative proxy path first
+      try {
+        res = await fetch('/api/deepseek', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: [{ role: 'user', content: userPrompt }],
+          }),
+        });
+      } catch (proxyErr) {
+        console.warn('Proxy fetch failed, trying direct DeepSeek API...', proxyErr);
+      }
+
+      // 2. If proxy was blocked, failed, or didn't return 200, try direct fallback
+      if (!res || !res.ok) {
+        const apiKey = import.meta.env.VITE_DEEPSEEK_API_KEY;
+        if (!apiKey) {
+          throw new Error('DeepSeek API Anahtarı bulunamadı (VITE_DEEPSEEK_API_KEY). Lütfen proxy sunucusunu çalıştırın veya çevresel değişkenleri ayarlayın.');
+        }
+
+        res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            model: 'deepseek-chat',
+            messages: [{ role: 'user', content: userPrompt }],
+            temperature: 0.7,
+          }),
+        });
+      }
 
       if (!res.ok) {
-        throw new Error(`AI proxy sunucusu yanıt vermedi (${res.status})`);
+        throw new Error(`Servis yanıt vermedi (${res.status})`);
       }
 
       const data = await res.json();
