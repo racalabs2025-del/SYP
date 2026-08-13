@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ExcelWizardModal from './ExcelWizardModal';
 
 export default function DataManagementSection({
