@@ -1,0 +1,14 @@
+{
+  "lastApplicationDate": "2026-08-14",
+  "lastApplicationDateFormatted": "14 Ağustos 2026",
+  "lastShiftDate": "2026-08-14",
+  "lastShiftDateFormatted": "14 Ağustos 2026",
+  "totalRawRows": 11367,
+  "uniqueApplicationCount": 11268,
+  "sharedApplicationCount": 99,
+  "registeredPersonnelCount": 46,
+  "activeReportingPersonnelCount": 39,
+  "districtStatsCount": 39,
+  "registeredMeydanCount": 52,
+  "generatedAt": "2026-08-17T19:35:00.000Z"
+}

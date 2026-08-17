@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import dataFreshness from '../../data/dataFreshness.json';
 
 export default function DashboardHeroSection({
   activeMeydanCount,
@@ -13,6 +14,7 @@ export default function DashboardHeroSection({
   statOverlayPanelRef,
 }) {
   const overlayTitleId = `stat-overlay-title-${activeStatOverlay || 'default'}`;
+  const lastDataDateFormatted = dataFreshness?.lastApplicationDateFormatted || '14 Ağustos 2026';
 
   return (
     <>
@@ -35,7 +37,7 @@ export default function DashboardHeroSection({
               }}
               title="Kaynak Excel dosyalarındaki son güncelleme tarihi"
             >
-              🗓️ Son Saha Verisi: 14 Ağustos 2026
+              🗓️ Son Saha Verisi: {lastDataDateFormatted}
             </span>
           </div>
           <h1>Meydanlara Genel Bakış</h1>
