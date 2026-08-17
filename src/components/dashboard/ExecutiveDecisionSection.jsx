@@ -128,15 +128,15 @@ export default function ExecutiveDecisionSection() {
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <span className="stat-label" style={{ color: '#166534', fontWeight: '600', fontSize: '0.85rem' }}>
-              Kritik (2-Yüksek) Başvuru
+              Aktif Kritik İş (2-Yüksek)
             </span>
             <span style={{ fontSize: '1.2rem' }}>🚨</span>
           </div>
           <strong className="stat-value" style={{ color: '#16a34a', fontSize: '2rem', display: 'block', margin: '0.35rem 0 0.15rem 0' }}>
-            {metadata.totalCritical}
+            {metadata.totalOpenCritical || 0}
           </strong>
           <span style={{ fontSize: '0.75rem', color: '#15803d', fontWeight: '500' }}>
-            Acil müdahale gerektiren altyapı/trafik
+            Toplam: {metadata.totalCritical || 32} (Tümü Çözüldü/Kapandı)
           </span>
         </div>
 

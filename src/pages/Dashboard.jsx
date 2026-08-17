@@ -30,6 +30,7 @@ import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/s
 import { isShiftActive, toDateKey } from '../utils/date';
 import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from '../utils/excelParsing';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
+import ExecutiveBriefingCenter from '../components/dashboard/ExecutiveBriefingCenter';
 import ExecutiveDecisionSection from '../components/dashboard/ExecutiveDecisionSection';
 import ActiveMeydanlarSection from '../components/dashboard/ActiveMeydanlarSection';
 import IstanbulFieldMap from '../components/dashboard/IstanbulFieldMap';
@@ -1755,6 +1756,8 @@ export default function Dashboard({ onLogout }) {
           dataQualityIssuesCount={dataQualityIssues.length}
           kronikSorunlarCount={kronikSorunlar.length}
         />
+
+        <ExecutiveBriefingCenter todayShifts={todayShifts} activeMeydanlar={activeMeydanlar} />
 
         <ExecutiveDecisionSection />
 
