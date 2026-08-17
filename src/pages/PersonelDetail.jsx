@@ -20,6 +20,7 @@ import {
   toPlannedWorkDays,
 } from '../utils/personelBasvuru';
 import { SAHA_PERSONELI, normalizePhone } from '../utils/sahaPersoneli';
+import compiledPersonelBasvurular from '../data/compiledPersonelBasvurular.json';
 
 const LEAVE_TYPES = new Set(['Izinli', 'İzinli', 'HAFTA TATILI', 'HAFTA TATİLİ']);
 const TR_MONTHS = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
@@ -749,14 +750,29 @@ export default function PersonelDetail({ onLogout }) {
                 <strong className="personel-stat-card__value">{stats.plannedWorkDays}</strong>
               </div>
               <div className="personel-stat-card">
-                <span className="personel-stat-card__label">Toplam Açılan Kayıt</span>
+                <span className="personel-stat-card__label">Toplam Açılan Başvuru</span>
                 <strong className="personel-stat-card__value">
                   {(() => {
+                    const normKey = normalizePersonelKey(decodedName);
+                    const localData = compiledPersonelBasvurular?.[normKey];
+                    const count = basvuruSummary?.toplamBasvuru ?? localData?.toplamBasvuru;
+                    if (count !== undefined && count !== null) return count;
                     const v = lookupStaticCount(ACILAN_KAYIT_Q1_2026, decodedName);
                     return v !== null ? v : '-';
                   })()}
                 </strong>
-                <span className="personel-stat-card__meta">{PERIOD_LABEL_Q1_2026}</span>
+                <span className="personel-stat-card__meta">
+                  {(() => {
+                    const normKey = normalizePersonelKey(decodedName);
+                    const localData = compiledPersonelBasvurular?.[normKey];
+                    const kapandi = basvuruSummary?.kapandi ?? localData?.kapandi;
+                    const planlama = basvuruSummary?.planlama ?? localData?.planlama;
+                    if (kapandi !== undefined && kapandi !== null) {
+                      return `✓ ${kapandi} Kapandı ${planlama ? `· ⏱ ${planlama} Planlama` : ''}`;
+                    }
+                    return PERIOD_LABEL_Q1_2026;
+                  })()}
+                </span>
               </div>
               <div className="personel-stat-card personel-stat-card--songorev">
                 <span className="personel-stat-card__label">Son Görev</span>
@@ -1019,6 +1035,90 @@ export default function PersonelDetail({ onLogout }) {
                 <div className="personel-chart-empty">Bu personel için henüz izin kaydı yüklenmedi.</div>
               )}
             </section>
+
+            {(() => {
+              const normKey = normalizePersonelKey(decodedName);
+              const pData = basvuruSummary || compiledPersonelBasvurular?.[normKey];
+              if (!pData || !pData.toplamBasvuru) return null;
+
+              const sortedTopics = Object.entries(pData.konuDagilimi || {})
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+              return (
+                <section className="panel-section personel-basvuru-panel">
+                  <div className="panel-section__header">
+                    <h2>📋 Saha Bildirim ve Başvuru Karnesi</h2>
+                    <p>Saha denetimleri sırasında açılan toplam {pData.toplamBasvuru} adet İBB Beyazmasa / Saha Yönetim kaydı</p>
+                  </div>
+
+                  <div className="personel-leave-stats" style={{ marginBottom: '1.25rem' }}>
+                    <article className="personel-leave-stat">
+                      <span className="personel-leave-stat__label">Toplam Bildirim</span>
+                      <strong className="personel-leave-stat__value">{pData.toplamBasvuru}</strong>
+                    </article>
+                    <article className="personel-leave-stat">
+                      <span className="personel-leave-stat__label">Çözülen / Kapandı</span>
+                      <strong className="personel-leave-stat__value" style={{ color: '#16a34a' }}>{pData.kapandi || 0}</strong>
+                    </article>
+                    <article className="personel-leave-stat">
+                      <span className="personel-leave-stat__label">Planlama / Süreçte</span>
+                      <strong className="personel-leave-stat__value" style={{ color: '#ea580c' }}>{pData.planlama || 0}</strong>
+                    </article>
+                  </div>
+
+                  {sortedTopics.length > 0 ? (
+                    <div style={{ marginBottom: '1.25rem' }}>
+                      <strong style={{ fontSize: '0.85rem', color: '#64748b', display: 'block', marginBottom: '0.5rem' }}>
+                        EN ÇOK BİLDİRİLEN KONU BAŞLIKLARI
+                      </strong>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        {sortedTopics.map(([topic, count]) => (
+                          <span
+                            key={topic}
+                            style={{
+                              background: 'rgba(0, 73, 142, 0.08)',
+                              color: '#00498E',
+                              padding: '0.35rem 0.75rem',
+                              borderRadius: '999px',
+                              fontSize: '0.8rem',
+                              fontWeight: '600',
+                            }}
+                          >
+                            {topic}: {count} adet
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {pData.sonBasvurular && pData.sonBasvurular.length > 0 ? (
+                    <div>
+                      <strong style={{ fontSize: '0.85rem', color: '#64748b', display: 'block', marginBottom: '0.5rem' }}>
+                        SON BİLDİRİMLER (Örnek Kayıtlar)
+                      </strong>
+                      <ul className="personel-week-list">
+                        {pData.sonBasvurular.slice(0, 5).map((item, idx) => (
+                          <li key={item.basvuruNo || idx} className="personel-week-list__item" style={{ padding: '0.75rem 1rem' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                              <strong style={{ fontSize: '0.85rem', color: '#0f172a' }}>
+                                #{item.basvuruNo} · {item.ilce} {item.mahalle ? `(${item.mahalle})` : ''}
+                              </strong>
+                              <span style={{ fontSize: '0.75rem', color: item.durum === 'Kapandı' ? '#16a34a' : '#ea580c', fontWeight: '600' }}>
+                                {item.durum}
+                              </span>
+                            </div>
+                            <p style={{ margin: 0, fontSize: '0.8rem', color: '#475569', lineHeight: '1.4' }}>
+                              {item.aciklama || item.konu}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </section>
+              );
+            })()}
 
             <section className="panel-section personel-week-panel">
               <div className="panel-section__header">
