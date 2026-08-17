@@ -18,7 +18,26 @@ export default function DashboardHeroSection({
     <>
       <section className="dashboard-hero">
         <div>
-          <span className="section-kicker">Günlük Operasyon</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.35rem' }}>
+            <span className="section-kicker" style={{ marginBottom: 0 }}>Günlük Operasyon</span>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                color: '#00498E',
+                background: 'rgba(0, 73, 142, 0.08)',
+                border: '1px solid rgba(0, 73, 142, 0.15)',
+                padding: '0.15rem 0.55rem',
+                borderRadius: '999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+              }}
+              title="Kaynak Excel dosyalarındaki son güncelleme tarihi"
+            >
+              🗓️ Son Saha Verisi: 14 Ağustos 2026
+            </span>
+          </div>
           <h1>Meydanlara Genel Bakış</h1>
           <p>Bu ekranda saha operasyonunu tek bakışta izleyin. Aktif personeller, haftalık planlamalar ve güncel bilgiler bu ekranda gösterilir.</p>
         </div>

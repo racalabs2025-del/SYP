@@ -1,0 +1,52 @@
+{
+  "newExcelMissingDistrict": [
+    {
+      "file": "AVRUPA YAKASI.xlsx",
+      "sheet": "ONUR ARMAĞAN",
+      "row": 4,
+      "basvuruNo": "1-17703298",
+      "aciklama": "BELİRTMİŞ OLDUGUM PLAKALI ARACIN ŞÖFÖRÜ KIRMIZI IŞIKTA GECEREK BİZ YAYALARA ÇARP"
+    }
+  ],
+  "legacyMissingDistrict": 0,
+  "inBoth": 11163,
+  "onlyInFirestore": 3438,
+  "firestoreMissingDistrict": 1,
+  "onlyInFirestoreSamples": [
+    {
+      "id": "1-59671969411",
+      "basvuruNo": "1-59671969411",
+      "tarih": "2024-03-05",
+      "ilce": "AVCILAR",
+      "konu": "MEYDAN YÖNETİMİ"
+    },
+    {
+      "id": "1-59671997561",
+      "basvuruNo": "1-59671997561",
+      "tarih": "2024-03-05",
+      "ilce": "AVCILAR",
+      "konu": "MEYDAN YÖNETİMİ"
+    },
+    {
+      "id": "1-59672015081",
+      "basvuruNo": "1-59672015081",
+      "tarih": "2024-03-05",
+      "ilce": "AVCILAR",
+      "konu": "MEYDAN YÖNETİMİ"
+    },
+    {
+      "id": "1-59672092300",
+      "basvuruNo": "1-59672092300",
+      "tarih": "2024-03-05",
+      "ilce": "AVCILAR",
+      "konu": "MEYDAN YÖNETİMİ"
+    },
+    {
+      "id": "1-59672628771",
+      "basvuruNo": "1-59672628771",
+      "tarih": "2024-03-05",
+      "ilce": "AVCILAR",
+      "konu": "MEYDAN YÖNETİMİ"
+    }
+  ]
+}

@@ -1039,7 +1039,19 @@ export default function PersonelDetail({ onLogout }) {
             {(() => {
               const normKey = normalizePersonelKey(decodedName);
               const pData = basvuruSummary || compiledPersonelBasvurular?.[normKey];
-              if (!pData || !pData.toplamBasvuru) return null;
+              if (!pData || !pData.toplamBasvuru) {
+                return (
+                  <section className="panel-section personel-basvuru-panel">
+                    <div className="panel-section__header">
+                      <h2>📋 Saha Bildirim ve Başvuru Karnesi</h2>
+                      <p>Saha denetimleri sırasında açılan İBB Beyazmasa / Saha Yönetim kayıtları</p>
+                    </div>
+                    <div className="personel-chart-empty" style={{ padding: '1.5rem', textAlign: 'center', color: '#64748b' }}>
+                      Bu dönem için kayıtlı saha bildirimi bulunmamaktadır.
+                    </div>
+                  </section>
+                );
+              }
 
               const sortedTopics = Object.entries(pData.konuDagilimi || {})
                 .sort((a, b) => b[1] - a[1])

@@ -1,0 +1,2257 @@
+{
+  "excelAudit": {
+    "files": {
+      "ANADOLU YAKASI.xlsx": {
+        "filename": "ANADOLU YAKASI.xlsx",
+        "sheetCount": 19,
+        "sheets": [
+          {
+            "name": "MUSTAFA KAYA",
+            "totalRows": 420,
+            "validRows": 420,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2024-07-17",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "OKTAY ARSLAN",
+            "totalRows": 206,
+            "validRows": 206,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2024-09-19",
+            "dateMax": "2026-08-07"
+          },
+          {
+            "name": "ENES DURAN",
+            "totalRows": 826,
+            "validRows": 826,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2022-06-06",
+            "dateMax": "2026-07-13"
+          },
+          {
+            "name": "SEZAYİ KARAKOÇ",
+            "totalRows": 152,
+            "validRows": 152,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2017-01-24",
+            "dateMax": "2026-08-12"
+          },
+          {
+            "name": "HAYDAR ÇOBAN",
+            "totalRows": 831,
+            "validRows": 831,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2024-03-08",
+            "dateMax": "2026-08-12"
+          },
+          {
+            "name": "İSMAİL ÇOBAN",
+            "totalRows": 206,
+            "validRows": 206,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2017-01-17",
+            "dateMax": "2026-08-11"
+          },
+          {
+            "name": "UĞUR AKIN",
+            "totalRows": 178,
+            "validRows": 178,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2021-07-14",
+            "dateMax": "2026-08-09"
+          },
+          {
+            "name": "KAMİLE ÇELİK",
+            "totalRows": 684,
+            "validRows": 684,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2024-08-12",
+            "dateMax": "2026-08-12"
+          },
+          {
+            "name": "OZAN YUSUF AKBAŞ",
+            "totalRows": 193,
+            "validRows": 193,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-07-29"
+          },
+          {
+            "name": "ŞABAN ETİRLİ",
+            "totalRows": 305,
+            "validRows": 305,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2014-11-18",
+            "dateMax": "2026-07-30"
+          },
+          {
+            "name": "KEMAL GÖNÜLTAŞ",
+            "totalRows": 165,
+            "validRows": 165,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-07-23"
+          },
+          {
+            "name": "AHMET KOCABIYIK",
+            "totalRows": 242,
+            "validRows": 242,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-08-11"
+          },
+          {
+            "name": "HAKAN HAN",
+            "totalRows": 668,
+            "validRows": 668,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "BERKAY DEDE",
+            "totalRows": 76,
+            "validRows": 76,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-03-11",
+            "dateMax": "2026-08-11"
+          },
+          {
+            "name": "AYKUT ARMAĞAN",
+            "totalRows": 382,
+            "validRows": 382,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2018-02-13",
+            "dateMax": "2026-08-10"
+          },
+          {
+            "name": "HELİN ÖZDEMİR",
+            "totalRows": 800,
+            "validRows": 800,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2018-12-04",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "HALİL İBRAHİM BULUT",
+            "totalRows": 60,
+            "validRows": 60,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2014-05-24",
+            "dateMax": "2026-04-24"
+          },
+          {
+            "name": "BEKİR GÖRMEK",
+            "totalRows": 84,
+            "validRows": 84,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2018-05-16",
+            "dateMax": "2026-08-05"
+          },
+          {
+            "name": "HAKAN BEĞENMİŞ",
+            "totalRows": 51,
+            "validRows": 51,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-12-04",
+            "dateMax": "2026-02-20"
+          }
+        ],
+        "rawRows": 6529,
+        "validRows": 6529,
+        "missingDates": 0,
+        "missingDistricts": 0,
+        "missingBasvuruNos": 0,
+        "dateMin": "2014-05-24",
+        "dateMax": "2026-08-13"
+      },
+      "AVRUPA YAKASI.xlsx": {
+        "filename": "AVRUPA YAKASI.xlsx",
+        "sheetCount": 20,
+        "sheets": [
+          {
+            "name": "BURAK ÖZÇELİK",
+            "totalRows": 99,
+            "validRows": 99,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-09-09",
+            "dateMax": "2026-08-14"
+          },
+          {
+            "name": "ÇAĞATAY BEYOĞLU",
+            "totalRows": 71,
+            "validRows": 71,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2021-10-21",
+            "dateMax": "2026-07-01"
+          },
+          {
+            "name": "EMİN ERDOĞAN",
+            "totalRows": 397,
+            "validRows": 397,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2024-06-20",
+            "dateMax": "2026-08-11"
+          },
+          {
+            "name": "ERDEM ARABACI",
+            "totalRows": 158,
+            "validRows": 158,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2022-06-19",
+            "dateMax": "2026-08-14"
+          },
+          {
+            "name": "ERHAN EKİNCİ",
+            "totalRows": 1188,
+            "validRows": 1188,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2020-10-28",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "CANER DİŞLİ",
+            "totalRows": 99,
+            "validRows": 99,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-09-09",
+            "dateMax": "2026-08-14"
+          },
+          {
+            "name": "BUSE DEMİREL",
+            "totalRows": 32,
+            "validRows": 32,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2022-04-19",
+            "dateMax": "2026-07-29"
+          },
+          {
+            "name": "ESRA ŞEKER",
+            "totalRows": 488,
+            "validRows": 488,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "HASAN BİLİCİ",
+            "totalRows": 204,
+            "validRows": 204,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-06",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "HATİCE ADSAN",
+            "totalRows": 260,
+            "validRows": 260,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2015-12-08",
+            "dateMax": "2026-08-10"
+          },
+          {
+            "name": "HÜSEYİN TÜRKAY",
+            "totalRows": 255,
+            "validRows": 255,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2020-06-03",
+            "dateMax": "2026-07-19"
+          },
+          {
+            "name": "İBRAHİM SİREK",
+            "totalRows": 98,
+            "validRows": 98,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2021-06-24",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "KADER SALMAN",
+            "totalRows": 121,
+            "validRows": 121,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-01-10",
+            "dateMax": "2026-08-08"
+          },
+          {
+            "name": "KEMAL EVREN DARMAN",
+            "totalRows": 64,
+            "validRows": 64,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-06-10",
+            "dateMax": "2026-08-07"
+          },
+          {
+            "name": "NİYAZİ BOL",
+            "totalRows": 119,
+            "validRows": 119,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-07-03",
+            "dateMax": "2026-07-06"
+          },
+          {
+            "name": "ONUR ARMAĞAN",
+            "totalRows": 186,
+            "validRows": 186,
+            "missingDate": 0,
+            "missingDistrict": 1,
+            "missingBasvuruNo": 0,
+            "dateMin": "2013-11-06",
+            "dateMax": "2026-08-13"
+          },
+          {
+            "name": "ŞÜKRÜ KIDİL",
+            "totalRows": 172,
+            "validRows": 172,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-11-08",
+            "dateMax": "2026-08-06"
+          },
+          {
+            "name": "ZEYNEP AYDEMİR",
+            "totalRows": 686,
+            "validRows": 686,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2019-04-24",
+            "dateMax": "2026-07-23"
+          },
+          {
+            "name": "CANSIN BOYOĞLU",
+            "totalRows": 119,
+            "validRows": 119,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2023-05-10",
+            "dateMax": "2026-08-07"
+          },
+          {
+            "name": "KAAN DİNÇERLER",
+            "totalRows": 22,
+            "validRows": 22,
+            "missingDate": 0,
+            "missingDistrict": 0,
+            "missingBasvuruNo": 0,
+            "dateMin": "2025-07-03",
+            "dateMax": "2026-01-05"
+          }
+        ],
+        "rawRows": 4838,
+        "validRows": 4838,
+        "missingDates": 0,
+        "missingDistricts": 1,
+        "missingBasvuruNos": 0,
+        "dateMin": "2013-11-06",
+        "dateMax": "2026-08-14"
+      }
+    },
+    "totalRowsOverall": 11367,
+    "totalValidOverall": 11367,
+    "seenBasvuruNoMap": {},
+    "intraSheetDuplicates": [],
+    "interSheetDuplicates": [
+      {
+        "basvuruNo": "1-70288120473",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 1
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 1
+        }
+      },
+      {
+        "basvuruNo": "1-55906003454",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 2
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 2
+        }
+      },
+      {
+        "basvuruNo": "1-54450230249",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 3
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 3
+        }
+      },
+      {
+        "basvuruNo": "1-22289220154",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 4
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 4
+        }
+      },
+      {
+        "basvuruNo": "1-70201177529",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 5
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 5
+        }
+      },
+      {
+        "basvuruNo": "1-70205240936",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 6
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 6
+        }
+      },
+      {
+        "basvuruNo": "1-70205160890",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 7
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 7
+        }
+      },
+      {
+        "basvuruNo": "1-54440644819",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 8
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 8
+        }
+      },
+      {
+        "basvuruNo": "1-70189817039",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 9
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 9
+        }
+      },
+      {
+        "basvuruNo": "1-54435326488",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 10
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 10
+        }
+      },
+      {
+        "basvuruNo": "1-38066290359",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 11
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 11
+        }
+      },
+      {
+        "basvuruNo": "1-55592781337",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 12
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 12
+        }
+      },
+      {
+        "basvuruNo": "1-20054371330",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 13
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 13
+        }
+      },
+      {
+        "basvuruNo": "1-26323006397",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 14
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 14
+        }
+      },
+      {
+        "basvuruNo": "1-45778031265",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 15
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 15
+        }
+      },
+      {
+        "basvuruNo": "1-49339152960",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 16
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 16
+        }
+      },
+      {
+        "basvuruNo": "1-55153131264",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 17
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 17
+        }
+      },
+      {
+        "basvuruNo": "1-58970669154",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 18
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 18
+        }
+      },
+      {
+        "basvuruNo": "1-54565859072",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 19
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 19
+        }
+      },
+      {
+        "basvuruNo": "1-52223392330",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 20
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 20
+        }
+      },
+      {
+        "basvuruNo": "1-53174305125",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 21
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 21
+        }
+      },
+      {
+        "basvuruNo": "1-54495750581",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 22
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 22
+        }
+      },
+      {
+        "basvuruNo": "1-53980570711",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 23
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 23
+        }
+      },
+      {
+        "basvuruNo": "1-54235262361",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 24
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 24
+        }
+      },
+      {
+        "basvuruNo": "1-54746534801",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 25
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 25
+        }
+      },
+      {
+        "basvuruNo": "1-58254086294",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 26
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 26
+        }
+      },
+      {
+        "basvuruNo": "1-58255871113",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 27
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 27
+        }
+      },
+      {
+        "basvuruNo": "1-54473535304",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 28
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 28
+        }
+      },
+      {
+        "basvuruNo": "1-54736228009",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 29
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 29
+        }
+      },
+      {
+        "basvuruNo": "1-55028186276",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 30
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 30
+        }
+      },
+      {
+        "basvuruNo": "1-54921015853",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 31
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 31
+        }
+      },
+      {
+        "basvuruNo": "1-56431961631",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 32
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 32
+        }
+      },
+      {
+        "basvuruNo": "1-57738895585",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 33
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 33
+        }
+      },
+      {
+        "basvuruNo": "1-54646846293",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 34
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 34
+        }
+      },
+      {
+        "basvuruNo": "1-54646846585",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 35
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 35
+        }
+      },
+      {
+        "basvuruNo": "1-57723506754",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 36
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 36
+        }
+      },
+      {
+        "basvuruNo": "1-57723703916",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 37
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 37
+        }
+      },
+      {
+        "basvuruNo": "1-54579728586",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 38
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 38
+        }
+      },
+      {
+        "basvuruNo": "1-56881878043",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 39
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 39
+        }
+      },
+      {
+        "basvuruNo": "1-54454887665",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 40
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 40
+        }
+      },
+      {
+        "basvuruNo": "1-69936727912",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 41
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 41
+        }
+      },
+      {
+        "basvuruNo": "1-69936577340",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 42
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 42
+        }
+      },
+      {
+        "basvuruNo": "1-57965225803",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 43
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 43
+        }
+      },
+      {
+        "basvuruNo": "1-69936596374",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 44
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 44
+        }
+      },
+      {
+        "basvuruNo": "1-58370910782",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 45
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 45
+        }
+      },
+      {
+        "basvuruNo": "1-58479209866",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 46
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 46
+        }
+      },
+      {
+        "basvuruNo": "1-57883052518",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 47
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 47
+        }
+      },
+      {
+        "basvuruNo": "1-58463015692",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 48
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 48
+        }
+      },
+      {
+        "basvuruNo": "1-57839029949",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 49
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 49
+        }
+      },
+      {
+        "basvuruNo": "1-58273022515",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 50
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 50
+        }
+      },
+      {
+        "basvuruNo": "1-58275919202",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 51
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 51
+        }
+      },
+      {
+        "basvuruNo": "1-58843263190",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 52
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 52
+        }
+      },
+      {
+        "basvuruNo": "1-59597604980",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 53
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 53
+        }
+      },
+      {
+        "basvuruNo": "1-65121246529",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 54
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 54
+        }
+      },
+      {
+        "basvuruNo": "1-65742650053",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 55
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 55
+        }
+      },
+      {
+        "basvuruNo": "1-61855765516",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 56
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 56
+        }
+      },
+      {
+        "basvuruNo": "1-62384680820",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 57
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 57
+        }
+      },
+      {
+        "basvuruNo": "1-62384680960",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 58
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 58
+        }
+      },
+      {
+        "basvuruNo": "1-69831983771",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 59
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 59
+        }
+      },
+      {
+        "basvuruNo": "1-62590973673",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 60
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 60
+        }
+      },
+      {
+        "basvuruNo": "1-64529876188",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 61
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 61
+        }
+      },
+      {
+        "basvuruNo": "1-62556178532",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 62
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 62
+        }
+      },
+      {
+        "basvuruNo": "1-63100346508",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 63
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 63
+        }
+      },
+      {
+        "basvuruNo": "1-69799310913",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 64
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 64
+        }
+      },
+      {
+        "basvuruNo": "1-69772678931",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 65
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 65
+        }
+      },
+      {
+        "basvuruNo": "1-65339408473",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 66
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 66
+        }
+      },
+      {
+        "basvuruNo": "1-66328082443",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 67
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 67
+        }
+      },
+      {
+        "basvuruNo": "1-66968804981",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 68
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 68
+        }
+      },
+      {
+        "basvuruNo": "1-66971255538",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 69
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 69
+        }
+      },
+      {
+        "basvuruNo": "1-65795096376",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 70
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 70
+        }
+      },
+      {
+        "basvuruNo": "1-65793465415",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 71
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 71
+        }
+      },
+      {
+        "basvuruNo": "1-65793627084",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 72
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 72
+        }
+      },
+      {
+        "basvuruNo": "1-66394882077",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 73
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 73
+        }
+      },
+      {
+        "basvuruNo": "1-66016983824",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 74
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 74
+        }
+      },
+      {
+        "basvuruNo": "1-66398083533",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 75
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 75
+        }
+      },
+      {
+        "basvuruNo": "1-70431469293",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 76
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 76
+        }
+      },
+      {
+        "basvuruNo": "1-65932525769",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 77
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 77
+        }
+      },
+      {
+        "basvuruNo": "1-69743560027",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 78
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 78
+        }
+      },
+      {
+        "basvuruNo": "1-69739380675",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 79
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 79
+        }
+      },
+      {
+        "basvuruNo": "1-69731104198",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 80
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 80
+        }
+      },
+      {
+        "basvuruNo": "1-69725421043",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 81
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 81
+        }
+      },
+      {
+        "basvuruNo": "1-70407228532",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 82
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 82
+        }
+      },
+      {
+        "basvuruNo": "1-70399540963",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 83
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 83
+        }
+      },
+      {
+        "basvuruNo": "1-70399169743",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 84
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 84
+        }
+      },
+      {
+        "basvuruNo": "1-70403297836",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 85
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 85
+        }
+      },
+      {
+        "basvuruNo": "1-69712640212",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 86
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 86
+        }
+      },
+      {
+        "basvuruNo": "1-70394438888",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 87
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 87
+        }
+      },
+      {
+        "basvuruNo": "1-69377161613",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 88
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 88
+        }
+      },
+      {
+        "basvuruNo": "1-69377478622",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 89
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 89
+        }
+      },
+      {
+        "basvuruNo": "1-69613828427",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 90
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 90
+        }
+      },
+      {
+        "basvuruNo": "1-69609567854",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 91
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 91
+        }
+      },
+      {
+        "basvuruNo": "1-69368963338",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 92
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 92
+        }
+      },
+      {
+        "basvuruNo": "1-69604285442",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 93
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 93
+        }
+      },
+      {
+        "basvuruNo": "1-69643877132",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 94
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 94
+        }
+      },
+      {
+        "basvuruNo": "1-69635988917",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 95
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 95
+        }
+      },
+      {
+        "basvuruNo": "1-69635863012",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 96
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 96
+        }
+      },
+      {
+        "basvuruNo": "1-70361057943",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 97
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 97
+        }
+      },
+      {
+        "basvuruNo": "1-69573930740",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 98
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 98
+        }
+      },
+      {
+        "basvuruNo": "1-69573994173",
+        "firstOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "BURAK ÖZÇELİK ",
+          "row": 99
+        },
+        "secondOccurrence": {
+          "file": "AVRUPA YAKASI.xlsx",
+          "sheet": "CANER DİŞLİ ",
+          "row": 99
+        }
+      }
+    ],
+    "exactRowDuplicates": [],
+    "missingDates": [],
+    "missingDistricts": [
+      {
+        "file": "AVRUPA YAKASI.xlsx",
+        "sheet": "ONUR ARMAĞAN",
+        "row": 4,
+        "basvuruNo": "1-17703298"
+      }
+    ],
+    "missingBasvuruNos": [],
+    "dateMin": "2013-11-06",
+    "dateMax": "2026-08-14",
+    "uniqueStatusValues": {},
+    "uniqueTopicValues": {},
+    "uniqueDistrictValues": {}
+  },
+  "firestoreAudit": {
+    "meydanBasvurulari": {
+      "count": 14601,
+      "sampleKeys": [
+        "updatedAt",
+        "taahhutTarihi",
+        "konu",
+        "altDurum",
+        "onemDerecesi",
+        "ilce",
+        "durum",
+        "birim",
+        "docId",
+        "basvuruNo",
+        "ay",
+        "personelKey",
+        "aciklama",
+        "basvuruSahibi",
+        "yaka",
+        "tarih",
+        "mahalle",
+        "tip",
+        "meydanId",
+        "personelAdi",
+        "yil",
+        "basvuruKanali",
+        "altKonu"
+      ],
+      "sampleDocId": "1-1021704101"
+    },
+    "personelBasvuruOzetleri": {
+      "count": 82,
+      "sampleKeys": [
+        "periodLabel",
+        "yaka",
+        "diger",
+        "sonTarih",
+        "periodKey",
+        "ilceDagilimi",
+        "konuDagilimi",
+        "normalizedAd",
+        "personelAdi",
+        "updatedAt",
+        "sonBasvurular",
+        "toplamBasvuru",
+        "planlama",
+        "toplamCozum",
+        "toplamIletilen",
+        "aylikDagilim",
+        "kapandi",
+        "toplamKayit",
+        "ilkTarih",
+        "personelKey",
+        "docId",
+        "acik"
+      ],
+      "sampleDocId": "2026-q1--ahmet-kocabiyik"
+    },
+    "meydanBasvuruStats": {
+      "count": 40,
+      "sampleKeys": [
+        "importedAt",
+        "durumDagilimi",
+        "diger",
+        "ilkTarih",
+        "aylikDagilim",
+        "planlama",
+        "kapandi",
+        "konuDagilimi",
+        "updatedAt",
+        "meydanId",
+        "sonBasvurular",
+        "toplamBasvuru",
+        "ilce",
+        "sonTarih",
+        "acik"
+      ],
+      "sampleDocId": "adalar"
+    },
+    "vardiyalar": {
+      "count": 7122,
+      "sampleKeys": [
+        "meydanId",
+        "personelAdi",
+        "tarih",
+        "vardiyaTipi",
+        "saatAraligi",
+        "createdAt"
+      ],
+      "sampleDocId": "00bJ84q4ia817A0uWqD9"
+    },
+    "meydanlar": {
+      "count": 52,
+      "sampleKeys": [
+        "yapimYili",
+        "genelAlanIletisim",
+        "isim",
+        "tamAd",
+        "organizasyonSorumlusu",
+        "m2Source",
+        "aciklama",
+        "bolge",
+        "updatedAt",
+        "fonksiyonlar",
+        "organizasyonIletisim",
+        "alanM2",
+        "id",
+        "ilgiliMudurluk",
+        "ilce",
+        "genelAlanSorumlusu",
+        "images"
+      ],
+      "sampleDocId": "adalar"
+    },
+    "personelIzinler": {
+      "count": 63,
+      "sampleKeys": [
+        "tarihFixAppliedAt",
+        "bitisTarihi",
+        "aciklama",
+        "updatedAt",
+        "createdAt",
+        "izinTuru",
+        "baslangicTarihi",
+        "personelAdiNorm",
+        "gunSayisi",
+        "personelAdi"
+      ],
+      "sampleDocId": "AATAY-BEYOLU-1899-12-31-2026-02-25-YILLIK-ZN"
+    },
+    "kronikSorunlar": {
+      "count": 43,
+      "sampleKeys": [
+        "detaylar",
+        "basvuruAciklamasi",
+        "createdAt",
+        "updatedAt",
+        "meydanAdi",
+        "basvuruNo",
+        "basvuruGelisTarihi",
+        "konuBasligi"
+      ],
+      "sampleDocId": "1-60331930090-1-61321884492-1-63402532751-1-63588000349-1-60031476822"
+    }
+  },
+  "shiftAnalysis": {
+    "shiftFilesCount": 15,
+    "shiftExcelFiles": [
+      "Saha Çalışma Programı (01-05HAZİRAN).xlsx",
+      "Saha Çalışma Programı (03-07 AĞUSTOS).xlsx",
+      "Saha Çalışma Programı (06-10 TEMMUZ).xlsx",
+      "Saha Çalışma Programı (08-12 HAZİRAN).xlsx",
+      "Saha Çalışma Programı (10-14 AĞUSTOS).xlsx",
+      "Saha Çalışma Programı (11-15 MAYIS).xlsx",
+      "Saha Çalışma Programı (13-17 TEMMUZ).xlsx",
+      "Saha Çalışma Programı (15-19 HAZİRAN).xlsx",
+      "Saha Çalışma Programı (18-22 MAYIS).xlsx",
+      "Saha Çalışma Programı (20-24 TEMMUZ).xlsx",
+      "Saha Çalışma Programı (22-26 HAZİRAN).xlsx",
+      "Saha Çalışma Programı (25-29 MAYIS).xlsx",
+      "Saha Çalışma Programı (27-31 TEMMUZ).xlsx",
+      "Saha Çalışma Programı (29 HAZİRAN-03 TEMMUZ).xlsx",
+      "Saha Çalışma Programı (4-8 MAYIS).xlsx"
+    ],
+    "shiftFileDates": [
+      {
+        "filename": "Saha Çalışma Programı (01-05HAZİRAN).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (03-07 AĞUSTOS).xlsx",
+        "rows": 46,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (06-10 TEMMUZ).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (08-12 HAZİRAN).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (10-14 AĞUSTOS).xlsx",
+        "rows": 46,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (11-15 MAYIS).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (13-17 TEMMUZ).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (15-19 HAZİRAN).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (18-22 MAYIS).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (20-24 TEMMUZ).xlsx",
+        "rows": 46,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (22-26 HAZİRAN).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (25-29 MAYIS).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (27-31 TEMMUZ).xlsx",
+        "rows": 46,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (29 HAZİRAN-03 TEMMUZ).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      },
+      {
+        "filename": "Saha Çalışma Programı (4-8 MAYIS).xlsx",
+        "rows": 42,
+        "headers": [
+          "MEYDAN YÖNETİMİ BİRİMİ SAHA PLANLAMASI"
+        ]
+      }
+    ],
+    "totalShiftRows": 646,
+    "april20_30_SourceCheck": "Kaynak Buyuk_guncelleme klasöründe 2026-04-20 ile 2026-04-30 arasını içeren hiçbir Saha Çalışma Programı dosyası bulunmamaktadır. En erken dosya Saha Çalışma Programı (4-8 MAYIS).xlsx dosyasıdır."
+  },
+  "normalizationAudit": {
+    "registeredPersonnelCount": 46,
+    "excelPersonnelCount": 39,
+    "unregisteredExcelPersonnel": [
+      "AHMET KOCABIYIK",
+      "ŞÜKRÜ KIDİL"
+    ],
+    "missingExcelForRegistered": [
+      "EZGİ KOÇ",
+      "ŞÜKRÜ KİDİL",
+      "VEDAT VARLIK",
+      "AHMET KOCABIYİK",
+      "YUSUF GÜNDOĞDU",
+      "OSMAN ÇABUKER",
+      "UMUT EMRE",
+      "UĞUR BEYHATUN",
+      "FATİH GÜNEŞ"
+    ],
+    "uniqueStatusValues": [
+      "Kapandı",
+      "Planlama",
+      "Çözüldü",
+      "Atama Bekliyor",
+      "Çalışılıyor",
+      "Beklemede",
+      "Yeni Başvuru",
+      "Değerlendirme"
+    ],
+    "uniqueTopicValues": [
+      "TRAFİK",
+      "İski",
+      "BAKIM ONARIM",
+      "TEMİZLİK",
+      "İLÇE BAKIM ONARIM",
+      "DENETİM",
+      "OTOPARKLAR",
+      "İSKİ",
+      "PARK VE BAHÇELER",
+      "TALEP",
+      "AYEDAŞ",
+      "ENERJİ YÖNETİM",
+      "ENGELLİ HİZMETLERİ",
+      "MEYDAN YÖNETİMİ",
+      "İNSİYATİF ÇÖZÜM",
+      "ACİL BİLGİLENDİRME",
+      "TEMİZLİK VE BAKIM",
+      "İSKELE HİZMETLERİ",
+      "İLÇE PARK BAHÇELER",
+      "KÜTÜPHANELER",
+      "İLÇE DENETİM",
+      "TEŞEKKÜRLER",
+      "SAHİL",
+      "UKOME KARARLAR",
+      "PERSONEL",
+      "ÇÖZÜM MERKEZİ",
+      "İLÇE TEMİZLİK",
+      "AYDINLATMA",
+      "TURİZM",
+      "TARİHİ ESER",
+      "KÜLTÜR HİZMETLERİ",
+      "ALT GEÇİT",
+      "ÖZEL DENİZ TAŞITLARI",
+      "ÇEVRE VE ŞEHİRCİLİK",
+      "WİFİ",
+      "DUBA",
+      "ŞEHİR TUVALETLERİ",
+      "İLÇE İMAR",
+      "HİZMETLER",
+      "PROJELER",
+      "KAPALI DURAK",
+      "İSBİKE",
+      "BAYRAK",
+      "DURAK",
+      "PLANLAMA",
+      "ÇÖZÜMSÜZ BAŞVURULAR",
+      "RAYLI SİSTEMLER",
+      "HEYKEL",
+      "İSTASYON",
+      "SELATİN CAMİİ",
+      "İZİN",
+      "İLÇE GERİ DÖNÜŞÜM",
+      "İLAÇLAMA",
+      "AĞAÇ VE PEYZAJ",
+      "HALKLA İLİŞKİLER",
+      "BİSİKLET",
+      "YOL",
+      "BELTUR HİZMETLERİ",
+      "MOBİL UYGULAMA",
+      "ÜYELİK SİSTEMİ",
+      "İLÇE VETERİNER",
+      "KAZI İZNİ",
+      "İNTERNET / TELEFON",
+      "KORU-KÖŞK-BÜFE",
+      "İÇ HİZMET",
+      "BİLBOARD",
+      "ÖHO Araçları",
+      "BÜFE",
+      "RESTORASYON",
+      "Personel",
+      "İSTANBULKART DOLUM",
+      "İNSAN KAYNAKLARI",
+      "YATIRIM",
+      "YÜRÜYEN MERDİVEN",
+      "İSTANBULKART",
+      "SEFER GECİKMESİ/İPTALİ",
+      "HAT VE GÜZERGAH",
+      "İTAKSİ",
+      "GEMİ HİZMETLERİ",
+      "CİHAZLAR",
+      "WEB SİTESİ",
+      "ULAŞIM ÜCRET TARİFESİ",
+      "MOBİETT",
+      "OTOBÜSLER",
+      "TAKSİ",
+      "OTOBÜS AŞ.",
+      "İLÇE KÜLTÜR HİZMETLERİ",
+      "KÖŞK-BÜFE",
+      "MİNİBÜS",
+      "GÜVENLİK",
+      "MEZARLIKLAR",
+      "ŞOFÖR KARTI",
+      "MİNİBÜS/DOLMUŞ",
+      "ÇEVRE DENETİM HİZMETLERİ",
+      "KAZILAR",
+      "İSTANBULSENİN SÜPERAPP",
+      "METROBÜS",
+      "EMLAK",
+      "METROBÜS BİLBOARD",
+      "İSTANBUL KİTAPÇISI",
+      "KORULAR",
+      "MOBİL UYGULAMALAR",
+      "EKSİK BİLGİ",
+      "İSTWEB / MODYO",
+      "PLAJLAR",
+      "Sefer Arttırılma Talebi",
+      "Sefer Gecikmesi/ İptali",
+      "DÖKÜM SAHASI",
+      "ELEKTRONİKKART",
+      "Hat ve Güzergah",
+      "SPOR KOMPLEKSLERİ",
+      "ÜCRET/TARİFE",
+      "ACİL MÜDAHALE",
+      "TABELA / LEVHA",
+      "KARARLAR",
+      "İSTİNAT DUVARI",
+      "ASANSÖRLER",
+      "ASFALT",
+      "DURAKLAR",
+      "REKLAM",
+      "VETERİNER",
+      "HALK EKMEK SATIŞ NOKTALARI",
+      "CİHAZ ARIZASI",
+      "VAPUR HİZMETLERİ",
+      "İSPARK OTOPARK",
+      "DOĞALGAZ",
+      "TÜKETİCİ HAKLARI",
+      "SOSYAL TESİSLER",
+      "BİLETMATİK/ODM",
+      "İLETİŞİM KOORDİNATÖRLÜĞÜ",
+      "SEYİR DÜRBÜNÜ",
+      "İNTERNET",
+      "KENT LOKANTALARI",
+      "VETERİNER HİZMETLERİ",
+      "BELGELER",
+      "GENÇLİK HİZMETLERİ",
+      "Kayıp Eşya",
+      "ULAŞIM YÖNETİM MERKEZİ",
+      "SOSYAL HİZMETLER",
+      "PERSONEL/HİZMET ARACI",
+      "NUMARATAJ",
+      "ÖZEL KALEM",
+      "HAMİDİYE SİPARİŞ İŞLEMLERİ",
+      "MÜŞTERİ SIFIRLAMA",
+      "ÜST GEÇİT",
+      "ACİL BİLGİLENDİRME EKİBİ",
+      "BEDAŞ",
+      "SPOR HİZMETLERİ",
+      "KART TALİMATLARI VE TRANSFERİ",
+      "ÇİÇEK DURAK",
+      "KONUTLAR",
+      "DEPREM",
+      "SPOR TESİSLERİ",
+      "AKOM",
+      "KENTSEL TASARIM",
+      "PAZARLAR",
+      "ONLİNE BAŞVURU",
+      "OTOBÜSÜM NEREDE",
+      "SEFERLER",
+      "SOKAKTA KALANLAR",
+      "BÜYÜK İSTANBUL OTOGARI",
+      "GENÇLİK VE SPOR",
+      "MÜZELER",
+      "MÜFTÜLÜK",
+      "ATIK BERTARAF İŞLETME",
+      "SERVİS ARAÇLARI",
+      "BAHÇE MARKET",
+      "STK HİZMETLERİ",
+      "ANONS BİLGİLENDİRME",
+      "SPOR ETKİNLİKLERİ",
+      "CENAZE / MEZARLIK İŞLEMLERİ",
+      "İSTİHDAM OFİSİ",
+      "YARDIM",
+      "ÇÖZÜMSÜZ BAŞVURU",
+      "İSMEK",
+      "İTFAİYE",
+      "İETT ŞOFÖRÜ",
+      "KAYIP EŞYA",
+      "TURNİKE",
+      "SİPARİŞ İŞLEMLERİ",
+      "TEŞEKKÜR"
+    ],
+    "uniqueDistrictValues": [
+      "BEYKOZ",
+      "KARTAL",
+      "SANCAKTEPE",
+      "KADIKÖY",
+      "PENDİK",
+      "ÜMRANİYE",
+      "ÜSKÜDAR",
+      "ÇEKMEKÖY",
+      "MALTEPE",
+      "TUZLA",
+      "ATAŞEHİR",
+      "SULTANBEYLİ",
+      "BAŞAKŞEHİR",
+      "BEYOĞLU",
+      "ŞİŞLİ",
+      "EYÜPSULTAN",
+      "FATİH",
+      "ŞİLE",
+      "ESENLER",
+      "BAHÇELİEVLER",
+      "ADALAR",
+      "GÜNGÖREN",
+      "SİLİVRİ",
+      "BAKIRKÖY",
+      "BAĞCILAR",
+      "ZEYTİNBURNU",
+      "BEŞİKTAŞ",
+      "GAZİOSMANPAŞA",
+      "BAYRAMPAŞA",
+      "KÜÇÜKÇEKMECE",
+      "SARIYER",
+      "SULTANGAZİ",
+      "ESENYURT",
+      "BEYLİKDÜZÜ",
+      "AVCILAR",
+      "KAĞITHANE",
+      "BÜYÜKÇEKMECE",
+      "ARNAVUTKÖY"
+    ]
+  }
+}

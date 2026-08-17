@@ -2,8 +2,8 @@
   "beykoz": {
     "meydanId": "beykoz",
     "ilce": "BEYKOZ",
-    "toplamBasvuru": 469,
-    "kapandi": 453,
+    "toplamBasvuru": 467,
+    "kapandi": 451,
     "planlama": 5,
     "acik": 0,
     "diger": 11,
@@ -33,7 +33,7 @@
       "2025-10": 20,
       "2025-11": 29,
       "2025-12": 49,
-      "2024-08": 4,
+      "2024-08": 2,
       "2020-06": 1
     },
     "konuDagilimi": {
@@ -75,7 +75,7 @@
       "BELTUR HİZMETLERİ": 1,
       "ÇÖZÜM MERKEZİ": 2,
       "BİLBOARD": 1,
-      "PERSONEL": 4
+      "PERSONEL": 2
     },
     "sonBasvurular": [
       {
@@ -212,54 +212,9 @@
         "konu": "OTOPARKLAR",
         "durum": "Kapandı",
         "aciklama": "Beykoz Çubuklu Engelsizumutlar derneği Başkan Dilek Akın bülbül Tel: 0530 960 56 95 - görüşülen 1 -    Çubuklu sahilde otopark sorunu var otopark yapı"
-      },
-      {
-        "basvuruNo": "1-70195943144",
-        "tarih": "2026-06-11",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "ÇUBUKLU",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beykoz Çubuklu hayvan engürü bağı caddesi Albayrak gıda marketin önü yol çökmüş asfaltlanmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70186379620",
-        "tarih": "2026-06-09",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beykoz on Çeşmeler meydan merkez kelle İbrahim caddesi no 12 yılının önünde dubalarımızdan biri kırılmıştır tamir edilmesini talep ediyor yol bakıma b"
-      },
-      {
-        "basvuruNo": "1-70186449604",
-        "tarih": "2026-06-09",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beykoz Onçeşmeler   meydan merkez otobüs durağının yanında Dubalarımız yamulmuştur onarılmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70178837994",
-        "tarih": "2026-06-07",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beykoz Onçeşmeler  meydan merkez taksi durağının önü ana yol dubamız Yamulmuş  kırılmıştır düzeltilmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70178952453",
-        "tarih": "2026-06-07",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beykoz Onçeşmeler  meydan merkez kelle İbrahim caddesi  Ana yol bimin karşısı yalının önündeki dubalarımız yamulmuş tamir edilmesini talep ediyorum"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "kartal": {
     "meydanId": "kartal",
@@ -461,54 +416,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Kartal sahil meydanı hükümet caddesi dubalar kırıktır. Tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-64024084398",
-        "tarih": "2024-12-03",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Kartal sahil Savarona meydanı Savarona caddesi Kartal ilçe emniyet müdürlüğü Şehit Selahattin Aslantepe polis merkezi ön tarafında yol ortasında  bulu"
-      },
-      {
-        "basvuruNo": "1-64023571729",
-        "tarih": "2024-12-03",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "KARLIKTEPE",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kartal neyzen Tevfik meydanı Ankara caddesi Türk telekom Kobihattı iletişim ön tarafındaki kaldırım taşlarında resimde görüldüğü gibi kırıklar mevcutt"
-      },
-      {
-        "basvuruNo": "1-62822477132",
-        "tarih": "2024-09-25",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "İski",
-        "durum": "Kapandı",
-        "aciklama": "kARTAL sahil meydanı Çeçenistan parkı içindeki İBB tuvalet yan tarafındaki bu rögar kapağından Üç aydır koku gelmekteymiş vatandaşlardan çok şikayet v"
-      },
-      {
-        "basvuruNo": "1-63665536609",
-        "tarih": "2024-11-11",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kartal neyzen Tevfik meydanı Şehzade caddesi Akbank önü ve çevresinde  Ve Kartal park AVM önü ve çevresindeki dubalarda bir çok sayıda kırık vardır ye"
-      },
-      {
-        "basvuruNo": "1-62522852450",
-        "tarih": "2024-09-09",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "ÖZEL DENİZ TAŞITLARI",
-        "durum": "Kapandı",
-        "aciklama": "Kartal sahildeki iskelemiz atıl durumdadır adalara buradan sefer istemektedirler. Bu konu kartal halkının her zaman şikayet ettiği sorunlardan biridir"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "sancaktepe": {
     "meydanId": "sancaktepe",
@@ -676,54 +586,9 @@
         "konu": "İLÇE TEMİZLİK",
         "durum": "Kapandı",
         "aciklama": "İftar Çadırı yanında bulunan çöplerin alınması gerekmektedir.  ABDURRAHMANGAZİ Mah. Sancaktepe Belediyesi Yanı İBB İftar Çadırı"
-      },
-      {
-        "basvuruNo": "1-65326586480",
-        "tarih": "2025-03-04",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sancaktepe meydanda bulunan mazgallar kırılmış ve oynamalar mevcut tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-65788255664",
-        "tarih": "2025-04-17",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "",
-        "konu": "PERSONEL",
-        "durum": "Kapandı",
-        "aciklama": "C-1844 KAPI KODLU ARAÇ DURAĞA GELDİ. KAPIYI AÇTI DURAKTA BEKLEMESİNE RAGMEN KAPIYI KAPATTI DAHA FAZLA KİMSEYİ ALMADAN DEVAM ETTİ . BU KİŞİDEN ŞİKAYETÇ"
-      },
-      {
-        "basvuruNo": "1-67368134857",
-        "tarih": "2025-09-05",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "HİLAL",
-        "konu": "İLAÇLAMA",
-        "durum": "Kapandı",
-        "aciklama": "BELİRTTİĞİM ADRESTEKİ RÖGARLARA HAMAM BÖCEĞİ İLAÇLAMASI TALEP EDERİM AŞIRI DERECEDE VAR"
-      },
-      {
-        "basvuruNo": "1-69837132120",
-        "tarih": "2026-03-03",
-        "personelAdi": "AYKUT ARMAĞAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Sancaktepe meydanından bulunan çöp konteynerinin çevresinin yıkanmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-69809495013",
-        "tarih": "2026-02-23",
-        "personelAdi": "AYKUT ARMAĞAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sancaktepe meydanında bulunan fiber optik kapağının onarılmasını talep ediyorum"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "kadikoy": {
     "meydanId": "kadikoy",
@@ -988,54 +853,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Kadıköy meydan Kadıköy merkezdeki minibüs duraklarına giderken görüldüğü gibi dubaların çoğu yok araçlar içeri girebiliyor  Kadıköy meydan sahildeki i"
-      },
-      {
-        "basvuruNo": "1-63418519709",
-        "tarih": "2024-10-27",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "ENERJİ YÖNETİM",
-        "durum": "Kapandı",
-        "aciklama": "Kadıköy meydan İDO Kadıköy terminalin yanındaki parkta görüldüğü gibi demir kırılır  Kadıköy İDO terbiyenin yanındaki festival alanına giden yürüme yo"
-      },
-      {
-        "basvuruNo": "1-63418811591",
-        "tarih": "2024-10-27",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "CAFERAĞA",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kadıköy festival alanının yan tarafındaki elektrik panosunun her iki tarafı görüldüğü gibi kazı yapılmış kapatılmamış bu halde Ayedaş Muhtemelen"
-      },
-      {
-        "basvuruNo": "1-63705459071",
-        "tarih": "2024-11-13",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Kadıköy meydan İDO Kadıköy terminalin yanındaki parkta görüldüğü gibi demir kırılır  Kadıköy İDO terbiyenin yanındaki festival alanına giden yürüme yo"
-      },
-      {
-        "basvuruNo": "1-64861431363",
-        "tarih": "2025-01-19",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "CAFERAĞA",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kadıköy meydan Kadıköy İDO terminal önündeki İspark girişinin yanındaki dubalar bazıları kırıktır bazıları yamulmuş Kadıköy meydan Kadıköy balon kafey"
-      },
-      {
-        "basvuruNo": "1-63418769327",
-        "tarih": "2024-10-27",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "CAFERAĞA",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "KADIKÖY meydan sahildeki is parka giriş köprüsünün yan tarafı görüldüğü gibi peyzaj düzenlemesi yapmak lazım"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "pendik": {
     "meydanId": "pendik",
@@ -1244,54 +1064,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Pendik sahil meydanı Beltur burger Kafe ön tarafına denk gelen elektrik direği yanındaki iki meydan taşı kırıktır tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63752148577",
-        "tarih": "2024-11-16",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "DOĞU",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Pendik sahil meydanı Caddebostan Pendik sahil yolu İDO Pendik Terminali karşı tarafında ki meydan girişi çevresinde beş tane İBB dubası kırıktır. Meyd"
-      },
-      {
-        "basvuruNo": "1-63752148696",
-        "tarih": "2024-11-16",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "SANAYİ",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Pendik sahil meydanı Erol Kaya caddesi Safranbolu tekel bayi önünde ve sağ çaprazında iki duba, erdem Şarküteri önünde ve karşı tarafında üç duba, bur"
-      },
-      {
-        "basvuruNo": "1-63752420566",
-        "tarih": "2024-11-16",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Pendik sahil meydanı İBB Çocuk oyun parkı içindeki zeminde resimde belirtilen yerlerde sökülmeler, çöküntüler mevcuttur tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63752619087",
-        "tarih": "2024-11-16",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "BAHÇELİEVLER",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Pendik ilhamı soysal bulvarı Pendik sahil Meydanı’na otopark giriş tarafındaki orta ada da 7 tane ve otopark tarafında üç tane duba kırıktır tamiratı "
-      },
-      {
-        "basvuruNo": "1-64211774583",
-        "tarih": "2024-12-13",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "BATI",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Pendik sahil meydanı İstanbul çiçekleri mobosunun tam arka tarafındaki meydan demir mazgalı kırıktır tamiratı gerekmektedir."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "umraniye": {
     "meydanId": "umraniye",
@@ -1518,54 +1293,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Ümraniye alemdağ caddesi nde Sokak geçitlerin ortasındaki elektronik dubalar yapılmamıştır görüldüğü gibi"
-      },
-      {
-        "basvuruNo": "1-63449131228",
-        "tarih": "2024-10-29",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "ATATÜRK",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Ümraniye alemdağ caddesi nde Sokak geçitlerin ortasındaki elektronik dubalar yapılmamıştır görüldüğü gibi"
-      },
-      {
-        "basvuruNo": "1-63450279103",
-        "tarih": "2024-10-29",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "ARMAĞANEVLER",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Ümraniye meydan alemdağ caddesi 15 Temmuz Şehitler meydanına girişte görüldüğü gibi kaldırım çökmüş boydan boya muhtemelen büyük tonajlı kamyon girişi"
-      },
-      {
-        "basvuruNo": "1-63450279441",
-        "tarih": "2024-10-29",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "OTOPARKLAR",
-        "durum": "Kapandı",
-        "aciklama": "Ümraniye 15 Temmuz meydanının altındaki İspark katlı otoparkın ikinci katındaki tuvaletler erkek tuvaletlerin çoğu kapalı bir alafranga bir alaturka t"
-      },
-      {
-        "basvuruNo": "1-63450202383",
-        "tarih": "2024-10-29",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "ATATÜRK",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Ümraniye meydan Alemdağ caddesinin emin evin önündeki elektrik direğini asılı Alemdağ tabelası güvenlik kulübesinin yanına bırakılmış elektrik direğin"
-      },
-      {
-        "basvuruNo": "1-64446148577",
-        "tarih": "2024-12-27",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "DUDULLU OSB",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Ümraniye Dudullu meydan maydonoz dönerin önündeki park alanının yanındaki mazgallar Görevli bugün kırık diyor onarılması gerekiyor"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "uskudar": {
     "meydanId": "uskudar",
@@ -1813,54 +1543,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Üsküdar meydan Şemsi Ahmet paşa caminin önünde bulunan parkta oturma Bankı kırıktır bunu bildirelim çok oldu hala yapılmamış￼"
-      },
-      {
-        "basvuruNo": "1-63945236429",
-        "tarih": "2024-11-28",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Üsküdar Şemsipaşa askeri Sosyal tesisleri nin Sırasındaki dubalar ayın çoğu yok veya kırık"
-      },
-      {
-        "basvuruNo": "1-63945258732",
-        "tarih": "2024-11-28",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Üsküdar meydan Üsküdar Marmaray Üsküdar istasyonu yanındaki parkın içinde görüldüğü gibi beton dubaları kırıp oraya atmışlar"
-      },
-      {
-        "basvuruNo": "1-62498006215",
-        "tarih": "2024-09-07",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Bostancı sahilde bulunandan köp kutuları çok konmuş görüldüğü gibi 20 metre² alanda on taneye yakın Çöp kutusu var Sahiluzun boydan boya olan sahilde "
-      },
-      {
-        "basvuruNo": "1-62780132889",
-        "tarih": "2024-09-23",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "İETT Otobüs duraklarının yanı Üsküdar meydan"
-      },
-      {
-        "basvuruNo": "1-62777577563",
-        "tarih": "2024-09-23",
-        "personelAdi": "MUSTAFA KAYA",
-        "mahalle": "",
-        "konu": "KÜLTÜR HİZMETLERİ",
-        "durum": "Kapandı",
-        "aciklama": "Üsküdar meydanda bulunan İstanbul yasasının bir ayağı kırık görüldüğü gibi tamir edilmesi lazım￼"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "cekmekoy": {
     "meydanId": "cekmekoy",
@@ -2045,54 +1730,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Buradaki elektronik bariyeri bizler aylarca uğraşarak zorla yaptırmıştık. Lakin bir hafta bile dayanmadan yeniden buradaki seyyar satıcılar tarafından"
-      },
-      {
-        "basvuruNo": "1-61322421549",
-        "tarih": "2024-07-03",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "MEHMET AKİF",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Çekmeköy meydanı Çekmeköy Metro istasyonu asansörlerinin etrafındaki görme engelli vatandaşlar için yapılmış sarı şeritler eskimekten sökülmüş yenilen"
-      },
-      {
-        "basvuruNo": "1-62567432236",
-        "tarih": "2024-09-11",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "MEHMET AKİF",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Çekmeköy madenler meydanın da Çekmeköy metro etrafındaki görme engelli vatandaşlarımız için yapılan şerit yolların her yerinde sökülme ve pörsüme vard"
-      },
-      {
-        "basvuruNo": "1-63043517358",
-        "tarih": "2024-10-07",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Çekmeköy madenler Meydanı’nda meydandaki genel olarak çoğu taşta kırıklar ve oynamalar mevcuttur. taşların altına su dolmaktadır ve çok çirkin bir gör"
-      },
-      {
-        "basvuruNo": "1-63044671654",
-        "tarih": "2024-10-07",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Çekmeköy madenler meydanı Muhsin Yazıcıoğlu caddesi meydan girişindeki iki tane çöp kovasının kapağı kırıktır yenisinin takılması gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63612736410",
-        "tarih": "2024-11-07",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "HALKLA İLİŞKİLER",
-        "durum": "Kapandı",
-        "aciklama": "Çekmeköy Meydanı’nda Çözüm noktamızın önünde duran basamak çökmüş kırık vaziyette tamiratı gerekmektedir. Çekmeköy meydan beyaz çözüm masamızın önünde"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "maltepe": {
     "meydanId": "maltepe",
@@ -2304,54 +1944,9 @@
         "konu": "İLÇE BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Maltepe  Cumhuriyet meydanında bölge esnafından aşağı yoldan İşbankasının yan sokağından ya da Akbank’ın olduğu sokağa mutlaka çıkış olmasını istiyorl"
-      },
-      {
-        "basvuruNo": "1-60331941410",
-        "tarih": "2024-05-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "FEYZULLAH",
-        "konu": "İNSİYATİF ÇÖZÜM",
-        "durum": "Kapandı",
-        "aciklama": "Maltepe Cumhuriyet meydanında vatandaşın ve esnafın yazın çok sinek olduğundan daha sık ilaçlama yapılması talebi var."
-      },
-      {
-        "basvuruNo": "1-64087509757",
-        "tarih": "2024-12-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "ALTINTEPE",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kadıköy bostancı sahil adanalı Serra dürüm işletmesi ön tarafındaki meydan taşları kırıktır tamiratı gerekmektedir.  Burası bostancı sahil hatta bosta"
-      },
-      {
-        "basvuruNo": "1-62926425678",
-        "tarih": "2024-10-01",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "OTOPARKLAR",
-        "durum": "Kapandı",
-        "aciklama": "Maltepe Bakireler Anıtı meydanı Turgut Özal bulvarı İspark yan tarafındaki beş tane kafe işletmesinin işletme önünde ve çevresinde müşterilerinin park"
-      },
-      {
-        "basvuruNo": "1-62926235578",
-        "tarih": "2024-10-01",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Maltepe Cumhuriyet Meydanı’nda meydan çevresindeki tüm elektronik dubalar gelip kontrol ettiğimde açıktır. Her zamanda açık bırakıldığı söylenmektedir"
-      },
-      {
-        "basvuruNo": "1-62923918178",
-        "tarih": "2024-10-01",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Maltepe Marmaray Süreyya plajı istasyonu Bakireler Aniti karşısındaki 7-8 tane duba kırık ve oynamaktadır tamiratı gerekmektedir."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.086Z"
   },
   "tuzla": {
     "meydanId": "tuzla",
@@ -2572,54 +2167,9 @@
         "konu": "OTOPARKLAR",
         "durum": "Kapandı",
         "aciklama": "Tuzla sahil meydanı Tuzla İDO İspark otopark çevresindeki demir tellerin çoğu kırıktır söküktür bakıma ya da değişmeye ihtiyaç vardır."
-      },
-      {
-        "basvuruNo": "1-63323388454",
-        "tarih": "2024-10-22",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Tuzla sahil meydanı İBB İDO Tuzla Terminal şehir tuvaleti çevresinde ki peyzaj alanları kurumuştur bakımsızdır peyzaj düzenlemesi gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63591381036",
-        "tarih": "2024-11-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "ACİL BİLGİLENDİRME",
-        "durum": "Kapandı",
-        "aciklama": "Tuzla sahil meydanı Tuzla sahil havuz yan tarafındaki adres kolay anlaşılması için ROOF LOUNGE işletmesi karşısındaki bu ağaç yana eğilmiştir. Ağaç ku"
-      },
-      {
-        "basvuruNo": "1-63595467493",
-        "tarih": "2024-11-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Tuzla Tahaffuzhane meydanı içindeki peyzaj için konulmuş bu alanlar boş durmaktadır. 5-6 tanesi doludur lakin %70’i boş durmaktadır. Bunların içine pe"
-      },
-      {
-        "basvuruNo": "1-63591381592",
-        "tarih": "2024-11-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Tuzla sahil meydanı Gispir sahil camii yan tarafındaki kaykay pistinin içindeki zeminler yırtılmıştır kopmuştur tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63592886950",
-        "tarih": "2024-11-06",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Tuzla sahil meydanı İspark yan tarafındaki etkinlik alanında bir çok etkinlik, konser, fuar olduğundan etkinliklerden sonra çok çöp atılmaktadır. Etki"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.087Z"
   },
   "atasehir": {
     "meydanId": "atasehir",
@@ -2785,54 +2335,9 @@
         "konu": "İLÇE BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Kozyatağı Hal yolu caddesi No/3a Teb bankasının karşısında Kaldırım taşlarında  ve Dubalarda kırıklar ve sökülmeler mevcuttur onarılması gerekmektedir"
-      },
-      {
-        "basvuruNo": "1-65783260577",
-        "tarih": "2025-04-17",
-        "personelAdi": "KEMAL GÖNÜLTAŞ",
-        "mahalle": "İÇERENKÖY",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kozyatağı meydan Üsküdar İçerenköy yolu caddesi no 1/1 gada cafe restaurant  karşısın da bulunan kaldırım taşları kırıktır onarılması talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-65783686835",
-        "tarih": "2025-04-17",
-        "personelAdi": "KEMAL GÖNÜLTAŞ",
-        "mahalle": "İÇERENKÖY",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Kozyatağı meydan Üsküdar İçerenköy yolu caddesi no 1/1  alanda yasaklı park yapılmaktadır. Duvar bloklar yerinde olmadıgı için Yaya yolunu kapatmaktad"
-      },
-      {
-        "basvuruNo": "1-64896802895",
-        "tarih": "2025-01-21",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "İÇERENKÖY",
-        "konu": "TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Meydanda çöpler ve izmaritler mevcut temizlenmesi gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-64891851981",
-        "tarih": "2025-01-21",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "İÇERENKÖY",
-        "konu": "HALK EKMEK SATIŞ NOKTALARI",
-        "durum": "Kapandı",
-        "aciklama": "Büfenin önünde bulunan demir sacdan yapılma merdivende eğilme, çürüme mevcuttur.Daha önce düşen vatandaşlarımız bulunmaktadır.Sac merdiven yerine Meyd"
-      },
-      {
-        "basvuruNo": "1-64897128350",
-        "tarih": "2025-01-21",
-        "personelAdi": "HAKAN HAN",
-        "mahalle": "İÇERENKÖY",
-        "konu": "TEMİZLİK VE BAKIM",
-        "durum": "Kapandı",
-        "aciklama": "M8 metro hattında bulunan alanların temizliği yapılması gerekmektedir."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.087Z"
   },
   "sultanbeyli": {
     "meydanId": "sultanbeyli",
@@ -3042,54 +2547,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Sultanbeyli Fatih bulvarı burger evim işletmesi karşısında yol ortasındaki kaldırım taşları şekilde kırıktır tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63209385954",
-        "tarih": "2024-10-16",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "İski",
-        "durum": "Kapandı",
-        "aciklama": "Sultanbeyli meydanı Fatih bulvarı yonca Çocuk giyim mağazası ön tarafındaki meydan taşları kırıktır tamiratı gerekmektedir.  Sultanbeyli meydanı Fatih"
-      },
-      {
-        "basvuruNo": "1-63950357558",
-        "tarih": "2024-11-28",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sultanbeyli Fatih bulvarı rahman Sokak abdurrahman gazi cami halk ekmek büfesi ön tarafında 1 ve sol ilerisinde ki kaldırım kenarındaki 1 duba toplam "
-      },
-      {
-        "basvuruNo": "1-63946107285",
-        "tarih": "2024-11-28",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sultanbeyli Fatih bulvarı rahman Sokak abdurrahman gazi cami halk ekmek büfesi ön tarafında 1 ve sol ilerisinde ki kaldırım kenarındaki 1 duba toplam "
-      },
-      {
-        "basvuruNo": "1-63945098416",
-        "tarih": "2024-11-28",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sultanbeyli meydanı Fatih bulvarı civil giyim mağazası karşısındaki yol ortasındaki Ada’nın taşları kırıktır. Tamiratı gerekmektedir."
-      },
-      {
-        "basvuruNo": "1-63057325324",
-        "tarih": "2024-10-08",
-        "personelAdi": "ENES DURAN",
-        "mahalle": "ABDURRAHMANGAZİ",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Sultanbeyli meydanı Fatih bulvarı mega kozmetik karşısındaki meydan taşları kırıktır tamiratı gerekmektedir."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.564Z"
+    "updatedAt": "2026-08-17T16:19:56.087Z"
   },
   "basaksehir": {
     "meydanId": "basaksehir",
@@ -3290,54 +2750,9 @@
         "konu": "MEYDAN YÖNETİMİ",
         "durum": "Kapandı",
         "aciklama": "Başakşehir Yeşilvadi Saat Kulesi Meydanındaki Yeşil Alandaki Sulama Borularında Kırılmalar Vardır."
-      },
-      {
-        "basvuruNo": "1-62924050559",
-        "tarih": "2024-10-01",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "BAŞAK",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Başakşehir Yeşilvadi Saat Kulesi Meydanındaki Oturma Bankalarının Düzeltilmesi Gerekmektedir. Çok Kötü Bir İzlenim Veriyor. Başakşehir Yeşilvadi Saat "
-      },
-      {
-        "basvuruNo": "1-64495046431",
-        "tarih": "2024-12-30",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "BAŞAK",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Başakşehir Yeşilvadi Saat Kulesi Havuz Yanı Sert Zeminde Yağmur Yağınca Su Birikintisi Kalıyormuş. Gerekli Çalışmaların Yapılmasını Rica Ederiz."
-      },
-      {
-        "basvuruNo": "1-64495111104",
-        "tarih": "2024-12-30",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "BAŞAK",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Günaydınlar, Başakşehir Yeşil Vadi Saat Kulesi Meydanımız. Meydan'da bulunan havuzun taşları yerinden sökülmüştür, oynayan taşlar ve kırılan taşlar me"
-      },
-      {
-        "basvuruNo": "1-63068911021",
-        "tarih": "2024-10-08",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "BAŞAK",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Başvuru Açıklaması Başakşehir Yeşilvadi Saat Kulesi Meydanı Havuz Kenarındaki Zemin Taşında Çıkıntı Vardır. Vatandaş Takılıp Düşebilir.  Son Yorum Bah"
-      },
-      {
-        "basvuruNo": "1-65870221206",
-        "tarih": "2025-04-28",
-        "personelAdi": "BUSE DEMİREL",
-        "mahalle": "",
-        "konu": "İLETİŞİM KOORDİNATÖRLÜĞÜ",
-        "durum": "Kapandı",
-        "aciklama": "ATM yanında bulunan reklam panosunun içindeki İBB Logosunun asılı olduğu afiş yırtılmış durumdadır. Düzeltilmesini talep ederim."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.567Z"
+    "updatedAt": "2026-08-17T16:19:56.090Z"
   },
   "beyoglu": {
     "meydanId": "beyoglu",
@@ -3559,54 +2974,9 @@
         "konu": "HİZMETLER",
         "durum": "Kapandı",
         "aciklama": "Karaköy meydanda açık kablo kutusunun onarımını talep ediyorum  ek var"
-      },
-      {
-        "basvuruNo": "1-69807890376",
-        "tarih": "2026-02-23",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "YAHYA KAHYA",
-        "konu": "BAKIM ONARIM",
-        "durum": "Planlama",
-        "aciklama": "Duvar boyalarının silinmesini talep ederim"
-      },
-      {
-        "basvuruNo": "1-69807942176",
-        "tarih": "2026-02-23",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "KALYONCU KULLUĞU",
-        "konu": "BEDAŞ",
-        "durum": "Kapandı",
-        "aciklama": "Karaköy meydanda bulunan açık elektrik kablosu tehlike saçmaktadır düzeltilmesi talebiyle ek var"
-      },
-      {
-        "basvuruNo": "1-69785286366",
-        "tarih": "2026-02-16",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "KEMANKEŞ KARAMUSTAFAPAŞA",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Karaköy meydanı Açık kablo tehlike saçmaktadır yapılmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-66338759262",
-        "tarih": "2025-06-12",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "PİYALEPAŞA",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Piyalepaşa meydan da dubalarda eksikler tespit edilmiştir."
-      },
-      {
-        "basvuruNo": "1-66743118426",
-        "tarih": "2025-07-17",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "KEMANKEŞ KARAMUSTAFAPAŞA",
-        "konu": "İLÇE DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Fasuli ve mahal antep adlı işletmelerin kaldırımı işgal ettikleri  tespit edilmiştir"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.567Z"
+    "updatedAt": "2026-08-17T16:19:56.090Z"
   },
   "sisli": {
     "meydanId": "sisli",
@@ -3839,54 +3209,9 @@
         "konu": "PARK VE BAHÇELER",
         "durum": "Kapandı",
         "aciklama": "Mecidiyeköy Meydanı Çevreleyen Dubalar Çoğu Kırılmıştır. Mecidiyeköy Meydan İçindeki Bu Yaya Yolu 4 Aydır Bu Şekildedir. Buraya Ekiplerin Acil Müdahal"
-      },
-      {
-        "basvuruNo": "1-62689371363",
-        "tarih": "2024-09-18",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Şişli Mecidiyeköy Meydanı Gratis Karşısında Kaldırım Üstü Duba Yerinden Sökülmüştür. Şişli Mecidiyeköy Meydanı Zincirlikuyudan Gelip Fulyaya Dönen Yol"
-      },
-      {
-        "basvuruNo": "1-62694402257",
-        "tarih": "2024-09-18",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Şişli Mecidiyeköy Meydanında Bulanan Çöp Kovalarının Dış Kısımlarında Pislikler Vardır. Tahta Kısmı İse Çok Tozludur. Çöp Kovasının Temizliğinin Yapıl"
-      },
-      {
-        "basvuruNo": "1-63821838241",
-        "tarih": "2024-11-20",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Şişli Camii Meydanı Ve Şişli Uğur Mumcu Meydanın İçine Çöp Kovası Talep Ettik Ama Şişli İlçeye Talep Yönlendirilmiş. Uhde İBB Uhdesindedir. Talebimin "
-      },
-      {
-        "basvuruNo": "1-61872191341",
-        "tarih": "2024-08-02",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Mecidiyeköy Meydanı Çevreleyen Dubalar Çoğu Kırılmıştır. Mecidiyeköy Meydan İçindeki Bu Yaya Yolu 4 Aydır Bu Şekildedir. Buraya Ekiplerin Acil Müdahal"
-      },
-      {
-        "basvuruNo": "1-61872259399",
-        "tarih": "2024-08-02",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Mecidiyeköy Meydanı Çevreleyen Dubalar Çoğu Kırılmıştır. Mecidiyeköy Meydan İçindeki Bu Yaya Yolu 4 Aydır Bu Şekildedir. Buraya Ekiplerin Acil Müdahal"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.572Z"
+    "updatedAt": "2026-08-17T16:19:56.097Z"
   },
   "eyupsultan": {
     "meydanId": "eyupsultan",
@@ -4077,54 +3402,9 @@
         "konu": "İLÇE PARK BAHÇELER",
         "durum": "Kapandı",
         "aciklama": "Eyüpsultan Meydanında Bulunan Camii Kebir Alanındaki Ağaçları Çevreleyen Tahtalar Yerinden Çıkmıştır.  Eyüpsultan Meydanı Çözüm Noktamızın Arka Alanın"
-      },
-      {
-        "basvuruNo": "1-62458100892",
-        "tarih": "2024-09-05",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Eyüpsultan Meydanındaki Mermer Alandaki Mermer Üstü Oturma Tahtası Yerinden Sökülmüştür. Eyüpsultan Meydanı Ensar Lokantası Önündeki Havuzun Yer Zemin"
-      },
-      {
-        "basvuruNo": "1-62458101134",
-        "tarih": "2024-09-05",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Eyüpsultan Meydan Alanın Bazı Yerlerinde WİFİ Çekim Gücü Zayıflıyor. WİFİ'nin Çekim Gücünün Artırılması Gerekiyor. Eyüpsultan Meydan Alanına WİFİ Tabe"
-      },
-      {
-        "basvuruNo": "1-65324399931",
-        "tarih": "2025-03-04",
-        "personelAdi": "HASAN BİLİCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Meydanda bulunan mermer taş merdivenlerin bitiş çizgileri zamanla deforme veya silindiğinden dolayı vatandaşlar için tehlike arz etmektedir. Sorun eyu"
-      },
-      {
-        "basvuruNo": "1-65763489571",
-        "tarih": "2025-04-15",
-        "personelAdi": "HASAN BİLİCİ",
-        "mahalle": "İSLAMBEY",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Eyüp Sultan meydan çözüm merkezi önünden başlayan ve cami önüne doğru ilerleyen yolda ve pier loti meydanda zemin taşları bakım onarım yapılması gerek"
-      },
-      {
-        "basvuruNo": "1-65766652841",
-        "tarih": "2025-04-15",
-        "personelAdi": "HASAN BİLİCİ",
-        "mahalle": "MERKEZ",
-        "konu": "MEZARLIKLAR",
-        "durum": "Kapandı",
-        "aciklama": "Pier Loti mezarlık içi yolların temizlik yapılması gerektiği tespit edilmiştir Ayrıca genel olarak bakım ve temizlik yapılması talep ediyorum"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.572Z"
+    "updatedAt": "2026-08-17T16:19:56.097Z"
   },
   "fatih": {
     "meydanId": "fatih",
@@ -4367,54 +3647,9 @@
         "konu": "İLÇE BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Fatih Eminönü meydanı Arpacılar caddesi  Eminönü yeraltı çarşısının,Yeni Camii girişinin hemen arkasındaki cadde görselde göründüğü gibi zemin çökmesi"
-      },
-      {
-        "basvuruNo": "1-64998399788",
-        "tarih": "2025-01-29",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "RÜSTEMPAŞA",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Fatih Eminönü meydanı ,Mısır çarşısı peynircilerin karşısı ve ATM lerin hemen önünde görselde göründüğü gibi zeminde bedaşa ait elektrik kabloları var"
-      },
-      {
-        "basvuruNo": "1-66156720282",
-        "tarih": "2025-05-24",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "RÜSTEMPAŞA",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Eminönü meydanı mısır çarşısı yanı Bayramoğlu kuruyemişin önünde görselde göründüğü gibi karton ve çöp atılmış. Mevcut karton ve çöplerin alandan temi"
-      },
-      {
-        "basvuruNo": "1-66248391340",
-        "tarih": "2025-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "RÜSTEMPAŞA",
-        "konu": "DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Eminönü meydanı peynircilerin karşısında  kağıt toplayıcılarına ait arabalar ve atık karton kutuları var.Bunların alandan kaldırılmasını talep ediyoru"
-      },
-      {
-        "basvuruNo": "1-66252452113",
-        "tarih": "2025-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "RÜSTEMPAŞA",
-        "konu": "BEDAŞ",
-        "durum": "Kapandı",
-        "aciklama": "Eminönü Meydanıda bulunan aydınlatma direklerini etekleri kırıldığı için bu alanlara çöp atılıyor ve görsel açıdan da kötü bir görüntü oluşmuş durumda"
-      },
-      {
-        "basvuruNo": "1-66251221892",
-        "tarih": "2025-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "RÜSTEMPAŞA",
-        "konu": "BEDAŞ",
-        "durum": "Kapandı",
-        "aciklama": "Eminönü  Meydanı Reşadiye Caddesi üzeri Yeni Camii önünde bulunan, aydınlatma direğinin kapağı açık olduğu için elektirik kabloları dışarıya çıkmış.Va"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.572Z"
+    "updatedAt": "2026-08-17T16:19:56.097Z"
   },
   "sile": {
     "meydanId": "sile",
@@ -4640,60 +3875,15 @@
         "konu": "PERSONEL",
         "durum": "Kapandı",
         "aciklama": "139 T tepeüstü şile araç şikayet başvurusudur. 07.12.2021 saat 11.00 de ayedaş dan kalkan tepeüstü seferini yapan araç şoförü araçta yolcuyla sefer bo"
-      },
-      {
-        "basvuruNo": "1-56551900855",
-        "tarih": "2023-04-21",
-        "personelAdi": "SEZAYİ KARAKOÇ",
-        "mahalle": "",
-        "konu": "WEB SİTESİ",
-        "durum": "Kapandı",
-        "aciklama": "İETT NİN RESMİ SAYFASINDA ÖZEL GÜNLERDE ÇALIŞMA SAATELERİNİN DETAYLI BİR ŞEKİLDE PAYLAŞILMASINI VE HANGİ GÜNE GÖRE ÇALIŞTIĞI İLE İLGİLİ BİLGİ VERİLMES"
-      },
-      {
-        "basvuruNo": "1-51321810502",
-        "tarih": "2022-02-03",
-        "personelAdi": "SEZAYİ KARAKOÇ",
-        "mahalle": "ÇAVUŞ",
-        "konu": "ULAŞIM ÜCRET TARİFESİ",
-        "durum": "Kapandı",
-        "aciklama": "Merhaba ilgili yetkili kuruma iletilmek üzere başvurumdur, Özel halk otobüsü olarak geçen İstanbul Büyükşehir Belediyesinin himayesinde ki 139 ve 139 "
-      },
-      {
-        "basvuruNo": "1-53350360084",
-        "tarih": "2022-05-02",
-        "personelAdi": "SEZAYİ KARAKOÇ",
-        "mahalle": "",
-        "konu": "MOBİETT",
-        "durum": "Kapandı",
-        "aciklama": "139 139A HATLARI HATLARINDA BAYRAMLARDA RESMİ TATİLLERDE DUYURU YAPILIRKEN BU HATLARINDA ÜCRETSİZ OLDUĞUNU BELİRTECEK ŞEKİLDE DUYURU YAPILMASINI TALEP"
-      },
-      {
-        "basvuruNo": "1-54131317185",
-        "tarih": "2022-05-25",
-        "personelAdi": "SEZAYİ KARAKOÇ",
-        "mahalle": "",
-        "konu": "PERSONEL",
-        "durum": "Kapandı",
-        "aciklama": "Selam dün gece 153 hatti beni aramis bakamadim neden aramiş bilgisini verir misiniz  24.05.2022 saat 23.24 de 153 hattindan aranmişim neden arandığımi"
-      },
-      {
-        "basvuruNo": "1-54617019406",
-        "tarih": "2022-09-07",
-        "personelAdi": "SEZAYİ KARAKOÇ",
-        "mahalle": "",
-        "konu": "YÜRÜYEN MERDİVEN",
-        "durum": "Kapandı",
-        "aciklama": "M5 METROSU IHLAMURKUYU İSTASYONU ÇIKIŞTA BENZİN İSTASYONU YÖNÜNE OLAN ÇIKIŞIN YÜRÜYEN MERDİVENLERİ 2 HAFTAYI AŞKINDIR ÇALIŞMIYOR BEN BURAYI SÜREKLİ KU"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.574Z"
+    "updatedAt": "2026-08-17T16:19:56.100Z"
   },
   "esenler": {
     "meydanId": "esenler",
     "ilce": "ESENLER",
-    "toplamBasvuru": 283,
-    "kapandi": 280,
+    "toplamBasvuru": 282,
+    "kapandi": 279,
     "planlama": 0,
     "acik": 0,
     "diger": 3,
@@ -4707,7 +3897,7 @@
       "2022-06": 2,
       "2021-07": 1,
       "2023-08": 2,
-      "2025-02": 7,
+      "2025-02": 6,
       "2026-07": 19,
       "2026-06": 14,
       "2026-05": 5,
@@ -4750,7 +3940,7 @@
       "İLAÇLAMA": 3,
       "VETERİNER HİZMETLERİ": 2,
       "BELGELER": 1,
-      "İski": 8,
+      "İski": 7,
       "İLÇE TEMİZLİK": 59,
       "BAKIM ONARIM": 93,
       "İLÇE BAKIM ONARIM": 36,
@@ -4924,101 +4114,56 @@
         "konu": "İLÇE TEMİZLİK",
         "durum": "Kapandı",
         "aciklama": "Esenler Dörtyol Meydanı. Atışalanı Caddesinde vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70301851893",
-        "tarih": "2026-07-09",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "NİNE HATUN",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Esenler Dörtyol Meydanında vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70297530475",
-        "tarih": "2026-07-08",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "DAVUTPAŞA",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Esenler Dörtyol Meydanında vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70297708274",
-        "tarih": "2026-07-08",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "NİNE HATUN",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Esenler Dörtyol Meydanı, Nene  Hatun Mah Davutpaşa Caddesi no .54/c Yuvam AVM önü ve 56/A Yuvam  uyku merkezi önünde sert zemin taşları kırılmıs onarı"
-      },
-      {
-        "basvuruNo": "1-70243605810",
-        "tarih": "2026-06-24",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "MENDERES",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Esenler Dörtyol Meydanında vatandaşlar tarafından atılan çöpler mevcut. Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70243560041",
-        "tarih": "2026-06-24",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "NİNE HATUN",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Esenler Dörtyol Meydanı 109. Sokakta sert zeminde bozulma mevcut.Bozulan ser zeminin onarımını talep ediyorum."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.574Z"
+    "updatedAt": "2026-08-17T16:19:56.100Z"
   },
   "bahcelievler": {
     "meydanId": "bahcelievler",
     "ilce": "BAHÇELİEVLER",
-    "toplamBasvuru": 564,
-    "kapandi": 544,
+    "toplamBasvuru": 485,
+    "kapandi": 470,
     "planlama": 4,
     "acik": 0,
-    "diger": 16,
+    "diger": 11,
     "aylikDagilim": {
-      "2022-12": 4,
-      "2024-08": 8,
-      "2022-03": 3,
-      "2026-07": 22,
-      "2023-02": 5,
-      "2022-06": 8,
-      "2019-11": 2,
-      "2026-06": 32,
-      "2021-01": 2,
-      "2019-09": 2,
-      "2020-03": 2,
-      "2021-09": 2,
-      "2021-12": 2,
-      "2023-11": 4,
-      "2022-08": 4,
-      "2022-04": 2,
-      "2022-07": 4,
-      "2022-05": 4,
-      "2023-09": 12,
-      "2022-10": 2,
-      "2023-04": 2,
-      "2023-08": 8,
-      "2022-09": 4,
-      "2023-07": 4,
-      "2023-05": 2,
-      "2024-02": 2,
-      "2026-03": 12,
-      "2024-09": 4,
-      "2025-01": 45,
-      "2024-10": 9,
-      "2026-02": 25,
-      "2025-03": 16,
-      "2025-08": 22,
-      "2025-05": 19,
-      "2026-08": 24,
-      "2026-01": 31,
-      "2025-12": 35,
+      "2022-12": 3,
+      "2024-08": 7,
+      "2022-03": 2,
+      "2026-07": 20,
+      "2023-02": 3,
+      "2022-06": 4,
+      "2019-11": 1,
+      "2026-06": 28,
+      "2021-01": 1,
+      "2019-09": 1,
+      "2020-03": 1,
+      "2021-09": 1,
+      "2021-12": 1,
+      "2023-11": 2,
+      "2022-08": 2,
+      "2022-04": 1,
+      "2022-07": 2,
+      "2022-05": 2,
+      "2023-09": 6,
+      "2022-10": 1,
+      "2023-04": 1,
+      "2023-08": 4,
+      "2022-09": 2,
+      "2023-07": 2,
+      "2023-05": 1,
+      "2024-02": 1,
+      "2026-03": 11,
+      "2024-09": 2,
+      "2025-01": 44,
+      "2024-10": 8,
+      "2026-02": 21,
+      "2025-03": 15,
+      "2025-08": 20,
+      "2025-05": 17,
+      "2026-08": 18,
+      "2026-01": 25,
+      "2025-12": 30,
       "2023-01": 1,
       "2025-02": 22,
       "2023-06": 1,
@@ -5035,32 +4180,32 @@
     },
     "konuDagilimi": {
       "OTOBÜSLER": 1,
-      "EKSİK BİLGİ": 3,
-      "PERSONEL": 7,
-      "PARK VE BAHÇELER": 93,
-      "HALKLA İLİŞKİLER": 8,
-      "MÜŞTERİ SIFIRLAMA": 2,
-      "İLÇE TEMİZLİK": 20,
-      "İLÇE DENETİM": 12,
-      "BAKIM ONARIM": 105,
-      "TEMİZLİK": 31,
-      "İTAKSİ": 6,
-      "DENETİM": 44,
-      "ACİL BİLGİLENDİRME": 5,
-      "TALEP": 11,
-      "ÜST GEÇİT": 5,
-      "EMLAK": 2,
-      "HALK EKMEK SATIŞ NOKTALARI": 2,
-      "İNSİYATİF ÇÖZÜM": 10,
-      "ACİL BİLGİLENDİRME EKİBİ": 2,
-      "İLÇE PARK BAHÇELER": 5,
-      "ASANSÖRLER": 4,
-      "PROJELER": 2,
-      "İLAÇLAMA": 14,
-      "BEDAŞ": 16,
-      "KENT LOKANTALARI": 2,
-      "ACİL MÜDAHALE": 9,
-      "ENERJİ YÖNETİM": 5,
+      "EKSİK BİLGİ": 2,
+      "PERSONEL": 4,
+      "PARK VE BAHÇELER": 77,
+      "HALKLA İLİŞKİLER": 4,
+      "MÜŞTERİ SIFIRLAMA": 1,
+      "İLÇE TEMİZLİK": 17,
+      "İLÇE DENETİM": 11,
+      "BAKIM ONARIM": 98,
+      "TEMİZLİK": 24,
+      "İTAKSİ": 4,
+      "DENETİM": 32,
+      "ACİL BİLGİLENDİRME": 4,
+      "TALEP": 7,
+      "ÜST GEÇİT": 4,
+      "EMLAK": 1,
+      "HALK EKMEK SATIŞ NOKTALARI": 1,
+      "İNSİYATİF ÇÖZÜM": 7,
+      "ACİL BİLGİLENDİRME EKİBİ": 1,
+      "İLÇE PARK BAHÇELER": 4,
+      "ASANSÖRLER": 3,
+      "PROJELER": 1,
+      "İLAÇLAMA": 13,
+      "BEDAŞ": 15,
+      "KENT LOKANTALARI": 1,
+      "ACİL MÜDAHALE": 6,
+      "ENERJİ YÖNETİM": 4,
       "METROBÜS": 61,
       "SEFER GECİKMESİ/İPTALİ": 1,
       "BAYRAK": 2,
@@ -5222,54 +4367,9 @@
         "konu": "TEMİZLİK",
         "durum": "Kapandı",
         "aciklama": "Merhaba Şirinevler çözüm noktasının önünde ki rampa hayvan pisliği ve yemek artıkları ile dolu buranın acil bir şekilde temizlenmesini ve yıkanmasını "
-      },
-      {
-        "basvuruNo": "1-20054371330",
-        "tarih": "2019-09-09",
-        "personelAdi": "BURAK ÖZÇELİK",
-        "mahalle": "ŞİRİNEVLER",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "BELİRTTİĞİM ADRES DE OTURUYORUM SOKAKLARIN TEMİZLENMESİNİ TALEP EDERİM. ÇÖPLERİMİZ HİÇ ALINMIYOR GEREĞİNİN YAPILMASINI ARZ EDERİM."
-      },
-      {
-        "basvuruNo": "1-26323006397",
-        "tarih": "2020-03-22",
-        "personelAdi": "BURAK ÖZÇELİK",
-        "mahalle": "ŞİRİNEVLER",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "BELİRTMİŞ OLDUĞUM ADRESTE SOKAK ÜZERİNDE YERLERDE VE ÇÖP KONTEYNIRLARI DOLU ÇÖPLERİN ALINMASINI TLAEP EDEİRM"
-      },
-      {
-        "basvuruNo": "1-45778031265",
-        "tarih": "2021-09-06",
-        "personelAdi": "BURAK ÖZÇELİK",
-        "mahalle": "",
-        "konu": "İTAKSİ",
-        "durum": "Kapandı",
-        "aciklama": "34TER48 YOLCUYU İNDİRDİ, YANINA GİTTİM GİDİCEĞİM YERİ SÖYLEDİM KISA MESAFE DİYE ALMADI. BU DURUMDAN DOLAYI ŞİKAYETÇİYİM."
-      },
-      {
-        "basvuruNo": "1-49339152960",
-        "tarih": "2021-12-15",
-        "personelAdi": "BURAK ÖZÇELİK",
-        "mahalle": "",
-        "konu": "DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "ŞİRİNEVLER İLETİŞİM NOKTASINDAN ÇOĞU KEZ ZABITA EKİPLERİNİ ARIYORUZ SUREKLİ TEHLİKELİ DURUMLAR İÇİN VATANDAŞLARDAN ŞİKAYETLER ALIYORUZ MALESEF ZABITA "
-      },
-      {
-        "basvuruNo": "1-58970669154",
-        "tarih": "2023-11-22",
-        "personelAdi": "BURAK ÖZÇELİK",
-        "mahalle": "ŞİRİNEVLER",
-        "konu": "ACİL BİLGİLENDİRME",
-        "durum": "Kapandı",
-        "aciklama": "Şirinevler çözüm noktasının acil çıkış kapısının önü Çok kirli ve kötü bir koku var Buranın acil temizliği gerekiyor Tuvaletini yapmış vatandaş"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.575Z"
+    "updatedAt": "2026-08-17T16:19:56.100Z"
   },
   "adalar": {
     "meydanId": "adalar",
@@ -5306,7 +4406,7 @@
         "aciklama": "Nizam mahallesi nizam caddesi no 47/1  (nizam otobüs durağı) üzerinde bulunan İett durakları alanda bulunan çalışmalardan dolayı sökülmüştür ilgili al"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.581Z"
+    "updatedAt": "2026-08-17T16:19:56.110Z"
   },
   "gungoren": {
     "meydanId": "gungoren",
@@ -5487,54 +4587,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Güngören Gençosman Mahallesi Davutpaşa Caddesi No:68 Makbul işletmenin ön alanındaki asfaltta bozulma meydana gelmiştir. Onarılmasını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-64361683765",
-        "tarih": "2024-12-22",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MEHMET NESİH ÖZMEN",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Güngören Meydanının Fatih Caddesi Üzerindeki Asfalt Yolda Ve Orta Refüjde Bozulmalar Meydana Gelmiştir. Yol Bakım Tarafından Gerekli Çalışmaların Yapı"
-      },
-      {
-        "basvuruNo": "1-65144837028",
-        "tarih": "2025-02-13",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Güngören Kasım Sokak Meydanında Pislikler Var.  Güngören Belediyesi Temizlik İşlerince Gerekli Yardımların Yapılmasını Rica Ederiz."
-      },
-      {
-        "basvuruNo": "1-63170579751",
-        "tarih": "2024-10-14",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "İSTANBULSENİN SÜPERAPP",
-        "durum": "Kapandı",
-        "aciklama": "Burada Yaşayan Vatandaşlar Güngören Kasım Sokak İSPARK Üstü Meydan İçin WİFİ Talep Ediyorlar."
-      },
-      {
-        "basvuruNo": "1-63171690873",
-        "tarih": "2024-10-14",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MEHMET NESİH ÖZMEN",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Vatandaşların Ve Esnafın Güngören Kasım Sokak İSPARK Üstü Meydan İçin WC Talepleri Vardır."
-      },
-      {
-        "basvuruNo": "1-63170531495",
-        "tarih": "2024-10-14",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MEHMET NESİH ÖZMEN",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Burada Yaşayan Vatandaşların Güngören Kasım Sokak İSPARK Üstü Meydan Alanında Oturmak İçin Meydana Bank Koyulması Talepleri  Vardır."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.590Z"
+    "updatedAt": "2026-08-17T16:19:56.122Z"
   },
   "silivri": {
     "meydanId": "silivri",
@@ -5561,23 +4616,23 @@
         "aciklama": "Sokakta uzun zamandır (bu yaz hiç yapılmadı) temizlik yapılmıyor. Size geçen hafta bildirmemize rağmen. Ayrıca aydınlatma çalışmıyor?  @SilivriBel   K"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.607Z"
+    "updatedAt": "2026-08-17T16:19:56.146Z"
   },
   "bakirkoy": {
     "meydanId": "bakirkoy",
     "ilce": "BAKIRKÖY",
-    "toplamBasvuru": 353,
-    "kapandi": 348,
+    "toplamBasvuru": 347,
+    "kapandi": 342,
     "planlama": 1,
     "acik": 0,
     "diger": 4,
     "aylikDagilim": {
-      "2023-01": 2,
-      "2022-12": 2,
-      "2026-04": 39,
-      "2023-09": 5,
-      "2025-04": 16,
-      "2025-06": 11,
+      "2023-01": 1,
+      "2022-12": 1,
+      "2026-04": 38,
+      "2023-09": 4,
+      "2025-04": 15,
+      "2025-06": 10,
       "2026-07": 31,
       "2026-06": 19,
       "2026-05": 22,
@@ -5603,9 +4658,9 @@
       "2025-10": 6
     },
     "konuDagilimi": {
-      "DENETİM": 14,
-      "BAKIM ONARIM": 84,
-      "İLÇE TEMİZLİK": 41,
+      "DENETİM": 12,
+      "BAKIM ONARIM": 81,
+      "İLÇE TEMİZLİK": 40,
       "İNSİYATİF ÇÖZÜM": 5,
       "PARK VE BAHÇELER": 51,
       "İLÇE BAKIM ONARIM": 31,
@@ -5780,65 +4835,20 @@
         "konu": "İLÇE TEMİZLİK",
         "durum": "Kapandı",
         "aciklama": "Bakırköy Özgürlük Meydanı Filiz sokak üzerinde vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70267703824",
-        "tarih": "2026-06-30",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "ZUHURATBABA",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Bakırköy Özgürlük Meydanında vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-70290328347",
-        "tarih": "2026-07-06",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "KARTALTEPE",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Bakırköy Özgürlük Meydanı İncirli Caddesi üzerinde Bakırköy Belediyesine ait bez afişlerin ipi koptuğu için ağaçta asılı ve yere düşmüş.Bu afişlerin a"
-      },
-      {
-        "basvuruNo": "1-70182483921",
-        "tarih": "2026-06-08",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "KARTALTEPE",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Bakırköy Özgürlük Meydanında İstanbul Emniyet Müdürlüğüne ait narko tırın meydana girmesi için dubaların sökülmesini tır meydana girdikten sonra tekra"
-      },
-      {
-        "basvuruNo": "1-70183512479",
-        "tarih": "2026-06-08",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "ZEYTİNLİK",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Bakırköy Özgürlük Meydanı,Gençler Caddesi üzerinde sert zemin taşlarında bozulma mevcut.Alanda bulunan bu bozuk zemin taşlarının onarımını talep ediyo"
-      },
-      {
-        "basvuruNo": "1-70181624649",
-        "tarih": "2026-06-08",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "CEVİZLİK",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Bakırköy Özgürlük Meydanında marmaray girişindeki mazgallar kırılmış.Kırılan mazgalların onarımını talep ediyorum"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.861Z"
+    "updatedAt": "2026-08-17T16:19:56.415Z"
   },
   "bagcilar": {
     "meydanId": "bagcilar",
     "ilce": "BAĞCILAR",
-    "toplamBasvuru": 654,
-    "kapandi": 640,
+    "toplamBasvuru": 653,
+    "kapandi": 639,
     "planlama": 7,
     "acik": 0,
     "diger": 7,
     "aylikDagilim": {
-      "2022-10": 2,
+      "2022-10": 1,
       "2026-06": 46,
       "2026-05": 51,
       "2026-04": 45,
@@ -5868,7 +4878,7 @@
       "2024-09": 9
     },
     "konuDagilimi": {
-      "İTAKSİ": 2,
+      "İTAKSİ": 1,
       "PARK VE BAHÇELER": 197,
       "İLÇE DENETİM": 16,
       "İski": 4,
@@ -6055,68 +5065,23 @@
         "konu": "ASANSÖRLER",
         "durum": "Kapandı",
         "aciklama": "Bağcılar Meydanı,kuzey tarafta bulunan 3 numaralı asansör arıza yaptığı için çalısmıyor onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-70082969854",
-        "tarih": "2026-05-11",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "SANCAKTEPE",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Bağcılar Meydanında vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70087669382",
-        "tarih": "2026-05-12",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "SANCAKTEPE",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Bağcılar Meydanı, 889 sokakta kaldırım taşlarıında bozulma mevcut.Bozulan kaldırım taşlarının onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-70083589902",
-        "tarih": "2026-05-11",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "SANCAKTEPE",
-        "konu": "YÜRÜYEN MERDİVEN",
-        "durum": "Kapandı",
-        "aciklama": "Bağcılar Meydanında, meydandan metro istasyonuna inen yürüyen merdiven arza yapmış çalışmıyor. Onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-70086911022",
-        "tarih": "2026-05-12",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "SANCAKTEPE",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Bağcılar Meydanı yeşil alanda vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70079336894",
-        "tarih": "2026-05-10",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "SANCAKTEPE",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Bağcılar Meydanı İstanbul caddesi üzerinde vatandaşlar tarafından atılan çöpler mevcut.Alanda bulunan bu çöplerin temizlenmesini talep ediyorum."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.861Z"
+    "updatedAt": "2026-08-17T16:19:56.415Z"
   },
   "zeytinburnu": {
     "meydanId": "zeytinburnu",
     "ilce": "ZEYTİNBURNU",
-    "toplamBasvuru": 182,
-    "kapandi": 174,
+    "toplamBasvuru": 172,
+    "kapandi": 164,
     "planlama": 5,
     "acik": 0,
     "diger": 3,
     "aylikDagilim": {
-      "2026-04": 22,
-      "2025-06": 4,
-      "2025-04": 7,
-      "2025-10": 7,
+      "2026-04": 20,
+      "2025-06": 2,
+      "2025-04": 4,
+      "2025-10": 4,
       "2024-06": 1,
       "2026-06": 26,
       "2025-02": 5,
@@ -6140,11 +5105,11 @@
       "2026-08": 3
     },
     "konuDagilimi": {
-      "PARK VE BAHÇELER": 73,
-      "ASANSÖRLER": 23,
-      "İÇ HİZMET": 5,
-      "İSBİKE": 2,
-      "AĞAÇ VE PEYZAJ": 3,
+      "PARK VE BAHÇELER": 67,
+      "ASANSÖRLER": 22,
+      "İÇ HİZMET": 4,
+      "İSBİKE": 1,
+      "AĞAÇ VE PEYZAJ": 2,
       "İNSAN KAYNAKLARI": 2,
       "TEMİZLİK VE BAKIM": 3,
       "ÜST GEÇİT": 17,
@@ -6304,54 +5269,9 @@
         "konu": "ÜST GEÇİT",
         "durum": "Kapandı",
         "aciklama": "Zeytinburnu Çırpıcı Meydanıda, tramvaydan metro istasyonuna çıkan merdivenlerin kaplamaları yerinden çıkmış onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-70162815644",
-        "tarih": "2026-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "ÇIRPICI",
-        "konu": "YÜRÜYEN MERDİVEN",
-        "durum": "Kapandı",
-        "aciklama": "Zeytinburnu Çarpıcı Meydanıda tramvaydan metro istasyonuna çıkan yürüyen merdiven arza yapmış çalışmıyor. Onarımını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70162262497",
-        "tarih": "2026-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "ÇIRPICI",
-        "konu": "İSTASYON",
-        "durum": "Planlama",
-        "aciklama": "Zeytinburnu Çırpıcı Meydanıda bulunan tramvay durağı  sağ ve sol tarafında bulunan girilmez tabelası deforme olmuş ve yazıları silinmiş. Deforme olan "
-      },
-      {
-        "basvuruNo": "1-70161734813",
-        "tarih": "2026-06-02",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "ÇIRPICI",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Zeytinburnu Meydanı,Çırpıcı parkı içerisinde bulunan oturma gurupları vatandaşlar tarafindan oldukları yerlerden farklı yerlere çekilmiştir.Bu oturma "
-      },
-      {
-        "basvuruNo": "1-65141603182",
-        "tarih": "2025-02-13",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "",
-        "konu": "ASANSÖRLER",
-        "durum": "Kapandı",
-        "aciklama": "Çırpıcı meydanı,otobüs dudaklarından metro istasyonuna çıkan asansör görselde göründüğü gibi çalışmıyor. Talep açılmasını rica ederim."
-      },
-      {
-        "basvuruNo": "1-65142113922",
-        "tarih": "2025-02-13",
-        "personelAdi": "EMİN ERDOĞAN",
-        "mahalle": "",
-        "konu": "AĞAÇ VE PEYZAJ",
-        "durum": "Kapandı",
-        "aciklama": ". Çırpıcı meydanı ATM ler ile Fakı Ahmet büfesinin arasında kalan bölgede çöp birikintisi var koku yapıyor buranın temizlenmesi için talep oluşturmanı"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.861Z"
+    "updatedAt": "2026-08-17T16:19:56.415Z"
   },
   "besiktas": {
     "meydanId": "besiktas",
@@ -6554,54 +5474,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Ortaköy meydanda deniz kenarındaki dubalarda deformeler hasarlar ve tamamen yerinden sökülen dubalar tespit edilmiş"
-      },
-      {
-        "basvuruNo": "1-69519259215",
-        "tarih": "2025-12-01",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "ABBASAĞA",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beşiktaş meydan barbaros hayreddin paşa anıtının tam karşısında trafik ışıklarının altındaki dubalarda hasar ve tamamen yerinden çıkma tespit edilmiş "
-      },
-      {
-        "basvuruNo": "1-69519262431",
-        "tarih": "2025-12-01",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "YILDIZ",
-        "konu": "DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Beşiktaş meydan atıl duran eski beltur burger cafe önüne izinsiz seyyar çiçekçi yerleşimi tespit edilmiştir"
-      },
-      {
-        "basvuruNo": "1-69519160603",
-        "tarih": "2025-12-01",
-        "personelAdi": "ÇAĞATAY BEYOĞLU",
-        "mahalle": "MECİDİYE",
-        "konu": "İLÇE DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Ortaköy meydanda cafe ve restoranların esperessolab tabela ve cafe alanı olamayan ön tarafa oturak atarak işgal yaptıgı tespit edilmiş"
-      },
-      {
-        "basvuruNo": "1-61559190304",
-        "tarih": "2024-07-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "ORTAKÖY",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Beşiktaş Alaca Cefe Önündeki Çocuk Oyun Alanınındaki zeminde kırılmalar meydana gelmiştir. Beşiktaş Ortaköy Alaca Kafe"
-      },
-      {
-        "basvuruNo": "1-61559259283",
-        "tarih": "2024-07-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Beşiktaş Ortaköy Meydanı Beltaş Kafe Önündeki Denizin Kenarındaki Kaldırım Taşlarında Kırılmalar Mevcuttur. Aynı yerdeki Turistik Boğaz Turlarının Old"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.862Z"
+    "updatedAt": "2026-08-17T16:19:56.415Z"
   },
   "gaziosmanpasa": {
     "meydanId": "gaziosmanpasa",
@@ -6793,54 +5668,9 @@
         "konu": "İLÇE TEMİZLİK",
         "durum": "Kapandı",
         "aciklama": "Gaziosmanpaşa Kent Meydanı Çayırlı Evler Sokağı Yine Çöpler Saati Dışında Meydan Tarafına Bırakılmıştır. Konu Hakkında Gaziosmanpaşa Temizlik İşlerinc"
-      },
-      {
-        "basvuruNo": "1-65177617132",
-        "tarih": "2025-02-17",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "KAZILAR",
-        "durum": "Kapandı",
-        "aciklama": "Gaziosmanpaşa Yaşam Merkezinin Bağlar Caddesinde Bedaş Çalışma Yapmış. Burayı Kapatmamışlar. Gerekli Yardımların Yapılmasını Rica Ederiz."
-      },
-      {
-        "basvuruNo": "1-65172762332",
-        "tarih": "2025-02-17",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Gaziosmanpaşa Cumhuriyet Meydanında Yer Zeminde Çökme Meydana Gelmiştir. Gerekli Yardımların Yapılmasını Rica Ederiz."
-      },
-      {
-        "basvuruNo": "1-65961689758",
-        "tarih": "2025-05-07",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Merkez Mahallesi Çukurçeşme Caddesi Gaziosmanpaşa/İstanbul  Gaziosmanpaşa Kaymakamlığın Ön Alanın Genel Taraması Yapılarak Gerekli Yardımların Yapılma"
-      },
-      {
-        "basvuruNo": "1-65784267561",
-        "tarih": "2025-04-17",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Gaziosmanpaşa Cumhuriyet Meydanı Yeşilayın Bulunduğu Alanda İlçe Belediyesi Elektrik Direği Sökülmüştür. Yer Zeminde Oynama Ve Kapakta Yamulma Meydana"
-      },
-      {
-        "basvuruNo": "1-66353725646",
-        "tarih": "2025-06-13",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Gaziosmanpaşa Merkez Mahallesi Salih Paşa Caddesi İle Çukurçeşme Caddesi Keşisiminde Bulunan Hasan Ağa İş Merkezinin Yanındaki Kapalı Yolun Başında Bu"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.864Z"
+    "updatedAt": "2026-08-17T16:19:56.418Z"
   },
   "bayrampasa": {
     "meydanId": "bayrampasa",
@@ -7018,54 +5848,9 @@
         "konu": "İLÇE PARK BAHÇELER",
         "durum": "Kapandı",
         "aciklama": "Bayrampaşa şehit Kamil parkı içindeki ağaçlar fidanlar susuz kalmış su viskiyelerin çalışmadığı için sulama yapması için su tankeri talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-69743646224",
-        "tarih": "2026-02-04",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "KARTALTEPE",
-        "konu": "TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Bayrampaşa Kartaltepe Meydanı’nda, Şehitkamil Balkan Camii ön girişinde bulunan uygunsuz yazıların silinmesini talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-69346408165",
-        "tarih": "2025-10-15",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "KARTALTEPE",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Şehit Kamil balkan cami meydan ağaçların çimlerin bakımı ve budalanmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-69574498621",
-        "tarih": "2025-12-16",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "KARTALTEPE",
-        "konu": "TRAFİK",
-        "durum": "Kapandı",
-        "aciklama": "Bayrampaşa Sağmalcılar lisesi Durağın yanındaki Trafik güvenlik aynası kırılmıştır yapılmasını ve onarılmasını talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70077215257",
-        "tarih": "2026-05-09",
-        "personelAdi": "CANSIN BOYOĞLU",
-        "mahalle": "",
-        "konu": "TEŞEKKÜR",
-        "durum": "Kapandı",
-        "aciklama": "EFKAN VE  ÜMİT BEYE  KEDİYİ ALDIKLARI İÇİN TEŞEKKÜRLERİMİ İLETİYORUM"
-      },
-      {
-        "basvuruNo": "1-65890726885",
-        "tarih": "2025-04-30",
-        "personelAdi": "CANSIN BOYOĞLU",
-        "mahalle": "",
-        "konu": "YÜRÜYEN MERDİVEN",
-        "durum": "Kapandı",
-        "aciklama": "terazidere metronun oradaki yürüyen merdiven kirlidir ve 2 aydır çalışmamaktadır onarımını ve temizlenmesini talep ediyorum."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.866Z"
+    "updatedAt": "2026-08-17T16:19:56.420Z"
   },
   "kucukcekmece": {
     "meydanId": "kucukcekmece",
@@ -7246,54 +6031,9 @@
         "konu": "İLÇE DENETİM",
         "durum": "Kapandı",
         "aciklama": "Cennet Mahallesi Yavuz Selim Caddesi 32 A Küçükçekmece/İstanbul Meydana Ara Ara Seyyar Satıcı Giriyor. Çocuk Parkı Sebebiyle Pamuk Şekerci Giriyor"
-      },
-      {
-        "basvuruNo": "1-62657823955",
-        "tarih": "2024-09-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "CENNET",
-        "konu": "UKOME KARARLAR",
-        "durum": "Kapandı",
-        "aciklama": "Küçükçekmece Cennet Meydanı Atilla İlhan Kütüphanesinin Bu Alanına Park Etmek Yasaktır Tabelası Talep Edilmektedir."
-      },
-      {
-        "basvuruNo": "1-62649180656",
-        "tarih": "2024-09-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Küçükçekmece Cennet Meydanı Havuz Yanındaki Oturma Grubunda Kırılma Meydana Gelmiştir."
-      },
-      {
-        "basvuruNo": "1-62650608668",
-        "tarih": "2024-09-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MÜZELER",
-        "durum": "Kapandı",
-        "aciklama": "Küçükçekmece Cennet Meydanı Atilla İlhan Kütüphanesinin Önüne Öğrenciler Kamelya Talep Ediyorlar. Atilla İlhan Kütüphanesinin Üst Tarafındaki Asansör "
-      },
-      {
-        "basvuruNo": "1-62651644501",
-        "tarih": "2024-09-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Küçükçekmece Cennet Meydanı Köpek Parkında Kapı Menteşesi Aşağıda Kaldığı İçin Kapanmıyor"
-      },
-      {
-        "basvuruNo": "1-62651722919",
-        "tarih": "2024-09-16",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "OTOPARKLAR",
-        "durum": "Kapandı",
-        "aciklama": "Küçükçekmece Cennet Meydanında İSPARK'a Ait Basketbol Sahasının Yanındaki Havalandırmada Kırılmalar Meydana Gelmiştir. Güvenlikler Şerit Çekmiştir. Am"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.871Z"
+    "updatedAt": "2026-08-17T16:19:56.428Z"
   },
   "sariyer": {
     "meydanId": "sariyer",
@@ -7507,54 +6247,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Sarıyer Rumelihisarı Meydanı Boğaziçi Üniversitesi Metro İstasyonun 1. Çıkışındaki Hisar Üstü Nispetiye Caddesindeki Kaldırım Üstü Dubaların Çoğu Yeri"
-      },
-      {
-        "basvuruNo": "1-62965033679",
-        "tarih": "2024-10-03",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "RUMELİHİSARI",
-        "konu": "DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Sarıyer Rumelihisarı Meydanı Boğaziçi Üniversitesinin Karşısındaki Meydan Alanına 2 Adet Scooter Bırakılmıştır."
-      },
-      {
-        "basvuruNo": "1-62964089559",
-        "tarih": "2024-10-03",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "RUMELİHİSARI",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Sarıyer Rumelihisarı Meydanı Boğaziçi Üniversitesinin Karşısındaki Meydan Alanında Yer Zemin Taşlarında Kırılmalar Meydana Gelmiştir."
-      },
-      {
-        "basvuruNo": "1-62964220932",
-        "tarih": "2024-10-03",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "RUMELİHİSARI",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Sarıyer Rumelihisarı Meydanı Boğaziçi Üniversitesinin Karşısındaki Meydan Alanında Yer Zemininde İzmarit Pislikleri Mevcuttur  Sarıyer Rumelihisarı Me"
-      },
-      {
-        "basvuruNo": "1-62964346228",
-        "tarih": "2024-10-03",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "RUMELİHİSARI",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Sarıyer Rumeli Hisarüstü Meydanı İlk Yapıldığında Bu Alanda Dubalar Varmış. Şimdi Duba Olmayınca Araçlar Buraya Park Etmeye Başlamış. Buraya Duba Yapı"
-      },
-      {
-        "basvuruNo": "1-62959973455",
-        "tarih": "2024-10-03",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "RUMELİHİSARI",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Sarıyer Rumelihisarı Meydanı Boğaziçi Üniversitesi Metro İstasyonun 1. Çıkışındaki Bu Taşların Vatandaşlar Oval Olmasını İstiyor. Vatandaş Takılıp Düş"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.871Z"
+    "updatedAt": "2026-08-17T16:19:56.428Z"
   },
   "sultangazi": {
     "meydanId": "sultangazi",
@@ -7725,45 +6420,9 @@
         "konu": "İNSAN KAYNAKLARI",
         "durum": "Kapandı",
         "aciklama": "Merhaba iyi calismalar İbb kariyer uzerinde yayinlanan isci alimlarina basvuru yapilali  ibb spor kompleksi temizlik vs 3 4 ay oldu ama su an neden do"
-      },
-      {
-        "basvuruNo": "1-33013629679",
-        "tarih": "2020-07-21",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "YUNUS EMRE",
-        "konu": "TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "YUNUS EMRE MİNİBÜS DURAGININ OLDUGU YERDE İÇKİ İÇİLMİŞ ALKOL DÖKÜLMÜŞ KİRLETİLMİŞ PİS KOKU VAR BURANIIN YIKANMASINI TALEP EDİYORUM"
-      },
-      {
-        "basvuruNo": "1-69738948506",
-        "tarih": "2026-02-03",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "",
-        "konu": "DURAK",
-        "durum": "Kapandı",
-        "aciklama": "Kağıthane metro durağı meydanı (302391 )nolu Kağıthane durağı önü LED pano şu anda çalışmıyor onarılmasını talep ediyorum ayrıca durak kodu 302391 ola"
-      },
-      {
-        "basvuruNo": "1-69424096940",
-        "tarih": "2025-11-05",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "UĞUR MUMCU",
-        "konu": "İLÇE TEMİZLİK",
-        "durum": "Kapandı",
-        "aciklama": "Sultangazi Meydan (cami Durağı) komple meydanın elle süpürme personelleri ile temizlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-69424334747",
-        "tarih": "2025-11-05",
-        "personelAdi": "ONUR ARMAĞAN",
-        "mahalle": "CEBECİ",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Cebeci caddesi Kim marketin karşısı saat kulesinin oradaki Demir korkuluklar zarar görülmüstür kırılmıştır yapılmasını talep ediyorum"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.871Z"
+    "updatedAt": "2026-08-17T16:19:56.428Z"
   },
   "esenyurt": {
     "meydanId": "esenyurt",
@@ -7966,54 +6625,9 @@
         "konu": "İNSİYATİF ÇÖZÜM",
         "durum": "Kapandı",
         "aciklama": "Günaydınlar, Burası Beylikdüzü E-5 Meydanında Bulunan 100. Yıl Meydanımız. Meydandaki Saksılardaki Yeşilliğin Genel Durumu Çok Kötü. Park Bahçelere Bi"
-      },
-      {
-        "basvuruNo": "1-64072387260",
-        "tarih": "2024-12-05",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "TALATPAŞA",
-        "konu": "İski",
-        "durum": "Kapandı",
-        "aciklama": "Esenyurt Yaşar Kemal Meydanı Onur Market Karşısındaki Meydan Alanın Yer Zemin Taşında İski'ye Ait Vana Var. Buranın Yükseltilmesi Gerekiyor. İski Müdü"
-      },
-      {
-        "basvuruNo": "1-62858132765",
-        "tarih": "2024-09-27",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "BAĞLARÇEŞME",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Esenyurt Meydan Özaydın Önündeki Mazgallarda Kırılmalar Meydana Gelmiştir"
-      },
-      {
-        "basvuruNo": "1-63977634417",
-        "tarih": "2024-11-30",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Esenyurt Cumhuriyet Meydanı Özeller Saat Ve Optik Ön Alanındaki Yürüme Merdivenlerinin Taşları Kırılmıştır."
-      },
-      {
-        "basvuruNo": "1-63978086244",
-        "tarih": "2024-11-30",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Cumhuriyet Meydanındaki Oturma Gruplarının Taşlarında Kırılmalar Ve Sökülmeler Meydana Gelmiştir. Gereğinin Yapılmasını Rica Ederim.  Meydan Yönetimi "
-      },
-      {
-        "basvuruNo": "1-63977730809",
-        "tarih": "2024-11-30",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "SULTANİYE",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Yükseller Kuyumculuk Hizasındaki Mazgal Yerinden Sökülerek Alınmıştır."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.871Z"
+    "updatedAt": "2026-08-17T16:19:56.428Z"
   },
   "beylikduzu": {
     "meydanId": "beylikduzu",
@@ -8208,54 +6822,9 @@
         "konu": "PARK VE BAHÇELER",
         "durum": "Kapandı",
         "aciklama": "Beylikdüzü, 100. Yıl meydanı, Basketbol sahasında çember ve çember filesi yok, tamamlanmasını  talep ederim"
-      },
-      {
-        "basvuruNo": "1-70274364300",
-        "tarih": "2026-07-02",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "BÜYÜKŞEHİR",
-        "konu": "DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Beylikdüzü, 100. Yıl meydanı, ATM bilbord düzenlenmesini talep ediyorum"
-      },
-      {
-        "basvuruNo": "1-70274392604",
-        "tarih": "2026-07-02",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "BÜYÜKŞEHİR",
-        "konu": "BEDAŞ",
-        "durum": "Kapandı",
-        "aciklama": "Beylikdüzü, 100. Yıl Meydanı akülü sandalye şarj istasyonun kapağın onarılmasını talep ederim"
-      },
-      {
-        "basvuruNo": "1-1112727095",
-        "tarih": "2015-12-08",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "",
-        "konu": "Kayıp Eşya",
-        "durum": "Kapandı",
-        "aciklama": "Eşya Türü: Kimlik v.b. / Personel Kartı Hat Numarası: 34BZ/BEYLİKDÜZÜ - ZİNCİRLİKUYU Kalkış Noktası: şirinevler Varış Noktası: güzelyurt Kayıp Tarihi:"
-      },
-      {
-        "basvuruNo": "1-70263218477",
-        "tarih": "2026-06-29",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "BÜYÜKŞEHİR",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Beylikdüzü 100. Yıl meydanı, oturma grubun onarımını talep ederim"
-      },
-      {
-        "basvuruNo": "1-70112256978",
-        "tarih": "2026-05-17",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "BÜYÜKŞEHİR",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Beylikdüzü, 100. Yıl meydanı,  potanın onarımını talep ederim"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.871Z"
+    "updatedAt": "2026-08-17T16:19:56.428Z"
   },
   "avcilar": {
     "meydanId": "avcilar",
@@ -8439,54 +7008,9 @@
         "konu": "BAKIM ONARIM",
         "durum": "Kapandı",
         "aciklama": "Marmara caddesi, istihdam ofisi ve çözüm merkezi arasında kalan görselde görünen iki farklı mazgalda bozulmalar meydana gelmiştir, yaptığım araştırmal"
-      },
-      {
-        "basvuruNo": "1-64261635189",
-        "tarih": "2024-12-16",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "MERKEZ",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Avcılar Marmara caddesi üzerinde olan iki adet dubanın onarıma ihtiyacı vardır, Yol bakım Müdürlüğüyle gorusuldu, gerekli yardımların iletilmesi ricas"
-      },
-      {
-        "basvuruNo": "1-64261631247",
-        "tarih": "2024-12-16",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Avcılar Marmara caddesinde görselde olduğu gibi bankaların bir çoğununun bakıma ihtiyacı var. ilçe belediye görüşülüp gerekli yardımların yapılması ri"
-      },
-      {
-        "basvuruNo": "1-64254430285",
-        "tarih": "2024-12-16",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Avcılar, Marmara caddesi  AFAD tabelası ters dönmüş, ilçe belediyesi tarafından sorun giderilmek üzere talep açılmasına, bilginize"
-      },
-      {
-        "basvuruNo": "1-64861662925",
-        "tarih": "2025-01-19",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE DENETİM",
-        "durum": "Kapandı",
-        "aciklama": "Avcılar, Marmara caddesi  AFAD tabelası ters dönmüş, ilçe belediyesi tarafından sorun giderilmek üzere talep açılmasına, bilginize  Daha önce kayıt il"
-      },
-      {
-        "basvuruNo": "1-65053384429",
-        "tarih": "2025-02-04",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "MERKEZ",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Avcılar ilçesi, Merkez Mahallesi, Marmara Cadesi, Ahmet Taner Kışlalı Caddesi, Atatürk Parkı ve Emekliler Kafesi (veya Bülent Ecevit Parkı) ortasında "
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.872Z"
+    "updatedAt": "2026-08-17T16:19:56.429Z"
   },
   "kagithane": {
     "meydanId": "kagithane",
@@ -8691,54 +7215,9 @@
         "konu": "İSTASYON",
         "durum": "Kapandı",
         "aciklama": "Kağıthane Metro 2 tarafında köprüden yağmur yağınca sular geliyor. Acil müdahale edilmesi gerekiyor. Bilginize"
-      },
-      {
-        "basvuruNo": "1-61763290675",
-        "tarih": "2024-07-27",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "HALKLA İLİŞKİLER",
-        "durum": "Kapandı",
-        "aciklama": "Vatandaşlar Kağıthane Metro 2 girişindeki alana Sabit Çözüm Noktası, Kağıthane Meydanı İçin İBB WiFİ Ve WC talepleri vardır."
-      },
-      {
-        "basvuruNo": "1-61763290770",
-        "tarih": "2024-07-27",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "MEYDAN YÖNETİMİ",
-        "durum": "Kapandı",
-        "aciklama": "Vatandaşlar Kağıthane Metro 2 girişindeki alana Sabit Çözüm Noktası, Kağıthane Meydanı İçin İBB WiFİ Ve WC talepleri vardır."
-      },
-      {
-        "basvuruNo": "1-61763290901",
-        "tarih": "2024-07-27",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "",
-        "konu": "PARK VE BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Vatandaşlar Kağıthane Metro 2 girişindeki alana Sabit Çözüm Noktası, Kağıthane Meydanı İçin İBB WiFİ Ve WC talepleri vardır."
-      },
-      {
-        "basvuruNo": "1-61759886462",
-        "tarih": "2024-07-27",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İSTASYON",
-        "durum": "Kapandı",
-        "aciklama": "Günaydınlar, Kağıthane Metro 2 Girişinin Yanındaki Duvar Alanında Kırılmalar Vardır. Sorununu Geçen Meydanı Kontrole Geldiğimde Metro A.Ş'den Yavuz Be"
-      },
-      {
-        "basvuruNo": "1-62479542377",
-        "tarih": "2024-09-06",
-        "personelAdi": "ERHAN EKİNCİ",
-        "mahalle": "MERKEZ",
-        "konu": "İski",
-        "durum": "Kapandı",
-        "aciklama": "Günaydınlar, Kağıthane Metro 2 Girişinin Yanındaki Duvar Alanında Kırılmalar Vardır. Sorununu Geçen Meydanı Kontrole Geldiğimde Metro A.Ş'den Yavuz Be"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.872Z"
+    "updatedAt": "2026-08-17T16:19:56.429Z"
   },
   "buyukcekmece": {
     "meydanId": "buyukcekmece",
@@ -8917,54 +7396,9 @@
         "konu": "DEPREM",
         "durum": "Planlama",
         "aciklama": "Büyükçekmece, Albatros sahil,  \"TSUNAMİ BİLGİLENDİRME VE TAHLİYE YOLLARI\" levhaların onarılmasını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-69993900372",
-        "tarih": "2026-04-16",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "ATATÜRK",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Büyükçekmece, Albatros Sahil, zemin olanda olan ekde görünen kapakların onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-69989031313",
-        "tarih": "2026-04-15",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "46161",
-        "konu": "İLÇE PARK BAHÇELER",
-        "durum": "Kapandı",
-        "aciklama": "Büyükçekmece, Albatros sahil, görselde ki anıtın etrafındaki çimlerin yenilenmesini talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-69990100755",
-        "tarih": "2026-04-15",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "FATİH",
-        "konu": "BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Büyükçekmece, Albatros Sahil, çözüm noktasının çaprazı ( antik cafe nin karşısı) beton alan kırık durumda. onarımını talep ediyorum."
-      },
-      {
-        "basvuruNo": "1-64374456987",
-        "tarih": "2024-12-23",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "ATATÜRK",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Büyükçekmece, kordonboyu ve kordon2 üzerinde olan bütün kameraların ( çalışmayan) kontrollerini Elektronik Sistemler Müdürlüğü tarafından yapılmasını "
-      },
-      {
-        "basvuruNo": "1-64374566049",
-        "tarih": "2024-12-23",
-        "personelAdi": "HATİCE ADSAN",
-        "mahalle": "ATATÜRK",
-        "konu": "İLÇE BAKIM ONARIM",
-        "durum": "Kapandı",
-        "aciklama": "Büyükçekmece, Kordonboyu ve kordon2 üzerinde olan ses sistemleri arızalı. Ses sistemlerinin kontrolleri için Tesisler Bakım ve Onarım Müdürlüğünden ge"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.882Z"
+    "updatedAt": "2026-08-17T16:19:56.443Z"
   },
   "arnavutkoy": {
     "meydanId": "arnavutkoy",
@@ -9051,7 +7485,7 @@
         "aciklama": "Cumhuriyet meydanının yanında bulunan karatay sokakta temiz su patlağı mevcuttur."
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.886Z"
+    "updatedAt": "2026-08-17T16:19:56.451Z"
   },
   "diger": {
     "meydanId": "diger",
@@ -9078,6 +7512,6 @@
         "aciklama": "BELİRTMİŞ OLDUGUM PLAKALI ARACIN ŞÖFÖRÜ KIRMIZI IŞIKTA GECEREK BİZ YAYALARA ÇARPACAKTI.DURAK OLMAYAN YERDE BEKLEYEBİLMEK İÇİN BU DURUMDAN ŞİKAYETCİYİM"
       }
     ],
-    "updatedAt": "2026-08-17T15:36:09.888Z"
+    "updatedAt": "2026-08-17T16:19:56.454Z"
   }
 }

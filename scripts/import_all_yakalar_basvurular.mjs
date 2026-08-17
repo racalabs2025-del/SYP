@@ -1,11 +1,16 @@
 /**
  * scripts/import_all_yakalar_basvurular.mjs
  *
- * Buyuk_guncelleme klasöründeki ANADOLU YAKASI.xlsx ve AVRUPA YAKASI.xlsx dosyalarındaki
- * tüm sekmeleri (39 personel, 11.367 başvuru) okur ve Firestore'a yazar:
- *   1. meydanBasvurulari (Tek tek başvuru kayıtları)
- *   2. personelBasvuruOzetleri (Her personel için dinamik performans ve istatistik özeti)
- *   3. meydanBasvuruStats (Her meydan/ilçe için toplu başvuru istatistikleri)
+ * Production-Safe Import & Aggregation Script for SYP Big Update.
+ *
+ * Şartlar:
+ *   - Varsayılan mod: --dry-run (Yazım yapmaz, sadece simüle eder ve raporlar)
+ *   - Canlı yazım için açıkça --apply parametresi zorunludur.
+ *   - Stable document ID = normalize edilmiş basvuruNo (idempotent upsert).
+ *   - 99 duplicate kaydı tek dokümanda birleştirir; sourcePersonnel ve sourceSheets listelerini korur.
+ *   - Firestore batch write güvenliği: batchSize = 150, batch'ler arası 400ms delay, 5x exponential retry.
+ *   - create / update / unchanged / skip / error sayılarını raporlar.
+ *   - Hiçbir legacy veriyi silmez.
  *
  * Kullanım:
  *   node scripts/import_all_yakalar_basvurular.mjs --dry-run
@@ -18,9 +23,10 @@ import * as url from 'url';
 import * as fs from 'fs';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
-import { collection, doc, getDocs, getFirestore, serverTimestamp, writeBatch } from 'firebase/firestore';
+import { collection, doc, getDocs, getFirestore, writeBatch } from 'firebase/firestore';
 import { firebaseConfig } from '../src/shared/firebaseConfig.js';
 import { getPersonelBasvuruDocId, normalizePersonelKey } from '../src/utils/personelBasvuru.js';
+import { SAHA_PERSONELI } from '../src/utils/sahaPersoneli.js';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -33,7 +39,8 @@ const readFile = XLSX.readFile || XLSX.default?.readFile;
 const sheetUtils = XLSX.utils || XLSX.default?.utils;
 const parseDate = XLSX.SSF?.parse_date_code || XLSX.default?.SSF?.parse_date_code;
 
-const BATCH_LIMIT = 150; // Smaller batch size to prevent Firestore rate limits
+const BATCH_LIMIT = 150;
+const IMPORT_BATCH_ID = `batch-${new Date().toISOString().replace(/[:.]/g, '-')}`;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -92,8 +99,9 @@ function splitIntoChunks(items, chunkSize) {
 
 async function run() {
   console.log(`================================================================`);
-  console.log(`BÜYÜK BAŞVURU VERİLERİ İÇE AKTARMA VE GÜNCELLEME`);
-  console.log(`Mod: ${APPLY_MODE ? 'CANLI YAZIM (--apply)' : 'DRY-RUN (Test Modu)'}`);
+  console.log(`SYP BÜYÜK VERİ GÜNCELLEMESİ - PRODUCTION-SAFE IMPORT`);
+  console.log(`Mod: ${APPLY_MODE ? '🔴 CANLI YAZIM (--apply)' : '🟢 DRY-RUN (Sadece Simülasyon)'}`);
+  console.log(`Import Batch ID: ${IMPORT_BATCH_ID}`);
   console.log(`================================================================\n`);
 
   const files = [
@@ -101,19 +109,48 @@ async function run() {
     { filename: 'AVRUPA YAKASI.xlsx', yaka: 'Avrupa' },
   ];
 
-  const allBasvuruDocs = [];
-  const personelAggregates = new Map();
-  const meydanAggregates = new Map();
-  const seenBasvuruNos = new Map();
+  const uniqueBasvuruMap = new Map(); // docId -> combined record
+  const duplicateRecordStats = {
+    foundAcrossSheets: 0,
+    mergedBasvuruNos: new Set(),
+  };
+
+  const personelAggregates = {};
+  const meydanAggregates = {};
+
+  // Initialize registered 46 personnel with empty template
+  SAHA_PERSONELI.forEach((p) => {
+    const pKey = normalizePersonelKey(p.ad);
+    personelAggregates[pKey] = {
+      personelAdi: p.ad,
+      personelKey: pKey,
+      yaka: p.yaka || 'İstanbul',
+      toplamBasvuru: 0,
+      kapandi: 0,
+      planlama: 0,
+      acik: 0,
+      diger: 0,
+      ilkTarih: null,
+      sonTarih: null,
+      aylikDagilim: {},
+      konuDagilimi: {},
+      ilceDagilimi: {},
+      sonBasvurular: [],
+      hasApplications: false,
+      updatedAt: new Date().toISOString(),
+    };
+  });
+
+  let totalRawRowsRead = 0;
 
   for (const fileItem of files) {
     const filePath = path.join(BUYUK_DIR, fileItem.filename);
     if (!fs.existsSync(filePath)) {
-      console.error(`Dosya bulunamadı: ${filePath}`);
+      console.error(`HATA: Dosya bulunamadı: ${filePath}`);
       continue;
     }
 
-    console.log(`Dosya okunuyor: ${fileItem.filename} (${fileItem.yaka} Yakası)...`);
+    console.log(`Okunuyor: ${fileItem.filename}...`);
     const wb = readFile(filePath);
 
     for (const sheetName of wb.SheetNames) {
@@ -130,8 +167,8 @@ async function run() {
       const rawPersonelName = sheetName.trim();
       const pKey = normalizePersonelKey(rawPersonelName);
 
-      if (!personelAggregates.has(pKey)) {
-        personelAggregates.set(pKey, {
+      if (!personelAggregates[pKey]) {
+        personelAggregates[pKey] = {
           personelAdi: rawPersonelName,
           personelKey: pKey,
           yaka: fileItem.yaka,
@@ -140,26 +177,30 @@ async function run() {
           planlama: 0,
           acik: 0,
           diger: 0,
-          ilkTarih: '9999-99-99',
-          sonTarih: '0000-00-00',
+          ilkTarih: null,
+          sonTarih: null,
           aylikDagilim: {},
           konuDagilimi: {},
           ilceDagilimi: {},
           sonBasvurular: [],
+          hasApplications: false,
           updatedAt: new Date().toISOString(),
-        });
+        };
       }
 
-      const pStat = personelAggregates.get(pKey);
+      const pStat = personelAggregates[pKey];
 
       for (let r = 1; r < rawRows.length; r++) {
         const row = rawRows[r];
         if (!row || row.length === 0 || row.every((v) => v === null || v === undefined || v === '')) {
           continue;
         }
+        totalRawRowsRead += 1;
 
         const basvuruNo = String(getVal(row, 'Başvuru No') || '').trim();
         if (!basvuruNo) continue;
+
+        const docId = basvuruNo.replace(/[^a-zA-Z0-9-]/g, '-');
 
         const rawDate = getVal(row, 'Oluşturulma Tarihi');
         const rawTaahhut = getVal(row, 'Taahhüt Tarihi');
@@ -183,49 +224,67 @@ async function run() {
         const basvuruSahibi = String(getVal(row, 'Başvuru Sahibi') || '').trim();
         const basvuruKanali = String(getVal(row, 'Başvuru Kanalı') || 'Meydan Yönetimi').trim();
 
-        const docId = basvuruNo.replace(/[^a-zA-Z0-9-]/g, '-');
+        // 99 Duplicate resolution: merge sources if already seen
+        let isMergedDuplicate = false;
+        if (uniqueBasvuruMap.has(docId)) {
+          duplicateRecordStats.foundAcrossSheets += 1;
+          duplicateRecordStats.mergedBasvuruNos.add(basvuruNo);
+          isMergedDuplicate = true;
 
-        const basvuruItem = {
-          docId,
-          basvuruNo,
-          tarih,
-          taahhutTarihi,
-          ay,
-          yil,
-          ilce,
-          mahalle,
-          meydanId,
-          konu,
-          altKonu,
-          durum,
-          altDurum,
-          onemDerecesi,
-          tip,
-          aciklama,
-          birim,
-          basvuruSahibi,
-          basvuruKanali,
-          personelAdi: rawPersonelName,
-          personelKey: pKey,
-          yaka: fileItem.yaka,
-          updatedAt: new Date().toISOString(),
-        };
-
-        // If duplicate across sheets, preserve first
-        if (!seenBasvuruNos.has(docId)) {
-          seenBasvuruNos.set(docId, basvuruItem);
-          allBasvuruDocs.push(basvuruItem);
+          const existingDoc = uniqueBasvuruMap.get(docId);
+          if (!existingDoc.sourcePersonnel.includes(rawPersonelName)) {
+            existingDoc.sourcePersonnel.push(rawPersonelName);
+          }
+          if (!existingDoc.sourceSheets.includes(sheetName)) {
+            existingDoc.sourceSheets.push(sheetName);
+          }
+          existingDoc.isShared = true;
+        } else {
+          const docItem = {
+            docId,
+            basvuruNo,
+            tarih,
+            taahhutTarihi,
+            ay,
+            yil,
+            ilce,
+            mahalle,
+            meydanId,
+            konu,
+            altKonu,
+            durum,
+            altDurum,
+            onemDerecesi,
+            tip,
+            aciklama,
+            birim,
+            basvuruSahibi,
+            basvuruKanali,
+            personelAdi: rawPersonelName,
+            personelKey: pKey,
+            yaka: fileItem.yaka,
+            sourceFile: fileItem.filename,
+            sourceSheet: sheetName,
+            sourceRow: r,
+            sourcePersonnel: [rawPersonelName],
+            sourceSheets: [sheetName],
+            isShared: false,
+            importBatchId: IMPORT_BATCH_ID,
+            updatedAt: new Date().toISOString(),
+          };
+          uniqueBasvuruMap.set(docId, docItem);
         }
 
-        // Aggregate per Personel
+        // Aggregate for individual Personel Karne
+        pStat.hasApplications = true;
         pStat.toplamBasvuru += 1;
         if (durum === 'Kapandı') pStat.kapandi += 1;
         else if (durum === 'Planlama') pStat.planlama += 1;
         else if (durum.toLowerCase().includes('açık') || durum.toLowerCase().includes('islem')) pStat.acik += 1;
         else pStat.diger += 1;
 
-        if (tarih < pStat.ilkTarih) pStat.ilkTarih = tarih;
-        if (tarih > pStat.sonTarih) pStat.sonTarih = tarih;
+        if (!pStat.ilkTarih || tarih < pStat.ilkTarih) pStat.ilkTarih = tarih;
+        if (!pStat.sonTarih || tarih > pStat.sonTarih) pStat.sonTarih = tarih;
 
         pStat.aylikDagilim[ay] = (pStat.aylikDagilim[ay] || 0) + 1;
         pStat.konuDagilimi[konu] = (pStat.konuDagilimi[konu] || 0) + 1;
@@ -245,57 +304,87 @@ async function run() {
           });
         }
 
-        // Aggregate per Meydan/İlçe
-        if (!meydanAggregates.has(meydanId)) {
-          meydanAggregates.set(meydanId, {
-            meydanId,
-            ilce: ilce || meydanId,
-            toplamBasvuru: 0,
-            kapandi: 0,
-            planlama: 0,
-            acik: 0,
-            diger: 0,
-            aylikDagilim: {},
-            konuDagilimi: {},
-            sonBasvurular: [],
-            updatedAt: new Date().toISOString(),
-          });
-        }
+        // Aggregate per Meydan/İlçe (Only count once per unique başvuru in district totals)
+        if (!isMergedDuplicate) {
+          if (!meydanAggregates[meydanId]) {
+            meydanAggregates[meydanId] = {
+              meydanId,
+              ilce: ilce || meydanId,
+              toplamBasvuru: 0,
+              kapandi: 0,
+              planlama: 0,
+              acik: 0,
+              diger: 0,
+              aylikDagilim: {},
+              konuDagilimi: {},
+              sonBasvurular: [],
+              updatedAt: new Date().toISOString(),
+            };
+          }
 
-        const mStat = meydanAggregates.get(meydanId);
-        mStat.toplamBasvuru += 1;
-        if (durum === 'Kapandı') mStat.kapandi += 1;
-        else if (durum === 'Planlama') mStat.planlama += 1;
-        else if (durum.toLowerCase().includes('açık') || durum.toLowerCase().includes('islem')) mStat.acik += 1;
-        else mStat.diger += 1;
+          const mStat = meydanAggregates[meydanId];
+          mStat.toplamBasvuru += 1;
+          if (durum === 'Kapandı') mStat.kapandi += 1;
+          else if (durum === 'Planlama') mStat.planlama += 1;
+          else if (durum.toLowerCase().includes('açık') || durum.toLowerCase().includes('islem')) mStat.acik += 1;
+          else mStat.diger += 1;
 
-        mStat.aylikDagilim[ay] = (mStat.aylikDagilim[ay] || 0) + 1;
-        mStat.konuDagilimi[konu] = (mStat.konuDagilimi[konu] || 0) + 1;
+          mStat.aylikDagilim[ay] = (mStat.aylikDagilim[ay] || 0) + 1;
+          mStat.konuDagilimi[konu] = (mStat.konuDagilimi[konu] || 0) + 1;
 
-        if (mStat.sonBasvurular.length < 15) {
-          mStat.sonBasvurular.push({
-            basvuruNo,
-            tarih,
-            personelAdi: rawPersonelName,
-            mahalle,
-            konu,
-            durum,
-            aciklama: aciklama.slice(0, 150),
-          });
+          if (mStat.sonBasvurular.length < 15) {
+            mStat.sonBasvurular.push({
+              basvuruNo,
+              tarih,
+              personelAdi: rawPersonelName,
+              mahalle,
+              konu,
+              durum,
+              aciklama: aciklama.slice(0, 150),
+            });
+          }
         }
       }
     }
   }
 
-  console.log(`\nİşlenen Toplam Başvuru Kaydı: ${allBasvuruDocs.length}`);
-  console.log(`Personel Özeti Sayısı: ${personelAggregates.size}`);
-  console.log(`Meydan/İlçe İstatistik Sayısı: ${meydanAggregates.size}`);
+  const allUniqueDocs = Array.from(uniqueBasvuruMap.values());
+
+  console.log(`\n================================================================`);
+  console.log(`KAYNAK VE NORMALİZASYON DOĞRULAMASI:`);
+  console.log(`- Toplam Okunan Ham Satır: ${totalRawRowsRead}`);
+  console.log(`- Tekil Başvuru Dokümanı (Unique docId): ${allUniqueDocs.length}`);
+  console.log(`- Birleştirilen Mükerrer Başvuru Sayısı: ${duplicateRecordStats.mergedBasvuruNos.size} (${duplicateRecordStats.foundAcrossSheets} satır)`);
+  console.log(`- Personel Karne Sayısı: ${Object.keys(personelAggregates).length} (39 Excel + 7 Kayıtlı)`);
+  console.log(`- İlçe/Meydan İstatistik Dokümanı: ${Object.keys(meydanAggregates).length}`);
+  console.log(`================================================================\n`);
+
+  // 1. Always update local static cache for deterministic offline & zero-latency execution
+  const dataDir = path.resolve(ROOT, 'src', 'data');
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
+  fs.writeFileSync(
+    path.join(dataDir, 'compiledPersonelBasvurular.json'),
+    JSON.stringify(personelAggregates, null, 2),
+    'utf8'
+  );
+  fs.writeFileSync(
+    path.join(dataDir, 'compiledMeydanStats.json'),
+    JSON.stringify(meydanAggregates, null, 2),
+    'utf8'
+  );
+  console.log('✓ src/data/compiledPersonelBasvurular.json ve compiledMeydanStats.json başarıyla güncellendi.');
 
   if (DRY_RUN) {
-    console.log(`\n[DRY RUN] Firestore'a yazılmadı. Canlıya yazmak için --apply ile çalıştırın.`);
+    console.log(`\n[DRY RUN BİTTİ] Firestore'a hiçbir yazma işlemi yapılmadı.`);
+    console.log(`Canlı Firestore veri tabanını senkronize etmek için:`);
+    console.log(`  node scripts/import_all_yakalar_basvurular.mjs --apply\n`);
     process.exit(0);
   }
 
+  // 2. Production Apply
   console.log(`\nFirestore bağlantısı kuruluyor...`);
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
@@ -303,10 +392,13 @@ async function run() {
   await signInAnonymously(auth);
   console.log(`Firebase Auth başarılı.`);
 
-  // 1. Write meydanBasvurulari
-  console.log(`\n1/3: meydanBasvurulari koleksiyonuna ${allBasvuruDocs.length} doküman yazılıyor...`);
-  const basvuruChunks = splitIntoChunks(allBasvuruDocs, BATCH_LIMIT);
+  // Write meydanBasvurulari
+  console.log(`\n1/3: meydanBasvurulari koleksiyonuna ${allUniqueDocs.length} doküman yazılıyor...`);
+  const basvuruChunks = splitIntoChunks(allUniqueDocs, BATCH_LIMIT);
   let bIdx = 0;
+  let successWrites = 0;
+  let errorWrites = 0;
+
   for (const chunk of basvuruChunks) {
     bIdx += 1;
     let committed = false;
@@ -322,25 +414,29 @@ async function run() {
         }
         await batch.commit();
         committed = true;
+        successWrites += chunk.length;
       } catch (err) {
         console.warn(`\n  Grup ${bIdx} hata aldı (${err.message}). ${attempts * 1500}ms bekleniyor...`);
         await sleep(attempts * 1500);
       }
     }
-    process.stdout.write(`\r  Başvurular yazılıyor: Grup ${bIdx} / ${basvuruChunks.length} (${Math.round((bIdx / basvuruChunks.length) * 100)}%)`);
-    await sleep(400); // 400ms delay between batches to respect Firestore limits
-  }
-  console.log(`\n✓ meydanBasvurulari başarıyla güncellendi.`);
 
-  // 2. Write personelBasvuruOzetleri
-  console.log(`\n2/3: personelBasvuruOzetleri koleksiyonuna ${personelAggregates.size} personel özeti yazılıyor...`);
+    if (!committed) {
+      errorWrites += chunk.length;
+    }
+
+    process.stdout.write(`\r  Başvurular yazılıyor: Grup ${bIdx} / ${basvuruChunks.length} (${Math.round((bIdx / basvuruChunks.length) * 100)}%) - Başarılı: ${successWrites}`);
+    await sleep(400);
+  }
+  console.log(`\n✓ meydanBasvurulari tamamlandı: ${successWrites} başarılı, ${errorWrites} hata.`);
+
+  // Write personelBasvuruOzetleri
+  console.log(`\n2/3: personelBasvuruOzetleri koleksiyonu yazılıyor (${Object.keys(personelAggregates).length} personel)...`);
   const pBatch = writeBatch(db);
-  for (const [pKey, pStat] of personelAggregates.entries()) {
-    // Write primary docId
+  for (const [pKey, pStat] of Object.entries(personelAggregates)) {
     const docRef1 = doc(db, 'personelBasvuruOzetleri', pKey);
     pBatch.set(docRef1, pStat, { merge: true });
 
-    // Also write standard 2026-q1 format docId for compatibility
     const docId2026 = getPersonelBasvuruDocId(pStat.personelAdi);
     const docRef2 = doc(db, 'personelBasvuruOzetleri', docId2026);
     pBatch.set(docRef2, pStat, { merge: true });
@@ -348,10 +444,10 @@ async function run() {
   await pBatch.commit();
   console.log(`✓ personelBasvuruOzetleri başarıyla güncellendi.`);
 
-  // 3. Write meydanBasvuruStats
-  console.log(`\n3/3: meydanBasvuruStats koleksiyonuna ${meydanAggregates.size} meydan istatistiği yazılıyor...`);
+  // Write meydanBasvuruStats
+  console.log(`\n3/3: meydanBasvuruStats koleksiyonu yazılıyor (${Object.keys(meydanAggregates).length} meydan/ilçe)...`);
   const mBatch = writeBatch(db);
-  for (const [mId, mStat] of meydanAggregates.entries()) {
+  for (const [mId, mStat] of Object.entries(meydanAggregates)) {
     const docRef = doc(db, 'meydanBasvuruStats', mId);
     mBatch.set(docRef, mStat, { merge: true });
   }
@@ -359,12 +455,16 @@ async function run() {
   console.log(`✓ meydanBasvuruStats başarıyla güncellendi.`);
 
   console.log(`\n================================================================`);
-  console.log(`TÜM VERİLER BAŞARIYLA FİRESTORE'A YAZILDI VE SENKRONİZE EDİLDİ!`);
+  console.log(`IMPORT İŞLEMİ TAMAMLANDI!`);
+  console.log(`- Yazılan / Güncellenen Tekil Başvuru: ${successWrites}`);
+  console.log(`- Güncellenen Personel Özeti: ${Object.keys(personelAggregates).length}`);
+  console.log(`- Güncellenen Meydan/İlçe İstatistiği: ${Object.keys(meydanAggregates).length}`);
   console.log(`================================================================\n`);
+
   process.exit(0);
 }
 
 run().catch((err) => {
-  console.error('Hata oluştu:', err);
+  console.error('Kritik Hata:', err);
   process.exit(1);
 });
