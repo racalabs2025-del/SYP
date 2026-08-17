@@ -19,7 +19,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    const rawBody = req.body || {};
+    let rawBody = req.body;
+    if (typeof rawBody === 'string') {
+      try {
+        rawBody = JSON.parse(rawBody);
+      } catch (e) {
+        return res.status(400).json({ error: 'Geçersiz JSON formatı', detail: e.message });
+      }
+    }
+    rawBody = rawBody || {};
     const payload = rawBody.payload || rawBody;
 
     if (!payload.model) {
