@@ -1,0 +1,373 @@
+{
+  "totalUnique": 11268,
+  "allHeaders": [
+    "Yeni",
+    "Yeni Yanıt",
+    "Başvuru No",
+    "Önem Derecesi",
+    "Tip",
+    "Konu",
+    "Alt Konu",
+    "Taahhüt Tarihi",
+    "Başvuru Sahibi",
+    "Oluşturulma Tarihi",
+    "Açıklama",
+    "Özet",
+    "İlişkili Olduğu Birim",
+    "Başvuru Kanalı",
+    "Durum",
+    "Alt Durum",
+    "Sorumlu Kullanıcı",
+    "Sorumlu Birim",
+    "Çözüm Kodu",
+    "Kök Neden",
+    "Anlık Çözüm",
+    "İlçe",
+    "Mahalle",
+    "Portalden Oluşturuldu",
+    "Otobüs AS Kapı No",
+    "Geri Dönüş Kanalı",
+    "Vatandaş",
+    "Başvuru Dili"
+  ],
+  "durumCounts": {
+    "Kapandı": 10997,
+    "Planlama": 97,
+    "Çözüldü": 39,
+    "Atama Bekliyor": 27,
+    "Çalışılıyor": 32,
+    "Beklemede": 70,
+    "Yeni Başvuru": 5,
+    "Değerlendirme": 1
+  },
+  "onemCounts": {
+    "4-Düşük": 11236,
+    "2-Yüksek": 32
+  },
+  "hasTaahhutCount": 11169,
+  "hasKapanisCount": 0,
+  "taahhutAşanCount": 182,
+  "openItemsCount": 271,
+  "agingBuckets": {
+    "0 - 3 gün": 44,
+    "4 - 7 gün": 20,
+    "8 - 14 gün": 24,
+    "15 - 30 gün": 33,
+    "31 - 90 gün": 54,
+    "90+ gün": 96
+  },
+  "ilceStats": {
+    "BEYKOZ": {
+      "toplam": 467,
+      "kapandi": 451,
+      "acik": 11,
+      "planlama": 5,
+      "son30Gun": 11,
+      "onemliAcik": 0
+    },
+    "KARTAL": {
+      "toplam": 280,
+      "kapandi": 280,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 2,
+      "onemliAcik": 0
+    },
+    "SANCAKTEPE": {
+      "toplam": 22,
+      "kapandi": 22,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "KADIKÖY": {
+      "toplam": 865,
+      "kapandi": 855,
+      "acik": 7,
+      "planlama": 3,
+      "son30Gun": 22,
+      "onemliAcik": 0
+    },
+    "PENDİK": {
+      "toplam": 514,
+      "kapandi": 502,
+      "acik": 7,
+      "planlama": 5,
+      "son30Gun": 18,
+      "onemliAcik": 0
+    },
+    "ÜMRANİYE": {
+      "toplam": 618,
+      "kapandi": 603,
+      "acik": 12,
+      "planlama": 3,
+      "son30Gun": 18,
+      "onemliAcik": 0
+    },
+    "ÜSKÜDAR": {
+      "toplam": 1951,
+      "kapandi": 1900,
+      "acik": 42,
+      "planlama": 9,
+      "son30Gun": 66,
+      "onemliAcik": 0
+    },
+    "ÇEKMEKÖY": {
+      "toplam": 72,
+      "kapandi": 70,
+      "acik": 2,
+      "planlama": 0,
+      "son30Gun": 1,
+      "onemliAcik": 0
+    },
+    "MALTEPE": {
+      "toplam": 519,
+      "kapandi": 511,
+      "acik": 7,
+      "planlama": 1,
+      "son30Gun": 13,
+      "onemliAcik": 0
+    },
+    "TUZLA": {
+      "toplam": 733,
+      "kapandi": 723,
+      "acik": 9,
+      "planlama": 1,
+      "son30Gun": 28,
+      "onemliAcik": 0
+    },
+    "ATAŞEHİR": {
+      "toplam": 26,
+      "kapandi": 26,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "SULTANBEYLİ": {
+      "toplam": 302,
+      "kapandi": 292,
+      "acik": 9,
+      "planlama": 1,
+      "son30Gun": 10,
+      "onemliAcik": 0
+    },
+    "BAŞAKŞEHİR": {
+      "toplam": 68,
+      "kapandi": 67,
+      "acik": 1,
+      "planlama": 0,
+      "son30Gun": 1,
+      "onemliAcik": 0
+    },
+    "BEYOĞLU": {
+      "toplam": 360,
+      "kapandi": 335,
+      "acik": 10,
+      "planlama": 15,
+      "son30Gun": 6,
+      "onemliAcik": 0
+    },
+    "ŞİŞLİ": {
+      "toplam": 628,
+      "kapandi": 610,
+      "acik": 5,
+      "planlama": 13,
+      "son30Gun": 12,
+      "onemliAcik": 0
+    },
+    "EYÜPSULTAN": {
+      "toplam": 64,
+      "kapandi": 64,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "FATİH": {
+      "toplam": 472,
+      "kapandi": 450,
+      "acik": 12,
+      "planlama": 10,
+      "son30Gun": 26,
+      "onemliAcik": 0
+    },
+    "ŞİLE": {
+      "toplam": 142,
+      "kapandi": 140,
+      "acik": 2,
+      "planlama": 0,
+      "son30Gun": 2,
+      "onemliAcik": 0
+    },
+    "ESENLER": {
+      "toplam": 282,
+      "kapandi": 279,
+      "acik": 3,
+      "planlama": 0,
+      "son30Gun": 20,
+      "onemliAcik": 0
+    },
+    "BAHÇELİEVLER": {
+      "toplam": 485,
+      "kapandi": 470,
+      "acik": 11,
+      "planlama": 4,
+      "son30Gun": 29,
+      "onemliAcik": 0
+    },
+    "ADALAR": {
+      "toplam": 2,
+      "kapandi": 2,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "GÜNGÖREN": {
+      "toplam": 43,
+      "kapandi": 43,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "SİLİVRİ": {
+      "toplam": 1,
+      "kapandi": 1,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "BAKIRKÖY": {
+      "toplam": 347,
+      "kapandi": 342,
+      "acik": 4,
+      "planlama": 1,
+      "son30Gun": 20,
+      "onemliAcik": 0
+    },
+    "BAĞCILAR": {
+      "toplam": 653,
+      "kapandi": 639,
+      "acik": 7,
+      "planlama": 7,
+      "son30Gun": 33,
+      "onemliAcik": 0
+    },
+    "ZEYTİNBURNU": {
+      "toplam": 172,
+      "kapandi": 164,
+      "acik": 3,
+      "planlama": 5,
+      "son30Gun": 6,
+      "onemliAcik": 0
+    },
+    "BEŞİKTAŞ": {
+      "toplam": 149,
+      "kapandi": 146,
+      "acik": 1,
+      "planlama": 2,
+      "son30Gun": 2,
+      "onemliAcik": 0
+    },
+    "GAZİOSMANPAŞA": {
+      "toplam": 77,
+      "kapandi": 75,
+      "acik": 2,
+      "planlama": 0,
+      "son30Gun": 8,
+      "onemliAcik": 0
+    },
+    "BAYRAMPAŞA": {
+      "toplam": 20,
+      "kapandi": 20,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "KÜÇÜKÇEKMECE": {
+      "toplam": 52,
+      "kapandi": 52,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 1,
+      "onemliAcik": 0
+    },
+    "SARIYER": {
+      "toplam": 292,
+      "kapandi": 289,
+      "acik": 1,
+      "planlama": 2,
+      "son30Gun": 5,
+      "onemliAcik": 0
+    },
+    "SULTANGAZİ": {
+      "toplam": 19,
+      "kapandi": 19,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "ESENYURT": {
+      "toplam": 218,
+      "kapandi": 213,
+      "acik": 0,
+      "planlama": 5,
+      "son30Gun": 12,
+      "onemliAcik": 0
+    },
+    "BEYLİKDÜZÜ": {
+      "toplam": 97,
+      "kapandi": 95,
+      "acik": 1,
+      "planlama": 1,
+      "son30Gun": 5,
+      "onemliAcik": 0
+    },
+    "AVCILAR": {
+      "toplam": 75,
+      "kapandi": 74,
+      "acik": 0,
+      "planlama": 1,
+      "son30Gun": 2,
+      "onemliAcik": 0
+    },
+    "KAĞITHANE": {
+      "toplam": 116,
+      "kapandi": 113,
+      "acik": 2,
+      "planlama": 1,
+      "son30Gun": 3,
+      "onemliAcik": 0
+    },
+    "BÜYÜKÇEKMECE": {
+      "toplam": 57,
+      "kapandi": 52,
+      "acik": 3,
+      "planlama": 2,
+      "son30Gun": 6,
+      "onemliAcik": 0
+    },
+    "ARNAVUTKÖY": {
+      "toplam": 7,
+      "kapandi": 7,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    },
+    "DİĞER": {
+      "toplam": 1,
+      "kapandi": 1,
+      "acik": 0,
+      "planlama": 0,
+      "son30Gun": 0,
+      "onemliAcik": 0
+    }
+  }
+}

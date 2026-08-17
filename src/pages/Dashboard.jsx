@@ -30,6 +30,7 @@ import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/s
 import { isShiftActive, toDateKey } from '../utils/date';
 import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from '../utils/excelParsing';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
+import ExecutiveDecisionSection from '../components/dashboard/ExecutiveDecisionSection';
 import ActiveMeydanlarSection from '../components/dashboard/ActiveMeydanlarSection';
 import IstanbulFieldMap from '../components/dashboard/IstanbulFieldMap';
 import AIDailyExecutiveSummary from '../components/dashboard/AIDailyExecutiveSummary';
@@ -1754,6 +1755,8 @@ export default function Dashboard({ onLogout }) {
           dataQualityIssuesCount={dataQualityIssues.length}
           kronikSorunlarCount={kronikSorunlar.length}
         />
+
+        <ExecutiveDecisionSection />
 
         <div className="section-accordion-list">
           <SectionToggleBar itemKey="active-meydanlar" isOpen={openSections.has('active-meydanlar')} onToggle={toggleSection}>
