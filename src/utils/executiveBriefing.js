@@ -9,53 +9,68 @@
  *   - Deterministic 3-item executive action generator
  */
 
+/**
+ * Merkezi Risk Eşikleri (39 İlçe İstatistiksel Dağılımına Dayalı)
+ * - SLA_RISK_THRESHOLD: 10 (İlçe verisinde ~P85 üst risk dilimi)
+ * - HIGH_OPEN_VOLUME_THRESHOLD: 8 (İlçe verisinde ~P70 açık iş yoğunluk dilimi)
+ */
+export const RISK_THRESHOLDS = {
+  SLA_RISK_THRESHOLD: 10,
+  HIGH_OPEN_VOLUME_THRESHOLD: 8,
+};
+
 export const MEYDAN_OPERATIONAL_STATUSES = {
   CRITICAL_ACTIVE: {
     id: 'CRITICAL_ACTIVE',
-    label: 'Kritik Aktif İş',
-    shortLabel: 'Kritik İş',
+    granularity: 'DISTRICT_LEVEL',
+    label: 'İlçede Aktif Kritik İş',
+    shortLabel: 'İlçe Kritik',
     color: '#dc2626',
     bgColor: '#fef2f2',
     borderColor: '#fecaca',
     badgeClass: 'badge-critical',
     priority: 1,
-    description: 'Bölgede acil müdahale bekleyen yüksek öncelikli bildirim var.',
+    description: 'İlçe genelinde acil müdahale bekleyen yüksek öncelikli bildirim var.',
   },
   SLA_RISK: {
     id: 'SLA_RISK',
-    label: 'SLA Riski Yüksek',
-    shortLabel: 'SLA Aşımı',
+    granularity: 'DISTRICT_LEVEL',
+    label: 'İlçe SLA Riski Yüksek',
+    shortLabel: 'İlçe SLA',
     color: '#e11d48',
     bgColor: '#fff1f2',
     borderColor: '#fecdd3',
     badgeClass: 'badge-sla-risk',
     priority: 2,
-    description: 'Taahhüt süresi geçmiş açık bildirim yoğunluğu yüksek.',
+    description: 'İlçede taahhüt süresi geçmiş açık bildirim yoğunluğu yüksek.',
   },
   NO_STAFF: {
     id: 'NO_STAFF',
-    label: 'Nöbetçisi Yok',
+    granularity: 'MEYDAN_LEVEL',
+    label: 'Meydan Nöbetçisi Yok',
     shortLabel: 'Nöbet Yok',
     color: '#d97706',
     bgColor: '#fffbeb',
     borderColor: '#fde68a',
     badgeClass: 'badge-no-staff',
     priority: 3,
-    description: 'Son vardiya planında bu meydana atanmış personel görünmüyor.',
+    description: 'Son vardiya planında bu fiziksel meydana atanmış personel görünmüyor.',
   },
   HIGH_OPEN_VOLUME: {
     id: 'HIGH_OPEN_VOLUME',
-    label: 'Açık İş Yoğunluğu Yüksek',
-    shortLabel: 'Açık İş',
+    granularity: 'DISTRICT_LEVEL',
+    label: 'İlçede Açık İş Yoğunluğu',
+    shortLabel: 'İlçe Açık İş',
     color: '#ea580c',
     bgColor: '#fff7ed',
     borderColor: '#fed7aa',
     badgeClass: 'badge-high-volume',
     priority: 4,
-    description: 'Açık ve süreçteki iş stoku bölge ortalamasının üzerinde.',
+    description: 'İlçe genelindeki açık ve süreçteki iş stoku ortalamanın üzerinde.',
   },
   NORMAL: {
     id: 'NORMAL',
+    granularity: 'MEYDAN_LEVEL',
     label: 'Normal / Dengeli',
     shortLabel: 'Normal',
     color: '#16a34a',
@@ -63,7 +78,7 @@ export const MEYDAN_OPERATIONAL_STATUSES = {
     borderColor: '#bbf7d0',
     badgeClass: 'badge-normal',
     priority: 5,
-    description: 'Saha denetimleri ve iş akışı planlı düzende ilerliyor.',
+    description: 'Meydan nöbeti ve ilçe iş akışı planlı düzende ilerliyor.',
   },
 };
 
@@ -79,13 +94,13 @@ export function classifyMeydanRisk({
   if (activeCriticalCount > 0) {
     return MEYDAN_OPERATIONAL_STATUSES.CRITICAL_ACTIVE;
   }
-  if (slaBreachedCount >= 10) {
+  if (slaBreachedCount >= RISK_THRESHOLDS.SLA_RISK_THRESHOLD) {
     return MEYDAN_OPERATIONAL_STATUSES.SLA_RISK;
   }
   if (plannedStaffCount === 0) {
     return MEYDAN_OPERATIONAL_STATUSES.NO_STAFF;
   }
-  if (openCount >= 8) {
+  if (openCount >= RISK_THRESHOLDS.HIGH_OPEN_VOLUME_THRESHOLD) {
     return MEYDAN_OPERATIONAL_STATUSES.HIGH_OPEN_VOLUME;
   }
   return MEYDAN_OPERATIONAL_STATUSES.NORMAL;

@@ -183,16 +183,16 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
         {/* Legend */}
         <div className="map-legend" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', fontSize: '0.75rem' }}>
           <span className="legend-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#dc2626' }} /> Kritik İş
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#dc2626' }} /> İlçede Kritik İş
           </span>
           <span className="legend-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#e11d48' }} /> SLA Riski
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#e11d48' }} /> İlçe SLA Riski
           </span>
           <span className="legend-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#d97706' }} /> Nöbet Planı Yok
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#d97706' }} /> Meydan Nöbeti Yok
           </span>
           <span className="legend-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ea580c' }} /> Açık İş Stoku
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ea580c' }} /> İlçede Açık İş
           </span>
           <span className="legend-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#16a34a' }} /> Normal
@@ -321,11 +321,12 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
             animation: 'fadeIn 0.2s ease',
           }}
         >
+          {/* Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a' }}>
-                  {selectedMeydan.title || selectedMeydan.name}
+                <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#0f172a' }}>
+                  🏛️ {selectedMeydan.title || selectedMeydan.name}
                 </h3>
                 <span
                   style={{
@@ -342,7 +343,7 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
                 </span>
               </div>
               <span style={{ fontSize: '0.8rem', color: '#64748b' }}>
-                İlçe: <strong>{selectedMeydan.ilce}</strong> · {selectedMeydan.risk.description}
+                Bağlı Olduğu İlçe: <strong>{selectedMeydan.ilce}</strong> · {selectedMeydan.risk.description}
               </span>
             </div>
             <button
@@ -363,54 +364,25 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
             </button>
           </div>
 
-          {/* 4'lü Özet Göstergeler */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-              gap: '0.75rem',
-              marginBottom: '1rem',
-            }}
-          >
-            <div style={{ background: '#f8fafc', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
-              <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b' }}>Nöbetçi Personel</span>
-              <strong style={{ fontSize: '1.1rem', color: '#0f172a' }}>
-                {selectedMeydan.plannedCount}{' '}
-                <small style={{ fontSize: '0.7rem', fontWeight: '400', color: '#64748b' }}>planlı</small>
+          {/* BÖLÜM 1: MEYDAN OPERASYONU (MEYDAN_LEVEL) */}
+          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '0.85rem 1rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
+              <strong style={{ fontSize: '0.82rem', color: '#00498E', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                Meydan Nöbetçi Kadrosu (Meydan Seviyesi)
               </strong>
+              <span style={{ fontSize: '0.75rem', fontWeight: '700', color: selectedMeydan.plannedCount > 0 ? '#16a34a' : '#d97706' }}>
+                {selectedMeydan.plannedCount > 0 ? `${selectedMeydan.plannedCount} Planlı Personel` : 'Nöbetçi Görünmüyor'}
+              </span>
             </div>
-            <div style={{ background: '#fff1f2', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #fecdd3' }}>
-              <span style={{ display: 'block', fontSize: '0.72rem', color: '#9f1239' }}>Taahhüt Aşımı (SLA)</span>
-              <strong style={{ fontSize: '1.1rem', color: '#e11d48' }}>
-                {selectedMeydan.slaCount}
-              </strong>
-            </div>
-            <div style={{ background: '#fff7ed', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #fed7aa' }}>
-              <span style={{ display: 'block', fontSize: '0.72rem', color: '#9a3412' }}>Açık / Süreçte İş</span>
-              <strong style={{ fontSize: '1.1rem', color: '#ea580c' }}>
-                {selectedMeydan.openCount}
-              </strong>
-            </div>
-            <div style={{ background: '#f0fdf4', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
-              <span style={{ display: 'block', fontSize: '0.72rem', color: '#166534' }}>Aktif Kritik Bildirim</span>
-              <strong style={{ fontSize: '1.1rem', color: '#16a34a' }}>
-                {selectedMeydan.activeCriticalCount}
-              </strong>
-            </div>
-          </div>
 
-          {/* Nöbetçi Kadro veya Bilgilendirme */}
-          {selectedMeydan.staff.length > 0 ? (
-            <div style={{ marginBottom: '1rem' }}>
-              <strong style={{ display: 'block', fontSize: '0.8rem', color: '#475569', marginBottom: '0.4rem' }}>
-                Nöbetçi Personeller:
-              </strong>
+            {selectedMeydan.staff.length > 0 ? (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                 {selectedMeydan.staff.map((s, idx) => (
                   <span
                     key={idx}
                     style={{
-                      background: '#f1f5f9',
+                      background: '#ffffff',
+                      border: '1px solid #cbd5e1',
                       color: '#0f172a',
                       padding: '0.25rem 0.6rem',
                       borderRadius: '6px',
@@ -422,14 +394,57 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
                   </span>
                 ))}
               </div>
-            </div>
-          ) : (
-            <div style={{ marginBottom: '1rem', padding: '0.6rem 0.75rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px', fontSize: '0.78rem', color: '#92400e' }}>
-              ℹ️ Son vardiya planında bu meydana atanmış personel görünmemektedir.
-            </div>
-          )}
+            ) : (
+              <div style={{ fontSize: '0.76rem', color: '#92400e' }}>
+                ℹ️ Son vardiya planında bu fiziksel meydana nöbetçi atanmamıştır (Gezici saha denetimi gerekir).
+              </div>
+            )}
+          </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          {/* BÖLÜM 2: İLÇE BAŞVURU DURUMU (DISTRICT_LEVEL) */}
+          <div style={{ marginBottom: '0.75rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
+              <strong style={{ fontSize: '0.82rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                📍 {selectedMeydan.ilce} İlçesi Genelinde Başvuru Durumu
+              </strong>
+              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                İlçe Havuzu
+              </span>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '0.65rem',
+              }}
+            >
+              <div style={{ background: '#fff1f2', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #fecdd3' }}>
+                <span style={{ display: 'block', fontSize: '0.72rem', color: '#9f1239' }}>İlçe Taahhüt Aşımı (SLA)</span>
+                <strong style={{ fontSize: '1.1rem', color: '#e11d48' }}>
+                  {selectedMeydan.slaCount}
+                </strong>
+              </div>
+              <div style={{ background: '#fff7ed', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #fed7aa' }}>
+                <span style={{ display: 'block', fontSize: '0.72rem', color: '#9a3412' }}>İlçe Açık / Süreçte İş</span>
+                <strong style={{ fontSize: '1.1rem', color: '#ea580c' }}>
+                  {selectedMeydan.openCount}
+                </strong>
+              </div>
+              <div style={{ background: '#f0fdf4', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
+                <span style={{ display: 'block', fontSize: '0.72rem', color: '#166534' }}>İlçede Aktif Kritik İş</span>
+                <strong style={{ fontSize: '1.1rem', color: '#16a34a' }}>
+                  {selectedMeydan.activeCriticalCount}
+                </strong>
+              </div>
+            </div>
+
+            <p style={{ fontSize: '0.72rem', color: '#94a3b8', margin: '0.5rem 0 0 0', fontStyle: 'italic' }}>
+              * Başvuru ve SLA göstergeleri {selectedMeydan.ilce} ilçesi genelindeki verilere dayanmaktadır. Nöbetçi kadrosu doğrudan fiziksel meydana aittir.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.75rem' }}>
             <Link
               to={`/meydan/${selectedMeydan.id}`}
               className="btn btn-primary"

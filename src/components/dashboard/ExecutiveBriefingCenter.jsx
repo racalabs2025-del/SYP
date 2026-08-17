@@ -183,6 +183,10 @@ export default function ExecutiveBriefingCenter({
               </span>
             )}
           </div>
+
+          <p style={{ fontSize: '0.72rem', color: '#94a3b8', margin: '0.75rem 0 0 0', fontStyle: 'italic' }}>
+            * Başvuru ve SLA verileri ilçe havuzuna aittir. Nöbet listeleri doğrudan fiziksel meydan çalışma programına dayanır.
+          </p>
         </div>
       </div>
     </section>
