@@ -51,48 +51,64 @@ VERİLER:
 Kısa, öz ve yönetim sunumuna uygun formatta yaz.
 `;
     try {
-      let res;
+      let aiReply = '';
+      let lastErrorMessage = '';
 
-      // 1. Try relative proxy path first
+      // 1. Try relative proxy path first (Vercel Serverless Function or local proxy)
       try {
-        res = await fetch('/api/deepseek', {
+        const proxyRes = await fetch('/api/deepseek', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            messages: [{ role: 'user', content: userPrompt }],
-          }),
-        });
-      } catch (proxyErr) {
-        console.warn('Proxy fetch failed, trying direct DeepSeek API...', proxyErr);
-      }
-
-      // 2. If proxy was blocked, failed, or didn't return 200, try direct fallback
-      if (!res || !res.ok) {
-        const apiKey = import.meta.env.VITE_DEEPSEEK_API_KEY;
-        if (!apiKey) {
-          throw new Error('DeepSeek API Anahtarı bulunamadı (VITE_DEEPSEEK_API_KEY). Lütfen proxy sunucusunu çalıştırın veya çevresel değişkenleri ayarlayın.');
-        }
-
-        res = await fetch('https://api.deepseek.com/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
           body: JSON.stringify({
             model: 'deepseek-chat',
             messages: [{ role: 'user', content: userPrompt }],
             temperature: 0.7,
           }),
         });
+
+        if (proxyRes.ok) {
+          const proxyData = await proxyRes.json();
+          aiReply = proxyData.choices?.[0]?.message?.content || proxyData.content || proxyData.reply || '';
+        } else {
+          const errData = await proxyRes.json().catch(() => ({}));
+          lastErrorMessage = errData.error || errData.message || `Proxy hatası (${proxyRes.status})`;
+        }
+      } catch (proxyErr) {
+        console.warn('Proxy fetch failed, checking direct fallback...', proxyErr);
+        lastErrorMessage = proxyErr.message;
       }
 
-      if (!res.ok) {
-        throw new Error(`Servis yanıt vermedi (${res.status})`);
+      // 2. If proxy did not provide a reply, try direct client-side fallback if key exists
+      if (!aiReply) {
+        const apiKey = import.meta.env.VITE_DEEPSEEK_API_KEY;
+        if (apiKey) {
+          const directRes = await fetch('https://api.deepseek.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify({
+              model: 'deepseek-chat',
+              messages: [{ role: 'user', content: userPrompt }],
+              temperature: 0.7,
+            }),
+          });
+
+          if (directRes.ok) {
+            const data = await directRes.json();
+            aiReply = data.choices?.[0]?.message?.content || data.content || data.reply || '';
+          } else {
+            const errText = await directRes.text().catch(() => '');
+            throw new Error(`Doğrudan DeepSeek API yanıt vermedi (${directRes.status}): ${errText.slice(0, 100)}`);
+          }
+        } else if (lastErrorMessage) {
+          throw new Error(lastErrorMessage);
+        } else {
+          throw new Error('DeepSeek API Anahtarı bulunamadı (Vercel ortam değişkenlerine DEEPSEEK_API_KEY veya VITE_DEEPSEEK_API_KEY eklenmelidir).');
+        }
       }
 
-      const data = await res.json();
-      const aiReply = data.choices?.[0]?.message?.content || data.content || data.reply || '';
       if (!aiReply) {
         throw new Error('Yapay zeka boş yanıt döndürdü.');
       }
