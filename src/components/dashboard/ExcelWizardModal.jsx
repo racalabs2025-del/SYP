@@ -287,7 +287,7 @@ export default function ExcelWizardModal({ isOpen, onClose, onSuccess }) {
     if (unresolvedCells.length === 0) return;
 
     setIsResolvingAI(true);
-    setStatusMsg('🤖 DeepSeek AI tanınmayan lokasyonları analiz ediyor...');
+    setStatusMsg('⚡ Akıllı lokasyon analizi yapılıyor...');
 
     const uniqueStrings = Array.from(new Set(unresolvedCells.map((u) => u.cellStr))).slice(0, 20);
 
@@ -311,12 +311,12 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
         }),
       });
 
-      if (!res.ok) throw new Error('AI proxy sunucusu yanıt vermedi.');
+      if (!res.ok) throw new Error('Akıllı servis sunucusu yanıt vermedi.');
       const data = await res.json();
       const content = data.choices?.[0]?.message?.content || data.content || '';
 
       const jsonMatch = content.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error('AI geçerli bir eşleştirme formatı oluşturamadı.');
+      if (!jsonMatch) throw new Error('Akıllı eşleştirme formatı oluşturulamadı.');
 
       const mapping = JSON.parse(jsonMatch[0]);
 
@@ -333,7 +333,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
             tarih: item.isoDate,
             saatAraligi: item.saatAraligi,
             vardiyaTipi: 'Gunduz',
-            lokasyonRaw: `${item.cellStr} (AI-Çözüldü)`,
+            lokasyonRaw: `${item.cellStr} (Akıllı-Eşleşti)`,
             aiResolved: true,
           });
           newlyAdded++;
@@ -345,10 +345,10 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
       setParsedShifts(updatedShifts);
       setUnresolvedCells(remainingUnresolved);
       setAiResolvedCount((prev) => prev + newlyAdded);
-      setStatusMsg(`✨ DeepSeek AI ile ${newlyAdded} adet tanınmayan lokasyon başarıyla çözüldü!`);
+      setStatusMsg(`✨ Akıllı analiz ile ${newlyAdded} adet tanınmayan lokasyon başarıyla çözüldü!`);
     } catch (err) {
       console.error(err);
-      setStatusMsg('AI Çözüm hatası: ' + err.message);
+      setStatusMsg('Akıllı eşleştirme hatası: ' + err.message);
     } finally {
       setIsResolvingAI(false);
     }
@@ -505,7 +505,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
                     <div>
                       <strong style={{ color: '#d48806', fontSize: '0.9rem' }}>⚠️ {unresolvedCells.length} adet tanınmayan veya kural dışı lokasyon bulundu</strong>
                       <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', color: '#8c8c8c' }}>
-                        Standart kurallar ile eşleşmeyen bu hücreleri DeepSeek yapay zekası ile otomatik çözümleyebilirsiniz.
+                        Standart kurallar ile eşleşmeyen bu hücreleri akıllı analiz ile otomatik çözümleyebilirsiniz.
                       </p>
                     </div>
                     <button
@@ -515,7 +515,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
                       disabled={isResolvingAI}
                       style={{ background: '#faad14', color: '#fff', border: 'none', fontWeight: '700' }}
                     >
-                      {isResolvingAI ? '🤖 DeepSeek Çözümlüyor...' : `🤖 DeepSeek AI ile Çöz (${unresolvedCells.length})`}
+                      {isResolvingAI ? '⚡ Akıllı Çözümleme Yapılıyor...' : `⚡ Akıllı Eşleştir (${unresolvedCells.length})`}
                     </button>
                   </div>
                 </div>
@@ -523,7 +523,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
 
               {aiResolvedCount > 0 ? (
                 <div className="ai-success-banner" style={{ background: '#f6ffed', border: '1px solid #b7eb8f', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1rem', color: '#389e0d', fontSize: '0.85rem', fontWeight: '600' }}>
-                  ✓ {aiResolvedCount} adet tanınmayan lokasyon DeepSeek AI tarafından başarıyla eşleştirildi ve vardiyaya eklendi!
+                  ✓ {aiResolvedCount} adet tanınmayan lokasyon akıllı analiz ile başarıyla eşleştirildi ve vardiyaya eklendi!
                 </div>
               ) : null}
 

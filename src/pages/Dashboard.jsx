@@ -1036,11 +1036,11 @@ export default function Dashboard({ onLogout }) {
       saveOperationalInsights(db, todayKey, sanitizedInsights).catch(() => {});
 
       if (!silent) {
-        setStatus({ type: 'success', text: 'AI desteği içerikleri güncellendi.' });
+        setStatus({ type: 'success', text: 'Akıllı destek içerikleri güncellendi.' });
       }
     } catch (error) {
       if (!signal?.aborted && !silent) {
-        setStatus({ type: 'error', text: `AI desteği güncellenemedi: ${error?.code || error?.message || 'bilinmeyen hata'}` });
+        setStatus({ type: 'error', text: `Akıllı destek güncellenemedi: ${error?.code || error?.message || 'bilinmeyen hata'}` });
       }
     } finally {
       if (!signal?.aborted) {

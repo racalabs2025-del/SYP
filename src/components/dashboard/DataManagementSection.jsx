@@ -129,7 +129,7 @@ export default function DataManagementSection({
         <>
           <div className="management-ai-refresh">
             <div>
-              <h3 className="management-card__title">AI Desteği İçerikleri</h3>
+              <h3 className="management-card__title">Akıllı Destek İçerikleri</h3>
               <p className="management-card__subtitle">Akıllı operasyon önerilerini başvuru ve planlama verilerine göre manuel yenileyin</p>
               {insightsLastUpdatedAt ? (
                 <p className="management-ai-refresh__meta">Son güncelleme: {insightsLastUpdatedAt}</p>
@@ -141,7 +141,7 @@ export default function DataManagementSection({
               onClick={onRefreshOperationalInsights}
               disabled={insightsLoading}
             >
-              {insightsLoading ? 'AI içerikleri güncelleniyor...' : 'AI içeriklerini güncelle'}
+              {insightsLoading ? 'Akıllı içerikler güncelleniyor...' : 'Akıllı içerikleri güncelle'}
             </button>
           </div>
 

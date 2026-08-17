@@ -43,7 +43,7 @@ export default function AIDailyExecutiveSummary({
     };
 
     const userPrompt = `
-Sen İstanbul Büyükşehir Belediyesi Meydan Yönetimi Birimi Yapay Zeka Yönetici Karar Destek Asistanısın.
+Sen İstanbul Büyükşehir Belediyesi Meydan Yönetimi Birimi Akıllı Karar Destek Asistanısın.
 Aşağıdaki kesin ve denetlenmiş operasyon/SLA verilerine dayanarak üst yönetim için Türkçe, profesyonel, maddeler halinde ve doğrudan aksiyon odaklı bir "YÖNETİCİ KARAR VE RİSK BÜLTENİ" hazırla.
 
 ÖNEMLİ KURALLAR:
@@ -128,13 +128,13 @@ Kısa, net ve karar almayı kolaylaştırıcı maddelerle yaz.
       }
 
       if (!aiReply) {
-        throw new Error('Yapay zeka boş yanıt döndürdü.');
+        throw new Error('Akıllı özet içeriği oluşturulamadı.');
       }
 
       setSummaryText(aiReply);
     } catch (err) {
       console.error(err);
-      setErrorMsg('AI bülten üretilirken bir hata oluştu: ' + err.message);
+      setErrorMsg('Akıllı bülten hazırlanırken bir durum oluştu: ' + (err.message || 'Lütfen tekrar deneyiniz.'));
     } finally {
       setLoading(false);
     }
@@ -157,8 +157,8 @@ Kısa, net ve karar almayı kolaylaştırıcı maddelerle yaz.
     <div className="ai-executive-summary-card">
       <div className="ai-summary-header">
         <div className="ai-title-group">
-          <span className="ai-badge">🤖 AI COPILOT</span>
-          <h3>Günlük Yönetici Operasyon Bülteni</h3>
+          <span className="ai-badge">⚡ AKILLI BRİFİNG</span>
+          <h3>Günlük Akıllı Yönetici Bülteni</h3>
         </div>
         <button
           type="button"
@@ -166,7 +166,7 @@ Kısa, net ve karar almayı kolaylaştırıcı maddelerle yaz.
           onClick={generateSummary}
           disabled={loading}
         >
-          {loading ? '⚡ DeepSeek Bülteni Hazırlıyor...' : '✨ Günlük AI Bülteni Üret'}
+          {loading ? '⚡ Akıllı Bülten Hazırlanıyor...' : '✨ Günlük Akıllı Bülten Üret'}
         </button>
       </div>
 
@@ -189,7 +189,7 @@ Kısa, net ve karar almayı kolaylaştırıcı maddelerle yaz.
       ) : (
         <div className="ai-summary-placeholder">
           <p>
-            Tüm meydanlar, sahadaki aktif personeller ve kronik sorunların verileri analiz edilerek üst yöneticiler için anlık AI operasyon özeti oluşturulur.
+            Tüm meydanlar, sahadaki aktif personeller ve kronik sorunların verileri analiz edilerek üst yöneticiler için anlık akıllı operasyon özeti oluşturulur.
           </p>
         </div>
       )}

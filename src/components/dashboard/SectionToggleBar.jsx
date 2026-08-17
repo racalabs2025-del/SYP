@@ -67,7 +67,7 @@ const SECTION_ITEMS = [
   },
   {
     key: 'ai-icgoru',
-    label: 'AI Desteği',
+    label: 'Akıllı Destek',
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
