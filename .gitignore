@@ -30,6 +30,8 @@ dist-ssr
 
 # Raw data dumps
 Buyuk_guncelleme/
-
+basvurudetaylar.xlsx
+*.xlsx
+*.xls
 
 .vercel

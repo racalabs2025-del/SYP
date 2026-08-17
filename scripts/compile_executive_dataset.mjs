@@ -111,7 +111,6 @@ async function run() {
         const onemDerecesi = String(getVal(row, 'Önem Derecesi') || '4-Düşük').trim();
         const konu = String(getVal(row, 'Konu') || 'DİĞER').trim();
         const altKonu = String(getVal(row, 'Alt Konu') || '').trim();
-        const aciklama = String(getVal(row, 'Açıklama') || '').trim().slice(0, 1000);
         const birim = String(getVal(row, 'İlişkili Olduğu Birim') || '').trim();
 
         if (allUniqueMap.has(docId)) {
@@ -134,7 +133,6 @@ async function run() {
             onemDerecesi,
             konu,
             altKonu,
-            aciklama,
             birim,
             personelAdi: rawPersonelName,
             personelKey: pKey,

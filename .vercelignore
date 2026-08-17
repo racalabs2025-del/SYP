@@ -1,0 +1,9 @@
+# Vercel Ignore - Privacy & Deployment Hardening
+Buyuk_guncelleme/
+*.xlsx
+*.xls
+basvurudetaylar.xlsx
+scripts/
+server/
+.env*
+!dist

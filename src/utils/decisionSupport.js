@@ -18,6 +18,8 @@
 
 export const DEFAULT_REFERENCE_DATE = '2026-08-14';
 
+import { toPrivacySafeApplication } from './privacySafeApplication.js';
+
 export const STATUS_CATEGORIES = {
   CLOSED: 'closed',
   IN_PROGRESS: 'in_progress',
@@ -176,11 +178,11 @@ export function computeDecisionSupportMetrics(
       if (isUnresolved) {
         totalOpenCritical += 1;
       }
-      criticalItems.push({
+      criticalItems.push(toPrivacySafeApplication({
         ...item,
         agingDays: days,
         slaBreached: breached,
-      });
+      }));
     }
 
     if (isUnresolved) {
@@ -195,18 +197,18 @@ export function computeDecisionSupportMetrics(
       const breached = isSlaBreached(item, referenceDate);
       if (breached) {
         totalSlaBreached += 1;
-        slaBreachedItems.push({
+        slaBreachedItems.push(toPrivacySafeApplication({
           ...item,
           agingDays: days,
           slaBreached: true,
-        });
+        }));
       }
 
-      openOrInProgressItems.push({
+      openOrInProgressItems.push(toPrivacySafeApplication({
         ...item,
         agingDays: days,
         slaBreached: breached,
-      });
+      }));
 
       const ilce = item.ilce || 'DİĞER';
       districtOpenCounts[ilce] = (districtOpenCounts[ilce] || 0) + 1;

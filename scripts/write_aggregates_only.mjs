@@ -173,7 +173,6 @@ async function run() {
             altKonu,
             durum,
             onemDerecesi,
-            aciklama: aciklama.slice(0, 150),
           });
         }
 
@@ -212,7 +211,6 @@ async function run() {
             mahalle,
             konu,
             durum,
-            aciklama: aciklama.slice(0, 150),
           });
         }
       }
