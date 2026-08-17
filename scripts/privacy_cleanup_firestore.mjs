@@ -30,16 +30,16 @@ const isApply = process.argv.includes('--apply');
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API_KEY,
-  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_FIREBASE_APP_ID,
+  apiKey: process.env.VITE_FIREBASE_API_KEY || 'AIzaSyDdk7vIwd0wjB3Ccf7h6tgAtqLn90GNfYg',
+  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN || 'foodsense-e1bf6.firebaseapp.com',
+  projectId: process.env.VITE_FIREBASE_PROJECT_ID || 'foodsense-e1bf6',
+  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET || 'foodsense-e1bf6.firebasestorage.app',
+  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '737504845000',
+  appId: process.env.VITE_FIREBASE_APP_ID || '1:737504845000:web:8963d6571cc7f47f5319fd',
 };
 
 let db = null;
-if (getApps().length === 0 && firebaseConfig.projectId) {
+if (getApps().length === 0) {
   const app = initializeApp(firebaseConfig);
   db = getFirestore(app);
 }
