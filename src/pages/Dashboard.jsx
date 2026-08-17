@@ -524,7 +524,18 @@ export default function Dashboard({ onLogout }) {
   const [dataQualityUpdatedAt, setDataQualityUpdatedAt] = useState('');
   const [qualityRefreshing, setQualityRefreshing] = useState(false);
   const [openSections, setOpenSections] = useState(() => new Set());
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
   const wasDataManagementOpenRef = useRef(false);
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape' && isPresentationMode) {
+        setIsPresentationMode(false);
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isPresentationMode]);
 
   function toggleSection(key) {
     setOpenSections((prev) => {
@@ -1757,7 +1768,56 @@ export default function Dashboard({ onLogout }) {
           kronikSorunlarCount={kronikSorunlar.length}
         />
 
-        <ExecutiveBriefingCenter todayShifts={todayShifts} activeMeydanlar={activeMeydanlar} />
+        {isPresentationMode ? (
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #00498E 0%, #002b55 100%)',
+              color: '#ffffff',
+              padding: '0.75rem 1.25rem',
+              borderRadius: '12px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1rem',
+              boxShadow: '0 4px 16px rgba(0,73,142,0.25)',
+              position: 'sticky',
+              top: '10px',
+              zIndex: 100,
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <span style={{ fontSize: '1.25rem' }}>🖥️</span>
+              <div>
+                <strong style={{ fontSize: '0.9rem', display: 'block' }}>Yönetici Sunum Modu Aktif</strong>
+                <span style={{ fontSize: '0.75rem', opacity: 0.85 }}>Toplantı ve brifing görünümü (Çıkmak için ESC'ye basabilirsiniz)</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsPresentationMode(false)}
+              className="btn btn-outline"
+              style={{
+                background: '#ffffff',
+                color: '#00498E',
+                border: 'none',
+                fontWeight: '700',
+                fontSize: '0.78rem',
+                padding: '0.35rem 0.75rem',
+                borderRadius: '6px',
+                cursor: 'pointer',
+              }}
+            >
+              Normal Görünüm (ESC) ✕
+            </button>
+          </div>
+        ) : null}
+
+        <ExecutiveBriefingCenter
+          todayShifts={todayShifts}
+          activeMeydanlar={activeMeydanlar}
+          isPresentationMode={isPresentationMode}
+          onTogglePresentationMode={() => setIsPresentationMode((prev) => !prev)}
+        />
 
         <ExecutiveDecisionSection />
 

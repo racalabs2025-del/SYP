@@ -1,14 +1,20 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
 import dataFreshness from '../../data/dataFreshness.json';
-import { generateExecutiveBriefingData } from '../../utils/executiveBriefing';
+import { buildExecutiveBriefingDataset } from '../../utils/executiveExportDataset';
+import { exportExecutiveBriefingToPdf } from '../../utils/pdfExport';
+import { exportExecutiveBriefingToExcel } from '../../utils/excelExport';
 
 export default function ExecutiveBriefingCenter({
   todayShifts = [],
   activeMeydanlar = [],
+  isPresentationMode = false,
+  onTogglePresentationMode = null,
 }) {
-  const briefingData = useMemo(() => {
-    return generateExecutiveBriefingData({
+  const [downloadingExcel, setDownloadingExcel] = useState(false);
+
+  const dataset = useMemo(() => {
+    return buildExecutiveBriefingDataset({
       todayShifts,
       activeMeydanlar,
       executiveData: compiledExecutiveData,
@@ -16,11 +22,34 @@ export default function ExecutiveBriefingCenter({
     });
   }, [todayShifts, activeMeydanlar]);
 
-  const { kpiSummary, topSlaDistricts, topOpenDistricts, unstaffedMeydanlar, actionItems } = briefingData;
+  const { kpiSummary, topSlaDistricts, unstaffedMeydanlar, actionItems } = dataset;
+
+  const handleExportPdf = () => {
+    exportExecutiveBriefingToPdf(dataset);
+  };
+
+  const handleExportExcel = () => {
+    try {
+      setDownloadingExcel(true);
+      exportExecutiveBriefingToExcel(dataset);
+    } finally {
+      setTimeout(() => setDownloadingExcel(false), 1500);
+    }
+  };
 
   return (
     <section className="panel-section executive-briefing-section" style={{ marginTop: '1.5rem' }}>
-      <div className="panel-section__header" style={{ marginBottom: '1.25rem' }}>
+      <div
+        className="panel-section__header"
+        style={{
+          marginBottom: '1.25rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          flexWrap: 'wrap',
+          gap: '1rem',
+        }}
+      >
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
             <span className="section-kicker" style={{ marginBottom: 0 }}>Operasyon Merkezi</span>
@@ -41,8 +70,67 @@ export default function ExecutiveBriefingCenter({
           </div>
           <h2>📋 İstanbul Meydanları Yönetici Brifing Merkezi</h2>
           <p>
-            Veri snapshot tarihi ({briefingData.lastDataDateFormatted}) itibarıyla operasyonel darboğazlar, taahhüt aşımları ve öncelikli aksiyon planı.
+            Veri snapshot tarihi ({dataset.lastDataDateFormatted}) itibarıyla operasyonel darboğazlar, taahhüt aşımları ve öncelikli aksiyon planı.
           </p>
+        </div>
+
+        {/* Export & Sunum Aksiyon Butonları */}
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            onClick={handleExportPdf}
+            className="btn btn-outline"
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              padding: '0.45rem 0.85rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              cursor: 'pointer',
+            }}
+          >
+            <span>📄</span> PDF Brifingi
+          </button>
+
+          <button
+            type="button"
+            onClick={handleExportExcel}
+            className="btn btn-outline"
+            disabled={downloadingExcel}
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              padding: '0.45rem 0.85rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              cursor: 'pointer',
+            }}
+          >
+            <span>📊</span> {downloadingExcel ? 'Hazırlanıyor...' : 'Excel İndir (XLSX)'}
+          </button>
+
+          {onTogglePresentationMode ? (
+            <button
+              type="button"
+              onClick={onTogglePresentationMode}
+              className="btn btn-primary"
+              style={{
+                fontSize: '0.8rem',
+                fontWeight: '700',
+                padding: '0.45rem 0.85rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                background: isPresentationMode ? '#dc2626' : '#00498E',
+                borderColor: isPresentationMode ? '#dc2626' : '#00498E',
+                cursor: 'pointer',
+              }}
+            >
+              <span>{isPresentationMode ? '✕' : '🖥️'}</span> {isPresentationMode ? 'Sunumdan Çık' : 'Sunum Modu'}
+            </button>
+          ) : null}
         </div>
       </div>
 
