@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
+import SypCircularLogo from '../components/shared/SypCircularLogo';
 import { signInAnonymouslyUser, verifyPanelPassword } from '../auth';
 
 const LOGIN_SCENES = [
@@ -79,9 +80,13 @@ export default function LoginScreen() {
         </section>
 
         <section className="login-card">
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
+            <SypCircularLogo size={68} animated={loading} />
+          </div>
+
           <div className="login-card__title-group">
             <h2>Panele Giriş Yap</h2>
-            <p>Yetkili giriş için devam edin.</p>
+            <p>Saha Yönetim Paneli yetkili erişimi.</p>
           </div>
 
           <form className="login-form" onSubmit={handleAnonymousLogin}>

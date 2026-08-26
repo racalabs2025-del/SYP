@@ -1,5 +1,7 @@
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import dataFreshness from '../../data/dataFreshness.json';
+import { getMeydanYaka } from '../../utils/meydanYaka';
 
 export default function DashboardHeroSection({
   activeMeydanCount,
@@ -8,13 +10,33 @@ export default function DashboardHeroSection({
   activeStatOverlay,
   onOpenStatOverlay,
   onCloseStatOverlay,
-  activeMeydanRows,
+  activeMeydanRows = [],
   scheduledPersonnelRows,
   activePersonnelRows,
   statOverlayPanelRef,
 }) {
+  const [modalYakaFilter, setModalYakaFilter] = useState('all'); // 'all' | 'avrupa' | 'anadolu'
   const overlayTitleId = `stat-overlay-title-${activeStatOverlay || 'default'}`;
   const lastDataDateFormatted = dataFreshness?.lastApplicationDateFormatted || '14 Ağustos 2026';
+
+  const modalAvrupaCount = useMemo(
+    () => activeMeydanRows.filter((m) => getMeydanYaka(m) === 'avrupa').length,
+    [activeMeydanRows]
+  );
+  const modalAnadoluCount = useMemo(
+    () => activeMeydanRows.filter((m) => getMeydanYaka(m) === 'anadolu').length,
+    [activeMeydanRows]
+  );
+
+  const filteredModalMeydanRows = useMemo(() => {
+    if (modalYakaFilter === 'anadolu') {
+      return activeMeydanRows.filter((m) => getMeydanYaka(m) === 'anadolu');
+    }
+    if (modalYakaFilter === 'avrupa') {
+      return activeMeydanRows.filter((m) => getMeydanYaka(m) === 'avrupa');
+    }
+    return activeMeydanRows;
+  }, [activeMeydanRows, modalYakaFilter]);
 
   return (
     <>
@@ -48,9 +70,12 @@ export default function DashboardHeroSection({
           <button
             className="stat-card stat-card--primary stat-card--interactive"
             type="button"
-            onClick={() => onOpenStatOverlay('meydanlar')}
+            onClick={() => {
+              setModalYakaFilter('all');
+              onOpenStatOverlay('meydanlar');
+            }}
           >
-            <span className="stat-label">Aktif Meydan</span>
+            <span className="stat-label">Meydanlar</span>
             <strong className="stat-value">{activeMeydanCount}</strong>
           </button>
           <button
@@ -84,25 +109,65 @@ export default function DashboardHeroSection({
           >
             {activeStatOverlay === 'meydanlar' ? (
               <>
-                <div className="stat-overlay__header">
-                  <h3 id={overlayTitleId}>Aktif Meydanlar ({activeMeydanRows.length})</h3>
+                <div className="stat-overlay__header stat-overlay__header-row">
+                  <h3 id={overlayTitleId}>Meydanlar ({filteredModalMeydanRows.length})</h3>
+
+                  <div className="yaka-segmented-tabs yaka-segmented-tabs--sm" role="tablist" aria-label="Modal Yaka Seçimi">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={modalYakaFilter === 'all'}
+                      className={`yaka-tab-btn yaka-tab-btn--sm${modalYakaFilter === 'all' ? ' is-active' : ''}`}
+                      onClick={() => setModalYakaFilter('all')}
+                    >
+                      <span>Tümü</span>
+                      <span className="yaka-tab-badge">{activeMeydanRows.length}</span>
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={modalYakaFilter === 'avrupa'}
+                      className={`yaka-tab-btn yaka-tab-btn--sm${modalYakaFilter === 'avrupa' ? ' is-active' : ''}`}
+                      onClick={() => setModalYakaFilter('avrupa')}
+                    >
+                      <span>Avrupa</span>
+                      <span className="yaka-tab-badge">{modalAvrupaCount}</span>
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={modalYakaFilter === 'anadolu'}
+                      className={`yaka-tab-btn yaka-tab-btn--sm${modalYakaFilter === 'anadolu' ? ' is-active' : ''}`}
+                      onClick={() => setModalYakaFilter('anadolu')}
+                    >
+                      <span>Anadolu</span>
+                      <span className="yaka-tab-badge">{modalAnadoluCount}</span>
+                    </button>
+                  </div>
                 </div>
-                {activeMeydanRows.length ? (
-                  <ul className="stat-overlay__list">
-                    {activeMeydanRows.map((item) => (
-                      <li key={item.id} className="stat-overlay__item">
-                        <Link
-                          to={`/meydan/${encodeURIComponent(item.id)}`}
-                          className="stat-overlay__meydan-link"
-                          onClick={onCloseStatOverlay}
-                        >
-                          {item.isim}
-                        </Link>
-                      </li>
-                    ))}
+
+                {filteredModalMeydanRows.length ? (
+                  <ul key={modalYakaFilter} className="stat-overlay__list has-filter-animation">
+                    {filteredModalMeydanRows.map((item) => {
+                      const yaka = getMeydanYaka(item);
+                      return (
+                        <li key={item.id} className="stat-overlay__item">
+                          <Link
+                            to={`/meydan/${encodeURIComponent(item.id)}`}
+                            className="stat-overlay__meydan-link stat-overlay__meydan-row"
+                            onClick={onCloseStatOverlay}
+                          >
+                            <span>{item.isim}</span>
+                            <span className={`stat-overlay__yaka-badge stat-overlay__yaka-badge--${yaka}`}>
+                              {yaka === 'anadolu' ? 'Anadolu' : 'Avrupa'}
+                            </span>
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 ) : (
-                  <p className="stat-overlay__empty">Bugün görevli meydan bulunmuyor.</p>
+                  <p className="stat-overlay__empty">Bu bölgede kayıtlı aktif meydan bulunmuyor.</p>
                 )}
               </>
             ) : null}

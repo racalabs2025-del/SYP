@@ -4,6 +4,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
 import './MeydanCard.css';
 import './MeydanGrid.css';
+import MobileBottomNav from './components/shared/MobileBottomNav';
+import { SypCircularLoader } from './components/shared/SypCircularLogo';
 import { signOutAdmin } from './auth';
 import { auth } from './firebaseAuth';
 
@@ -77,7 +79,11 @@ class ErrorBoundary extends Component {
 }
 
 function RouteLoading() {
-  return <div className="page"><div className="message message-loading">Sayfa yükleniyor...</div></div>;
+  return (
+    <div className="page" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+      <SypCircularLoader text="Sayfa hazırlanıyor..." size="md" />
+    </div>
+  );
 }
 
 function NavigationGuard({ authenticated }) {
@@ -103,7 +109,11 @@ function NavigationGuard({ authenticated }) {
 
 function ProtectedRoute({ authenticated, authReady, children }) {
   if (!authReady) {
-    return <div className="page"><div className="message message-loading">Oturum kontrol ediliyor...</div></div>;
+    return (
+      <div className="page" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+        <SypCircularLoader text="Oturum doğrulanıyor..." size="md" />
+      </div>
+    );
   }
 
   if (!authenticated) {
@@ -206,6 +216,7 @@ function AppRoutes() {
           <Route path="*" element={<Navigate to={authenticated ? '/' : '/splash'} replace />} />
         </Routes>
       </Suspense>
+      {authenticated ? <MobileBottomNav /> : null}
     </ErrorBoundary>
   );
 }

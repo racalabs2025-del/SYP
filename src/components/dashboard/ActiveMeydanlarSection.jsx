@@ -1,9 +1,10 @@
+import { useMemo, useState } from 'react';
 import MeydanCard from '../../MeydanCard';
+import { getMeydanYaka } from '../../utils/meydanYaka';
 
 export default function ActiveMeydanlarSection({
   loading,
-  activeMeydanlar,
-  visibleMeydanlar,
+  activeMeydanlar = [],
   expandedMeydanId,
   getPlannedPersonnelNames,
   getPlannedPersonnelDetails,
@@ -14,21 +15,83 @@ export default function ActiveMeydanlarSection({
   onToggleMeydan,
   onToggleShowAll,
 }) {
+  const [yakaFilter, setYakaFilter] = useState('all'); // 'all' | 'avrupa' | 'anadolu'
+
+  const totalCount = activeMeydanlar.length;
+  const avrupaCount = useMemo(
+    () => activeMeydanlar.filter((m) => getMeydanYaka(m) === 'avrupa').length,
+    [activeMeydanlar]
+  );
+  const anadoluCount = useMemo(
+    () => activeMeydanlar.filter((m) => getMeydanYaka(m) === 'anadolu').length,
+    [activeMeydanlar]
+  );
+
+  const filteredMeydanlar = useMemo(() => {
+    if (yakaFilter === 'anadolu') {
+      return activeMeydanlar.filter((m) => getMeydanYaka(m) === 'anadolu');
+    }
+    if (yakaFilter === 'avrupa') {
+      return activeMeydanlar.filter((m) => getMeydanYaka(m) === 'avrupa');
+    }
+    return activeMeydanlar;
+  }, [activeMeydanlar, yakaFilter]);
+
+  const visibleMeydanlar = useMemo(
+    () => (showAllMeydanlar ? filteredMeydanlar : filteredMeydanlar.slice(0, initialVisibleCount)),
+    [filteredMeydanlar, showAllMeydanlar, initialVisibleCount]
+  );
+
   return (
     <section className="panel-section">
-      <div className="panel-section__header">
+      <div className="panel-section__header active-meydanlar-header">
         <div>
           <span className="section-kicker">Meydanlar</span>
-          <h2>Aktif Meydanlar</h2>
+          <h2>Meydanlar</h2>
           <p>Kartlarda Planlı, bugün görevi planlanan personel sayısını; Görevde ise şu an sahadaki aktif personel sayısını gösterir.</p>
         </div>
+
+        {!loading && activeMeydanlar.length ? (
+          <div className="yaka-segmented-tabs" role="tablist" aria-label="Bölge / Yaka Seçimi">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={yakaFilter === 'all'}
+              className={`yaka-tab-btn${yakaFilter === 'all' ? ' is-active' : ''}`}
+              onClick={() => setYakaFilter('all')}
+            >
+              <span>Tümü</span>
+              <span className="yaka-tab-badge">{totalCount}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={yakaFilter === 'avrupa'}
+              className={`yaka-tab-btn${yakaFilter === 'avrupa' ? ' is-active' : ''}`}
+              onClick={() => setYakaFilter('avrupa')}
+            >
+              <span>Avrupa</span>
+              <span className="yaka-tab-badge">{avrupaCount}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={yakaFilter === 'anadolu'}
+              className={`yaka-tab-btn${yakaFilter === 'anadolu' ? ' is-active' : ''}`}
+              onClick={() => setYakaFilter('anadolu')}
+            >
+              <span>Anadolu</span>
+              <span className="yaka-tab-badge">{anadoluCount}</span>
+            </button>
+          </div>
+        ) : null}
       </div>
 
       {loading ? <div className="message message-loading">Veriler yükleniyor...</div> : null}
 
-      {!loading && activeMeydanlar.length ? (
+      {!loading && filteredMeydanlar.length ? (
         <>
-          <div className="active-meydan-list">
+          <div key={yakaFilter} className="active-meydan-list has-filter-animation">
             {visibleMeydanlar.map((meydan) => {
               const plannedCount = getScheduledCount(meydan.id);
               const activeCount = getActiveCount(meydan.id);
@@ -36,6 +99,7 @@ export default function ActiveMeydanlarSection({
               const plannedDetails = getPlannedPersonnelDetails(meydan.id);
               const previewNames = plannedNames.slice(0, 2).join(', ');
               const remainingPlannedCount = Math.max(0, plannedNames.length - 2);
+              const yaka = getMeydanYaka(meydan);
 
               return (
                 <article
@@ -50,7 +114,12 @@ export default function ActiveMeydanlarSection({
                     onClick={() => onToggleMeydan(meydan.id)}
                   >
                     <span className="active-meydan-row__main">
-                      <span className="active-meydan-row__title">{meydan.isim}</span>
+                      <span className="active-meydan-row__title-wrap" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                        <span className="active-meydan-row__title">{meydan.isim}</span>
+                        <span className={`active-meydan-row__pill active-meydan-row__pill--yaka active-meydan-row__pill--yaka-${yaka}`}>
+                          {yaka === 'anadolu' ? 'Anadolu' : 'Avrupa'}
+                        </span>
+                      </span>
                       <span className="active-meydan-row__summary">
                         {plannedNames.length
                           ? `${previewNames}${remainingPlannedCount ? ` +${remainingPlannedCount}` : ''}`
@@ -90,7 +159,7 @@ export default function ActiveMeydanlarSection({
             })}
           </div>
 
-          {activeMeydanlar.length > initialVisibleCount ? (
+          {filteredMeydanlar.length > initialVisibleCount ? (
             <div className="show-more-row">
               <button
                 className="btn btn-ghost"
@@ -99,11 +168,19 @@ export default function ActiveMeydanlarSection({
               >
                 {showAllMeydanlar
                   ? 'Daha Az Göster'
-                  : `Daha Fazla Gör (${activeMeydanlar.length - initialVisibleCount} meydan daha)`}
+                  : `Daha Fazla Gör (${filteredMeydanlar.length - initialVisibleCount} meydan daha)`}
               </button>
             </div>
           ) : null}
         </>
+      ) : null}
+
+      {!loading && !filteredMeydanlar.length && activeMeydanlar.length ? (
+        <div className="empty-state">
+          {yakaFilter === 'anadolu'
+            ? 'Anadolu Yakasında bugün için kayıtlı aktif meydan bulunmuyor.'
+            : 'Avrupa Yakasında bugün için kayıtlı aktif meydan bulunmuyor.'}
+        </div>
       ) : null}
 
       {!loading && !activeMeydanlar.length ? (
@@ -112,3 +189,4 @@ export default function ActiveMeydanlarSection({
     </section>
   );
 }
+

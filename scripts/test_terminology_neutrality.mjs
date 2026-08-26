@@ -34,6 +34,8 @@ const UI_FILES = [
   path.join(SRC_DIR, 'components', 'dashboard', 'DataManagementSection.jsx'),
   path.join(SRC_DIR, 'components', 'dashboard', 'SectionToggleBar.jsx'),
   path.join(SRC_DIR, 'components', 'dashboard', 'ExecutiveBriefingCenter.jsx'),
+  path.join(SRC_DIR, 'components', 'dashboard', 'ExecutiveSummarySection.jsx'),
+  path.join(SRC_DIR, 'components', 'dashboard', 'OpenApplicationsSection.jsx'),
   path.join(SRC_DIR, 'pages', 'Dashboard.jsx'),
   path.join(SRC_DIR, 'utils', 'pdfExport.js'),
   path.join(SRC_DIR, 'utils', 'excelExport.js'),

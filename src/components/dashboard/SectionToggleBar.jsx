@@ -1,7 +1,28 @@
 const SECTION_ITEMS = [
   {
+    key: 'akilli-brifing',
+    label: 'Akıllı Brifing & Yönetici Bülteni',
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
+  {
+    key: 'yonetim-paneli',
+    label: 'Yönetim Paneli & Yönetici Özeti',
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="14" y="14" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" />
+      </svg>
+    ),
+  },
+  {
     key: 'active-meydanlar',
-    label: 'Aktif Meydanlar',
+    label: 'Meydanlar',
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -140,7 +161,11 @@ export default function SectionToggleBar({ itemKey, isOpen, onToggle, children }
   }
 
   return (
-    <div className={`section-accordion-item${isOpen ? ' is-open' : ''}`}>
+    <div
+      id={`section-${itemKey}`}
+      data-section-key={itemKey}
+      className={`section-accordion-item${isOpen ? ' is-open' : ''}`}
+    >
       <button
         type="button"
         className={`section-toggle-pill${isOpen ? ' is-active' : ''}`}

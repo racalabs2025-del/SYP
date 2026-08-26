@@ -30,8 +30,8 @@ import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/s
 import { isShiftActive, toDateKey } from '../utils/date';
 import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from '../utils/excelParsing';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
-import ExecutiveBriefingCenter from '../components/dashboard/ExecutiveBriefingCenter';
-import ExecutiveDecisionSection from '../components/dashboard/ExecutiveDecisionSection';
+import ExecutiveSummarySection from '../components/dashboard/ExecutiveSummarySection';
+import OpenApplicationsSection from '../components/dashboard/OpenApplicationsSection';
 import ActiveMeydanlarSection from '../components/dashboard/ActiveMeydanlarSection';
 import IstanbulFieldMap from '../components/dashboard/IstanbulFieldMap';
 import AIDailyExecutiveSummary from '../components/dashboard/AIDailyExecutiveSummary';
@@ -96,12 +96,16 @@ const RAPOR_AY_MAP = {
 };
 
 const VALID_OPERATIONAL_INSIGHT_TITLES = new Set([
-  'Planlama Sessizliği',
+  'Saha Koordinasyon Gücü',
+  'Saha Mobilite ve Esneklik',
+  'Meydan Deneyimi ve Uzmanlık',
+  'Saha Çözüm ve Kayıt Öncüsü',
+  'Günün Saha Tavsiyesi',
+  'Planlama ve Veri Akışı',
   'Çok Meydanlı Personel',
   'Sabit Görev Eşleşmesi',
   'Toplam Kayıt Lideri',
   'Veri Akışı',
-  'Düşük Kayıtlı Meydanlar',
   'Yoğunluk/Kayıt Dengesi',
 ]);
 
@@ -523,7 +527,7 @@ export default function Dashboard({ onLogout }) {
   const [dataQualityIssues, setDataQualityIssues] = useState([]);
   const [dataQualityUpdatedAt, setDataQualityUpdatedAt] = useState('');
   const [qualityRefreshing, setQualityRefreshing] = useState(false);
-  const [openSections, setOpenSections] = useState(() => new Set());
+  const [openSections, setOpenSections] = useState(() => new Set(['active-meydanlar']));
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const wasDataManagementOpenRef = useRef(false);
 
@@ -536,6 +540,46 @@ export default function Dashboard({ onLogout }) {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isPresentationMode]);
+  useEffect(() => {
+    function handleNavigateSection(e) {
+      const sectionKey = e?.detail?.sectionKey;
+      if (!sectionKey) return;
+
+      if (sectionKey === 'personel-listesi') {
+        setOpenSections((prev) => {
+          const next = new Set(prev);
+          next.add('meydan-yonetimi-grup');
+          return next;
+        });
+        setActiveMeydanYonetimiBolumu('personel-listesi');
+      } else {
+        setOpenSections((prev) => {
+          const next = new Set(prev);
+          next.add(sectionKey);
+          return next;
+        });
+      }
+
+      setTimeout(() => {
+        let targetId = `section-${sectionKey}`;
+        if (sectionKey === 'personel-listesi') {
+          targetId = 'section-meydan-yonetimi-grup';
+        }
+        const el = document.getElementById(targetId);
+        if (el) {
+          const yOffset = -65;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+
+          el.classList.add('syp-section-pulse');
+          setTimeout(() => el.classList.remove('syp-section-pulse'), 1500);
+        }
+      }, 120);
+    }
+
+    window.addEventListener('syp:navigate-section', handleNavigateSection);
+    return () => window.removeEventListener('syp:navigate-section', handleNavigateSection);
+  }, []);
 
   function toggleSection(key) {
     setOpenSections((prev) => {
@@ -1761,13 +1805,6 @@ export default function Dashboard({ onLogout }) {
           </div>
         ) : null}
 
-        <AIDailyExecutiveSummary
-          todayShifts={todayShifts}
-          activeMeydanCount={activeMeydanlar.length}
-          dataQualityIssuesCount={dataQualityIssues.length}
-          kronikSorunlarCount={kronikSorunlar.length}
-        />
-
         {isPresentationMode ? (
           <div
             style={{
@@ -1812,15 +1849,6 @@ export default function Dashboard({ onLogout }) {
           </div>
         ) : null}
 
-        <ExecutiveBriefingCenter
-          todayShifts={todayShifts}
-          activeMeydanlar={activeMeydanlar}
-          isPresentationMode={isPresentationMode}
-          onTogglePresentationMode={() => setIsPresentationMode((prev) => !prev)}
-        />
-
-        <ExecutiveDecisionSection />
-
         <div className="section-accordion-list">
           <SectionToggleBar itemKey="active-meydanlar" isOpen={openSections.has('active-meydanlar')} onToggle={toggleSection}>
             <ActiveMeydanlarSection
@@ -1841,8 +1869,8 @@ export default function Dashboard({ onLogout }) {
             <section className="panel-section" style={{ marginTop: '1.5rem' }}>
               <div className="panel-section__header">
                 <div>
-                  <span className="section-kicker">Saha Haritası & Yoğunluk Matrisi</span>
-                  <h2>İstanbul Meydanları Canlı Yoğunluk Haritası</h2>
+                  <span className="section-kicker">Saha Haritası & Personel Dağılımı</span>
+                  <h2>İstanbul Meydanları Saha Dağılımı</h2>
                 </div>
               </div>
               <IstanbulFieldMap todayShifts={todayShifts} activeMeydanlar={activeMeydanlar} />
@@ -1979,7 +2007,12 @@ export default function Dashboard({ onLogout }) {
           </SectionToggleBar>
 
           <SectionToggleBar itemKey="ai-icgoru" isOpen={openSections.has('ai-icgoru')} onToggle={toggleSection}>
-            <OperationalInsightsSection insights={operationalInsights} loading={insightsLoading} />
+            <OperationalInsightsSection
+              insights={operationalInsights}
+              loading={insightsLoading}
+              onRefresh={() => refreshOperationalInsights({ silent: false, preferStored: false })}
+              lastUpdatedAt={insightsLastUpdatedAt}
+            />
           </SectionToggleBar>
 
           <SectionLinkBar
@@ -1991,6 +2024,26 @@ export default function Dashboard({ onLogout }) {
             itemKey="ibb-bilgi-hizmetleri"
             href="https://ibb.istanbul/tum-hizmetler/bilgi-hizmetleri"
           />
+
+          <SectionToggleBar itemKey="akilli-brifing" isOpen={openSections.has('akilli-brifing')} onToggle={toggleSection}>
+            <AIDailyExecutiveSummary
+              todayShifts={todayShifts}
+              activeMeydanCount={activeMeydanlar.length}
+              dataQualityIssuesCount={dataQualityIssues.length}
+              kronikSorunlarCount={kronikSorunlar.length}
+            />
+          </SectionToggleBar>
+
+          <SectionToggleBar itemKey="yonetim-paneli" isOpen={openSections.has('yonetim-paneli')} onToggle={toggleSection}>
+            <ExecutiveSummarySection
+              todayShifts={todayShifts}
+              activeMeydanlar={activeMeydanlar}
+              historyShifts={historyShifts}
+              meydanlar={meydanlar}
+              isPresentationMode={isPresentationMode}
+              onTogglePresentationMode={() => setIsPresentationMode((prev) => !prev)}
+            />
+          </SectionToggleBar>
 
           <SectionToggleBar itemKey="veri-yonetimi" isOpen={openSections.has('veri-yonetimi')} onToggle={toggleSection}>
             <DataManagementSection
