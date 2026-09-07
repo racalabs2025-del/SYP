@@ -90,13 +90,35 @@ const INVALID_TOKENS = new Set([
   'izinli',
   'izin',
   'rapor',
+  'raporlu',
   'off',
+  'diger',
+  'diger meydan',
+  'diger meydani',
+  'digerleri',
+  'diger gorevler',
+  'diger alanlar',
+  'ofis',
+  'merkez',
+  'saha',
+  'saha destek',
+  'mobil ekip',
+  'egitim',
+  'toplanti',
+  'idari',
+  'belirsiz',
+  'tanimsiz',
+  'bos',
+  'yok',
+  'gorevli',
+  'gorev',
   '-',
+  '--',
+  '---',
 ]);
 
 const LOCATION_STOPWORDS = new Set([
   'meydan',
-  'meydani',
   'meydani',
   'mahalle',
   'mahallesi',
@@ -181,7 +203,7 @@ function createFallbackFromText(text) {
   }
 
   const core = tokens.slice(0, 2).join(' ').trim();
-  if (core.length < 3) {
+  if (core.length < 3 || INVALID_TOKENS.has(core)) {
     return null;
   }
 

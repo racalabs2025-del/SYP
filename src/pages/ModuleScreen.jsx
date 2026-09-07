@@ -1,29 +1,31 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
+import {
+  MapPinIcon,
+  ArrowRightIcon,
+} from '@heroicons/react/24/outline';
 
-const LOGIN_SCENES = [
-  '/login-scenes/optimized/istanbul-1.webp',
-  '/login-scenes/optimized/istanbul-3.webp',
-  '/login-scenes/optimized/istanbul-5.webp',
-  '/login-scenes/optimized/istanbul-2.webp',
-  '/login-scenes/optimized/istanbul-4.webp',
-];
-
-const MODULES = [
-  {
-    id: 'meydan-yonetimi',
-    path: '/meydan-yonetimi',
-    baslik: 'Meydan Yönetimi',
-    aciklama: 'Meydan takibi, vardiya planları ve kronik sorun yönetimi',
-    kicker: 'Birim',
-  },
+const SCENES = [
+  '/login-scenes/cult/galata.jpg',
+  '/login-scenes/cult/kiz-kulesi.jpg',
+  '/login-scenes/cult/ortakoy.jpg',
+  '/login-scenes/cult/istiklal-tram.jpg',
+  '/login-scenes/cult/tarihi-yarimada.jpg',
 ];
 
 export default function ModuleScreen({ onLogout }) {
   const navigate = useNavigate();
   const [pressedModuleId, setPressedModuleId] = useState('');
+  const [activeScene, setActiveScene] = useState(0);
   const navigateTimerRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveScene((prev) => (prev + 1) % SCENES.length);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => () => {
     if (navigateTimerRef.current) {
@@ -31,27 +33,26 @@ export default function ModuleScreen({ onLogout }) {
     }
   }, []);
 
-  function handleModulePress(module) {
+  function handleNavigate(path, id) {
     if (navigateTimerRef.current) {
       window.clearTimeout(navigateTimerRef.current);
     }
 
-    setPressedModuleId(module.id);
+    setPressedModuleId(id);
     navigateTimerRef.current = window.setTimeout(() => {
-      navigate(module.path);
+      navigate(path);
     }, 120);
   }
 
   return (
     <div className="module-screen">
       <div className="module-screen__backdrop" aria-hidden="true">
-        {LOGIN_SCENES.map((scene, index) => (
-          <span
+        {SCENES.map((scene, index) => (
+          <div
             key={scene}
-            className="module-screen__slide"
+            className={`module-screen__slide ${index === activeScene ? 'is-active' : 'is-inactive'}`}
             style={{
               backgroundImage: `url(${scene})`,
-              animationDelay: `${index * 6}s`,
             }}
           />
         ))}
@@ -65,16 +66,27 @@ export default function ModuleScreen({ onLogout }) {
         </div>
 
         <div className="module-screen__grid">
-          {MODULES.map((mod) => (
-            <button
-              key={mod.id}
-              type="button"
-              className={`module-card${pressedModuleId === mod.id ? ' is-pressed' : ''}`}
-              onClick={() => handleModulePress(mod)}
-            >
-              <strong className="module-card__title">{mod.baslik}</strong>
-            </button>
-          ))}
+          {/* Ana Modül: Meydan Yönetimi */}
+          <button
+            type="button"
+            className={`module-card module-card--hero${pressedModuleId === 'meydan-yonetimi' ? ' is-pressed' : ''}`}
+            onClick={() => handleNavigate('/meydan-yonetimi', 'meydan-yonetimi')}
+          >
+            <div className="module-card__main-content">
+              <div className="module-card__icon-wrap">
+                <MapPinIcon className="module-card__icon" />
+              </div>
+              <div className="module-card__body">
+                <strong className="module-card__title">Meydan Yönetimi</strong>
+                <p className="module-card__desc">
+                  Meydan bazlı canlı takip, günlük ve haftalık vardiya planları
+                </p>
+              </div>
+              <div className="module-card__arrow">
+                <ArrowRightIcon className="module-card__arrow-icon" />
+              </div>
+            </div>
+          </button>
         </div>
       </main>
     </div>

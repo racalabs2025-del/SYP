@@ -43,13 +43,11 @@ export default function ActiveMeydanlarSection({
   );
 
   return (
-    <section className="panel-section">
-      <div className="panel-section__header active-meydanlar-header">
-        <div>
-          <span className="section-kicker">Meydanlar</span>
-          <h2>Meydanlar</h2>
-          <p>Kartlarda Planlı, bugün görevi planlanan personel sayısını; Görevde ise şu an sahadaki aktif personel sayısını gösterir.</p>
-        </div>
+    <div className="active-meydanlar-section">
+      <div className="active-meydanlar-toolbar">
+        <p className="active-meydanlar-subtitle">
+          Kartlarda Planlı, bugün görevi planlanan personel sayısını; Görevde ise sahadaki aktif personel sayısını gösterir.
+        </p>
 
         {!loading && activeMeydanlar.length ? (
           <div className="yaka-segmented-tabs" role="tablist" aria-label="Bölge / Yaka Seçimi">
@@ -184,9 +182,9 @@ export default function ActiveMeydanlarSection({
       ) : null}
 
       {!loading && !activeMeydanlar.length ? (
-        <div className="empty-state">Bugun icin kayitli aktif vardiya bulunmamaktadir.</div>
+        <div className="empty-state">Bugün için kayıtlı aktif vardiya bulunmamaktadır.</div>
       ) : null}
-    </section>
+    </div>
   );
 }
 

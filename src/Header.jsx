@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeftIcon, HomeIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { formatLongDateTime } from './utils/date';
+import SypCircularLogo from './components/shared/SypCircularLogo';
 
 export default function Header({ onLogout = null }) {
   const [now, setNow] = useState(new Date());
@@ -47,7 +48,10 @@ export default function Header({ onLogout = null }) {
         ) : null}
 
         <div className="app-header__brand">
-          <strong className="app-header__title">Saha Yönetim Paneli</strong>
+          <SypCircularLogo size="xs" variant="minimal" />
+          <div className="app-header__brand-text">
+            <strong className="app-header__title">Saha Yönetim Paneli</strong>
+          </div>
         </div>
       </div>
 

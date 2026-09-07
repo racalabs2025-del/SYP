@@ -1,34 +1,39 @@
 import React from 'react';
 
+/**
+ * Minimal & Modern SYP Logo Component
+ * - Sleek minimal geometric SYP monogram logomark
+ * - High-tech cyan & deep sapphire palette
+ * - Enlarged +50% scale across all variants
+ */
 export default function SypCircularLogo({
   size = 'md',
+  variant = 'minimal', // 'minimal' | 'shield' | 'location'
   animated = false,
   showText = false,
   className = '',
-  progress = null, // optional 0-100
+  progress = null,
 }) {
+  // Base dimensions increased by 50%
   const sizeMap = {
-    xs: 32,
-    sm: 48,
-    md: 80,
-    lg: 120,
-    xl: 160,
+    xs: 48,  // was 32
+    sm: 60,  // was 40
+    md: 108, // was 72
+    lg: 156, // was 104
+    xl: 210, // was 140
   };
 
-  const dimension = typeof size === 'number' ? size : sizeMap[size] || 80;
-  const strokeWidth = dimension > 90 ? 4 : 3;
-  const radius = (dimension - strokeWidth * 2) / 2;
-  const circumference = 2 * Math.PI * radius;
+  const dimension = typeof size === 'number' ? Math.round(size) : sizeMap[size] || 108;
 
   return (
     <div
-      className={`syp-circular-logo-container ${animated ? 'is-animated' : ''} ${className}`}
+      className={`syp-logo-wrap ${animated ? 'is-animated' : ''} ${className}`}
       style={{
         display: 'inline-flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '0.65rem',
+        gap: '0.6rem',
       }}
     >
       <div
@@ -41,132 +46,160 @@ export default function SypCircularLogo({
           justifyContent: 'center',
         }}
       >
+        {/* Animated outer tech ring if loading / animated */}
+        {animated && (
+          <svg
+            width={dimension + 16}
+            height={dimension + 16}
+            viewBox="0 0 100 100"
+            style={{
+              position: 'absolute',
+              inset: -8,
+              animation: 'spin 4s linear infinite',
+              pointerEvents: 'none',
+            }}
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="46"
+              fill="none"
+              stroke="rgba(56, 189, 248, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="18 12"
+            />
+          </svg>
+        )}
+
+        {/* Outer Glow & Squircle Border */}
         <svg
           width={dimension}
           height={dimension}
-          viewBox={`0 0 ${dimension} ${dimension}`}
-          className="syp-circular-logo-svg"
-          style={{ transform: 'rotate(-90deg)' }}
+          viewBox="0 0 100 100"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            filter: 'drop-shadow(0 4px 14px rgba(2, 132, 199, 0.35))',
+          }}
         >
           <defs>
-            <linearGradient id="sypLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00498E" />
-              <stop offset="50%" stopColor="#0284c7" />
+            <linearGradient id="sypBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0a2540" />
+              <stop offset="50%" stopColor="#041424" />
+              <stop offset="100%" stopColor="#020b14" />
+            </linearGradient>
+
+            <linearGradient id="sypBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#0284c7" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+            </linearGradient>
+
+            <linearGradient id="sypTextGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="45%" stopColor="#e0f2fe" />
               <stop offset="100%" stopColor="#38bdf8" />
             </linearGradient>
 
-            <linearGradient id="sypGlowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00498E" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.9" />
+            <linearGradient id="sypAccentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="100%" stopColor="#06b6d4" />
             </linearGradient>
 
-            <filter id="sypLogoShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#00498E" floodOpacity="0.3" />
+            <filter id="sypGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="1.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
 
-          {/* Background circle */}
-          <circle
-            cx={dimension / 2}
-            cy={dimension / 2}
-            r={radius}
-            fill="none"
-            stroke="rgba(0, 73, 142, 0.12)"
-            strokeWidth={strokeWidth}
+          {/* Squircle badge body */}
+          <rect
+            x="4"
+            y="4"
+            width="92"
+            height="92"
+            rx="24"
+            fill="url(#sypBgGrad)"
+            stroke="url(#sypBorderGrad)"
+            strokeWidth="2"
           />
 
-          {/* Filling animated progress ring */}
-          <circle
-            cx={dimension / 2}
-            cy={dimension / 2}
-            r={radius}
-            fill="none"
-            stroke="url(#sypLogoGradient)"
-            strokeWidth={strokeWidth}
-            strokeDasharray={circumference}
-            strokeDashoffset={
-              progress !== null
-                ? circumference - (progress / 100) * circumference
-                : animated
-                ? circumference * 0.25
-                : 0
-            }
-            strokeLinecap="round"
-            className={animated ? 'syp-logo-ring-anim' : ''}
-          />
-        </svg>
-
-        {/* Center Badge & Monogram */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: strokeWidth * 2.5,
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, #00498E 0%, #002b55 100%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(0, 73, 142, 0.35)',
-            color: '#ffffff',
-            overflow: 'hidden',
-          }}
-          className={animated ? 'syp-logo-inner-pulse' : ''}
-        >
-          {/* Subtle decorative grid background */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              opacity: 0.15,
-              backgroundImage:
-                'radial-gradient(circle at center, #ffffff 1px, transparent 1px)',
-              backgroundSize: '8px 8px',
-            }}
+          {/* Subtle top-light sheen */}
+          <path
+            d="M 6 26 C 6 15, 15 6, 26 6 L 74 6 C 85 6, 94 15, 94 26 L 94 40 C 60 48, 40 48, 6 40 Z"
+            fill="rgba(255, 255, 255, 0.05)"
           />
 
-          {/* Compass / Location Icon & Text */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 1,
-              transform: 'scale(1)',
-            }}
-          >
-            <svg
-              width={dimension > 90 ? 28 : dimension > 50 ? 20 : 14}
-              height={dimension > 90 ? 28 : dimension > 50 ? 20 : 14}
-              viewBox="0 0 24 24"
+          {/* Progress circle if passed */}
+          {progress !== null && progress > 0 && (
+            <circle
+              cx="50"
+              cy="50"
+              r="44"
               fill="none"
               stroke="#38bdf8"
-              strokeWidth="2.2"
+              strokeWidth="2"
+              strokeDasharray="276"
+              strokeDashoffset={276 - (276 * progress) / 100}
+              strokeLinecap="round"
+              style={{ transition: 'stroke-dashoffset 0.3s ease' }}
+            />
+          )}
+
+          {/* Minimal SYP Vector Monogram */}
+          <g filter="url(#sypGlow)">
+            {/* Letter 'S' */}
+            <path
+              d="M 36 38 L 24 38 C 21 38 19 40 19 43 C 19 46.5 21 48.5 24.5 49 L 31.5 50 C 35 50.5 37 52.5 37 56 C 37 59.5 34.5 62 31 62 L 19 62"
+              fill="none"
+              stroke="url(#sypTextGrad)"
+              strokeWidth="4.8"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{ marginBottom: dimension > 70 ? '2px' : '0' }}
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
+            />
 
-            <span
-              style={{
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                fontWeight: 900,
-                fontSize: dimension > 90 ? '1.15rem' : dimension > 50 ? '0.78rem' : '0.55rem',
-                letterSpacing: '0.06em',
-                color: '#ffffff',
-                lineHeight: 1,
-                marginTop: '1px',
-              }}
-            >
-              SYP
-            </span>
-          </div>
-        </div>
+            {/* Letter 'Y' */}
+            <path
+              d="M 43 38 L 50 49 L 57 38 M 50 49 L 50 62"
+              fill="none"
+              stroke="url(#sypTextGrad)"
+              strokeWidth="4.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {/* Letter 'P' */}
+            <path
+              d="M 64 62 L 64 38 L 74 38 C 78.5 38 81 40.5 81 44.5 C 81 48.5 78.5 51 74 51 L 64 51"
+              fill="none"
+              stroke="url(#sypTextGrad)"
+              strokeWidth="4.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+
+          {/* Tech Status Pill / Dot below monogram */}
+          <circle cx="50" cy="72" r="2.2" fill="#38bdf8" />
+          <line
+            x1="36"
+            y1="72"
+            x2="44"
+            y2="72"
+            stroke="rgba(56, 189, 248, 0.4)"
+            strokeWidth="1"
+            strokeLinecap="round"
+          />
+          <line
+            x1="56"
+            y1="72"
+            x2="64"
+            y2="72"
+            stroke="rgba(56, 189, 248, 0.4)"
+            strokeWidth="1"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
       {showText ? (
@@ -174,17 +207,14 @@ export default function SypCircularLogo({
           <strong
             style={{
               display: 'block',
-              fontSize: dimension > 90 ? '1.05rem' : '0.85rem',
-              color: '#0f172a',
+              fontSize: dimension > 120 ? '1.15rem' : '0.95rem',
+              color: '#ffffff',
               fontWeight: 800,
               letterSpacing: '-0.01em',
             }}
           >
             Saha Yönetim Paneli
           </strong>
-          <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
-            İstanbul Büyükşehir Belediyesi
-          </span>
         </div>
       ) : null}
     </div>
@@ -208,11 +238,10 @@ export function SypCircularLoader({ text = 'Yükleniyor...', size = 'md' }) {
       {text ? (
         <span
           style={{
-            fontSize: '0.84rem',
+            fontSize: '0.88rem',
             fontWeight: 600,
-            color: '#00498E',
+            color: '#38bdf8',
             letterSpacing: '0.02em',
-            animation: 'sypPulseText 1.5s ease-in-out infinite',
           }}
         >
           {text}

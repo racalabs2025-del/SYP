@@ -115,6 +115,14 @@ function toMeydanDisplayName(value, meydanId = '') {
     return 'Çalıştay Programı';
   }
 
+  if (id === 'diger' || lower === 'diger' || lower === 'diğer' || lower === 'diger meydani') {
+    return 'Diğer / Saha Desteği';
+  }
+
+  if (id === 'ofis' || lower === 'ofis') {
+    return 'Ofis / İdari Görev';
+  }
+
   return label || '-';
 }
 

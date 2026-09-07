@@ -29,6 +29,17 @@ import { normalizeMeydanInput } from '../utils/meydanNormalization';
 import { getExpandedActiveMeydanId, setExpandedActiveMeydanId } from '../utils/session';
 import { isShiftActive, toDateKey } from '../utils/date';
 import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from '../utils/excelParsing';
+import '../ExecutiveDashboard.css';
+import MeydanExplorer from '../components/dashboard/MeydanExplorer';
+import DashboardHero from '../components/dashboard/DashboardHero';
+import SmartModuleCards from '../components/dashboard/SmartModuleCards';
+import QuickAccessGrid from '../components/dashboard/QuickAccessGrid';
+import ExecutiveModuleModal from '../components/dashboard/ExecutiveModuleModal';
+import SmartSupportModalContent from '../components/dashboard/SmartSupportModalContent';
+import IbbServicesModalContent from '../components/dashboard/IbbServicesModalContent';
+import MeydanPersoneliModalContent from '../components/dashboard/MeydanPersoneliModalContent';
+import StatDetailOverlay from '../components/dashboard/StatDetailOverlay';
+import { ALL_CANONICAL_MEYDANLAR } from '../data/canonicalMeydanData';
 import DashboardHeroSection from '../components/dashboard/DashboardHeroSection';
 import ExecutiveSummarySection from '../components/dashboard/ExecutiveSummarySection';
 import OpenApplicationsSection from '../components/dashboard/OpenApplicationsSection';
@@ -527,7 +538,9 @@ export default function Dashboard({ onLogout }) {
   const [dataQualityIssues, setDataQualityIssues] = useState([]);
   const [dataQualityUpdatedAt, setDataQualityUpdatedAt] = useState('');
   const [qualityRefreshing, setQualityRefreshing] = useState(false);
-  const [openSections, setOpenSections] = useState(() => new Set(['active-meydanlar']));
+  const [openSections, setOpenSections] = useState(() => new Set([]));
+  const [selectedMeydan, setSelectedMeydan] = useState(() => ALL_CANONICAL_MEYDANLAR[0]);
+  const [activeModuleModal, setActiveModuleModal] = useState(null);
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const wasDataManagementOpenRef = useRef(false);
 
@@ -1730,18 +1743,217 @@ export default function Dashboard({ onLogout }) {
       <Header onLogout={onLogout} />
 
       <main className="page page-dashboard">
-        <DashboardHeroSection
-          activeMeydanCount={activeMeydanlar.length}
-          totalScheduledShiftCount={totalScheduledShiftCount}
-          totalActiveShiftCount={totalActiveShiftCount}
+        {/* ─── NEW EXECUTIVE 3-COLUMN DASHBOARD STAGE ─── */}
+        <section className="executive-stage" aria-label="SYP Yönetici Vitrini ve Gezgini">
+          {/* 1. Sol Kolon: Ana Meydan Gezgini / Explorer (Tüm 95 Meydan) */}
+          <MeydanExplorer
+            selectedMeydan={selectedMeydan}
+            onSelectMeydan={(m) => setSelectedMeydan(m)}
+          />
+
+          {/* 2. Orta Kolon: Ana Görsel Dashboard / Meydan Vitrini */}
+          <DashboardHero
+            selectedMeydan={selectedMeydan}
+            totalMeydanCount={95}
+            plannedPersonnelCount={totalScheduledShiftCount}
+            activePersonnelCount={totalActiveShiftCount}
+            onOpenPersonnel={(m) => {
+              setSelectedMeydan(m);
+              setActiveModuleModal('meydan-personeli');
+            }}
+            onOpenStatOverlay={(type) => setActiveStatOverlay(type)}
+            onSelectMeydan={(m) => setSelectedMeydan(m)}
+          />
+
+          {/* 3. Sağ Kolon: Akıllı Modül Kartları ve Hızlı Erişim Gridi */}
+          <div className="executive-right-col">
+            <SmartModuleCards
+              onOpenSmartSupport={() => setActiveModuleModal('support')}
+              onOpenSmartBriefing={() => setActiveModuleModal('briefing')}
+            />
+
+            <QuickAccessGrid
+              onOpenMeydanYonetimi={() => setActiveModuleModal('meydan-yonetimi')}
+              onOpenIstanbulIcinCalisiyoruz={() => setActiveModuleModal('istanbul-calisiyoruz')}
+              onOpenIbbBilgiHizmetleri={() => setActiveModuleModal('ibb-bilgi')}
+              onOpenVeriYonetimi={() => setActiveModuleModal('veri-yonetimi')}
+            />
+          </div>
+        </section>
+
+        {/* Stat Drawer Overlay (Meydanlar, Planlı, Sahada Şu An) */}
+        <StatDetailOverlay
           activeStatOverlay={activeStatOverlay}
-          onOpenStatOverlay={setActiveStatOverlay}
           onCloseStatOverlay={closeStatOverlay}
           activeMeydanRows={activeMeydanRows}
           scheduledPersonnelRows={scheduledPersonnelRows}
           activePersonnelRows={activePersonnelRows}
           statOverlayPanelRef={statOverlayPanelRef}
         />
+
+        {/* ─── EXECUTIVE MODULE MODALS ─── */}
+        {/* Akıllı Destek Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'support'}
+          onClose={() => setActiveModuleModal(null)}
+          title="SYP Akıllı Saha Asistanı"
+          subtitle="Yapay zeka destekli operasyonel rehberlik ve anlık saha sorgulama"
+          maxWidth="720px"
+        >
+          <SmartSupportModalContent
+            activeMeydanCount={95}
+            scheduledCount={totalScheduledShiftCount}
+            activeCount={totalActiveShiftCount}
+            selectedMeydan={selectedMeydan}
+          />
+        </ExecutiveModuleModal>
+
+        {/* Akıllı Brifing Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'briefing'}
+          onClose={() => setActiveModuleModal(null)}
+          title="Akıllı Yönetici Brifingi"
+          subtitle="Günün saha özeti, vardiya dengesi ve kritik operasyonel analizler"
+          maxWidth="960px"
+        >
+          <AIDailyExecutiveSummary
+            todayShifts={todayShifts}
+            activeMeydanCount={activeMeydanlar.length || 95}
+            dataQualityIssuesCount={dataQualityIssues.length}
+            kronikSorunlarCount={kronikSorunlar.length}
+          />
+        </ExecutiveModuleModal>
+
+        {/* Meydan Yönetimi Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'meydan-yonetimi'}
+          onClose={() => setActiveModuleModal(null)}
+          title="Meydan Yönetimi"
+          subtitle="İstanbul Büyükşehir Belediyesi Meydan Yönetimi Birimi sorumlulukları ve süreçleri"
+          maxWidth="1080px"
+        >
+          <MeydanYonetimiSection
+            forcedSection="about"
+            meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
+            visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
+            toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
+            aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
+            showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
+            onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
+            meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+            raporUrls={raporUrls}
+            toggleRaporAcilimi={toggleRaporAcilimi}
+            formatFileSize={formatFileSize}
+            showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
+            initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
+            onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
+          />
+        </ExecutiveModuleModal>
+
+        {/* İstanbul İçin Çalışıyoruz Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'istanbul-calisiyoruz'}
+          onClose={() => setActiveModuleModal(null)}
+          title="İstanbul İçin Çalışıyoruz"
+          subtitle="16 Milyon İstanbullu için meydan, sahil ve kentsel yaşam projeleri"
+          maxWidth="840px"
+        >
+          <IbbServicesModalContent type="istanbul-calisiyoruz" />
+        </ExecutiveModuleModal>
+
+        {/* İBB Bilgi Hizmetleri Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'ibb-bilgi'}
+          onClose={() => setActiveModuleModal(null)}
+          title="İBB Bilgi Hizmetleri"
+          subtitle="Kurumsal iletişim kanalları, Çözüm Merkezi 153 ve meydan noktaları"
+          maxWidth="840px"
+        >
+          <IbbServicesModalContent type="ibb-bilgi" />
+        </ExecutiveModuleModal>
+
+        {/* Veri Yönetimi Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'veri-yonetimi'}
+          onClose={() => setActiveModuleModal(null)}
+          title="Veri ve Sistem Yönetimi"
+          subtitle="Vardiya planları, izin çizelgeleri ve kronik başvuru veri yönetimi"
+          maxWidth="1100px"
+        >
+          <DataManagementSection
+            adminUnlocked={adminUnlocked}
+            adminPasswordInput={adminPasswordInput}
+            adminPasswordError={adminPasswordError}
+            onAdminPasswordChange={(e) => { setAdminPasswordInput(e.target.value); setAdminPasswordError(false); }}
+            onAdminUnlock={handleAdminUnlock}
+            onRefreshOperationalInsights={() => refreshOperationalInsights({ silent: false })}
+            insightsLoading={insightsLoading}
+            insightsLastUpdatedAt={insightsLastUpdatedAt}
+            uploadingPlan={uploadingPlan}
+            uploadingIzin={uploadingIzin}
+            uploading={uploading}
+            uploadingKronik={uploadingKronik}
+            progress={progress}
+            uploadPercent={uploadPercent}
+            izinProgress={izinProgress}
+            izinUploadPercent={izinUploadPercent}
+            ExcelUpload={ExcelUpload}
+            LoadingUploadModule={LoadingUploadModule}
+            handleExcelUpload={handleExcelUpload}
+            handleKronikUpload={handleKronikUpload}
+            handleIzinUpload={handleIzinUpload}
+            raporBaslik={raporBaslik}
+            setRaporBaslik={setRaporBaslik}
+            uploadingRapor={uploadingRapor}
+            handleUploadMeydanRaporu={handleUploadMeydanRaporu}
+            meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
+            raporUrls={raporUrls}
+            toggleRaporAcilimi={toggleRaporAcilimi}
+            formatFileSize={formatFileSize}
+            handleRemoveMeydanRaporu={handleRemoveMeydanRaporu}
+            handleDeleteAll={handleDeleteAll}
+            lastImportSummary={lastImportSummary}
+            kronikSorunlar={kronikSorunlar}
+            visibleAdminKronikSorunlar={visibleAdminKronikSorunlar}
+            getKronikDraft={getKronikDraft}
+            kronikSavingId={kronikSavingId}
+            expandedAdminKronikId={expandedAdminKronikId}
+            setExpandedAdminKronikId={setExpandedAdminKronikId}
+            handleKronikFieldChange={handleKronikFieldChange}
+            handleAddDetailRow={handleAddDetailRow}
+            handleKronikDetailChange={handleKronikDetailChange}
+            handleRemoveDetailRow={handleRemoveDetailRow}
+            handleSaveKronik={handleSaveKronik}
+            handleDeleteKronik={handleDeleteKronik}
+            showAllAdminKronik={showAllAdminKronik}
+            setShowAllAdminKronik={setShowAllAdminKronik}
+            initialVisibleAdminKronikCount={INITIAL_VISIBLE_ADMIN_KRONIK_COUNT}
+            dataQualityIssues={dataQualityIssues}
+            dataQualityUpdatedAt={dataQualityUpdatedAt}
+            onRefreshDataQuality={handleRefreshDataQuality}
+            qualityRefreshing={qualityRefreshing}
+            recentShifts={recentShifts}
+            visibleShiftsCount={visibleShiftsCount}
+            setVisibleShiftsCount={setVisibleShiftsCount}
+            meydanMap={meydanMap}
+            handleDeleteShift={handleDeleteShift}
+          />
+        </ExecutiveModuleModal>
+
+        {/* Meydan Personeli Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'meydan-personeli'}
+          onClose={() => setActiveModuleModal(null)}
+          title="Meydan Saha Personeli"
+          subtitle={`${selectedMeydan?.name || 'Kadıköy Meydanı'} - Bugünkü Vardiya ve Görev Dağılımı`}
+          maxWidth="760px"
+        >
+          <MeydanPersoneliModalContent
+            selectedMeydan={selectedMeydan}
+            todayShifts={todayShifts}
+            meydanMap={meydanMap}
+          />
+        </ExecutiveModuleModal>
 
         <StatusToast
           status={status}
@@ -1865,25 +2077,13 @@ export default function Dashboard({ onLogout }) {
               onToggleMeydan={handleToggleExpandedMeydan}
               onToggleShowAll={() => setShowAllMeydanlar((current) => !current)}
             />
-
-            <section className="panel-section" style={{ marginTop: '1.5rem' }}>
-              <div className="panel-section__header">
-                <div>
-                  <span className="section-kicker">Saha Haritası & Personel Dağılımı</span>
-                  <h2>İstanbul Meydanları Saha Dağılımı</h2>
-                </div>
-              </div>
-              <IstanbulFieldMap todayShifts={todayShifts} activeMeydanlar={activeMeydanlar} />
-            </section>
           </SectionToggleBar>
 
           <SectionToggleBar itemKey="meydan-yonetimi-grup" isOpen={openSections.has('meydan-yonetimi-grup')} onToggle={toggleSection}>
             <section className="panel-section meydan-yonetimi-group-panel">
               <div className="panel-section__header">
                 <div className="meydan-yonetimi-group-panel__intro">
-                  <span className="section-kicker">Meydan Yönetimi</span>
-                  <h2>Meydan Yönetim Merkezi</h2>
-                  <p>Ziyaret, rapor, personel ve kronik kayıt akışı tek panelden izlenir.</p>
+                  <h2>Meydan Yönetimi</h2>
                 </div>
               </div>
 

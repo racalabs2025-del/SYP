@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CalendarDaysIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import { CalendarDaysIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, UserGroupIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { addDoc, collection, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, startAfter, where } from 'firebase/firestore';
 import { useParams, Link } from 'react-router-dom';
 import { Bar, BarChart, Cell, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
@@ -8,6 +8,7 @@ import { db } from '../firebaseDb';
 import { fetchMeydanSpotlight } from '../service/meydanSpotlightService';
 import { fetchMeydanWeather, toWeatherErrorMessage } from '../service/weatherService';
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
+import { getMeydanYaka, getYakaLabel } from '../utils/meydanYaka';
 import DateRangePicker from '../components/shared/DateRangePicker';
 import { SAHA_PERSONELI } from '../utils/sahaPersoneli';
 import { getWeekDates, isShiftActive, toDateKey } from '../utils/date';
@@ -555,299 +556,442 @@ function BasvuruGundemPanel({ meydanId }) {
     ];
   }, [agingBuckets]);
 
-  const openCount = useMemo(() => {
+  const closedCount = useMemo(() => {
     if (!stats?.durumDagilimi) return 0;
-    const closed = (stats.durumDagilimi['Kapandı'] || 0) + (stats.durumDagilimi['Çözüldü'] || 0);
-    return stats.toplamBasvuru - closed;
+    return (stats.durumDagilimi['Kapandı'] || 0) + (stats.durumDagilimi['Çözüldü'] || 0);
   }, [stats]);
+
+  const openCount = useMemo(() => {
+    if (!stats?.toplamBasvuru) return 0;
+    return Math.max(0, stats.toplamBasvuru - closedCount);
+  }, [stats, closedCount]);
+
+  const resolutionRate = useMemo(() => {
+    if (!stats?.toplamBasvuru || stats.toplamBasvuru === 0) return 0;
+    return Math.round((closedCount / stats.toplamBasvuru) * 100);
+  }, [closedCount, stats]);
 
   const toggleExpand = useCallback((basvuruNo) => {
     setExpanded((prev) => (prev === basvuruNo ? null : basvuruNo));
   }, []);
 
   return (
-    <aside className="basvuru-gundem-panel">
-      {/* Header */}
-      <div className="basvuru-gundem-panel__top">
-        <div>
-          <span className="section-kicker">Başvuru gündemi</span>
-          <h2>Kaydedilen Başvurular</h2>
-          <p>İBB Meydan Yönetimi bildirimleri ve şikayet kayıtları.</p>
-        </div>
-        <div className="basvuru-gundem-panel__icon-wrap" aria-hidden="true">
-          <ChatBubbleLeftRightIcon className="basvuru-gundem-panel__icon" />
-        </div>
-      </div>
-
-      {/* Özet istatistik kartları */}
-      {stats ? (
-        <div className="basvuru-ozet-row">
-          <div className="basvuru-ozet-card">
-            <span>Toplam Kayıt</span>
-            <strong>{stats.toplamBasvuru?.toLocaleString('tr-TR')}</strong>
+    <section className="basvuru-gundem-section">
+      <div className="basvuru-gundem-panel">
+        {/* Header */}
+        <div className="basvuru-gundem-panel__top">
+          <div className="basvuru-gundem-panel__title-group">
+            <span className="section-kicker">Başvuru ve Saha Gündemi</span>
+            <h2>Kaydedilen Vatandaş Başvuruları</h2>
+            <p>İBB Beyaz Masa ve saha ekipleri üzerinden iletilen tüm bildirim, talep ve şikayetlerin analizi.</p>
           </div>
-          <div className="basvuru-ozet-card basvuru-ozet-card--green">
-            <span>Kapandı</span>
-            <strong>{((stats.durumDagilimi?.['Kapandı'] ?? 0) + (stats.durumDagilimi?.['Çözüldü'] ?? 0)).toLocaleString('tr-TR')}</strong>
-          </div>
-          <div className="basvuru-ozet-card basvuru-ozet-card--orange">
-            <span>Beklemede / Diğer</span>
-            <strong>{openCount.toLocaleString('tr-TR')}</strong>
+          <div className="basvuru-gundem-panel__icon-wrap" aria-hidden="true">
+            <ChatBubbleLeftRightIcon className="basvuru-gundem-panel__icon" />
           </div>
         </div>
-      ) : null}
 
-      <div className="basvuru-filter-row" role="group" aria-label="Başvuru filtreleri">
-        <label className="basvuru-filter-field">
-          <span>Ay</span>
-          <select value={filterMonth} onChange={(event) => setFilterMonth(event.target.value)}>
-            <option value="all">Tümü</option>
-            {monthOptions.map((month) => (
-              <option key={month} value={month}>{month}</option>
-            ))}
-          </select>
-        </label>
+        {/* 4'lü KPI İstatistik Kartları */}
+        {stats ? (
+          <div className="basvuru-kpi-grid">
+            <div className="basvuru-kpi-card basvuru-kpi-card--total">
+              <div className="basvuru-kpi-card__head">
+                <span>Toplam Kayıt</span>
+                <span className="basvuru-kpi-card__badge">153 Beyazmasa</span>
+              </div>
+              <strong>{stats.toplamBasvuru?.toLocaleString('tr-TR')}</strong>
+              <small>Meydana ait tüm arşiv</small>
+            </div>
 
-        <label className="basvuru-filter-field">
-          <span>Durum</span>
-          <select value={filterStatus} onChange={(event) => setFilterStatus(event.target.value)}>
-            <option value="all">Tümü</option>
-            {statusOptions.map((status) => (
-              <option key={status} value={status}>{status}</option>
-            ))}
-          </select>
-        </label>
+            <div className="basvuru-kpi-card basvuru-kpi-card--green">
+              <div className="basvuru-kpi-card__head">
+                <span>Çözülen / Kapanan</span>
+                <span className="basvuru-kpi-card__badge basvuru-kpi-card__badge--success">%{resolutionRate} Çözüm</span>
+              </div>
+              <strong>{closedCount.toLocaleString('tr-TR')}</strong>
+              <small>Tamamlanan saha işlemleri</small>
+            </div>
 
-        <label className="basvuru-filter-field">
-          <span>Kategori</span>
-          <select value={filterCategory} onChange={(event) => setFilterCategory(event.target.value)}>
-            <option value="all">Tümü</option>
-            {categoryOptions.map((category) => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
-        </label>
+            <div className="basvuru-kpi-card basvuru-kpi-card--orange">
+              <div className="basvuru-kpi-card__head">
+                <span>Beklemede / Açık</span>
+                <span className="basvuru-kpi-card__badge basvuru-kpi-card__badge--warning">{openCount} Kayıt</span>
+              </div>
+              <strong>{openCount.toLocaleString('tr-TR')}</strong>
+              <small>İşlem ve inceleme bekleyen</small>
+            </div>
 
-        <label className="basvuru-filter-field basvuru-filter-field--search">
-          <span>Konu/Açıklama ara</span>
-          <input
-            type="search"
-            value={searchTerm}
-            onChange={(event) => setSearchTerm(event.target.value)}
-            placeholder="örn. aydınlatma"
-          />
-        </label>
-      </div>
+            <div className="basvuru-kpi-card basvuru-kpi-card--blue">
+              <div className="basvuru-kpi-card__head">
+                <span>Konu Çeşitliliği</span>
+                <span className="basvuru-kpi-card__badge basvuru-kpi-card__badge--info">11 Kategori</span>
+              </div>
+              <strong>{chartData.length} Farklı Konu</strong>
+              <small>En çok: {chartData[0]?.name || 'Bakım Onarım'}</small>
+            </div>
+          </div>
+        ) : null}
 
-      {hasActiveFilters ? (
-        <div className="basvuru-filter-note">Filtre aktif: liste ve konu dağılımı filtreye göre gösteriliyor.</div>
-      ) : null}
+        {/* Filtre ve Arama Çubuğu */}
+        <div className="basvuru-filter-toolbar" role="group" aria-label="Başvuru filtreleri">
+          <div className="basvuru-filter-toolbar__selects">
+            <label className="basvuru-filter-field">
+              <span>Dönem (Ay)</span>
+              <select value={filterMonth} onChange={(event) => setFilterMonth(event.target.value)}>
+                <option value="all">Tüm Aylar</option>
+                {monthOptions.map((month) => (
+                  <option key={month} value={month}>{month}</option>
+                ))}
+              </select>
+            </label>
 
-      {trendData.length > 1 ? (
-        <div className="basvuru-trend-wrap">
-          <h3 className="basvuru-chart-title">Aylık trend</h3>
-          <ResponsiveContainer width="100%" height={160}>
-            <LineChart data={trendData} margin={{ top: 8, right: 10, left: 6, bottom: 0 }}>
-              <XAxis dataKey="monthLabel" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} width={32} />
-              <Tooltip
-                formatter={(value) => [value.toLocaleString('tr-TR'), 'Başvuru']}
-                labelFormatter={(_, payload) => payload?.[0]?.payload?.month || ''}
+            <label className="basvuru-filter-field">
+              <span>Çözüm Durumu</span>
+              <select value={filterStatus} onChange={(event) => setFilterStatus(event.target.value)}>
+                <option value="all">Tüm Durumlar</option>
+                {statusOptions.map((status) => (
+                  <option key={status} value={status}>{status}</option>
+                ))}
+              </select>
+            </label>
+
+            <label className="basvuru-filter-field">
+              <span>Ana Kategori</span>
+              <select value={filterCategory} onChange={(event) => setFilterCategory(event.target.value)}>
+                <option value="all">Tüm Kategoriler</option>
+                {categoryOptions.map((category) => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <label className="basvuru-filter-field basvuru-filter-field--search">
+            <span>Konu veya Açıklama Ara</span>
+            <div className="basvuru-search-input-wrap">
+              <input
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Örn: aydınlatma, bank, asfalt, temizlik..."
               />
-              <Line type="monotone" dataKey="count" stroke="#0f5ca8" strokeWidth={2.2} dot={{ r: 2.8 }} />
-            </LineChart>
-          </ResponsiveContainer>
+              {searchTerm ? (
+                <button type="button" className="basvuru-search-clear" onClick={() => setSearchTerm('')}>×</button>
+              ) : null}
+            </div>
+          </label>
         </div>
-      ) : null}
 
-      {agingBuckets ? (
-        <div className="basvuru-aging-wrap">
-          <h3 className="basvuru-chart-title">Açık kayıt bekleme süresi</h3>
-          <ResponsiveContainer width="100%" height={170}>
-            <BarChart
-              data={waitingTimeChartData}
-              layout="vertical"
-              margin={{ top: 0, right: 8, left: 0, bottom: 0 }}
+        {hasActiveFilters ? (
+          <div className="basvuru-active-filter-banner">
+            <span>🔍 Filtre aktif ({filteredList.length} kayıt eşleşti)</span>
+            <button
+              type="button"
+              className="btn btn-ghost btn-inline"
+              onClick={() => {
+                setFilterMonth('all');
+                setFilterStatus('all');
+                setFilterCategory('all');
+                setSearchTerm('');
+                setChartTopicFilter('');
+              }}
             >
-              <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
-              <YAxis
-                type="category"
-                dataKey="label"
-                width={70}
-                tick={{ fontSize: 11 }}
-                tickLine={false}
-                axisLine={false}
-              />
-              <Tooltip formatter={(value) => [value.toLocaleString('tr-TR'), 'Açık kayıt']} />
-              <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16} fill="#0f5ca8" />
-            </BarChart>
-          </ResponsiveContainer>
-          <p className="basvuru-aging-note">Bu grafik, kapanmamış kayıtların kaç gündür beklediğini gösterir.</p>
-          <p className="basvuru-aging-total">Toplam açık kayıt: {agingBuckets.totalOpen}</p>
-        </div>
-      ) : (
-        <div className="basvuru-aging-hint">Açık kayıt bekleme süresini görmek için "Tüm kayıtlar" görünümünü aç.</div>
-      )}
+              Filtreleri Sıfırla
+            </button>
+          </div>
+        ) : null}
 
-      {/* Konu dağılımı grafiği */}
-      {chartData.length > 0 ? (
-        <div className="basvuru-chart-wrap">
-          <div className="basvuru-chart-title-row">
-            <h3 className="basvuru-chart-title">Konu dağılımı</h3>
-            {chartTopicFilter ? (
-              <button type="button" className="basvuru-topic-filter-chip" onClick={() => setChartTopicFilter('')}>
-                {chartTopicFilter} ×
+        {/* 2 Sütunlu Analitik Grafikler Grid'i */}
+        <div className="basvuru-charts-grid">
+          {/* Sol Grafik Kolonu: Trend ve Bekleme Süreleri */}
+          <div className="basvuru-chart-card">
+            <div className="basvuru-chart-card__header">
+              <div>
+                <span className="section-kicker">Zaman Analitiği</span>
+                <h3 className="basvuru-chart-title">Aylık Başvuru Trendi</h3>
+              </div>
+            </div>
+
+            {trendData.length > 1 ? (
+              <div className="basvuru-chart-body">
+                <ResponsiveContainer width="100%" height={210}>
+                  <LineChart data={trendData} margin={{ top: 12, right: 14, left: 0, bottom: 0 }}>
+                    <XAxis dataKey="monthLabel" tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} axisLine={false} />
+                    <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} axisLine={false} allowDecimals={false} width={34} />
+                    <Tooltip
+                      contentStyle={{ borderRadius: '12px', border: '1px solid rgba(0,73,142,0.15)', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+                      formatter={(value) => [value.toLocaleString('tr-TR'), 'Başvuru']}
+                      labelFormatter={(_, payload) => payload?.[0]?.payload?.month || ''}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="count"
+                      stroke="#00498E"
+                      strokeWidth={2.8}
+                      dot={{ r: 3.5, fill: '#00498E', strokeWidth: 2, stroke: '#fff' }}
+                      activeDot={{ r: 6, fill: '#0080CC' }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="basvuru-chart-empty">Trend verisi yeterli değil.</div>
+            )}
+
+            {agingBuckets ? (
+              <div className="basvuru-aging-block">
+                <h4 className="basvuru-subchart-title">Açık Kayıtların Bekleme Süresi Dağılımı</h4>
+                <ResponsiveContainer width="100%" height={150}>
+                  <BarChart
+                    data={waitingTimeChartData}
+                    layout="vertical"
+                    margin={{ top: 4, right: 24, left: 0, bottom: 0 }}
+                  >
+                    <XAxis type="number" tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} axisLine={false} allowDecimals={false} />
+                    <YAxis
+                      type="category"
+                      dataKey="label"
+                      width={70}
+                      tick={{ fontSize: 11, fill: '#475569' }}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <Tooltip
+                      contentStyle={{ borderRadius: '10px', border: '1px solid rgba(0,0,0,0.1)' }}
+                      formatter={(value) => [value.toLocaleString('tr-TR'), 'Açık Kayıt']}
+                    />
+                    <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16} fill="#E07B39" />
+                  </BarChart>
+                </ResponsiveContainer>
+                <div className="basvuru-aging-footer">
+                  <small>Toplam Açık Kayıt: <strong>{agingBuckets.totalOpen}</strong></small>
+                </div>
+              </div>
+            ) : (
+              <div className="basvuru-aging-hint">
+                Açık kayıt yaş dağılımı için "Tüm Kayıtlar" görünümüne geçebilirsiniz.
+              </div>
+            )}
+          </div>
+
+          {/* Sağ Grafik Kolonu: Konu ve Kategori Dağılımı */}
+          <div className="basvuru-chart-card">
+            <div className="basvuru-chart-card__header">
+              <div>
+                <span className="section-kicker">Konu ve Kategori</span>
+                <h3 className="basvuru-chart-title">En Çok Bildirilen Konular</h3>
+              </div>
+              {chartTopicFilter ? (
+                <button type="button" className="basvuru-topic-filter-chip" onClick={() => setChartTopicFilter('')}>
+                  {chartTopicFilter} ×
+                </button>
+              ) : null}
+            </div>
+
+            {chartData.length > 0 ? (
+              <div className="basvuru-chart-body">
+                <ResponsiveContainer width="100%" height={Math.max(200, chartData.length * 32)}>
+                  <BarChart
+                    data={chartData}
+                    layout="vertical"
+                    margin={{ top: 4, right: 35, left: 0, bottom: 0 }}
+                  >
+                    <XAxis type="number" tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} axisLine={false} />
+                    <YAxis
+                      type="category"
+                      dataKey="name"
+                      width={140}
+                      tick={<ChartYTick />}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <Tooltip
+                      contentStyle={{ borderRadius: '12px', border: '1px solid rgba(0,73,142,0.15)' }}
+                      cursor={{ fill: 'rgba(0,73,142,0.06)' }}
+                      formatter={(value) => [value.toLocaleString('tr-TR'), 'Başvuru']}
+                    />
+                    <Bar
+                      dataKey="value"
+                      radius={[0, 6, 6, 0]}
+                      barSize={16}
+                      onClick={(data) => setChartTopicFilter(data?.name || '')}
+                    >
+                      {chartData.map((item, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={KONU_COLORS[index % KONU_COLORS.length]}
+                          fillOpacity={chartTopicFilter && chartTopicFilter !== item.name ? 0.35 : 1}
+                          cursor="pointer"
+                        />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="basvuru-chart-empty">Konu verisi bulunamadı.</div>
+            )}
+
+            {categoryChartData.length > 0 ? (
+              <div className="basvuru-category-block">
+                <h4 className="basvuru-subchart-title">Standart Kategori Dağılımı (NLP Normalized)</h4>
+                <ResponsiveContainer width="100%" height={Math.max(140, Math.min(220, categoryChartData.length * 28))}>
+                  <BarChart
+                    data={categoryChartData.slice(0, 6)}
+                    layout="vertical"
+                    margin={{ top: 2, right: 35, left: 0, bottom: 0 }}
+                  >
+                    <XAxis type="number" tick={{ fontSize: 10, fill: '#64748b' }} tickLine={false} axisLine={false} />
+                    <YAxis
+                      type="category"
+                      dataKey="name"
+                      width={140}
+                      tick={{ fontSize: 10, fill: '#475569' }}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <Tooltip
+                      contentStyle={{ borderRadius: '10px' }}
+                      cursor={{ fill: 'rgba(0,73,142,0.05)' }}
+                      formatter={(value) => [value.toLocaleString('tr-TR'), 'Kayıt']}
+                    />
+                    <Bar
+                      dataKey="value"
+                      radius={[0, 4, 4, 0]}
+                      barSize={13}
+                      fill="#00498E"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : null}
+          </div>
+        </div>
+
+        {/* Kayıt Listesi Bölümü */}
+        <div className="basvuru-records-card">
+          <div className="basvuru-records-card__header">
+            <div>
+              <span className="section-kicker">Detaylı Kayıtlar</span>
+              <h3 className="basvuru-list-title">
+                {showAll ? `Tüm Başvuru Kayıtları (${filteredList.length} / ${stats?.toplamBasvuru?.toLocaleString('tr-TR')})` : `Son Başvurular (${filteredList.length} gösteriliyor)`}
+              </h3>
+            </div>
+            {stats?.toplamBasvuru > 15 && !showAll ? (
+              <button
+                type="button"
+                className="btn btn-ghost btn-sm basvuru-show-all-top-btn"
+                onClick={openAll}
+                disabled={allLoading}
+              >
+                {allLoading ? 'Yükleniyor…' : `Tüm ${stats.toplamBasvuru.toLocaleString('tr-TR')} Kaydı Aç →`}
               </button>
             ) : null}
           </div>
-          <ResponsiveContainer width="100%" height={Math.max(160, chartData.length * 34)}>
-            <BarChart
-              data={chartData}
-              layout="vertical"
-              margin={{ top: 0, right: 40, left: 0, bottom: 0 }}
-            >
-              <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis
-                type="category"
-                dataKey="name"
-                width={130}
-                tick={<ChartYTick />}
-                tickLine={false}
-                axisLine={false}
-              />
-              <Tooltip
-                cursor={{ fill: 'rgba(0,73,142,0.06)' }}
-                formatter={(value) => [value.toLocaleString('tr-TR'), 'Başvuru']}
-              />
-              <Bar
-                dataKey="value"
-                radius={[0, 4, 4, 0]}
-                barSize={18}
-                onClick={(data) => setChartTopicFilter(data?.name || '')}
-              >
-                {chartData.map((item, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={KONU_COLORS[index % KONU_COLORS.length]}
-                    fillOpacity={chartTopicFilter && chartTopicFilter !== item.name ? 0.35 : 1}
-                    cursor="pointer"
-                  />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      ) : null}
 
-      {/* Kategori dağılımı grafiği */}
-      {categoryChartData.length > 0 ? (
-        <div className="basvuru-chart-wrap">
-          <h3 className="basvuru-chart-title">Kategori dağılımı (Normalized)</h3>
-          <ResponsiveContainer width="100%" height={Math.max(160, categoryChartData.length * 34)}>
-            <BarChart
-              data={categoryChartData}
-              layout="vertical"
-              margin={{ top: 0, right: 40, left: 0, bottom: 0 }}
-            >
-              <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis
-                type="category"
-                dataKey="name"
-                width={150}
-                tick={{ fontSize: 11 }}
-                tickLine={false}
-                axisLine={false}
-              />
-              <Tooltip
-                cursor={{ fill: 'rgba(0,73,142,0.06)' }}
-                formatter={(value) => [value.toLocaleString('tr-TR'), 'Başvuru']}
-              />
-              <Bar
-                dataKey="value"
-                radius={[0, 4, 4, 0]}
-                barSize={18}
-                fill="#0049 8E"
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      ) : null}
+          {loading ? (
+            <div className="basvuru-list-loading">Başvurular yükleniyor…</div>
+          ) : filteredList.length > 0 ? (
+            <>
+              <div className="basvuru-table-wrap">
+                <ol className="basvuru-list">
+                  {filteredList.map((item) => {
+                    const isOpen = expanded === item.basvuruNo;
+                    return (
+                      <li key={item.id} className={`basvuru-list__item ${isOpen ? 'is-expanded' : ''}`}>
+                        <button
+                          type="button"
+                          className="basvuru-list__row"
+                          onClick={() => toggleExpand(item.basvuruNo)}
+                          aria-expanded={isOpen}
+                        >
+                          <span className="basvuru-list__tarih">{formatTarih(item.tarih)}</span>
+                          <span className="basvuru-list__konu">
+                            <strong>{toKonuDisplay(item.konu) || '—'}</strong>
+                            {item.altKonu ? <small className="basvuru-list__subkonu">{toKonuDisplay(item.altKonu)}</small> : null}
+                          </span>
+                          {item.category ? (
+                            <span className="basvuru-list__category-tag">
+                              {item.category}
+                            </span>
+                          ) : null}
+                          <DurumBadge durum={item.durum} />
+                          <span className="basvuru-list__chevron" aria-hidden="true">{isOpen ? '▲' : '▼'}</span>
+                        </button>
 
-      {/* Kayıt listesi */}
-      {loading ? (
-        <div className="basvuru-list-loading">Yükleniyor…</div>
-      ) : filteredList.length > 0 ? (
-        <>
-          <h3 className="basvuru-list-title">
-            {showAll ? `Tüm Kayıtlar (${stats?.toplamBasvuru?.toLocaleString('tr-TR')})` : 'Son başvurular'}
-          </h3>
-          <ol className="basvuru-list">
-            {filteredList.map((item) => {
-              const isOpen = expanded === item.basvuruNo;
-              return (
-                <li key={item.id} className={`basvuru-list__item ${isOpen ? 'is-expanded' : ''}`}>
+                        {isOpen ? (
+                          <div className="basvuru-list__detail">
+                            <div className="basvuru-detail-grid">
+                              <div className="basvuru-detail-col">
+                                {item.altKonu ? <p><strong>Alt Konu:</strong> {toKonuDisplay(item.altKonu)}</p> : null}
+                                {item.category ? (
+                                  <p>
+                                    <strong>Standart Kategori:</strong> <code>{item.category}</code>{' '}
+                                    {item.konuGuveni ? <small>({(item.konuGuveni * 100).toFixed(0)}% güven)</small> : null}
+                                  </p>
+                                ) : null}
+                                {item.normalizedKonu ? <p><strong>Normalize Konu:</strong> {item.normalizedKonu}</p> : null}
+                                {item.basvuruSahibi ? <p><strong>Başvuru Sahibi:</strong> {item.basvuruSahibi}</p> : null}
+                              </div>
+                              <div className="basvuru-detail-col">
+                                {item.ilgiliOlduguBirim ? <p><strong>İlgili Birim:</strong> {item.ilgiliOlduguBirim}</p> : null}
+                                <p className="basvuru-list__no"><strong>Başvuru No:</strong> <code>{item.basvuruNo}</code></p>
+                              </div>
+                            </div>
+                            {item.aciklama ? (
+                              <div className="basvuru-detail-desc">
+                                <strong>Açıklama:</strong>
+                                <p>{item.aciklama}</p>
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+
+              {/* Pagination footer */}
+              {showAll ? (
+                hasMore ? (
+                  <div className="basvuru-load-more-wrap">
+                    <button
+                      type="button"
+                      className="btn btn-ghost basvuru-load-more-btn"
+                      onClick={loadMore}
+                      disabled={allLoading}
+                    >
+                      {allLoading ? 'Daha Fazla Yükleniyor…' : `Daha Fazla Kayıt Yükle (+50)`}
+                    </button>
+                  </div>
+                ) : (
+                  <p className="basvuru-list-end">✅ Bu meydan için tüm kayıtlar listelendi.</p>
+                )
+              ) : stats?.toplamBasvuru > 15 ? (
+                <div className="basvuru-load-more-wrap">
                   <button
                     type="button"
-                    className="basvuru-list__row"
-                    onClick={() => toggleExpand(item.basvuruNo)}
-                    aria-expanded={isOpen}
+                    className="btn btn-ghost basvuru-show-all-btn"
+                    onClick={openAll}
+                    disabled={allLoading}
                   >
-                    <span className="basvuru-list__tarih">{formatTarih(item.tarih)}</span>
-                    <span className="basvuru-list__konu">{toKonuDisplay(item.konu) || '—'}</span>
-                    <DurumBadge durum={item.durum} />
-                    <span className="basvuru-list__chevron" aria-hidden="true">{isOpen ? '▲' : '▼'}</span>
+                    {allLoading ? 'Yükleniyor…' : `Tüm ${stats.toplamBasvuru.toLocaleString('tr-TR')} kaydı incele →`}
                   </button>
-                  {isOpen ? (
-                    <div className="basvuru-list__detail">
-                      {item.altKonu ? <p><strong>Alt Konu:</strong> {toKonuDisplay(item.altKonu)}</p> : null}
-                      {item.category ? <p><strong>Kategori:</strong> <span style={{ fontWeight: 'normal', fontFamily: 'monospace' }}>{item.category}</span> {item.konuGuveni ? `(${(item.konuGuveni * 100).toFixed(0)}%)` : null}</p> : null}
-                      {item.normalizedKonu ? <p><strong>Normalized:</strong> {item.normalizedKonu}</p> : null}
-                      {item.basvuruSahibi ? <p><strong>Başvuru Sahibi:</strong> {item.basvuruSahibi}</p> : null}
-                      {item.aciklama ? <p><strong>Açıklama:</strong> {item.aciklama}</p> : null}
-                      {item.ilgiliOlduguBirim ? <p><strong>İlgili Birim:</strong> {item.ilgiliOlduguBirim}</p> : null}
-                      <p className="basvuru-list__no"><strong>Başvuru No:</strong> {item.basvuruNo}</p>
-                    </div>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ol>
-
-          {/* Pagination / show all */}
-          {showAll ? (
-            hasMore ? (
-              <button
-                type="button"
-                className="btn btn-ghost basvuru-load-more-btn"
-                onClick={loadMore}
-                disabled={allLoading}
-              >
-                {allLoading ? 'Yükleniyor…' : `Daha Fazla Yükle`}
-              </button>
-            ) : (
-              <p className="basvuru-list-end">Tüm kayıtlar gösteriliyor.</p>
-            )
-          ) : stats?.toplamBasvuru > 15 ? (
-            <button
-              type="button"
-              className="btn btn-ghost basvuru-show-all-btn"
-              onClick={openAll}
-              disabled={allLoading}
-            >
-              {allLoading ? 'Yükleniyor…' : `Tüm ${stats.toplamBasvuru.toLocaleString('tr-TR')} kaydı gör →`}
-            </button>
-          ) : null}
-        </>
-      ) : !stats ? (
-        <div className="basvuru-gundem-panel__empty">
-          Bu meydan için henüz başvuru verisi yüklenmemiş.
+                </div>
+              ) : null}
+            </>
+          ) : !stats ? (
+            <div className="basvuru-gundem-panel__empty">
+              Bu meydan için henüz başvuru verisi yüklenmemiş.
+            </div>
+          ) : (
+            <div className="basvuru-gundem-panel__empty">
+              Seçili filtre kriterlerine uyan kayıt bulunamadı.
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="basvuru-gundem-panel__empty">
-          Filtreye uyan kayıt bulunamadı.
-        </div>
-      )}
-    </aside>
+      </div>
+    </section>
   );
 }
 
@@ -900,7 +1044,7 @@ export default function MeydanDetail({ onLogout }) {
         const canonicalMeydan = normalizeMeydanInput({ meydanId: id, isim: id, kisaAd: id, tamAd: id });
 
         if (!canonicalMeydan.valid) {
-          setError('Meydan bulunamadı.');
+          setError('Belirtilen alan geçerli bir meydan değildir. "Diğer", ofis veya genel görev kayıtları bağımsız bir meydan sayfası olarak listelenmez. Lütfen Ana Sayfadan geçerli bir meydan seçiniz.');
           setLoading(false);
           return;
         }
@@ -1234,14 +1378,23 @@ export default function MeydanDetail({ onLogout }) {
       .map(([name, count]) => ({ name, count }));
   }, [allVardiyalar, meydanRangeFrom, meydanRangeTo]);
 
+  const yaka = useMemo(() => getMeydanYaka(meydan), [meydan]);
+  const yakaLabel = useMemo(() => getYakaLabel(yaka), [yaka]);
+
   return (
     <div className="app-shell">
       <Header onLogout={onLogout} />
 
       <main className="page page-detail">
         <section className="detail-hero">
-          <div>
-            <span className="section-kicker">Meydan görünümü</span>
+          {/* Sol Kolon: Başlık, Yaka Rozeti, Rota & Günlük Butonları, Açıklama */}
+          <div className="detail-hero__left">
+            <div className="detail-hero__eyebrow">
+              <span className="section-kicker">Meydan Görünümü</span>
+              <span className={`detail-hero__yaka-badge detail-hero__yaka-badge--${yaka}`}>
+                {yakaLabel}
+              </span>
+            </div>
             <div className="detail-hero__title-row">
               <h1>{meydan?.isim || 'Meydan'}</h1>
               {meydan ? (
@@ -1253,7 +1406,7 @@ export default function MeydanDetail({ onLogout }) {
                       : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent((meydan.tamAd || meydan.isim) + ' İstanbul')}&travelmode=driving`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Rota oluştur"
+                    title="Google Maps ile rota oluştur"
                     aria-label={`${meydan.isim} için Google Maps'te rota oluştur`}
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -1277,123 +1430,118 @@ export default function MeydanDetail({ onLogout }) {
                 </div>
               ) : null}
             </div>
-            <p>{meydan?.tamAd || 'Seçili meydan için ekip ve plan görünümü.'}</p>
+            <p className="detail-hero__desc">{meydan?.tamAd || 'Seçili meydan için ekip ve plan görünümü.'}</p>
+          </div>
 
-            <div className="detail-hero__stats" aria-label="Meydan özet istatistikleri">
-              <article className="detail-hero__stat detail-hero__stat--primary">
+          {/* Sağ Kolon: 4'lü Operasyon Kartı Grid'i */}
+          <div className="detail-hero__stats" aria-label="Meydan özet istatistikleri">
+            <article className="detail-hero__stat detail-hero__stat--primary">
+              <div className="detail-hero__stat-head">
                 <span>Planlı Ekip</span>
-                <strong>{todayPlannedCount}</strong>
-              </article>
-              <article className="detail-hero__stat detail-hero__stat--success">
-                <span>Sahadaki Ekip</span>
-                <strong>{todayActiveCount}</strong>
-              </article>
-              <article className="detail-hero__stat detail-hero__stat--weather">
-                <span>Hava</span>
-                {weatherLoading ? <strong>Yukleniyor</strong> : null}
-                {!weatherLoading && weatherError ? <strong>Veri yok</strong> : null}
-                {!weatherLoading && !weatherError && !weather ? <strong>Veri bekleniyor</strong> : null}
+                <span className="detail-hero__stat-icon" aria-hidden="true">📋</span>
+              </div>
+              <strong>{todayPlannedCount}</strong>
+              <small>Bugün görevli personel</small>
+            </article>
 
-                {!weatherLoading && !weatherError && weather ? (
+            <article className="detail-hero__stat detail-hero__stat--success">
+              <div className="detail-hero__stat-head">
+                <span>Sahadaki Ekip</span>
+                <span className="pulse-live-dot" title="Canlı Görevde"></span>
+              </div>
+              <strong>{todayActiveCount}</strong>
+              <small>{todayActiveCount > 0 ? 'Şu an sahada aktif' : 'Aktif vardiya yok'}</small>
+            </article>
+
+            <article className="detail-hero__stat detail-hero__stat--weather">
+              <div className="detail-hero__stat-head">
+                <span>Hava Durumu</span>
+                {weather?.current?.icon ? (
+                  <img
+                    className="detail-hero__weather-icon-mini"
+                    src={`https://openweathermap.org/img/wn/${weather.current.icon}.png`}
+                    alt={weather?.current?.description || 'Hava'}
+                    loading="lazy"
+                  />
+                ) : null}
+              </div>
+
+              {weatherLoading ? <strong>Yükleniyor…</strong> : null}
+              {!weatherLoading && weatherError ? <strong>Veri yok</strong> : null}
+              {!weatherLoading && !weatherError && !weather ? <strong>Veri bekleniyor</strong> : null}
+
+              {!weatherLoading && !weatherError && weather ? (
+                <>
                   <div className="detail-hero__weather-main">
                     <div className="detail-hero__weather-current">
                       <strong>{formatTemp(weather?.current?.temp)}</strong>
                       <small>Hissedilen {formatTemp(weather?.current?.feelsLike)}</small>
                     </div>
-                    {weather?.current?.icon ? (
-                      <img
-                        className="detail-hero__weather-icon"
-                        src={`https://openweathermap.org/img/wn/${weather.current.icon}@2x.png`}
-                        alt={weather?.current?.description || 'Hava durumu'}
-                        loading="lazy"
-                      />
-                    ) : null}
                   </div>
-                ) : null}
-
-                {!weatherLoading && !weatherError && weather ? (
                   <div className="detail-hero__weather-meta">
-                    <small>{weather?.current?.description || 'Durum bilgisi yok'}</small>
+                    <small>{weather?.current?.description || 'Açık'}</small>
                     <small>Nem %{weather?.current?.humidity ?? '--'}</small>
-                    <small>Ruzgar {formatWind(weather?.current?.windSpeed)}</small>
+                    <small>Rüzgar {formatWind(weather?.current?.windSpeed)}</small>
                   </div>
-                ) : null}
+                  {weather?.hourly?.length ? (
+                    <div className="detail-hero__hourly-strip" aria-label="Saatlik hava tahmini">
+                      {weather.hourly.map((item) => (
+                        <div key={`hour-${item.dt}`} className="detail-hero__hourly-item">
+                          <small>{formatHour(item.dt)}</small>
+                          <strong>{formatTemp(item.temp)}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </>
+              ) : null}
+            </article>
 
-                {!weatherLoading && !weatherError && weather?.hourly?.length ? (
-                  <div className="detail-hero__hourly-strip" aria-label="12 saatlik hava tahmini">
-                    {weather.hourly.map((item) => (
-                      <div key={`hour-${item.dt}`} className="detail-hero__hourly-item">
-                        <small>{formatHour(item.dt)}</small>
-                        {item.icon ? (
-                          <img
-                            src={`https://openweathermap.org/img/wn/${item.icon}.png`}
-                            alt={item.description || 'Saatlik durum'}
-                            loading="lazy"
-                          />
-                        ) : null}
-                        <strong>{formatTemp(item.temp)}</strong>
-                      </div>
-                    ))}
+            {spotlight?.readPath ? (
+              <Link className="detail-hero__stat detail-hero__stat--spotlight" to={spotlight.readPath}>
+                <div className="detail-hero__stat-head">
+                  <span>Meydan Notu</span>
+                  <span className="detail-hero__stat-icon" aria-hidden="true">📖</span>
+                </div>
+                {spotlightLoading ? (
+                  <div className="detail-hero__spotlight-copy">
+                    <strong>Özet hazırlanıyor</strong>
+                    <small>Kaynaklar taranıyor...</small>
                   </div>
-                ) : null}
-              </article>
-
-              {spotlight?.readPath ? (
-                <Link
-                  className="detail-hero__stat detail-hero__stat--spotlight"
-                  to={spotlight.readPath}
-                >
-                  <span>Meydan Notu</span>
-                  {spotlightLoading ? (
+                ) : (
+                  <>
                     <div className="detail-hero__spotlight-copy">
-                      <strong>Özet hazırlanıyor</strong>
-                      <small>Kaynaklar taranıyor...</small>
+                      <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
+                      <small>{spotlight?.summary || 'Meydan hakkında kısa operasyon özeti.'}</small>
                     </div>
-                  ) : (
-                    <>
-                      <div className="detail-hero__spotlight-head">
-                        <div className="detail-hero__spotlight-copy">
-                          <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
-                          <small>{spotlight?.summary || 'Meydan hakkında kısa bir bilgi özeti için Google aramasına geçin.'}</small>
-                        </div>
-                      </div>
-                      <div className="detail-hero__spotlight-footer">
-                        <small>{spotlight?.badge || 'Detayli oku'}</small>
-                        <span aria-hidden="true">→</span>
-                      </div>
-                    </>
-                  )}
-                </Link>
-              ) : (
-                <a
-                  className="detail-hero__stat detail-hero__stat--spotlight"
-                  href={spotlight?.searchUrl || `https://www.google.com/search?q=${encodeURIComponent(`${meydan?.isim || meydan?.tamAd || 'meydan'} hakkında bilgi`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                    <div className="detail-hero__spotlight-footer">
+                      <small>{spotlight?.badge || 'Detaylı oku'}</small>
+                      <span aria-hidden="true">→</span>
+                    </div>
+                  </>
+                )}
+              </Link>
+            ) : (
+              <a
+                className="detail-hero__stat detail-hero__stat--spotlight"
+                href={spotlight?.searchUrl || `https://www.google.com/search?q=${encodeURIComponent(`${meydan?.isim || meydan?.tamAd || 'meydan'} hakkında bilgi`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="detail-hero__stat-head">
                   <span>Meydan Notu</span>
-                  {spotlightLoading ? (
-                    <div className="detail-hero__spotlight-copy">
-                      <strong>Özet hazırlanıyor</strong>
-                      <small>Kaynaklar taranıyor...</small>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="detail-hero__spotlight-head">
-                        <div className="detail-hero__spotlight-copy">
-                          <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
-                          <small>{spotlight?.summary || 'Meydan hakkında kısa bir bilgi özeti için Google aramasına geçin.'}</small>
-                        </div>
-                      </div>
-                      <div className="detail-hero__spotlight-footer">
-                        <small>{spotlight?.badge || 'Google’da incele'}</small>
-                        <span aria-hidden="true">↗</span>
-                      </div>
-                    </>
-                  )}
-                </a>
-              )}
-            </div>
+                  <span className="detail-hero__stat-icon" aria-hidden="true">↗</span>
+                </div>
+                <div className="detail-hero__spotlight-copy">
+                  <strong>{spotlight?.title || (meydan?.isim || 'Meydan')}</strong>
+                  <small>{spotlight?.summary || 'Meydan bilgileri.'}</small>
+                </div>
+                <div className="detail-hero__spotlight-footer">
+                  <small>Google'da incele</small>
+                  <span aria-hidden="true">↗</span>
+                </div>
+              </a>
+            )}
           </div>
         </section>
 
@@ -1401,203 +1549,221 @@ export default function MeydanDetail({ onLogout }) {
         {error ? <div className="message message-error">{error}</div> : null}
 
         {!loading && !error ? (
-          <section className="detail-layout">
-            <div className="detail-filter-bar" style={{ gridColumn: '1 / -1', marginBottom: '1rem' }}>
+          <div className="detail-page-content">
+            {/* Tarih Aralığı Filtre Çubuğu */}
+            <div className="detail-filter-bar">
               <DateRangePicker value={filterRange} onChange={setFilterRange} />
             </div>
 
-            <InsightPanel
-              kicker=""
-              title="Bu meydanda en çok görev yapan personeller"
-              description=""
-              items={topPeople}
-              variant="people"
-              icon={UserGroupIcon}
-              badge={`Seçilen dönem: ${lastThirtyDaysShiftCount} görev kaydı analiz edildi`}
-              emptyMessage="Bu meydan için sıralanabilecek personel verisi henüz bulunmuyor."
-            />
-
-            <section className="panel-section detail-schedule">
-              <div className={`detail-schedule-summary ${isScheduleOpen ? 'is-open' : ''}`}>
-                <div className="detail-schedule-summary__top">
-                  <div>
-                    <span className="section-kicker">Günlük ekip görünümü</span>
-                    <h2>Bugün Meydanda Görevli Personeller</h2>
-                  </div>
-
-                  <div className="detail-schedule-summary__icon-wrap" aria-hidden="true">
-                    <CalendarDaysIcon className="detail-schedule-summary__icon" />
-                  </div>
-                </div>
-
-                <div className="detail-schedule-summary__badge">
-                  {todayPersonnel.length ? `${todayPersonnel.length} personel bugün bu meydanda planlı` : 'Bugün için planlı personel bulunmuyor'}
-                </div>
-
-                {todayPersonnel.length ? (
-                  <ul className="today-team-list">
-                    {todayPersonnel.map((item) => {
-                      const isActive = isShiftActive(item.saatAraligi);
-
-                      return (
-                        <li key={`${item.personelAdi}-${item.tarih}-${item.saatAraligi}`} className="today-team-list__item">
-                          <div>
-                            <Link to={`/personel/${encodeURIComponent(item.personelAdi)}`} className="personel-name-link">
-                              <strong>{item.personelAdi}</strong>
-                            </Link>
-                            <small>{item.saatAraligi || 'Saat bilgisi eklenmedi'}</small>
-                          </div>
-                          <span className={`today-team-list__status ${isActive ? 'is-active' : ''}`}>
-                            {isActive ? 'Şu an görevde' : 'Bugün planlı'}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                ) : (
-                  <div className="detail-schedule-summary__empty">
-                    Bu meydan için bugün atanmış aktif vardiya kaydı bulunmamaktadır.
-                  </div>
-                )}
-
-                <button
-                  type="button"
-                  className="detail-schedule-summary__toggle"
-                  onClick={() => setIsScheduleOpen((current) => !current)}
-                  aria-expanded={isScheduleOpen}
-                >
-                  <span>{isScheduleOpen ? 'Haftalık programı kapat' : 'Haftalık planı aç'}</span>
-                  <ChevronDownIcon className="detail-schedule-summary__chevron" aria-hidden="true" />
-                </button>
-
-                <div className={`detail-schedule-panel ${isScheduleOpen ? 'is-open' : ''}`}>
-                  <div className="detail-schedule-panel__inner">
-                    <div className="week-nav detail-schedule-panel__nav" role="group" aria-label="Hafta secimi">
-                      <button type="button" className="btn btn-ghost" onClick={() => setWeekOffset((current) => current - 1)}>
-                        <span className="label-full">Geçen hafta</span>
-                        <span className="label-short" aria-hidden="true">←</span>
-                      </button>
-                      <button type="button" className={`btn ${weekOffset === 0 ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setWeekOffset(0)}>
-                        Bu hafta
-                      </button>
-                      <button type="button" className="btn btn-ghost" onClick={() => setWeekOffset((current) => current + 1)}>
-                        <span className="label-full">Gelecek hafta</span>
-                        <span className="label-short" aria-hidden="true">→</span>
-                      </button>
+            {/* Kademe 1: Saha & Personel Operasyon Grid'i (2 Sütun) */}
+            <div className="detail-operations-grid">
+              {/* Sol Kolon: Bugün Meydanda Görevli Personeller & Haftalık Plan */}
+              <div className="detail-operations-col">
+                <section className="panel-section detail-schedule">
+                  <div className={`detail-schedule-summary ${isScheduleOpen ? 'is-open' : ''}`}>
+                    <div className="detail-schedule-summary__top">
+                      <div>
+                        <span className="section-kicker">Günlük Ekip Görünümü</span>
+                        <h2>Bugün Meydanda Görevli Personeller</h2>
+                      </div>
+                      <div className="detail-schedule-summary__icon-wrap" aria-hidden="true">
+                        <CalendarDaysIcon className="detail-schedule-summary__icon" />
+                      </div>
                     </div>
 
-                    <div className="schedule-day-grid">
-                      {visibleWeekDates.map((date, idx) => {
-                        const dateKey = visibleWeekKeys[idx];
-                        const isToday = dateKey === todayDateKey;
-                        const dayName = date.toLocaleDateString('tr-TR', { weekday: 'short' }).toLocaleUpperCase('tr-TR');
-                        const dayDate = date.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' });
-                        const dayRows = personeller
-                          .map((personelAdi) => ({ personelAdi, vardiya: shiftByPersonDate.get(`${personelAdi}|${dateKey}`) }))
-                          .filter((r) => r.vardiya);
+                    <div className="detail-schedule-summary__badge">
+                      {todayPersonnel.length ? `${todayPersonnel.length} personel bugün bu meydanda planlı` : 'Bugün için planlı personel bulunmuyor'}
+                    </div>
 
-                        return (
-                          <div key={dateKey} className={`schedule-day-card${isToday ? ' is-today' : ''}`}>
-                            <div className="schedule-day-card__header">
-                              <div className="schedule-day-card__header-left">
-                                <span className="schedule-day-card__weekday">{dayName}</span>
-                                <span className="schedule-day-card__date">{dayDate}</span>
+                    {todayPersonnel.length ? (
+                      <ul className="today-team-list">
+                        {todayPersonnel.map((item) => {
+                          const isActive = isShiftActive(item.saatAraligi);
+                          return (
+                            <li key={`${item.personelAdi}-${item.tarih}-${item.saatAraligi}`} className="today-team-list__item">
+                              <div>
+                                <Link to={`/personel/${encodeURIComponent(item.personelAdi)}`} className="personel-name-link">
+                                  <strong>{item.personelAdi}</strong>
+                                </Link>
+                                <small>{item.saatAraligi || 'Saat bilgisi eklenmedi'}</small>
                               </div>
-                              <div className="schedule-day-card__header-right">
-                                {isToday && <span className="schedule-day-card__today-tag">Bugün</span>}
-                                {dayRows.length > 0 && (
-                                  <span className="schedule-day-card__count">{dayRows.length} kişi</span>
+                              <span className={`today-team-list__status ${isActive ? 'is-active' : ''}`}>
+                                {isActive ? 'Şu an görevde' : 'Bugün planlı'}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    ) : (
+                      <div className="detail-schedule-summary__empty">
+                        Bu meydan için bugün atanmış aktif vardiya kaydı bulunmamaktadır.
+                      </div>
+                    )}
+
+                    <button
+                      type="button"
+                      className="detail-schedule-summary__toggle"
+                      onClick={() => setIsScheduleOpen((current) => !current)}
+                      aria-expanded={isScheduleOpen}
+                    >
+                      <span>{isScheduleOpen ? 'Haftalık programı kapat' : 'Haftalık planı aç'}</span>
+                      <ChevronDownIcon className="detail-schedule-summary__chevron" aria-hidden="true" />
+                    </button>
+
+                    <div className={`detail-schedule-panel ${isScheduleOpen ? 'is-open' : ''}`}>
+                      <div className="detail-schedule-panel__inner">
+                        <div className="week-nav detail-schedule-panel__nav" role="group" aria-label="Hafta seçimi">
+                          <button type="button" className="btn btn-ghost" onClick={() => setWeekOffset((current) => current - 1)}>
+                            <span className="label-full">Geçen hafta</span>
+                            <span className="label-short" aria-hidden="true">←</span>
+                          </button>
+                          <button type="button" className={`btn ${weekOffset === 0 ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setWeekOffset(0)}>
+                            Bu hafta
+                          </button>
+                          <button type="button" className="btn btn-ghost" onClick={() => setWeekOffset((current) => current + 1)}>
+                            <span className="label-full">Gelecek hafta</span>
+                            <span className="label-short" aria-hidden="true">→</span>
+                          </button>
+                        </div>
+
+                        <div className="schedule-day-grid">
+                          {visibleWeekDates.map((date, idx) => {
+                            const dateKey = visibleWeekKeys[idx];
+                            const isToday = dateKey === todayDateKey;
+                            const dayName = date.toLocaleDateString('tr-TR', { weekday: 'short' }).toLocaleUpperCase('tr-TR');
+                            const dayDate = date.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' });
+                            const dayRows = personeller
+                              .map((personelAdi) => ({ personelAdi, vardiya: shiftByPersonDate.get(`${personelAdi}|${dateKey}`) }))
+                              .filter((r) => r.vardiya);
+
+                            return (
+                              <div key={dateKey} className={`schedule-day-card${isToday ? ' is-today' : ''}`}>
+                                <div className="schedule-day-card__header">
+                                  <div className="schedule-day-card__header-left">
+                                    <span className="schedule-day-card__weekday">{dayName}</span>
+                                    <span className="schedule-day-card__date">{dayDate}</span>
+                                  </div>
+                                  <div className="schedule-day-card__header-right">
+                                    {isToday && <span className="schedule-day-card__today-tag">Bugün</span>}
+                                    {dayRows.length > 0 && (
+                                      <span className="schedule-day-card__count">{dayRows.length} kişi</span>
+                                    )}
+                                  </div>
+                                </div>
+                                {dayRows.length > 0 ? (
+                                  <div className="schedule-day-card__rows">
+                                    {dayRows.map(({ personelAdi, vardiya }) => (
+                                      <div key={personelAdi} className="schedule-day-card__row">
+                                        <Link to={`/personel/${encodeURIComponent(personelAdi)}`} className="schedule-day-card__name personel-name-link">{personelAdi}</Link>
+                                        <ShiftBadge vardiya={vardiya} isToday={isToday} />
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <div className="schedule-day-card__empty">Bu gün için planlı personel bulunmuyor</div>
                                 )}
                               </div>
-                            </div>
-                            {dayRows.length > 0 ? (
-                              <div className="schedule-day-card__rows">
-                                {dayRows.map(({ personelAdi, vardiya }) => (
-                                  <div key={personelAdi} className="schedule-day-card__row">
-                                    <Link to={`/personel/${encodeURIComponent(personelAdi)}`} className="schedule-day-card__name personel-name-link">{personelAdi}</Link>
-                                    <ShiftBadge vardiya={vardiya} isToday={isToday} />
-                                  </div>
-                                ))}
-                              </div>
-                            ) : (
-                              <div className="schedule-day-card__empty">Bu gün için planlı personel bulunmuyor</div>
-                            )}
-                          </div>
-                        );
-                      })}
-                      {!personeller.length && (
-                        <div className="schedule-day-grid__empty">Seçili hafta için kayıt bulunmamaktadır.</div>
-                      )}
+                            );
+                          })}
+                          {!personeller.length && (
+                            <div className="schedule-day-grid__empty">Seçili hafta için kayıt bulunmamaktadır.</div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </section>
+                </section>
 
-            <section className="panel-section meydan-range-panel">
-              <div className="panel-section__header">
-                <h2>Personel Sorgulama</h2>
-                <p>Seçili tarih aralığında bu meydanda görev yapan personeller</p>
+                <InsightPanel
+                  kicker="Personel İstatistiği"
+                  title="Bu Meydanda En Çok Görev Yapan Personeller"
+                  description="Seçili dönemde en sık nöbet tutan saha personelleri."
+                  items={topPeople}
+                  variant="people"
+                  icon={UserGroupIcon}
+                  badge={`Seçilen dönem: ${lastThirtyDaysShiftCount} görev kaydı analiz edildi`}
+                  emptyMessage="Bu meydan için sıralanabilecek personel verisi henüz bulunmuyor."
+                />
               </div>
-              <div className="basvuru-filter-row meydan-range-filters">
-                <label className="basvuru-filter-field">
-                  <span>Başlangıç</span>
-                  <input
-                    type="date"
-                    value={meydanRangeFrom}
-                    max={meydanRangeTo || undefined}
-                    onChange={(e) => setMeydanRangeFrom(e.target.value)}
-                  />
-                </label>
-                <label className="basvuru-filter-field">
-                  <span>Bitiş</span>
-                  <input
-                    type="date"
-                    value={meydanRangeTo}
-                    min={meydanRangeFrom || undefined}
-                    onChange={(e) => setMeydanRangeTo(e.target.value)}
-                  />
-                </label>
-              </div>
-              {meydanRangePersonelSummary.length > 0 ? (
-                <>
-                  <p className="personel-range-meta">{meydanRangePersonelSummary.length} personel · {meydanRangePersonelSummary.reduce((s, p) => s + p.count, 0)} vardiya kaydı</p>
-                  <ol className="meydan-range-list">
-                    {meydanRangePersonelSummary.map(({ name, count }, idx) => (
-                      <li key={name} className="meydan-range-list__item">
-                        <span className="meydan-range-list__rank">{idx + 1}</span>
-                        <Link to={`/personel/${encodeURIComponent(name)}`} className="meydan-range-list__name personel-name-link">
-                          {name}
-                        </Link>
-                        <span className="meydan-range-list__count">{count} vardiya</span>
-                      </li>
-                    ))}
-                  </ol>
-                </>
-              ) : (
-                <div className="detail-insight__empty">
-                  {meydanRangeFrom && meydanRangeTo
-                    ? 'Seçili tarih aralığında vardiya kaydı bulunamadı.'
-                    : 'Tarih aralığı seçin.'}
-                </div>
-              )}
-            </section>
 
+              {/* Sağ Kolon: Personel Tarih Aralığı Sorgulama */}
+              <div className="detail-operations-col">
+                <section className="panel-section meydan-range-panel">
+                  <div className="panel-section__header">
+                    <div>
+                      <span className="section-kicker">Özel Aralık Analizi</span>
+                      <h2>Personel Sorgulama</h2>
+                      <p>Seçili tarih aralığında bu meydanda görev yapan personeller ve vardiya sayıları.</p>
+                    </div>
+                  </div>
+                  <div className="basvuru-filter-row meydan-range-filters">
+                    <label className="basvuru-filter-field">
+                      <span>Başlangıç</span>
+                      <input
+                        type="date"
+                        value={meydanRangeFrom}
+                        max={meydanRangeTo || undefined}
+                        onChange={(e) => setMeydanRangeFrom(e.target.value)}
+                      />
+                    </label>
+                    <label className="basvuru-filter-field">
+                      <span>Bitiş</span>
+                      <input
+                        type="date"
+                        value={meydanRangeTo}
+                        min={meydanRangeFrom || undefined}
+                        onChange={(e) => setMeydanRangeTo(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  {meydanRangePersonelSummary.length > 0 ? (
+                    <>
+                      <p className="personel-range-meta">{meydanRangePersonelSummary.length} personel · {meydanRangePersonelSummary.reduce((s, p) => s + p.count, 0)} vardiya kaydı</p>
+                      <ol className="meydan-range-list">
+                        {meydanRangePersonelSummary.map(({ name, count }, idx) => (
+                          <li key={name} className="meydan-range-list__item">
+                            <span className="meydan-range-list__rank">{idx + 1}</span>
+                            <Link to={`/personel/${encodeURIComponent(name)}`} className="meydan-range-list__name personel-name-link">
+                              {name}
+                            </Link>
+                            <span className="meydan-range-list__count">{count} vardiya</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </>
+                  ) : (
+                    <div className="detail-insight__empty">
+                      {meydanRangeFrom && meydanRangeTo
+                        ? 'Seçili tarih aralığında vardiya kaydı bulunamadı.'
+                        : 'Tarih aralığı seçin.'}
+                    </div>
+                  )}
+                </section>
+              </div>
+            </div>
+
+            {/* Kademe 2: Tam Genişlik Başvuru ve Gündem Analitiği */}
             <BasvuruGundemPanel meydanId={id} />
-          </section>
+          </div>
         ) : null}
 
         {isGunlukOpen ? (
           <div className="gunluk-modal" role="dialog" aria-modal="true" aria-label="Meydan Günlüğü">
             <div className="gunluk-modal__panel">
+              <div className="gunluk-modal__drag-handle" aria-hidden="true" />
               <div className="gunluk-modal__header">
                 <div>
                   <span className="section-kicker">Meydan Günlüğü</span>
-                  <h3>{meydan?.isim || 'Meydan'} günlük notları</h3>
+                  <h3>{meydan?.isim || 'Meydan'} Günlük Notları</h3>
                   <p>Vardiya devrinde ekiplerin birbirine not bırakması için kullanılır.</p>
                 </div>
-                <button type="button" className="btn btn-ghost" onClick={() => setIsGunlukOpen(false)}>
-                  Kapat
+                <button
+                  type="button"
+                  className="gunluk-modal__close-btn"
+                  onClick={() => setIsGunlukOpen(false)}
+                  aria-label="Kapat"
+                >
+                  <XMarkIcon width={18} height={18} />
                 </button>
               </div>
 
