@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ArrowLeftIcon, HomeIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  ArrowLeftIcon,
+  HomeIcon,
+  ArrowRightOnRectangleIcon,
+  CalendarDaysIcon,
+} from '@heroicons/react/24/outline';
 import { formatLongDateTime } from './utils/date';
-import SypCircularLogo from './components/shared/SypCircularLogo';
 
 export default function Header({ onLogout = null }) {
   const [now, setNow] = useState(new Date());
@@ -16,55 +21,75 @@ export default function Header({ onLogout = null }) {
 
   const isLoginPage = location.pathname === '/login';
   const isSplashPage = location.pathname === '/splash';
-  const isHomePage = location.pathname === '/';
+  const isDashboardPage = location.pathname === '/' || location.pathname === '/meydan-yonetimi';
   const isDetailPage = location.pathname.startsWith('/meydan/') || location.pathname.startsWith('/personel/');
   const { dateLabel, timeLabel } = formatLongDateTime(now);
 
   return (
-    <header className="app-header">
+    <header className="app-header app-header--executive">
+      {/* Background Bosphorus Silhouette */}
+      <div
+        className="app-header__bridge-bg"
+        style={{ backgroundImage: 'url(/assets/dashboard/bosphorus-bridge-sketch.svg)' }}
+        aria-hidden="true"
+      />
+
       <div className="app-header__left">
-        {!isLoginPage && !isSplashPage && !isHomePage ? (
+        {/* On detail pages, show back button; on dashboard, show hamburger menu */}
+        {!isLoginPage && !isSplashPage && !isDashboardPage ? (
+          <>
+            <button
+              className="app-header__icon-button"
+              type="button"
+              onClick={() => navigate(-1)}
+              title="Geri"
+              aria-label="Geri Dön"
+            >
+              <ArrowLeftIcon width={18} height={18} />
+            </button>
+            <button
+              className="app-header__icon-button"
+              type="button"
+              onClick={() => navigate('/')}
+              title="Ana sayfa"
+              aria-label="Ana Sayfaya Git"
+            >
+              <HomeIcon width={18} height={18} />
+            </button>
+          </>
+        ) : (
           <button
-            className="app-header__icon-button"
+            className="app-header__menu-btn"
             type="button"
-            onClick={() => navigate(isDetailPage ? '/meydan-yonetimi' : -1)}
-            title="Geri"
-            aria-label="Geri Dön"
+            title="Menü"
+            aria-label="Menü"
           >
-            <ArrowLeftIcon width={18} height={18} />
+            <Bars3Icon width={22} height={22} />
           </button>
-        ) : null}
+        )}
 
-        {!isLoginPage && !isSplashPage && !isHomePage ? (
-          <button
-            className="app-header__icon-button"
-            type="button"
-            onClick={() => navigate('/')}
-            title="Ana sayfa"
-            aria-label="Ana Sayfaya Git"
-          >
-            <HomeIcon width={18} height={18} />
-          </button>
-        ) : null}
-
+        {/* SYP Corporate Logo Badge */}
         <div className="app-header__brand">
-          <SypCircularLogo size="xs" variant="minimal" />
-          <div className="app-header__brand-text">
-            <strong className="app-header__title">Saha Yönetim Paneli</strong>
+          <div className="syp-header-badge">
+            <span className="syp-header-badge__text">SYP</span>
           </div>
+          <strong className="app-header__title">Saha Yönetim Paneli</strong>
         </div>
       </div>
 
       {!isSplashPage ? (
         <div className="app-header__right">
           <div className="app-header__datetime">
-            <span className="app-header__date">{dateLabel}</span>
+            <div className="app-header__datetime-row">
+              <CalendarDaysIcon width={16} height={16} className="app-header__calendar-icon" />
+              <span className="app-header__date">{dateLabel}</span>
+            </div>
             <span className="app-header__clock">{timeLabel}</span>
           </div>
 
           {onLogout && !isLoginPage ? (
             <button
-              className="app-header__logout"
+              className="app-header__logout app-header__logout--pill"
               type="button"
               onClick={onLogout}
               title="Çıkış Yap"

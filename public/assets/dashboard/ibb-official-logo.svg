@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Official İBB 7-Minaret & Crescent Emblem -->
+  <g fill="#00498e">
+    <!-- Center Minarets / Hills -->
+    <path d="M50 8 L54 36 L46 36 Z" />
+    <path d="M41 16 L45 38 L38 38 Z" />
+    <path d="M59 16 L62 38 L55 38 Z" />
+    <path d="M33 26 L37 40 L30 40 Z" />
+    <path d="M67 26 L70 40 L63 40 Z" />
+    <path d="M25 36 L29 44 L23 44 Z" />
+    <path d="M75 36 L77 44 L71 44 Z" />
+    
+    <!-- Base Arch / Bridge Ramparts -->
+    <path d="M20 46 C20 44 80 44 80 46 L80 50 C80 50 65 48 50 48 C35 48 20 50 20 50 Z" />
+    <rect x="22" y="51" width="56" height="4" rx="1" />
+    
+    <!-- City Wall Battlements -->
+    <rect x="24" y="56" width="6" height="6" rx="1" />
+    <rect x="34" y="56" width="6" height="6" rx="1" />
+    <rect x="44" y="56" width="6" height="6" rx="1" />
+    <rect x="54" y="56" width="6" height="6" rx="1" />
+    <rect x="64" y="56" width="6" height="6" rx="1" />
+    <rect x="72" y="56" width="4" height="6" rx="1" />
+    <path d="M22 63 L78 63 L78 66 L22 66 Z" />
+    
+    <!-- Crescent & Star -->
+    <path d="M50 68 C45 68 41 72 41 77 C41 82 45 86 50 86 C53 86 56 84 57 82 C53 83 48 80 48 77 C48 74 53 71 57 72 C56 70 53 68 50 68 Z" />
+    <polygon points="56,76 58,77 57,75 59,74 57,74 56,72 55,74 53,74 55,75 54,77" />
+    
+    <!-- Decorative Stars -->
+    <polygon points="32,74 33,75.5 31.5,74.5 30,75.5 31,74 30,72.5 31.5,73.5 33,72.5" />
+    <polygon points="68,74 69,75.5 67.5,74.5 66,75.5 67,74 66,72.5 67.5,73.5 69,72.5" />
+  </g>
+</svg>

@@ -2,10 +2,17 @@ import React, { useState, useMemo } from 'react';
 import {
   MapPinIcon,
   ChevronRightIcon,
+  ChevronLeftIcon,
   ChevronDownIcon,
   MagnifyingGlassIcon,
   BuildingOffice2Icon,
+  BuildingOfficeIcon,
+  BuildingLibraryIcon,
   GlobeAltIcon,
+  GlobeEuropeAfricaIcon,
+  UserGroupIcon,
+  SparklesIcon,
+  PaperAirplaneIcon,
   ViewColumnsIcon,
   ListBulletIcon,
 } from '@heroicons/react/24/outline';
@@ -17,6 +24,20 @@ import {
   AVRUPA_TOTAL_COUNT,
   ALL_CANONICAL_MEYDANLAR,
 } from '../../data/canonicalMeydanData';
+
+function getDistrictIcon(districtName) {
+  const norm = (districtName || '').toLowerCase('tr-TR');
+  if (norm.includes('kadıköy') || norm.includes('kadikoy')) return <MapPinIcon width={15} height={15} />;
+  if (norm.includes('üsküdar') || norm.includes('fatih')) return <BuildingLibraryIcon width={15} height={15} />;
+  if (norm.includes('ataşehir') || norm.includes('çekmeköy')) return <BuildingOffice2Icon width={15} height={15} />;
+  if (norm.includes('maltepe')) return <GlobeEuropeAfricaIcon width={15} height={15} />;
+  if (norm.includes('kartal')) return <BuildingOfficeIcon width={15} height={15} />;
+  if (norm.includes('pendik')) return <SparklesIcon width={15} height={15} />;
+  if (norm.includes('tuzla')) return <PaperAirplaneIcon width={15} height={15} />;
+  if (norm.includes('sancaktepe')) return <UserGroupIcon width={15} height={15} />;
+  if (norm.includes('sultanbeyli')) return <BuildingLibraryIcon width={15} height={15} />;
+  return <BuildingOffice2Icon width={15} height={15} />;
+}
 
 export default function MeydanExplorer({
   selectedMeydan,
@@ -40,7 +61,7 @@ export default function MeydanExplorer({
     setExpandedDistricts((prev) => ({ ...prev, [distId]: !prev[distId] }));
   }
 
-  // Active district objects for drilldown
+  // Active district list
   const activeDistrictsList = useMemo(() => {
     return activeYaka === 'anadolu' ? ANADOLU_DISTRICTS : AVRUPA_DISTRICTS;
   }, [activeYaka]);
@@ -76,7 +97,7 @@ export default function MeydanExplorer({
                   title="Genel Bakışa Dön"
                 >
                   <div className="explorer-icon-pin">
-                    <MapPinIcon width={18} height={18} />
+                    <MapPinIcon width={16} height={16} />
                   </div>
                   <h3 className="explorer-main-title">Tüm Meydanlar</h3>
                   <span className="explorer-badge-total">{TOTAL_MEYDAN_COUNT}</span>
@@ -89,12 +110,12 @@ export default function MeydanExplorer({
                   title="Ağaç / Akordeon Görünümüne Geç"
                   aria-label="Ağaç görünümü"
                 >
-                  <ListBulletIcon width={16} height={16} />
+                  <ListBulletIcon width={15} height={15} />
                 </button>
               </div>
 
               <div className="explorer-search-wrap">
-                <MagnifyingGlassIcon className="explorer-search-icon" width={16} height={16} />
+                <MagnifyingGlassIcon className="explorer-search-icon" width={15} height={15} />
                 <input
                   type="text"
                   className="explorer-search-input"
@@ -134,12 +155,12 @@ export default function MeydanExplorer({
                   }}
                 >
                   <div className="explorer-yaka-left">
-                    <GlobeAltIcon width={18} height={18} className="explorer-yaka-icon" />
+                    <GlobeAltIcon width={17} height={17} className="explorer-yaka-icon" />
                     <span className="explorer-yaka-name">Anadolu Yakası</span>
                   </div>
                   <div className="explorer-yaka-right">
                     <span className="explorer-badge-count">{ANADOLU_TOTAL_COUNT}</span>
-                    <ChevronRightIcon width={14} height={14} className="explorer-arrow" />
+                    <ChevronRightIcon width={13} height={13} className="explorer-arrow" />
                   </div>
                 </button>
 
@@ -152,25 +173,33 @@ export default function MeydanExplorer({
                   }}
                 >
                   <div className="explorer-yaka-left">
-                    <BuildingOffice2Icon width={18} height={18} className="explorer-yaka-icon" />
+                    <BuildingOffice2Icon width={17} height={17} className="explorer-yaka-icon" />
                     <span className="explorer-yaka-name">Avrupa Yakası</span>
                   </div>
                   <div className="explorer-yaka-right">
                     <span className="explorer-badge-count">{AVRUPA_TOTAL_COUNT}</span>
-                    <ChevronRightIcon width={14} height={14} className="explorer-arrow" />
+                    <ChevronRightIcon width={13} height={13} className="explorer-arrow" />
                   </div>
                 </button>
               </div>
             )}
 
-            {/* Decorative Bottom Silhouette and İBB Brand */}
+            {/* Decorative Bottom Silhouette and Official İBB Brand */}
             <div className="explorer-col__footer">
-              <div className="explorer-footer-silhouette" />
+              <div
+                className="explorer-footer-silhouette"
+                style={{ backgroundImage: 'url(/assets/dashboard/bosphorus-bridge-sketch.svg)' }}
+              />
               <div className="explorer-footer-brand">
-                <img src="/favicon.svg" alt="İBB" className="explorer-ibb-logo" />
+                <img
+                  src="/assets/dashboard/ibb-official-logo.svg"
+                  alt="İBB"
+                  className="explorer-ibb-logo"
+                />
                 <div className="explorer-footer-text">
-                  <span className="explorer-ibb-title">İSTANBUL BÜYÜKŞEHİR BELEDİYESİ</span>
-                  <span className="explorer-ibb-slogan">Daha güçlü, daha yaşanabilir İstanbul</span>
+                  <span className="explorer-ibb-title">İSTANBUL</span>
+                  <span className="explorer-ibb-sub">BÜYÜKŞEHİR BELEDİYESİ</span>
+                  <span className="explorer-ibb-slogan">Daha güçlü Daha yaşanabilir İstanbul</span>
                 </div>
               </div>
             </div>
@@ -181,10 +210,13 @@ export default function MeydanExplorer({
             <div className="explorer-col explorer-col--districts">
               <div className="explorer-col__header">
                 <div className="explorer-back-title">
-                  <span className="explorer-current-yaka">
-                    {activeYaka === 'anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}
-                  </span>
-                  <span className="explorer-badge-count">
+                  <div className="explorer-back-left">
+                    <ChevronLeftIcon width={14} height={14} className="explorer-back-icon" />
+                    <span className="explorer-current-yaka">
+                      {activeYaka === 'anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}
+                    </span>
+                  </div>
+                  <span className="explorer-badge-count explorer-badge-count--blue">
                     {activeYaka === 'anadolu' ? ANADOLU_TOTAL_COUNT : AVRUPA_TOTAL_COUNT}
                   </span>
                 </div>
@@ -201,12 +233,14 @@ export default function MeydanExplorer({
                       onClick={() => setActiveDistrictId(district.id)}
                     >
                       <div className="explorer-item-left">
-                        <span className="explorer-district-dot" />
+                        <span className="explorer-district-icon-wrap">
+                          {getDistrictIcon(district.name)}
+                        </span>
                         <span className="explorer-item-name">{district.name}</span>
                       </div>
                       <div className="explorer-item-right">
                         <span className="explorer-item-count">{district.count}</span>
-                        <ChevronRightIcon width={14} height={14} className="explorer-arrow" />
+                        <ChevronRightIcon width={13} height={13} className="explorer-arrow" />
                       </div>
                     </button>
                   );
@@ -220,14 +254,20 @@ export default function MeydanExplorer({
             <div className="explorer-col explorer-col--squares">
               <div className="explorer-col__header">
                 <div className="explorer-back-title">
-                  <span className="explorer-current-district">{activeDistrict.name}</span>
-                  <span className="explorer-badge-count">{activeDistrict.count}</span>
+                  <div className="explorer-back-left">
+                    <ChevronLeftIcon width={14} height={14} className="explorer-back-icon" />
+                    <span className="explorer-current-district">{activeDistrict.name}</span>
+                  </div>
+                  <span className="explorer-badge-count explorer-badge-count--blue">
+                    {activeDistrict.count}
+                  </span>
                 </div>
               </div>
 
               <div className="explorer-squares-scroll">
                 {activeDistrict.meydanlar.map((meydan) => {
                   const isSelected = selectedMeydan?.id === meydan.id;
+                  const thumbImg = meydan.heroImage || '/assets/dashboard/kadikoy-boga.jpg';
                   return (
                     <button
                       key={meydan.id}
@@ -237,13 +277,10 @@ export default function MeydanExplorer({
                     >
                       <div
                         className="explorer-square-thumb"
-                        style={{ backgroundImage: `url(${meydan.heroImage || '/login-scenes/cult/galata.jpg'})` }}
+                        style={{ backgroundImage: `url(${thumbImg})` }}
                       />
-                      <div className="explorer-square-info">
-                        <strong className="explorer-square-name">{meydan.name}</strong>
-                        <span className="explorer-square-district">{activeDistrict.name}, İstanbul</span>
-                      </div>
-                      <ChevronRightIcon width={14} height={14} className="explorer-arrow" />
+                      <span className="explorer-square-name">{meydan.name}</span>
+                      <ChevronRightIcon width={13} height={13} className="explorer-square-arrow" />
                     </button>
                   );
                 })}
@@ -263,7 +300,7 @@ export default function MeydanExplorer({
                 title="Genel Bakışa Dön"
               >
                 <div className="explorer-icon-pin">
-                  <MapPinIcon width={18} height={18} />
+                  <MapPinIcon width={16} height={16} />
                 </div>
                 <h3 className="explorer-main-title">Tüm Meydanlar</h3>
                 <span className="explorer-badge-total">{TOTAL_MEYDAN_COUNT}</span>
@@ -276,12 +313,12 @@ export default function MeydanExplorer({
                 title="Sütunlu / Çekmeceli Görünüme Geç"
                 aria-label="Sütunlu görünüm"
               >
-                <ViewColumnsIcon width={16} height={16} />
+                <ViewColumnsIcon width={15} height={15} />
               </button>
             </div>
 
             <div className="explorer-search-wrap">
-              <MagnifyingGlassIcon className="explorer-search-icon" width={16} height={16} />
+              <MagnifyingGlassIcon className="explorer-search-icon" width={15} height={15} />
               <input
                 type="text"
                 className="explorer-search-input"
@@ -321,15 +358,15 @@ export default function MeydanExplorer({
                     onClick={() => toggleAccordionYaka('anadolu')}
                   >
                     <div className="tree-header-left">
-                      <GlobeAltIcon width={18} height={18} className="tree-yaka-icon" />
+                      <GlobeAltIcon width={17} height={17} className="tree-yaka-icon" />
                       <strong className="tree-yaka-title">Anadolu Yakası</strong>
                     </div>
                     <div className="tree-header-right">
                       <span className="explorer-badge-count">{ANADOLU_TOTAL_COUNT}</span>
                       {expandedYakalar.anadolu ? (
-                        <ChevronDownIcon width={16} height={16} className="tree-arrow" />
+                        <ChevronDownIcon width={15} height={15} className="tree-arrow" />
                       ) : (
-                        <ChevronRightIcon width={16} height={16} className="tree-arrow" />
+                        <ChevronRightIcon width={15} height={15} className="tree-arrow" />
                       )}
                     </div>
                   </button>
@@ -346,15 +383,17 @@ export default function MeydanExplorer({
                               onClick={() => toggleAccordionDistrict(dist.id)}
                             >
                               <div className="tree-dist-left">
-                                <BuildingOffice2Icon width={15} height={15} className="tree-dist-icon" />
+                                <span className="tree-dist-icon-wrap">
+                                  {getDistrictIcon(dist.name)}
+                                </span>
                                 <span className="tree-dist-name">{dist.name}</span>
                               </div>
                               <div className="tree-dist-right">
                                 <span className="tree-dist-count">{dist.count}</span>
                                 {isDistOpen ? (
-                                  <ChevronDownIcon width={14} height={14} className="tree-arrow" />
+                                  <ChevronDownIcon width={13} height={13} className="tree-arrow" />
                                 ) : (
-                                  <ChevronRightIcon width={14} height={14} className="tree-arrow" />
+                                  <ChevronRightIcon width={13} height={13} className="tree-arrow" />
                                 )}
                               </div>
                             </button>
@@ -395,15 +434,15 @@ export default function MeydanExplorer({
                     onClick={() => toggleAccordionYaka('avrupa')}
                   >
                     <div className="tree-header-left">
-                      <BuildingOffice2Icon width={18} height={18} className="tree-yaka-icon" />
+                      <BuildingOffice2Icon width={17} height={17} className="tree-yaka-icon" />
                       <strong className="tree-yaka-title">Avrupa Yakası</strong>
                     </div>
                     <div className="tree-header-right">
                       <span className="explorer-badge-count">{AVRUPA_TOTAL_COUNT}</span>
                       {expandedYakalar.avrupa ? (
-                        <ChevronDownIcon width={16} height={16} className="tree-arrow" />
+                        <ChevronDownIcon width={15} height={15} className="tree-arrow" />
                       ) : (
-                        <ChevronRightIcon width={16} height={16} className="tree-arrow" />
+                        <ChevronRightIcon width={15} height={15} className="tree-arrow" />
                       )}
                     </div>
                   </button>
@@ -420,15 +459,17 @@ export default function MeydanExplorer({
                               onClick={() => toggleAccordionDistrict(dist.id)}
                             >
                               <div className="tree-dist-left">
-                                <BuildingOffice2Icon width={15} height={15} className="tree-dist-icon" />
+                                <span className="tree-dist-icon-wrap">
+                                  {getDistrictIcon(dist.name)}
+                                </span>
                                 <span className="tree-dist-name">{dist.name}</span>
                               </div>
                               <div className="tree-dist-right">
                                 <span className="tree-dist-count">{dist.count}</span>
                                 {isDistOpen ? (
-                                  <ChevronDownIcon width={14} height={14} className="tree-arrow" />
+                                  <ChevronDownIcon width={13} height={13} className="tree-arrow" />
                                 ) : (
-                                  <ChevronRightIcon width={14} height={14} className="tree-arrow" />
+                                  <ChevronRightIcon width={13} height={13} className="tree-arrow" />
                                 )}
                               </div>
                             </button>
@@ -466,12 +507,20 @@ export default function MeydanExplorer({
 
           {/* Decorative Bottom Silhouette and İBB Brand */}
           <div className="explorer-col__footer">
-            <div className="explorer-footer-silhouette" />
+            <div
+              className="explorer-footer-silhouette"
+              style={{ backgroundImage: 'url(/assets/dashboard/bosphorus-bridge-sketch.svg)' }}
+            />
             <div className="explorer-footer-brand">
-              <img src="/favicon.svg" alt="İBB" className="explorer-ibb-logo" />
+              <img
+                src="/assets/dashboard/ibb-official-logo.svg"
+                alt="İBB"
+                className="explorer-ibb-logo"
+              />
               <div className="explorer-footer-text">
-                <span className="explorer-ibb-title">İSTANBUL BÜYÜKŞEHİR BELEDİYESİ</span>
-                <span className="explorer-ibb-slogan">Daha güçlü, daha yaşanabilir İstanbul</span>
+                <span className="explorer-ibb-title">İSTANBUL</span>
+                <span className="explorer-ibb-sub">BÜYÜKŞEHİR BELEDİYESİ</span>
+                <span className="explorer-ibb-slogan">Daha güçlü Daha yaşanabilir İstanbul</span>
               </div>
             </div>
           </div>

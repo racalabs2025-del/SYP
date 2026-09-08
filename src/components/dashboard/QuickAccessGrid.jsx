@@ -16,7 +16,7 @@ export default function QuickAccessGrid({
 }) {
   return (
     <div className={`quick-access-container ${className}`}>
-      {/* 2x2 Action Cards Grid */}
+      {/* 2x2 Action Cards Grid (Ref Image 1 & 2) */}
       <div className="quick-access-grid">
         {/* 1. Meydan Yönetimi */}
         <div
@@ -107,11 +107,20 @@ export default function QuickAccessGrid({
         </div>
       </div>
 
-      {/* Decorative Bottom İBB Banner */}
+      {/* Decorative Bottom İBB Banner (Exact Match to Ref Image 1) */}
       <div className="quick-access-banner">
-        <div className="quick-access-banner__silhouette" />
+        <div
+          className="quick-access-banner__silhouette"
+          style={{ backgroundImage: 'url(/assets/dashboard/bosphorus-bridge-sketch.svg)' }}
+        />
         <div className="quick-access-banner__content">
-          <img src="/favicon.svg" alt="İBB Logo" className="quick-access-banner__logo" />
+          <div className="quick-access-banner__logo-wrap">
+            <img
+              src="/assets/dashboard/ibb-official-logo.svg"
+              alt="İBB Logo"
+              className="quick-access-banner__logo"
+            />
+          </div>
           <div className="quick-access-banner__text">
             <span className="quick-access-banner__org">İSTANBUL BÜYÜKŞEHİR BELEDİYESİ</span>
             <span className="quick-access-banner__slogan">DAHA GÜÇLÜ DAHA YAŞANABİLİR BİR İSTANBUL</span>
