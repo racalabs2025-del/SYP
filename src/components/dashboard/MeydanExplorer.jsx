@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   MapPinIcon,
   ChevronRightIcon,
@@ -27,16 +27,16 @@ import {
 
 function getDistrictIcon(districtName) {
   const norm = (districtName || '').toLowerCase('tr-TR');
-  if (norm.includes('kadıköy') || norm.includes('kadikoy')) return <MapPinIcon width={15} height={15} />;
-  if (norm.includes('üsküdar') || norm.includes('fatih')) return <BuildingLibraryIcon width={15} height={15} />;
-  if (norm.includes('ataşehir') || norm.includes('çekmeköy')) return <BuildingOffice2Icon width={15} height={15} />;
-  if (norm.includes('maltepe')) return <GlobeEuropeAfricaIcon width={15} height={15} />;
-  if (norm.includes('kartal')) return <BuildingOfficeIcon width={15} height={15} />;
-  if (norm.includes('pendik')) return <SparklesIcon width={15} height={15} />;
-  if (norm.includes('tuzla')) return <PaperAirplaneIcon width={15} height={15} />;
-  if (norm.includes('sancaktepe')) return <UserGroupIcon width={15} height={15} />;
-  if (norm.includes('sultanbeyli')) return <BuildingLibraryIcon width={15} height={15} />;
-  return <BuildingOffice2Icon width={15} height={15} />;
+  if (norm.includes('kadıköy') || norm.includes('kadikoy')) return <MapPinIcon width={14} height={14} />;
+  if (norm.includes('üsküdar') || norm.includes('fatih')) return <BuildingLibraryIcon width={14} height={14} />;
+  if (norm.includes('ataşehir') || norm.includes('çekmeköy')) return <BuildingOffice2Icon width={14} height={14} />;
+  if (norm.includes('maltepe')) return <GlobeEuropeAfricaIcon width={14} height={14} />;
+  if (norm.includes('kartal')) return <BuildingOfficeIcon width={14} height={14} />;
+  if (norm.includes('pendik')) return <SparklesIcon width={14} height={14} />;
+  if (norm.includes('tuzla')) return <PaperAirplaneIcon width={14} height={14} />;
+  if (norm.includes('sancaktepe')) return <UserGroupIcon width={14} height={14} />;
+  if (norm.includes('sultanbeyli')) return <BuildingLibraryIcon width={14} height={14} />;
+  return <BuildingOffice2Icon width={14} height={14} />;
 }
 
 export default function MeydanExplorer({
@@ -48,11 +48,9 @@ export default function MeydanExplorer({
 }) {
   const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa' | 'ortak'
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDistrictFilter, setSelectedDistrictFilter] = useState(null); // string | null (id of filtered district)
   const [expandedDistricts, setExpandedDistricts] = useState({});
-
-  function toggleDistrict(distId) {
-    setExpandedDistricts((prev) => ({ ...prev, [distId]: !prev[distId] }));
-  }
+  const chipsScrollRef = useRef(null);
 
   // Active district list based on Yaka tab
   const displayedDistricts = useMemo(() => {
@@ -71,6 +69,69 @@ export default function MeydanExplorer({
     return [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
   }, [activeYaka]);
 
+  // When switching Yaka tab, reset district filter and expanded state
+  const handleYakaChange = (newYaka) => {
+    setActiveYaka(newYaka);
+    setSelectedDistrictFilter(null);
+    setExpandedDistricts({});
+  };
+
+  // Smart Single-Accordion: Clicking a district opens it and automatically closes any others
+  function toggleDistrict(distId) {
+    setExpandedDistricts((prev) => {
+      const isCurrentlyOpen = !!prev[distId];
+      return isCurrentlyOpen ? {} : { [distId]: true };
+    });
+  }
+
+  // Quick chip click: Filter directly to that district and auto-expand it
+  function handleChipSelect(distId) {
+    if (selectedDistrictFilter === distId) {
+      setSelectedDistrictFilter(null);
+      setExpandedDistricts({});
+    } else {
+      setSelectedDistrictFilter(distId);
+      setExpandedDistricts({ [distId]: true });
+    }
+  }
+
+  // Auto-expand district & scroll to selected square when selectedMeydan changes (e.g. via hero slider)
+  useEffect(() => {
+    if (!selectedMeydan || selectedMeydan.id === 'tum-meydanlar') return;
+
+    const all = [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
+    const parent = all.find((d) => d.meydanlar.some((m) => m.id === selectedMeydan.id));
+
+    if (parent) {
+      // Auto-open this district
+      setExpandedDistricts({ [parent.id]: true });
+
+      // Check yaka
+      const isAnadolu = ANADOLU_DISTRICTS.some((d) => d.id === parent.id);
+      if (activeYaka === 'anadolu' && !isAnadolu) {
+        setActiveYaka('avrupa');
+      } else if (activeYaka === 'avrupa' && isAnadolu) {
+        setActiveYaka('anadolu');
+      }
+
+      // Smooth scroll the square row into view inside the explorer body
+      const timer = setTimeout(() => {
+        const el = document.querySelector(`[data-square-id="${selectedMeydan.id}"]`);
+        if (el) {
+          el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      }, 70);
+
+      return () => clearTimeout(timer);
+    }
+  }, [selectedMeydan?.id]);
+
+  // Filtered districts (either 1 district if chip active, or all displayed districts)
+  const filteredDistricts = useMemo(() => {
+    if (!selectedDistrictFilter) return displayedDistricts;
+    return displayedDistricts.filter((d) => d.id === selectedDistrictFilter);
+  }, [displayedDistricts, selectedDistrictFilter]);
+
   // Helper to find personnel for a specific square
   function getSquarePersonnel(m) {
     if (!m) return [];
@@ -78,13 +139,25 @@ export default function MeydanExplorer({
     if (todayShifts && todayShifts.length > 0) {
       const matched = todayShifts.filter((s) => {
         if (s.isLeave) return false;
-        if (m.rawVariants && s.rawLocation && m.rawVariants.some(v => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())) {
+        if (
+          m.rawVariants &&
+          s.rawLocation &&
+          m.rawVariants.some((v) => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())
+        ) {
           return true;
         }
-        if (s.rawLocation && (s.rawLocation.toLowerCase().includes(m.name.toLowerCase()) || m.name.toLowerCase().includes(s.rawLocation.toLowerCase()))) {
+        if (
+          s.rawLocation &&
+          (s.rawLocation.toLowerCase().includes(m.name.toLowerCase()) ||
+            m.name.toLowerCase().includes(s.rawLocation.toLowerCase()))
+        ) {
           return true;
         }
-        if (m.personnel && s.personelAdi && m.personnel.some(p => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())) {
+        if (
+          m.personnel &&
+          s.personelAdi &&
+          m.personnel.some((p) => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())
+        ) {
           return true;
         }
         return false;
@@ -117,12 +190,15 @@ export default function MeydanExplorer({
 
   return (
     <nav className={`meydan-explorer-unified ${className}`} aria-label="Meydan Gezgini">
-      {/* ─── 1. TOP HEADER & OVERVIEW ─── */}
+      {/* ─── 1. TOP HEADER & CONTROLS ─── */}
       <div className="explorer-unified-header">
         <button
           type="button"
           className={`explorer-overview-btn ${isOverviewActive ? 'is-active' : ''}`}
-          onClick={() => onSelectMeydan(null)}
+          onClick={() => {
+            setSelectedDistrictFilter(null);
+            onSelectMeydan(null);
+          }}
           title="Tüm Meydanlar Genel Bakış"
         >
           <div className="explorer-icon-pin">
@@ -165,7 +241,7 @@ export default function MeydanExplorer({
               role="tab"
               aria-selected={activeYaka === 'anadolu'}
               className={`explorer-yaka-tab ${activeYaka === 'anadolu' ? 'is-active' : ''}`}
-              onClick={() => setActiveYaka('anadolu')}
+              onClick={() => handleYakaChange('anadolu')}
             >
               <span>Anadolu</span>
               <span className="tab-badge">{ANADOLU_TOTAL_COUNT}</span>
@@ -175,7 +251,7 @@ export default function MeydanExplorer({
               role="tab"
               aria-selected={activeYaka === 'avrupa'}
               className={`explorer-yaka-tab ${activeYaka === 'avrupa' ? 'is-active' : ''}`}
-              onClick={() => setActiveYaka('avrupa')}
+              onClick={() => handleYakaChange('avrupa')}
             >
               <span>Avrupa</span>
               <span className="tab-badge">{AVRUPA_TOTAL_COUNT}</span>
@@ -185,7 +261,7 @@ export default function MeydanExplorer({
               role="tab"
               aria-selected={activeYaka === 'all'}
               className={`explorer-yaka-tab ${activeYaka === 'all' ? 'is-active' : ''}`}
-              onClick={() => setActiveYaka('all')}
+              onClick={() => handleYakaChange('all')}
             >
               <span>Hepsi</span>
               <span className="tab-badge">{TOTAL_MEYDAN_COUNT}</span>
@@ -195,18 +271,86 @@ export default function MeydanExplorer({
               role="tab"
               aria-selected={activeYaka === 'ortak'}
               className={`explorer-yaka-tab ${activeYaka === 'ortak' ? 'is-active' : ''}`}
-              onClick={() => setActiveYaka('ortak')}
+              onClick={() => handleYakaChange('ortak')}
               title="Ortak Çalışma Alanları (Beyazıt, Sultangazi vb.)"
             >
               <span>Ortak</span>
-              <span className="tab-badge" style={{ background: '#ea580c', color: '#fff' }}>{ORTAK_CALISMA_COUNT}</span>
+              <span className="tab-badge" style={{ background: '#ea580c', color: '#fff' }}>
+                {ORTAK_CALISMA_COUNT}
+              </span>
             </button>
+          </div>
+        )}
+
+        {/* ─── CREATIVE SOLUTION: Horizontal District Quick-Chips Strip ─── */}
+        {!searchQuery && displayedDistricts.length > 0 && (
+          <div className="explorer-district-chips-container">
+            <div className="explorer-district-chips-scroll" ref={chipsScrollRef}>
+              <button
+                type="button"
+                className={`district-chip-pill ${!selectedDistrictFilter ? 'is-active' : ''}`}
+                onClick={() => {
+                  setSelectedDistrictFilter(null);
+                  setExpandedDistricts({});
+                }}
+              >
+                <span>Tüm İlçeler</span>
+                <span className="district-chip-badge">
+                  {activeYaka === 'anadolu'
+                    ? ANADOLU_TOTAL_COUNT
+                    : activeYaka === 'avrupa'
+                    ? AVRUPA_TOTAL_COUNT
+                    : activeYaka === 'ortak'
+                    ? ORTAK_CALISMA_COUNT
+                    : TOTAL_MEYDAN_COUNT}
+                </span>
+              </button>
+
+              {displayedDistricts.map((dist) => {
+                const isActive = selectedDistrictFilter === dist.id;
+                return (
+                  <button
+                    key={dist.id}
+                    type="button"
+                    className={`district-chip-pill ${isActive ? 'is-active' : ''}`}
+                    onClick={() => handleChipSelect(dist.id)}
+                    title={`${dist.name} (${dist.count} meydan)`}
+                  >
+                    <span>{dist.name}</span>
+                    <span className="district-chip-badge">{dist.count}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
 
-      {/* ─── 2. SCROLLABLE BODY ─── */}
+      {/* ─── 2. SCROLLABLE BODY (Strictly Contained Inside Left Card) ─── */}
       <div className="explorer-unified-body">
+        {/* District Filter Active Banner */}
+        {!searchQuery && selectedDistrictFilter && (
+          <div className="explorer-filter-status-banner">
+            <div className="filter-status-left">
+              <div className="filter-dot" />
+              <span className="filter-text">
+                <strong>{displayedDistricts.find((d) => d.id === selectedDistrictFilter)?.name}</strong> (
+                {displayedDistricts.find((d) => d.id === selectedDistrictFilter)?.count} meydan)
+              </span>
+            </div>
+            <button
+              type="button"
+              className="btn-clear-district-filter"
+              onClick={() => {
+                setSelectedDistrictFilter(null);
+                setExpandedDistricts({});
+              }}
+            >
+              Tüm İlçeler ✕
+            </button>
+          </div>
+        )}
+
         {searchResults ? (
           /* Search Results */
           <div className="explorer-search-results">
@@ -221,14 +365,12 @@ export default function MeydanExplorer({
                 return (
                   <button
                     key={m.id}
+                    data-square-id={m.id}
                     type="button"
                     className={`explorer-item-btn tree-square-row ${isSelected ? 'is-selected' : ''}`}
                     onClick={() => onSelectMeydan(m)}
                   >
-                    <div
-                      className="tree-square-thumb"
-                      style={{ backgroundImage: `url(${thumbImg})` }}
-                    />
+                    <div className="tree-square-thumb" style={{ backgroundImage: `url(${thumbImg})` }} />
                     <div className="tree-square-info">
                       <strong className="tree-square-name">
                         {m.name}
@@ -265,10 +407,11 @@ export default function MeydanExplorer({
             )}
           </div>
         ) : (
-          /* Districts Accordion Tree */
+          /* Districts Smart Single-Accordion Tree */
           <div className="explorer-districts-tree">
-            {displayedDistricts.map((dist) => {
-              const isOpen = !!expandedDistricts[dist.id];
+            {filteredDistricts.map((dist) => {
+              // If a chip is active, always expand that district
+              const isOpen = selectedDistrictFilter === dist.id || !!expandedDistricts[dist.id];
               const hasActiveChild = dist.meydanlar.some((m) => m.id === selectedMeydan?.id);
 
               return (
@@ -280,9 +423,7 @@ export default function MeydanExplorer({
                     aria-expanded={isOpen}
                   >
                     <div className="tree-dist-left">
-                      <span className="tree-dist-icon-wrap">
-                        {getDistrictIcon(dist.name)}
-                      </span>
+                      <span className="tree-dist-icon-wrap">{getDistrictIcon(dist.name)}</span>
                       <strong className="tree-dist-name">{dist.name}</strong>
                     </div>
                     <div className="tree-dist-right">
@@ -305,14 +446,12 @@ export default function MeydanExplorer({
                         return (
                           <button
                             key={m.id}
+                            data-square-id={m.id}
                             type="button"
                             className={`tree-square-row ${isSelected ? 'is-selected' : ''}`}
                             onClick={() => onSelectMeydan(m)}
                           >
-                            <div
-                              className="tree-square-thumb"
-                              style={{ backgroundImage: `url(${thumbImg})` }}
-                            />
+                            <div className="tree-square-thumb" style={{ backgroundImage: `url(${thumbImg})` }} />
                             <div className="tree-square-info">
                               <span className="tree-square-name">
                                 {m.name}
