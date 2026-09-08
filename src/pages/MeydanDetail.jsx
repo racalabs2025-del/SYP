@@ -10,6 +10,7 @@ import { fetchMeydanWeather, toWeatherErrorMessage } from '../service/weatherSer
 import { normalizeMeydanInput } from '../utils/meydanNormalization';
 import { getMeydanYaka, getYakaLabel } from '../utils/meydanYaka';
 import DateRangePicker from '../components/shared/DateRangePicker';
+import { getCanonicalMeydanById, ALL_CANONICAL_MEYDANLAR } from '../data/canonicalMeydanData.js';
 import { SAHA_PERSONELI } from '../utils/sahaPersoneli';
 import { getWeekDates, isShiftActive, toDateKey } from '../utils/date';
 
@@ -1018,6 +1019,11 @@ export default function MeydanDetail({ onLogout }) {
   const [gunlukText, setGunlukText] = useState('');
   const [savingGunluk, setSavingGunluk] = useState(false);
   const [expandedGunlukNotlar, setExpandedGunlukNotlar] = useState({});
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  useEffect(() => {
+    setSelectedImageIndex(0);
+  }, [id]);
 
   const visibleWeekDates = useMemo(() => {
     const baseDate = new Date();
@@ -1042,27 +1048,43 @@ export default function MeydanDetail({ onLogout }) {
     async function loadMeydan() {
       try {
         const canonicalMeydan = normalizeMeydanInput({ meydanId: id, isim: id, kisaAd: id, tamAd: id });
+        const fallbackCanonical = getCanonicalMeydanById(id) || (canonicalMeydan.valid ? getCanonicalMeydanById(canonicalMeydan.id) : null) || ALL_CANONICAL_MEYDANLAR.find(m => m.id === id || m.id === canonicalMeydan.id) || null;
 
-        if (!canonicalMeydan.valid) {
+        if (!canonicalMeydan.valid && !fallbackCanonical) {
           setError('Belirtilen alan geçerli bir meydan değildir. "Diğer", ofis veya genel görev kayıtları bağımsız bir meydan sayfası olarak listelenmez. Lütfen Ana Sayfadan geçerli bir meydan seçiniz.');
           setLoading(false);
           return;
         }
 
-        const meydanSnapshot = await getDoc(doc(db, 'meydanlar', id));
+        const resolvedId = canonicalMeydan.valid ? canonicalMeydan.id : (fallbackCanonical?.id || id);
+        const meydanSnapshot = await getDoc(doc(db, 'meydanlar', resolvedId));
         const meydanData = meydanSnapshot.exists() ? meydanSnapshot.data() : {};
 
         setMeydan({
-          id,
-          isim: meydanData?.isim || canonicalMeydan.isim,
-          tamAd: meydanData?.tamAd || canonicalMeydan.tamAd,
+          id: resolvedId,
+          sira: meydanData?.sira || fallbackCanonical?.sira || 0,
+          isim: meydanData?.isim || fallbackCanonical?.name || canonicalMeydan.isim,
+          tamAd: meydanData?.tamAd || fallbackCanonical?.name || canonicalMeydan.tamAd,
+          name: meydanData?.name || fallbackCanonical?.name || canonicalMeydan.isim,
+          district: meydanData?.district || fallbackCanonical?.district || canonicalMeydan.district || '',
+          yaka: meydanData?.yaka || fallbackCanonical?.yaka || canonicalMeydan.yaka || '',
+          kategori: meydanData?.kategori || fallbackCanonical?.kategori || canonicalMeydan.kategori || 'DOĞRUDAN YÖNETİM',
+          yonetimNotu: meydanData?.yonetimNotu || fallbackCanonical?.yonetimNotu || canonicalMeydan.yonetimNotu || 'Meydan Yönetimi Doğrudan Sorumluluğunda',
+          subtitle: meydanData?.subtitle || fallbackCanonical?.subtitle || `${meydanData?.district || fallbackCanonical?.district || ''}, İstanbul`,
+          yapimYili: meydanData?.yapimYili || fallbackCanonical?.yapimYili || '',
+          alanM2: meydanData?.alanM2 || fallbackCanonical?.alanM2 || '',
+          fonksiyonlar: (meydanData?.fonksiyonlar && meydanData.fonksiyonlar.length) ? meydanData.fonksiyonlar : (fallbackCanonical?.fonksiyonlar || []),
+          aciklama: meydanData?.aciklama || fallbackCanonical?.aciklama || '',
+          heroImage: meydanData?.heroImage || fallbackCanonical?.heroImage || '/assets/dashboard/taksim-square.jpg',
+          images: (meydanData?.images && meydanData.images.length) ? meydanData.images : (fallbackCanonical?.images || []),
+          landmarks: (meydanData?.landmarks && meydanData.landmarks.length) ? meydanData.landmarks : (fallbackCanonical?.landmarks || []),
           lat: Number(meydanData?.lat),
           lon: Number(meydanData?.lon),
         });
 
         const vardiyaQuery = query(
           collection(db, 'vardiyalar'),
-          where('meydanId', '==', id),
+          where('meydanId', '==', resolvedId),
         );
         const vardiyaSnapshot = await getDocs(vardiyaQuery);
 
@@ -1387,13 +1409,22 @@ export default function MeydanDetail({ onLogout }) {
 
       <main className="page page-detail">
         <section className="detail-hero">
-          {/* Sol Kolon: Başlık, Yaka Rozeti, Rota & Günlük Butonları, Açıklama */}
+          {/* Sol Kolon: Başlık, Yaka Rozeti, Yönetim Modeli, Rota & Günlük Butonları, Açıklama */}
           <div className="detail-hero__left">
             <div className="detail-hero__eyebrow">
               <span className="section-kicker">Meydan Görünümü</span>
               <span className={`detail-hero__yaka-badge detail-hero__yaka-badge--${yaka}`}>
                 {yakaLabel}
               </span>
+              {meydan?.kategori === 'ORTAK ÇALIŞMA' ? (
+                <span className="detail-hero__mgmt-badge detail-hero__mgmt-badge--shared" title={meydan?.yonetimNotu}>
+                  🤝 Ortak Çalışma {meydan?.yonetimNotu ? `• ${meydan.yonetimNotu}` : ''}
+                </span>
+              ) : (
+                <span className="detail-hero__mgmt-badge detail-hero__mgmt-badge--direct">
+                  🏛️ İBB Meydan Yönetimi Doğrudan Sorumluluğunda
+                </span>
+              )}
             </div>
             <div className="detail-hero__title-row">
               <h1>{meydan?.isim || 'Meydan'}</h1>
@@ -1430,7 +1461,34 @@ export default function MeydanDetail({ onLogout }) {
                 </div>
               ) : null}
             </div>
-            <p className="detail-hero__desc">{meydan?.tamAd || 'Seçili meydan için ekip ve plan görünümü.'}</p>
+
+            {/* Quick Specs Chips */}
+            <div className="detail-hero__specs-row">
+              {meydan?.alanM2 ? (
+                <span className="detail-hero__spec-chip">
+                  <strong>📐 Alan:</strong> {meydan.alanM2}
+                </span>
+              ) : null}
+              {meydan?.yapimYili ? (
+                <span className="detail-hero__spec-chip">
+                  <strong>🏗️ Yapım / Düzenleme:</strong> {meydan.yapimYili}
+                </span>
+              ) : null}
+              {meydan?.sira ? (
+                <span className="detail-hero__spec-chip detail-hero__spec-chip--accent">
+                  <strong>📋 Sıra:</strong> #{meydan.sira} / 95
+                </span>
+              ) : null}
+              {meydan?.district ? (
+                <span className="detail-hero__spec-chip">
+                  <strong>📍 İlçe:</strong> {meydan.district}
+                </span>
+              ) : null}
+            </div>
+
+            <p className="detail-hero__desc">
+              {meydan?.aciklama ? `${meydan.aciklama.slice(0, 240)}...` : (meydan?.tamAd || 'Seçili meydan için ekip ve plan görünümü.')}
+            </p>
           </div>
 
           {/* Sağ Kolon: 4'lü Operasyon Kartı Grid'i */}
@@ -1550,6 +1608,100 @@ export default function MeydanDetail({ onLogout }) {
 
         {!loading && !error ? (
           <div className="detail-page-content">
+            {/* ─── MEYDAN TANITIM VE GERÇEK FOTOĞRAF GALERİSİ VİTRİNİ ─── */}
+            {meydan && (meydan.images?.length > 0 || meydan.heroImage || meydan.aciklama) ? (
+              <section className="detail-showcase-card" aria-label="Meydan Tanıtım ve Gerçek Görselleri">
+                <div className="detail-showcase-grid">
+                  {/* Sol: Büyük Gerçek Fotoğraf ve Küçük Görsel Seçici */}
+                  <div className="detail-showcase-gallery">
+                    <div className="detail-showcase-main-img-wrap">
+                      <img
+                        src={meydan.images?.[selectedImageIndex] || meydan.heroImage || '/assets/dashboard/taksim-square.jpg'}
+                        alt={`${meydan.isim} Görseli ${selectedImageIndex + 1}`}
+                        className="detail-showcase-main-img"
+                        loading="eager"
+                      />
+                      <div className="detail-showcase-img-badge">
+                        <span>{meydan.isim} • Fotoğraf {selectedImageIndex + 1} / {Math.max(1, (meydan.images?.length || 1))}</span>
+                      </div>
+                    </div>
+
+                    {meydan.images && meydan.images.length > 1 && (
+                      <div className="detail-showcase-thumbs">
+                        {meydan.images.map((imgUrl, idx) => (
+                          <button
+                            key={idx}
+                            type="button"
+                            className={`detail-showcase-thumb-btn ${idx === selectedImageIndex ? 'is-active' : ''}`}
+                            onClick={() => setSelectedImageIndex(idx)}
+                            title={`${meydan.isim} Görsel ${idx + 1}`}
+                          >
+                            <img src={imgUrl} alt="" className="detail-showcase-thumb-img" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Sağ: Meydan Künyesi, Resmi Sunum Açıklaması ve Fonksiyonlar */}
+                  <div className="detail-showcase-info">
+                    <div className="detail-showcase-info__header">
+                      <div className="detail-showcase-kicker-row">
+                        <span className="section-kicker">Meydan Künyesi & Donatılar</span>
+                        <span className={`detail-showcase-status-badge ${meydan.kategori === 'ORTAK ÇALIŞMA' ? 'is-shared' : 'is-direct'}`}>
+                          {meydan.kategori === 'ORTAK ÇALIŞMA' ? '🤝 Ortak Çalışma' : '🏛️ Doğrudan Yönetim'}
+                        </span>
+                      </div>
+                      <h3>{meydan.name || meydan.isim}</h3>
+                      {meydan.yonetimNotu && (
+                        <p className="detail-showcase-yonetim-note">
+                          <strong>Sorumluluk Bilgisi:</strong> {meydan.yonetimNotu}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* 3'lü Mini Metrik Kartı */}
+                    <div className="detail-showcase-metrics">
+                      <div className="detail-showcase-metric-box">
+                        <span className="metric-box__label">Toplam Alan</span>
+                        <strong className="metric-box__val">{meydan.alanM2 || 'Belirtilmedi'}</strong>
+                      </div>
+                      <div className="detail-showcase-metric-box">
+                        <span className="metric-box__label">Yapım / Yenileme</span>
+                        <strong className="metric-box__val">{meydan.yapimYili || 'Mevcut'}</strong>
+                      </div>
+                      <div className="detail-showcase-metric-box">
+                        <span className="metric-box__label">Bölge & Yaka</span>
+                        <strong className="metric-box__val">{meydan.district} • {meydan.yaka === 'avrupa' ? 'Avrupa' : 'Anadolu'}</strong>
+                      </div>
+                    </div>
+
+                    {/* Sunum Dosyası Açıklaması */}
+                    {meydan.aciklama && (
+                      <div className="detail-showcase-desc-block">
+                        <h4>Meydan Tanıtımı & Saha Bilgisi</h4>
+                        <p>{meydan.aciklama}</p>
+                      </div>
+                    )}
+
+                    {/* Fonksiyonlar / Donatılar */}
+                    {meydan.fonksiyonlar && meydan.fonksiyonlar.length > 0 && (
+                      <div className="detail-showcase-functions-block">
+                        <h4>Mevcut Fonksiyonlar ve Sosyal Donatılar</h4>
+                        <div className="detail-showcase-tag-list">
+                          {meydan.fonksiyonlar.map((fn, idx) => (
+                            <span key={idx} className="detail-showcase-tag">
+                              ✓ {fn}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
+            ) : null}
+
             {/* Tarih Aralığı Filtre Çubuğu */}
             <div className="detail-filter-bar">
               <DateRangePicker value={filterRange} onChange={setFilterRange} />

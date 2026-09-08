@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   MapPinIcon,
   UserGroupIcon,
@@ -8,31 +8,37 @@ import {
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
+import {
+  ALL_CANONICAL_MEYDANLAR,
+  TOTAL_MEYDAN_COUNT,
+  DOGRUDAN_YONETIM_COUNT,
+  ORTAK_CALISMA_COUNT,
+} from '../../data/canonicalMeydanData.js';
 
 const GUNUN_ISTANBULU_CARDS = [
   {
-    id: 'sultanahmet-meydani',
-    name: 'Sultanahmet',
-    desc: 'Tarihin buluşma noktası',
-    img: '/login-scenes/cult/tarihi-yarimada.jpg',
-  },
-  {
-    id: 'kadikoy-meydani',
-    name: 'Kadıköy',
-    desc: 'Yaşamın enerjisi',
-    img: '/assets/dashboard/kadikoy-boga.jpg',
-  },
-  {
     id: 'taksim-meydani',
-    name: 'Taksim',
-    desc: 'Her zaman canlı',
-    img: '/assets/dashboard/taksim-square.jpg',
+    name: 'Taksim Meydanı',
+    desc: 'Beyoğlu • Kültür ve Buluşma Odağı',
+    img: '/assets/meydan_photos/image49.png',
   },
   {
-    id: 'eminonu-meydani',
-    name: 'Eminönü',
-    desc: "İstanbul'un kapısı",
-    img: '/assets/dashboard/kadikoy-iskele.jpg',
+    id: 'beyazit-meydani',
+    name: 'Beyazıt Meydanı',
+    desc: 'Fatih • Turizm Şb. Md. Ortak Çalışma',
+    img: '/assets/meydan_photos/image41.png',
+  },
+  {
+    id: 'kadikoy-bostanci-meydani',
+    name: 'Kadıköy Bostancı Meydanı',
+    desc: 'Kadıköy • 35.000m² Kamusal Yaşam',
+    img: '/assets/meydan_photos/image138.jpg',
+  },
+  {
+    id: 'sultanahmet-meydani',
+    name: 'Sultanahmet Meydanı',
+    desc: 'Fatih • Tarihi Yarımada Kalbi',
+    img: '/assets/meydan_photos/image120.jpg',
   },
 ];
 
@@ -143,7 +149,7 @@ export default function DashboardHero({
                 </div>
                 <h1 className="dashboard-hero-title dashboard-hero-title--large">Meydanlara Genel Bakış</h1>
                 <p className="dashboard-hero-lead">
-                  Daha düzenli, daha güvenli, daha yaşanabilir meydanlar için.
+                  95 Meydan • 88 Doğrudan Yönetim • 7 Ortak Çalışma Alanı
                 </p>
               </div>
 
@@ -224,7 +230,7 @@ export default function DashboardHero({
               </div>
             </>
           ) : (
-            /* ═══ SPECIFIC MEYDAN HERO (REF IMAGE 1 - KADIKÖY MEYDANI) ═══ */
+            /* ═══ SPECIFIC MEYDAN HERO ═══ */
             <>
               <div className="dashboard-hero-card__header-row">
                 <div className="dashboard-hero-title-group">
@@ -232,17 +238,77 @@ export default function DashboardHero({
                     <MapPinIcon width={24} height={24} />
                   </div>
                   <div>
-                    <h1 className="dashboard-hero-title">{selectedMeydan?.name || 'Kadıköy Meydanı'}</h1>
+                    <div className="hero-badge-row" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                      {selectedMeydan?.kategori === 'ORTAK ÇALIŞMA' ? (
+                        <span
+                          className="hero-mgmt-chip"
+                          style={{
+                            background: 'rgba(234, 88, 12, 0.25)',
+                            border: '1px solid rgba(251, 146, 60, 0.6)',
+                            color: '#fed7aa',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                          }}
+                          title={selectedMeydan?.yonetimNotu}
+                        >
+                          🤝 Ortak Çalışma {selectedMeydan?.yonetimNotu ? `• ${selectedMeydan.yonetimNotu}` : ''}
+                        </span>
+                      ) : (
+                        <span
+                          className="hero-mgmt-chip"
+                          style={{
+                            background: 'rgba(16, 185, 129, 0.25)',
+                            border: '1px solid rgba(52, 211, 153, 0.6)',
+                            color: '#a7f3d0',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                          }}
+                        >
+                          🏛️ İBB Meydan Yönetimi (Doğrudan)
+                        </span>
+                      )}
+                      {selectedMeydan?.alanM2 && (
+                        <span
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.12)',
+                            color: '#e2e8f0',
+                            fontSize: '11px',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                          }}
+                        >
+                          📐 {selectedMeydan.alanM2}
+                        </span>
+                      )}
+                      {selectedMeydan?.yapimYili && (
+                        <span
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.12)',
+                            color: '#e2e8f0',
+                            fontSize: '11px',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                          }}
+                        >
+                          🏗️ {selectedMeydan.yapimYili}
+                        </span>
+                      )}
+                    </div>
+                    <h1 className="dashboard-hero-title">{selectedMeydan?.name || 'Meydan'}</h1>
                     <div className="dashboard-hero-location-row">
                       <MapPinIcon width={13} height={13} className="hero-subpin" />
-                      <span className="dashboard-hero-location">{selectedMeydan?.subtitle || `${selectedMeydan?.district || 'Kadıköy'}, İstanbul`}</span>
+                      <span className="dashboard-hero-location">{selectedMeydan?.subtitle || `${selectedMeydan?.district || ''}, İstanbul`}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Action Button: Meydan Personeli */}
-              <div className="dashboard-hero-card__action-row">
+              {/* Action Buttons: Meydan Personeli + Meydan Detay Sayfası */}
+              <div className="dashboard-hero-card__action-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <button
                   type="button"
                   className="btn-hero-action"
@@ -256,6 +322,20 @@ export default function DashboardHero({
                 >
                   <UserGroupIcon width={17} height={17} />
                   <span>Meydan Personeli Detayı ({activePersonnel.length})</span>
+                  <ChevronRightIcon width={15} height={15} />
+                </button>
+
+                <button
+                  type="button"
+                  className="btn-hero-action"
+                  style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}
+                  onClick={() => {
+                    if (selectedMeydan?.id) {
+                      navigate(`/meydan/${selectedMeydan.id}`);
+                    }
+                  }}
+                >
+                  <span>Meydan Detay Sayfası</span>
                   <ChevronRightIcon width={15} height={15} />
                 </button>
               </div>
@@ -375,7 +455,10 @@ export default function DashboardHero({
               <div
                 key={card.id}
                 className="gunun-card"
-                onClick={() => onSelectMeydan && onSelectMeydan({ id: card.id, name: `${card.name} Meydanı`, district: card.name })}
+                onClick={() => {
+                  const match = ALL_CANONICAL_MEYDANLAR.find((m) => m.id === card.id);
+                  if (onSelectMeydan) onSelectMeydan(match || { id: card.id, name: card.name, district: card.name });
+                }}
                 role="button"
                 tabIndex={0}
               >

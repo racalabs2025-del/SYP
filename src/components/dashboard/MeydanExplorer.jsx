@@ -20,8 +20,10 @@ import {
   TOTAL_MEYDAN_COUNT,
   ANADOLU_TOTAL_COUNT,
   AVRUPA_TOTAL_COUNT,
+  DOGRUDAN_YONETIM_COUNT,
+  ORTAK_CALISMA_COUNT,
   ALL_CANONICAL_MEYDANLAR,
-} from '../../data/canonicalMeydanData';
+} from '../../data/canonicalMeydanData.js';
 
 function getDistrictIcon(districtName) {
   const norm = (districtName || '').toLowerCase('tr-TR');
@@ -44,9 +46,9 @@ export default function MeydanExplorer({
   activeDateKey = '',
   className = '',
 }) {
-  const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa'
+  const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa' | 'ortak'
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedDistricts, setExpandedDistricts] = useState({ kadikoy: true, uskudar: true, bakirkoy: true, beyoglu: true });
+  const [expandedDistricts, setExpandedDistricts] = useState({ kadikoy: true, uskudar: true, bakirkoy: true, beyoglu: true, fatih: true, sultangazi: true });
 
   function toggleDistrict(distId) {
     setExpandedDistricts((prev) => ({ ...prev, [distId]: !prev[distId] }));
@@ -56,6 +58,16 @@ export default function MeydanExplorer({
   const displayedDistricts = useMemo(() => {
     if (activeYaka === 'anadolu') return ANADOLU_DISTRICTS;
     if (activeYaka === 'avrupa') return AVRUPA_DISTRICTS;
+    if (activeYaka === 'ortak') {
+      const all = [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
+      return all
+        .map((d) => ({
+          ...d,
+          count: d.meydanlar.filter((m) => m.kategori === 'ORTAK ÇALIŞMA').length,
+          meydanlar: d.meydanlar.filter((m) => m.kategori === 'ORTAK ÇALIŞMA'),
+        }))
+        .filter((d) => d.meydanlar.length > 0);
+    }
     return [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
   }, [activeYaka]);
 
@@ -94,6 +106,9 @@ export default function MeydanExplorer({
       (m) =>
         m.name.toLowerCase('tr-TR').includes(query) ||
         m.district.toLowerCase('tr-TR').includes(query) ||
+        (m.kategori && m.kategori.toLowerCase('tr-TR').includes(query)) ||
+        (m.yonetimNotu && m.yonetimNotu.toLowerCase('tr-TR').includes(query)) ||
+        (m.fonksiyonlar && m.fonksiyonlar.some((fn) => fn.toLowerCase('tr-TR').includes(query))) ||
         (m.personnel && m.personnel.some((p) => p.toLowerCase('tr-TR').includes(query)))
     );
   }, [searchQuery]);
@@ -175,6 +190,17 @@ export default function MeydanExplorer({
               <span>Hepsi</span>
               <span className="tab-badge">{TOTAL_MEYDAN_COUNT}</span>
             </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activeYaka === 'ortak'}
+              className={`explorer-yaka-tab ${activeYaka === 'ortak' ? 'is-active' : ''}`}
+              onClick={() => setActiveYaka('ortak')}
+              title="Ortak Çalışma Alanları (Beyazıt, Sultangazi vb.)"
+            >
+              <span>Ortak</span>
+              <span className="tab-badge" style={{ background: '#ea580c', color: '#fff' }}>{ORTAK_CALISMA_COUNT}</span>
+            </button>
           </div>
         )}
       </div>
@@ -204,7 +230,28 @@ export default function MeydanExplorer({
                       style={{ backgroundImage: `url(${thumbImg})` }}
                     />
                     <div className="tree-square-info">
-                      <strong className="tree-square-name">{m.name}</strong>
+                      <strong className="tree-square-name">
+                        {m.name}
+                        {m.kategori === 'ORTAK ÇALIŞMA' && (
+                          <span
+                            style={{
+                              display: 'inline-block',
+                              marginLeft: '6px',
+                              background: 'rgba(234, 88, 12, 0.15)',
+                              color: '#c2410c',
+                              border: '1px solid rgba(234, 88, 12, 0.4)',
+                              fontSize: '10px',
+                              fontWeight: '600',
+                              padding: '1px 5px',
+                              borderRadius: '8px',
+                              verticalAlign: 'middle',
+                            }}
+                            title={m.yonetimNotu}
+                          >
+                            🤝 Ortak
+                          </span>
+                        )}
+                      </strong>
                       <span className="tree-square-staff">
                         👤 {staff.length > 0 ? staff.slice(0, 2).join(', ') : 'Personel Planlanıyor'}
                       </span>
@@ -267,7 +314,28 @@ export default function MeydanExplorer({
                               style={{ backgroundImage: `url(${thumbImg})` }}
                             />
                             <div className="tree-square-info">
-                              <span className="tree-square-name">{m.name}</span>
+                              <span className="tree-square-name">
+                                {m.name}
+                                {m.kategori === 'ORTAK ÇALIŞMA' && (
+                                  <span
+                                    style={{
+                                      display: 'inline-block',
+                                      marginLeft: '6px',
+                                      background: 'rgba(234, 88, 12, 0.15)',
+                                      color: '#c2410c',
+                                      border: '1px solid rgba(234, 88, 12, 0.4)',
+                                      fontSize: '10px',
+                                      fontWeight: '600',
+                                      padding: '1px 5px',
+                                      borderRadius: '8px',
+                                      verticalAlign: 'middle',
+                                    }}
+                                    title={m.yonetimNotu}
+                                  >
+                                    🤝 Ortak
+                                  </span>
+                                )}
+                              </span>
                               <span className="tree-square-staff">
                                 {staff.length > 0 ? (
                                   <>

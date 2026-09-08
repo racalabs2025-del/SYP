@@ -629,6 +629,31 @@ export default function Dashboard({ onLogout }) {
     const rawMeydanById = Object.fromEntries(rawMeydanList.map((item) => [item.id, item]));
     const normalizedMeydanMap = new Map();
 
+    // 1. Seed with all 95 official canonical squares
+    ALL_CANONICAL_MEYDANLAR.forEach((m) => {
+      normalizedMeydanMap.set(m.id, {
+        id: m.id,
+        sira: m.sira,
+        name: m.name,
+        isim: m.name,
+        tamAd: m.name,
+        district: m.district,
+        yaka: m.yaka,
+        kategori: m.kategori,
+        yonetimNotu: m.yonetimNotu,
+        subtitle: m.subtitle,
+        yapimYili: m.yapimYili,
+        alanM2: m.alanM2,
+        fonksiyonlar: m.fonksiyonlar,
+        aciklama: m.aciklama,
+        heroImage: m.heroImage,
+        images: m.images,
+        landmarks: m.landmarks,
+        personnel: m.personnel,
+      });
+    });
+
+    // 2. Merge any runtime Firestore updates
     rawMeydanList.forEach((item) => {
       const normalized = normalizeMeydanInput({
         meydanId: item.id,
@@ -637,14 +662,29 @@ export default function Dashboard({ onLogout }) {
         tamAd: item.tamAd,
       });
 
-      if (!normalized.valid || normalizedMeydanMap.has(normalized.id)) {
+      if (!normalized.valid) {
         return;
       }
 
+      const existing = normalizedMeydanMap.get(normalized.id) || {};
       normalizedMeydanMap.set(normalized.id, {
+        ...existing,
         id: normalized.id,
-        isim: normalized.isim,
-        tamAd: normalized.tamAd,
+        sira: item.sira || existing.sira,
+        isim: item.isim || existing.isim || normalized.isim,
+        tamAd: item.tamAd || existing.tamAd || normalized.tamAd,
+        name: item.name || existing.name || normalized.isim,
+        district: item.district || existing.district || normalized.district,
+        yaka: item.yaka || existing.yaka || normalized.yaka,
+        kategori: item.kategori || existing.kategori || normalized.kategori,
+        yonetimNotu: item.yonetimNotu || existing.yonetimNotu || normalized.yonetimNotu,
+        yapimYili: item.yapimYili || existing.yapimYili,
+        alanM2: item.alanM2 || existing.alanM2,
+        fonksiyonlar: (item.fonksiyonlar && item.fonksiyonlar.length) ? item.fonksiyonlar : existing.fonksiyonlar,
+        aciklama: item.aciklama || existing.aciklama,
+        heroImage: item.heroImage || existing.heroImage,
+        images: (item.images && item.images.length) ? item.images : existing.images,
+        landmarks: (item.landmarks && item.landmarks.length) ? item.landmarks : existing.landmarks,
       });
     });
 
@@ -1074,8 +1114,14 @@ export default function Dashboard({ onLogout }) {
   }, [izinProgress]);
 
   const activeMeydanRows = useMemo(
-    () => activeMeydanlar.map((meydan) => ({ id: meydan.id, isim: meydan.isim || meydan.id })),
-    [activeMeydanlar],
+    () => meydanlar.map((meydan) => ({
+      id: meydan.id,
+      isim: meydan.isim || meydan.name || meydan.id,
+      yaka: meydan.yaka,
+      district: meydan.district,
+      kategori: meydan.kategori,
+    })),
+    [meydanlar],
   );
 
   const refreshOperationalInsights = useCallback(async ({ silent = false, preferStored = false, signal } = {}) => {

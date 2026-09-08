@@ -1,88 +1,6 @@
-const DISTRICT_DISPLAY_TR = {
-  adalar: 'Adalar',
-  arnavutkoy: 'Arnavutköy',
-  atasehir: 'Ataşehir',
-  avcilar: 'Avcılar',
-  bagcilar: 'Bağcılar',
-  bahcelievler: 'Bahçelievler (Şirinevler)',
-  bakirkoy: 'Bakırköy',
-  basaksehir: 'Başakşehir',
-  bayrampasa: 'Bayrampaşa',
-  besiktas: 'Beşiktaş',
-  beykoz: 'Beykoz',
-  beylikduzu: 'Beylikdüzü',
-  beyoglu: 'Taksim',
-  buyukcekmece: 'Büyükçekmece',
-  catalca: 'Çatalca',
-  cekmekoy: 'Çekmeköy',
-  esenler: 'Esenler',
-  esenyurt: 'Esenyurt',
-  eyupsultan: 'Eyüpsultan',
-  fatih: 'Fatih (Aksaray)',
-  gaziosmanpasa: 'Gaziosmanpaşa',
-  gungoren: 'Güngören',
-  kadikoy: 'Kadıköy',
-  kagithane: 'Kağıthane',
-  kartal: 'Kartal',
-  kucukcekmece: 'Küçükçekmece',
-  maltepe: 'Maltepe',
-  pendik: 'Pendik',
-  sancaktepe: 'Sancaktepe',
-  sariyer: 'Sarıyer',
-  sile: 'Şile',
-  silivri: 'Silivri',
-  sisli: 'Şişli',
-  sultanbeyli: 'Sultanbeyli',
-  sultangazi: 'Sultangazi',
-  sultanahmet: 'Sultanahmet',
-  tuzla: 'Tuzla',
-  umraniye: 'Ümraniye',
-  uskudar: 'Üsküdar',
-  zeytinburnu: 'Zeytinburnu',
-};
+import { ALL_CANONICAL_MEYDANLAR } from '../data/canonicalMeydanData.js';
 
-const DISTRICT_FULL_NAME_TR = {
-  adalar: 'Büyükada Saat Meydanı',
-  arnavutkoy: 'Arnavutköy Meydanı - Şehir Parkı Çevresi',
-  avcilar: 'Avcılar Marmara Caddesi Meydanı',
-  bagcilar: '15 Temmuz Demokrasi Meydanı (Bağcılar)',
-  basaksehir: 'Başakşehir Sular Vadisi Meydanı',
-  bahcelievler: 'Bahçelievler (Şirinevler) Meydanı',
-  bakirkoy: 'Bakırköy Özgürlük Meydanı',
-  bayrampasa: 'Bayrampaşa Meydanı - İsmet Paşa Caddesi Çevresi',
-  besiktas: 'Beşiktaş Meydanı (İskele Meydanı)',
-  beykoz: 'Beykoz Meydanı (Sahil Meydanı)',
-  beylikduzu: 'Beylikdüzü Yaşam Vadisi Cumhuriyet Meydanı',
-  beyoglu: 'Taksim Meydanı',
-  buyukcekmece: 'Büyükçekmece Kent Meydanı',
-  catalca: 'Çatalca Cumhuriyet Meydanı',
-  cekmekoy: 'Çekmeköy Meydanı - Belediye Önü',
-  esenler: 'Esenler Dörtyol Meydanı',
-  esenyurt: 'Esenyurt Cumhuriyet Meydanı',
-  eyupsultan: 'Eyüpsultan Meydanı',
-  fatih: 'Fatih (Aksaray) Meydanı',
-  gaziosmanpasa: 'Gaziosmanpaşa Meydanı',
-  gungoren: 'Güngören Meydanı',
-  kadikoy: 'Kadıköy Rıhtım Meydanı',
-  kagithane: 'Çağlayan Meydanı',
-  kartal: 'Kartal Meydanı',
-  kucukcekmece: 'Küçükçekmece Meydanı',
-  maltepe: 'Maltepe Sahil Etkinlik Meydanı',
-  pendik: 'Pendik Sahil Meydanı',
-  sancaktepe: 'Sancaktepe Meydanı',
-  sariyer: 'Sarıyer Merkez Meydanı',
-  sile: 'Şile Meydanı',
-  sisli: 'Şişli Mecidiyeköy Meydanı',
-  sultanahmet: 'Sultanahmet Meydanı',
-  sultanbeyli: 'Sultanbeyli Kent Meydanı',
-  tuzla: 'Tuzla Sahil Tören Alanı',
-  umraniye: 'Ümraniye 15 Temmuz Şehitler Meydanı',
-  uskudar: 'Üsküdar Mimar Sinan Meydanı',
-  zeytinburnu: 'Zeytinburnu 15 Temmuz Meydanı',
-};
-
-
-const INVALID_TOKENS = new Set([
+export const INVALID_TOKENS = new Set([
   'ht',
   'h t',
   'calistay',
@@ -112,59 +30,19 @@ const INVALID_TOKENS = new Set([
   'yok',
   'gorevli',
   'gorev',
+  'babalik-i',
+  'babalik izni',
+  'evlilik izni',
+  'olum izni',
+  'mazeret izni',
   '-',
   '--',
   '---',
 ]);
 
-const LOCATION_STOPWORDS = new Set([
-  'meydan',
-  'meydani',
-  'mahalle',
-  'mahallesi',
-  'cadde',
-  'caddesi',
-  'sokak',
-  'sokagi',
-  'on',
-  'onu',
-  've',
-]);
-
-const LOCATION_ALIAS_TO_DISTRICT = [
-  {
-    district: 'beyoglu',
-    keywords: ['taksim', 'sishane', 'kabatas', 'tophane', 'karakoy'],
-  },
-  {
-    district: 'besiktas',
-    keywords: ['ortakoy'],
-  },
-  {
-    district: 'kadikoy',
-    keywords: ['kozyatagi', 'bostanci', 'suadiye', 'caddebostan', 'goztepe', 'fikirtepe', 'yogurtcu', 'fenerbahce', 'kalamis'],
-  },
-  {
-    district: 'umraniye',
-    keywords: ['dudullu', 'namik kemal', 'ataturk mahallesi umraniye'],
-  },
-  {
-    district: 'basaksehir',
-    keywords: ['metrokent', 'yesil vadi'],
-  },
-  {
-    district: 'kagithane',
-    keywords: ['caglayan'],
-  },
-  {
-    district: 'sile',
-    keywords: ['agva'],
-  },
-];
-
 function normalizeText(value) {
   return String(value || '')
-    .toLowerCase()
+    .toLowerCase('tr-TR')
     .replace(/ı/g, 'i')
     .replace(/ğ/g, 'g')
     .replace(/ü/g, 'u')
@@ -176,136 +54,253 @@ function normalizeText(value) {
     .trim();
 }
 
-function toTitleCase(value) {
-  return String(value || '')
-    .split(' ')
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toLocaleUpperCase('tr-TR') + part.slice(1))
-    .join(' ');
-}
+// ─── CANONICAL LOOKUP MAPS ──────────────────────────────────────────────────
+const CANONICAL_BY_ID = new Map();
+const CANONICAL_BY_NAME = new Map();
+const CANONICAL_BY_NORM_NAME = new Map();
 
-function createFallbackFromText(text) {
-  const normalized = normalizeText(text)
-    .replace(/\b(istanbul|ibb)\b/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+ALL_CANONICAL_MEYDANLAR.forEach((m) => {
+  CANONICAL_BY_ID.set(m.id.toLowerCase(), m);
+  CANONICAL_BY_NAME.set(m.name.toLowerCase('tr-TR'), m);
+  CANONICAL_BY_NORM_NAME.set(normalizeText(m.name), m);
+  CANONICAL_BY_NORM_NAME.set(normalizeText(m.id), m);
+});
 
-  if (!normalized || INVALID_TOKENS.has(normalized)) {
-    return null;
-  }
+// Explicit aliases for old district slugs and variations
+const ALIAS_MAP = {
+  // Shared/Special Squares (89-95)
+  'kasimpasa': 'kasimpasa-kizilay-meydani',
+  'kasimpasa-kizilay': 'kasimpasa-kizilay-meydani',
+  'kasimpasa kizilay': 'kasimpasa-kizilay-meydani',
+  'sultangazi': 'sultangazi-meydani',
+  'sultangazi meydani': 'sultangazi-meydani',
+  'kucukcekmece': 'kucukcekmece-meydani',
+  'kucukcekmece meydani': 'kucukcekmece-meydani',
+  'arnavutkoy-cumhuriyet': 'arnavutkoy-cumhuriyet-meydani',
+  'arnavutkoy cumhuriyet': 'arnavutkoy-cumhuriyet-meydani',
+  'basaksehir-kent': 'basaksehir-kent-meydani',
+  'basaksehir kent': 'basaksehir-kent-meydani',
+  'sancaktepe': 'sancaktepe-meydani',
+  'sancaktepe meydani': 'sancaktepe-meydani',
+  'beyazit': 'beyazit-meydani',
+  'beyazit meydani': 'beyazit-meydani',
 
-  const tokens = normalized
-    .split(/[\s-]+/)
-    .filter((token) => token && !LOCATION_STOPWORDS.has(token));
+  // Other District and Square Aliases
+  'taksim': 'taksim-meydani',
+  'taksim meydani': 'taksim-meydani',
+  'beyoglu': 'taksim-meydani',
+  'kadikoy': 'kadikoy-meydani',
+  'kadikoy meydani': 'kadikoy-meydani',
+  'bostanci': 'kadikoy-bostanci-meydani',
+  'kadikoy-bostanci': 'kadikoy-bostanci-meydani',
+  'kozyatagi': 'kozyatagi-meydani',
+  'suadiye': 'kadikoy-suadiye-sahil-meydani',
+  'yogurtcu': 'yogurtcu-parki-meydani',
+  'kalamis': 'kalamis-parki-meydani',
+  'fenerbahce': 'fenerbahce-parki-meydani',
+  'caddebostan': 'caddebostan-sahili-meydani',
+  'mimar-sinan': 'mimar-sinan-meydani',
+  'mimar sinan': 'mimar-sinan-meydani',
+  'uskudar': 'mimar-sinan-meydani',
+  'uskudar mimar sinan': 'mimar-sinan-meydani',
+  'salacak': 'salacak-meydani',
+  'pasalimani': 'pasalimani-meydani',
+  'oncesmeler': 'beykoz-oncesmeler-meydani',
+  'pasabahce': 'pasabahce-meydani',
+  'cubuklu': 'cubuklu-kent-meydani',
+  'kanlica': 'kanlica-meydani',
+  'beykoz': 'beykoz-oncesmeler-meydani',
+  'agva': 'agva-meydani',
+  'sile': 'terminal-meydani',
+  'terminal': 'terminal-meydani',
+  'neyzen-tevfik': 'kartal-neyzen-tevfik-meydani',
+  'kartal': 'kartal-neyzen-tevfik-meydani',
+  'savarona': 'kartal-sahil-savarona-meydani',
+  'adalet': 'maltepe-adalet-meydani',
+  'bakireler': 'maltepe-bakireler-aniti-meydani',
+  'maltepe': 'maltepe-cumhuriyet-meydani',
+  'maltepe cumhuriyet': 'maltepe-cumhuriyet-meydani',
+  'dudullu': 'umraniye-dudullu-meydani',
+  'cekmekoy': 'cekmekoy-meydani',
+  'sultanbeyli': 'sultanbeyli-meydani',
+  'pendik': 'pendik-meydani',
+  'pendik sahil': 'pendik-sahil-meydani',
+  'kaynarca': 'kaynarca-sahil-parki',
+  'tahsin-arcan': 'dr-tahsin-arcan-toren-alaniparki',
+  'hayrettin-karaca': 'toprak-dede-hayrettin-karaca-parki-meydani',
+  'tuzla': 'tuzla-meydani',
+  'tahaffuzhane': 'tahaffuzhane-caddesi-meydani',
+  'yasam-vadisi': 'tuzla-yasam-vadisi-1etap-1-kisim',
+  'umraniye': 'umraniye-15-temmuz-sehitler-meydani',
+  'aksaray': 'fatih-aksaray-meydani',
+  'fatih-aksaray': 'fatih-aksaray-meydani',
+  'eminonu': 'fatih-eminonu-meydani',
+  'fatih-eminonu': 'fatih-eminonu-meydani',
+  'sultanahmet': 'sultanahmet-meydani',
+  'ayasofya': 'ayasofya-meydani',
+  'cemberlitas': 'cemberlitas-meydani',
+  'fatih': 'fatih-aksaray-meydani',
+  'piyalepasa': 'beyoglu-piyalepasa-meydani',
+  'karakoy': 'beyoglu-karakoy-meydani',
+  'kabatas': 'beyoglu-kabatas-meydani',
+  'tophane': 'tophane-meydani',
+  'sishane': 'sishane-meydani',
+  'barbaros': 'besiktas-barbaros-meydani',
+  'besiktas': 'besiktas-barbaros-meydani',
+  'ortakoy': 'ortakoy-meydani',
+  'mecidiyekoy': 'mecidiyekoy-meydani',
+  'halaskar': 'halaskar-genclik-ve-yasam-merkezi-meydani',
+  'ugur-mumcu': 'sisli-ugur-mumcu-meydani',
+  'cami-onu': 'sisli-cami-onu-meydani',
+  'sisli': 'mecidiyekoy-meydani',
+  'caglayan': 'caglayan-meydani',
+  'nurtepe': 'kagithane-nurtepe-metro-duragi',
+  'kagithane': 'kagithane-metro-duragi-meydani',
+  'ozgurluk': 'bakirkoy-ozgurluk-meydani',
+  'bakirkoy': 'bakirkoy-ozgurluk-meydani',
+  'sirinevler': 'bahcelievler-sirinevler-meydani',
+  'bahcelievler': 'bahcelievler-sirinevler-meydani',
+  'cesur-parki': 'sehit-yarbay-cesur-parki-meydani',
+  'ebubekir': 'bagcilar-ebubekir-meydani',
+  'bagcilar': 'bagcilar-meydani',
+  'esenler': 'esenler-meydani',
+  'eyupsultan': 'eyupsultan-meydani',
+  'pierre-loti': 'pierre-loti-meydani',
+  'gaziosmanpasa': 'gaziosmanpasa-cumhuriyet-meydani',
+  'kartaltepe': 'bayrampasa-kartaltepe-meydani',
+  'bayrampasa': 'bayrampasa-kartaltepe-meydani',
+  'albatros': 'buyukcekmece-albatros-sahil-meydani',
+  'buyukcekmece': 'buyukcekmece-albatros-sahil-meydani',
+  'catalca': 'catalca-meydani',
+  'seymen': 'seymen-mahallesi-meydani',
+  'silivri': 'seymen-mahallesi-meydani',
+  '100-yil': '100-yil-meydani-beylikduzu-e5-meydani',
+  'beylikduzu': '100-yil-meydani-beylikduzu-e5-meydani',
+  'esenyurt': 'esenyurt-meydani',
+  'yasar-kemal': 'esenyurt-yasar-kemal-meydani',
+  'fevzi-cakmak': 'kucukcekmece-fevzi-cakmak-meydani',
+  'cennet': 'kucukcekmece-cennet-meydani',
+  'avcilar': 'avcilar-meydani',
+  'yesil-vadi': 'yesil-vadi-caddesi-saat-kulesi-ve-cevresi',
+  'metrokent': 'metrokent-metro-istasyonu-meydani',
+  'basaksehir': 'basaksehir-kent-meydani',
+  'arnavutkoy': 'arnavutkoy-15-temmuz-demokrasi-ve-sehitler-meydani',
+  'cirpici': 'zeytinburnu-cirpici-meydani',
+  'zeytinburnu': 'zeytinburnu-cirpici-meydani',
+  'kasim-sokak': 'gungoren-kasim-sokak-meydani',
+  'gungoren': 'gungoren-kasim-sokak-meydani',
+  'adalar': 'adalar-buyukada-meydani',
+  'buyukada': 'adalar-buyukada-meydani',
+};
 
-  if (!tokens.length) {
-    return null;
-  }
-
-  const core = tokens.slice(0, 2).join(' ').trim();
-  if (core.length < 3 || INVALID_TOKENS.has(core)) {
-    return null;
-  }
-
-  const id = core.replace(/\s+/g, '-');
-  return {
-    valid: true,
-    id,
-    isim: `${toTitleCase(core)} Meydanı`,
-    tamAd: `${toTitleCase(core)} Meydanı`,
-  };
-}
-
-function findDistrictSlug(text) {
-  const normalized = normalizeText(text);
-
-  for (const district of Object.keys(DISTRICT_DISPLAY_TR)) {
-    const districtWithSpace = district.replace(/-/g, ' ');
-    if (normalized.includes(districtWithSpace)) {
-      return district;
-    }
-  }
-
-  return '';
-}
-
-function findAliasDistrictSlug(text) {
-  const normalized = normalizeText(text);
-
-  for (const rule of LOCATION_ALIAS_TO_DISTRICT) {
-    if (rule.keywords.some((keyword) => normalized.includes(keyword))) {
-      return rule.district;
-    }
-  }
-
-  return '';
-}
-
-function shouldPreferExplicitTamAd(explicitTamAd, shortName, districtName) {
-  const normalizedExplicit = normalizeText(explicitTamAd);
-  const normalizedShort = normalizeText(shortName);
-  const normalizedDistrict = normalizeText(districtName);
-
-  if (!normalizedExplicit) {
-    return false;
-  }
-
-  // Explicit full names like "Taksim Meydani - ..." should win,
-  // but short/generic labels should fall back to canonical full names.
-  if (normalizedExplicit === normalizedShort || normalizedExplicit === normalizedDistrict) {
-    return false;
-  }
-
-  if (normalizedExplicit === `${normalizedDistrict} meydani`) {
-    return false;
-  }
-
-  return true;
-}
-
+/**
+ * Normalizes any meydan identifier, name, or raw text input directly
+ * to one of the 95 official Canonical Squares.
+ */
 export function normalizeMeydanInput(input) {
-  const rawMeydanId = input?.meydanId || '';
-  const rawKisaAd = input?.kisaAd || '';
-  const rawTamAd = input?.tamAd || '';
-  const rawIsim = input?.isim || '';
-  const explicitTamAd = String(rawTamAd || '').trim();
-  const hasExplicitTamAd = Boolean(explicitTamAd) && !INVALID_TOKENS.has(normalizeText(explicitTamAd));
-  const sourceText = [rawTamAd, rawKisaAd, rawIsim, rawMeydanId].find((item) => String(item || '').trim()) || '';
+  const rawMeydanId = typeof input === 'string' ? input : (input?.meydanId || '');
+  const rawKisaAd = typeof input === 'object' ? (input?.kisaAd || '') : '';
+  const rawTamAd = typeof input === 'object' ? (input?.tamAd || '') : '';
+  const rawIsim = typeof input === 'object' ? (input?.isim || '') : '';
 
-  const normalizedSource = normalizeText(sourceText);
-  if (!normalizedSource || INVALID_TOKENS.has(normalizedSource)) {
+  const candidates = [rawMeydanId, rawTamAd, rawKisaAd, rawIsim]
+    .map((s) => String(s || '').trim())
+    .filter(Boolean);
+
+  if (!candidates.length) {
     return { valid: false, id: '', isim: '', tamAd: '' };
   }
 
-  const districtSlug = findDistrictSlug(sourceText);
-  const aliasDistrictSlug = districtSlug || findAliasDistrictSlug(sourceText);
-  if (aliasDistrictSlug) {
-    const districtName = DISTRICT_DISPLAY_TR[aliasDistrictSlug];
-    const shortName = `${districtName} Meydanı`;
-    const canonicalFullName = DISTRICT_FULL_NAME_TR[aliasDistrictSlug] || shortName;
-    const useExplicit = hasExplicitTamAd && shouldPreferExplicitTamAd(explicitTamAd, shortName, districtName);
-
-    return {
-      valid: true,
-      id: aliasDistrictSlug,
-      isim: shortName,
-      tamAd: useExplicit ? explicitTamAd : canonicalFullName,
-      confidence: districtSlug ? 'high' : 'medium',
-    };
+  // 1. Check for invalid non-meydan tokens (e.g. HT, İzinli, Diğer)
+  for (const c of candidates) {
+    const norm = normalizeText(c);
+    if (INVALID_TOKENS.has(norm) || norm.startsWith('izin') || norm.startsWith('rapor') || norm === 'ht') {
+      return { valid: false, id: '', isim: '', tamAd: '' };
+    }
   }
 
-  const fallback = createFallbackFromText(sourceText);
-  if (fallback) {
-    const canonicalFullName = DISTRICT_FULL_NAME_TR[fallback.id] || fallback.tamAd;
-    const hasNonShortExplicit = hasExplicitTamAd
-      && normalizeText(explicitTamAd) !== normalizeText(fallback.tamAd)
-      && normalizeText(explicitTamAd) !== normalizeText(fallback.isim);
+  // 2. Direct ID check
+  for (const c of candidates) {
+    const lower = c.toLowerCase();
+    if (CANONICAL_BY_ID.has(lower)) {
+      const match = CANONICAL_BY_ID.get(lower);
+      return {
+        valid: true,
+        id: match.id,
+        isim: match.name,
+        tamAd: match.name,
+        district: match.district,
+        yaka: match.yaka,
+        kategori: match.kategori,
+        yonetimNotu: match.yonetimNotu,
+        confidence: 'high',
+      };
+    }
+  }
 
-    return {
-      ...fallback,
-      confidence: 'low',
-      tamAd: hasNonShortExplicit ? explicitTamAd : canonicalFullName,
-    };
+  // 3. Exact or normalized name check
+  for (const c of candidates) {
+    const norm = normalizeText(c);
+    if (CANONICAL_BY_NORM_NAME.has(norm)) {
+      const match = CANONICAL_BY_NORM_NAME.get(norm);
+      return {
+        valid: true,
+        id: match.id,
+        isim: match.name,
+        tamAd: match.name,
+        district: match.district,
+        yaka: match.yaka,
+        kategori: match.kategori,
+        yonetimNotu: match.yonetimNotu,
+        confidence: 'high',
+      };
+    }
+  }
+
+  // 4. Check explicit aliases map
+  for (const c of candidates) {
+    const norm = normalizeText(c).replace(/\s+/g, '-');
+    const normSpaced = normalizeText(c);
+    const aliasTargetId = ALIAS_MAP[norm] || ALIAS_MAP[normSpaced];
+    if (aliasTargetId && CANONICAL_BY_ID.has(aliasTargetId)) {
+      const match = CANONICAL_BY_ID.get(aliasTargetId);
+      return {
+        valid: true,
+        id: match.id,
+        isim: match.name,
+        tamAd: match.name,
+        district: match.district,
+        yaka: match.yaka,
+        kategori: match.kategori,
+        yonetimNotu: match.yonetimNotu,
+        confidence: 'high',
+      };
+    }
+  }
+
+  // 5. Partial token match against canonical squares
+  for (const c of candidates) {
+    const norm = normalizeText(c);
+    if (norm.length < 3) continue;
+
+    // Try to find if any canonical square name contains or is contained in this candidate
+    for (const m of ALL_CANONICAL_MEYDANLAR) {
+      const mNorm = normalizeText(m.name);
+      const mIdNorm = normalizeText(m.id);
+      if (norm.includes(mNorm) || mNorm.includes(norm) || norm.includes(mIdNorm)) {
+        return {
+          valid: true,
+          id: m.id,
+          isim: m.name,
+          tamAd: m.name,
+          district: m.district,
+          yaka: m.yaka,
+          kategori: m.kategori,
+          yonetimNotu: m.yonetimNotu,
+          confidence: 'medium',
+        };
+      }
+    }
   }
 
   return { valid: false, id: '', isim: '', tamAd: '' };
