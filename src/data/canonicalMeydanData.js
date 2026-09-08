@@ -33,8 +33,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image138.jpg",
         "images": [
           "/assets/meydan_photos/image138.jpg",
-          "/assets/meydan_photos/image137.jpg",
-          "/assets/meydan_photos/image139.jpg"
+          "/assets/meydan_photos/image137.jpg"
         ],
         "landmarks": [
           {
@@ -46,16 +45,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kadıköy Bostancı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image137.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kadıköy Bostancı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image139.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -81,8 +70,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image150.jpg",
         "images": [
           "/assets/meydan_photos/image150.jpg",
-          "/assets/meydan_photos/image149.jpg",
-          "/assets/meydan_photos/image151.jpg"
+          "/assets/meydan_photos/image149.jpg"
         ],
         "landmarks": [
           {
@@ -94,16 +82,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kozyatağı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image149.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kozyatağı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image151.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -132,8 +110,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image141.jpg",
         "images": [
           "/assets/meydan_photos/image141.jpg",
-          "/assets/meydan_photos/image140.jpg",
-          "/assets/meydan_photos/image142.jpg"
+          "/assets/meydan_photos/image140.jpg"
         ],
         "landmarks": [
           {
@@ -145,16 +122,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kadıköy Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image140.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kadıköy Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image142.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -182,8 +149,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image144.jpg",
         "images": [
           "/assets/meydan_photos/image144.jpg",
-          "/assets/meydan_photos/image143.jpg",
-          "/assets/meydan_photos/image145.jpg"
+          "/assets/meydan_photos/image143.jpg"
         ],
         "landmarks": [
           {
@@ -195,16 +161,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kadıköy Suadiye Sahil Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image143.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kadıköy Suadiye Sahil Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image145.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -232,8 +188,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image153.jpg",
         "images": [
           "/assets/meydan_photos/image153.jpg",
-          "/assets/meydan_photos/image152.jpg",
-          "/assets/meydan_photos/image154.jpg"
+          "/assets/meydan_photos/image152.jpg"
         ],
         "landmarks": [
           {
@@ -245,16 +200,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Yoğurtçu Parkı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image152.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Yoğurtçu Parkı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image154.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -281,8 +226,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image147.jpg",
         "images": [
           "/assets/meydan_photos/image147.jpg",
-          "/assets/meydan_photos/image146.jpg",
-          "/assets/meydan_photos/image148.jpg"
+          "/assets/meydan_photos/image146.jpg"
         ],
         "landmarks": [
           {
@@ -294,16 +238,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kalamış Parkı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image146.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kalamış Parkı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image148.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -342,16 +276,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Fenerbahçe Parkı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image135.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -378,8 +302,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image133.jpg",
         "images": [
           "/assets/meydan_photos/image133.jpg",
-          "/assets/meydan_photos/image132.jpg",
-          "/assets/meydan_photos/image134.jpg"
+          "/assets/meydan_photos/image132.jpg"
         ],
         "landmarks": [
           {
@@ -391,16 +314,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Caddebostan Sahili Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image132.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Caddebostan Sahili Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image134.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -437,8 +350,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image260.jpg",
         "images": [
           "/assets/meydan_photos/image260.jpg",
-          "/assets/meydan_photos/image262.png",
-          "/assets/meydan_photos/image261.jpg"
+          "/assets/meydan_photos/image262.png"
         ],
         "landmarks": [
           {
@@ -450,16 +362,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Mimar Sinan Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image262.png"
-          },
-          {
-            "id": "photo-3",
-            "name": "Mimar Sinan Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image261.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -492,8 +394,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image255.jpg",
         "images": [
           "/assets/meydan_photos/image255.jpg",
-          "/assets/meydan_photos/image254.jpg",
-          "/assets/meydan_photos/image256.png"
+          "/assets/meydan_photos/image254.jpg"
         ],
         "landmarks": [
           {
@@ -505,16 +406,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Sahil Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image254.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sahil Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image256.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -544,8 +435,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image258.jpg",
         "images": [
           "/assets/meydan_photos/image258.jpg",
-          "/assets/meydan_photos/image257.jpg",
-          "/assets/meydan_photos/image259.png"
+          "/assets/meydan_photos/image257.jpg"
         ],
         "landmarks": [
           {
@@ -557,16 +447,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Salacak Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image257.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Salacak Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image259.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -595,8 +475,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image251.jpg",
         "images": [
           "/assets/meydan_photos/image251.jpg",
-          "/assets/meydan_photos/image253.png",
-          "/assets/meydan_photos/image252.jpg"
+          "/assets/meydan_photos/image253.png"
         ],
         "landmarks": [
           {
@@ -608,16 +487,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Paşalimanı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image253.png"
-          },
-          {
-            "id": "photo-3",
-            "name": "Paşalimanı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image252.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -655,8 +524,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image249.jpg",
         "images": [
           "/assets/meydan_photos/image249.jpg",
-          "/assets/meydan_photos/image248.jpg",
-          "/assets/meydan_photos/image250.png"
+          "/assets/meydan_photos/image248.jpg"
         ],
         "landmarks": [
           {
@@ -668,16 +536,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Ümraniye Dudullu Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image248.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Ümraniye Dudullu Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image250.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -708,8 +566,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image246.jpg",
         "images": [
           "/assets/meydan_photos/image246.jpg",
-          "/assets/meydan_photos/image245.jpg",
-          "/assets/meydan_photos/image247.png"
+          "/assets/meydan_photos/image245.jpg"
         ],
         "landmarks": [
           {
@@ -721,16 +578,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image245.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image247.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -768,8 +615,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image176.jpg",
         "images": [
           "/assets/meydan_photos/image176.jpg",
-          "/assets/meydan_photos/image175.jpg",
-          "/assets/meydan_photos/image177.jpg"
+          "/assets/meydan_photos/image175.jpg"
         ],
         "landmarks": [
           {
@@ -781,16 +627,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Maltepe Adalet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image175.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Maltepe Adalet Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image177.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -821,8 +657,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image179.jpg",
         "images": [
           "/assets/meydan_photos/image179.jpg",
-          "/assets/meydan_photos/image178.jpg",
-          "/assets/meydan_photos/image180.jpg"
+          "/assets/meydan_photos/image178.jpg"
         ],
         "landmarks": [
           {
@@ -834,16 +669,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Maltepe Bakireler Anıtı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image178.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Maltepe Bakireler Anıtı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image180.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -875,8 +700,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image182.jpg",
         "images": [
           "/assets/meydan_photos/image182.jpg",
-          "/assets/meydan_photos/image181.jpg",
-          "/assets/meydan_photos/image183.jpg"
+          "/assets/meydan_photos/image181.jpg"
         ],
         "landmarks": [
           {
@@ -888,16 +712,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Maltepe Cumhuriyet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image181.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Maltepe Cumhuriyet Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image183.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -934,8 +748,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image164.jpg",
         "images": [
           "/assets/meydan_photos/image164.jpg",
-          "/assets/meydan_photos/image163.jpg",
-          "/assets/meydan_photos/image165.jpg"
+          "/assets/meydan_photos/image163.jpg"
         ],
         "landmarks": [
           {
@@ -947,16 +760,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kartal Neyzen Tevfik Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image163.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kartal Neyzen Tevfik Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image165.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -987,8 +790,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image167.jpg",
         "images": [
           "/assets/meydan_photos/image167.jpg",
-          "/assets/meydan_photos/image166.jpg",
-          "/assets/meydan_photos/image168.jpg"
+          "/assets/meydan_photos/image166.jpg"
         ],
         "landmarks": [
           {
@@ -1000,16 +802,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kartal Sahil (Savarona) Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image166.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kartal Sahil (Savarona) Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image168.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1061,16 +853,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Pendik Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image190.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1097,8 +879,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image193.jpg",
         "images": [
           "/assets/meydan_photos/image193.jpg",
-          "/assets/meydan_photos/image192.jpg",
-          "/assets/meydan_photos/image194.jpg"
+          "/assets/meydan_photos/image192.jpg"
         ],
         "landmarks": [
           {
@@ -1110,16 +891,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Pendik Sahil Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image192.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Pendik Sahil Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image194.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1147,8 +918,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image196.jpg",
         "images": [
           "/assets/meydan_photos/image196.jpg",
-          "/assets/meydan_photos/image195.jpg",
-          "/assets/meydan_photos/image197.png"
+          "/assets/meydan_photos/image195.jpg"
         ],
         "landmarks": [
           {
@@ -1160,16 +930,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image195.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image197.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1195,8 +955,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image185.jpg",
         "images": [
           "/assets/meydan_photos/image185.jpg",
-          "/assets/meydan_photos/image184.jpg",
-          "/assets/meydan_photos/image186.jpg"
+          "/assets/meydan_photos/image184.jpg"
         ],
         "landmarks": [
           {
@@ -1208,16 +967,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 2",
             "img": "/assets/meydan_photos/image184.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 3",
-            "img": "/assets/meydan_photos/image186.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1244,8 +993,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image188.jpg",
         "images": [
           "/assets/meydan_photos/image188.jpg",
-          "/assets/meydan_photos/image187.jpg",
-          "/assets/meydan_photos/image189.jpg"
+          "/assets/meydan_photos/image187.jpg"
         ],
         "landmarks": [
           {
@@ -1257,16 +1005,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kaynarca Sahil Parkı Görsel 2",
             "img": "/assets/meydan_photos/image187.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kaynarca Sahil Parkı Görsel 3",
-            "img": "/assets/meydan_photos/image189.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1300,8 +1038,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image237.jpg",
         "images": [
           "/assets/meydan_photos/image237.jpg",
-          "/assets/meydan_photos/image236.jpg",
-          "/assets/meydan_photos/image238.png"
+          "/assets/meydan_photos/image236.jpg"
         ],
         "landmarks": [
           {
@@ -1313,16 +1050,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Tahaffuzhane Caddesi Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image236.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Tahaffuzhane Caddesi Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image238.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1351,8 +1078,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image240.jpg",
         "images": [
           "/assets/meydan_photos/image240.jpg",
-          "/assets/meydan_photos/image239.jpg",
-          "/assets/meydan_photos/image241.png"
+          "/assets/meydan_photos/image239.jpg"
         ],
         "landmarks": [
           {
@@ -1364,16 +1090,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Tuzla Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image239.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Tuzla Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image241.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1402,8 +1118,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image243.jpg",
         "images": [
           "/assets/meydan_photos/image243.jpg",
-          "/assets/meydan_photos/image242.jpg",
-          "/assets/meydan_photos/image244.png"
+          "/assets/meydan_photos/image242.jpg"
         ],
         "landmarks": [
           {
@@ -1415,16 +1130,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 2",
             "img": "/assets/meydan_photos/image242.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 3",
-            "img": "/assets/meydan_photos/image244.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1460,8 +1165,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image47.jpg",
         "images": [
           "/assets/meydan_photos/image47.jpg",
-          "/assets/meydan_photos/image46.jpg",
-          "/assets/meydan_photos/image48.jpg"
+          "/assets/meydan_photos/image46.jpg"
         ],
         "landmarks": [
           {
@@ -1473,16 +1177,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Beykoz Onçeşmeler Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image46.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beykoz Onçeşmeler Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image48.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1510,8 +1204,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image55.jpg",
         "images": [
           "/assets/meydan_photos/image55.jpg",
-          "/assets/meydan_photos/image54.jpg",
-          "/assets/meydan_photos/image56.jpg"
+          "/assets/meydan_photos/image54.jpg"
         ],
         "landmarks": [
           {
@@ -1523,16 +1216,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Paşabahçe Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image54.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Paşabahçe Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image56.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1560,8 +1243,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image50.jpg",
         "images": [
           "/assets/meydan_photos/image50.jpg",
-          "/assets/meydan_photos/image49.jpg",
-          "/assets/meydan_photos/image51.jpg"
+          "/assets/meydan_photos/image49.jpg"
         ],
         "landmarks": [
           {
@@ -1573,16 +1255,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Çubuklu Kent Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image49.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Çubuklu Kent Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image51.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1623,16 +1295,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Kanlıca Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image52.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1669,8 +1331,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image89.jpg",
         "images": [
           "/assets/meydan_photos/image89.jpg",
-          "/assets/meydan_photos/image88.jpg",
-          "/assets/meydan_photos/image90.jpg"
+          "/assets/meydan_photos/image88.jpg"
         ],
         "landmarks": [
           {
@@ -1682,16 +1343,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Çekmeköy Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image88.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Çekmeköy Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image90.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1740,16 +1391,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Sultanbeyli Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image234.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1783,8 +1424,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image199.jpg",
         "images": [
           "/assets/meydan_photos/image199.jpg",
-          "/assets/meydan_photos/image198.jpg",
-          "/assets/meydan_photos/image200.png"
+          "/assets/meydan_photos/image198.jpg"
         ],
         "landmarks": [
           {
@@ -1796,16 +1436,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Sancaktepe Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image198.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sancaktepe Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image200.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -1837,8 +1467,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image1.jpg",
         "images": [
           "/assets/meydan_photos/image1.jpg",
-          "/assets/meydan_photos/image3.jpg",
-          "/assets/meydan_photos/image2.jpg"
+          "/assets/meydan_photos/image3.jpg"
         ],
         "landmarks": [
           {
@@ -1850,16 +1479,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Adalar Büyükada Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image3.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Adalar Büyükada Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image2.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1894,8 +1513,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image218.jpg",
         "images": [
           "/assets/meydan_photos/image218.jpg",
-          "/assets/meydan_photos/image217.jpg",
-          "/assets/meydan_photos/image219.png"
+          "/assets/meydan_photos/image217.jpg"
         ],
         "landmarks": [
           {
@@ -1907,16 +1525,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Ağva Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image217.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Ağva Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image219.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -1953,16 +1561,6 @@ export const ANADOLU_DISTRICTS = [
             "id": "photo-2",
             "name": "Terminal Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image220.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2002,8 +1600,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image67.jpg",
         "images": [
           "/assets/meydan_photos/image67.jpg",
-          "/assets/meydan_photos/image66.jpg",
-          "/assets/meydan_photos/image68.jpg"
+          "/assets/meydan_photos/image66.jpg"
         ],
         "landmarks": [
           {
@@ -2015,16 +1612,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image66.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beyoğlu Piyalepaşa Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image68.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2054,8 +1641,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image78.jpg",
         "images": [
           "/assets/meydan_photos/image78.jpg",
-          "/assets/meydan_photos/image77.jpg",
-          "/assets/meydan_photos/image79.jpg"
+          "/assets/meydan_photos/image77.jpg"
         ],
         "landmarks": [
           {
@@ -2067,16 +1653,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Taksim Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image77.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Taksim Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image79.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2102,8 +1678,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image64.jpg",
         "images": [
           "/assets/meydan_photos/image64.jpg",
-          "/assets/meydan_photos/image63.jpg",
-          "/assets/meydan_photos/image65.jpg"
+          "/assets/meydan_photos/image63.jpg"
         ],
         "landmarks": [
           {
@@ -2115,16 +1690,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Beyoğlu Karaköy Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image63.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beyoğlu Karaköy Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image65.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2152,8 +1717,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image81.jpg",
         "images": [
           "/assets/meydan_photos/image81.jpg",
-          "/assets/meydan_photos/image80.jpg",
-          "/assets/meydan_photos/image82.jpg"
+          "/assets/meydan_photos/image80.jpg"
         ],
         "landmarks": [
           {
@@ -2165,16 +1729,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Tophane Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image80.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Tophane Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image82.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2201,8 +1755,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image75.jpg",
         "images": [
           "/assets/meydan_photos/image75.jpg",
-          "/assets/meydan_photos/image74.jpg",
-          "/assets/meydan_photos/image76.jpg"
+          "/assets/meydan_photos/image74.jpg"
         ],
         "landmarks": [
           {
@@ -2214,16 +1767,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Şişhane Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image74.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Şişhane Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image76.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2252,8 +1795,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image61.jpg",
         "images": [
           "/assets/meydan_photos/image61.jpg",
-          "/assets/meydan_photos/image60.jpg",
-          "/assets/meydan_photos/image62.jpg"
+          "/assets/meydan_photos/image60.jpg"
         ],
         "landmarks": [
           {
@@ -2265,16 +1807,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Beyoğlu Kabataş Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image60.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beyoğlu Kabataş Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image62.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2316,16 +1848,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image72.png"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -2359,8 +1881,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image229.jpg",
         "images": [
           "/assets/meydan_photos/image229.jpg",
-          "/assets/meydan_photos/image228.jpg",
-          "/assets/meydan_photos/image230.jpg"
+          "/assets/meydan_photos/image228.jpg"
         ],
         "landmarks": [
           {
@@ -2372,16 +1893,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Mecidiyeköy Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image228.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Mecidiyeköy Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image230.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2408,8 +1919,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image226.jpg",
         "images": [
           "/assets/meydan_photos/image226.jpg",
-          "/assets/meydan_photos/image225.jpg",
-          "/assets/meydan_photos/image227.png"
+          "/assets/meydan_photos/image225.jpg"
         ],
         "landmarks": [
           {
@@ -2421,16 +1931,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image225.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image227.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2468,16 +1968,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image233.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2515,16 +2005,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Şişli Cami Önü Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image231.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2562,8 +2042,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image118.jpg",
         "images": [
           "/assets/meydan_photos/image118.jpg",
-          "/assets/meydan_photos/image117.jpg",
-          "/assets/meydan_photos/image119.jpg"
+          "/assets/meydan_photos/image117.jpg"
         ],
         "landmarks": [
           {
@@ -2575,16 +2054,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Fatih Eminönü Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image117.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Fatih Eminönü Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image119.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2614,8 +2083,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image115.jpg",
         "images": [
           "/assets/meydan_photos/image115.jpg",
-          "/assets/meydan_photos/image114.jpg",
-          "/assets/meydan_photos/image116.jpg"
+          "/assets/meydan_photos/image114.jpg"
         ],
         "landmarks": [
           {
@@ -2627,16 +2095,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Fatih Aksaray Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image114.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Fatih Aksaray Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image116.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2663,8 +2121,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image121.jpg",
         "images": [
           "/assets/meydan_photos/image121.jpg",
-          "/assets/meydan_photos/image120.jpg",
-          "/assets/meydan_photos/image122.jpg"
+          "/assets/meydan_photos/image120.jpg"
         ],
         "landmarks": [
           {
@@ -2676,16 +2133,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sultanahmet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image120.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sultanahmet Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image122.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2713,8 +2160,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image112.jpg",
         "images": [
           "/assets/meydan_photos/image112.jpg",
-          "/assets/meydan_photos/image111.jpg",
-          "/assets/meydan_photos/image113.jpg"
+          "/assets/meydan_photos/image111.jpg"
         ],
         "landmarks": [
           {
@@ -2726,16 +2172,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Çemberlitaş Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image111.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Çemberlitaş Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image113.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2763,8 +2199,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image109.jpg",
         "images": [
           "/assets/meydan_photos/image109.jpg",
-          "/assets/meydan_photos/image108.jpg",
-          "/assets/meydan_photos/image110.jpg"
+          "/assets/meydan_photos/image108.jpg"
         ],
         "landmarks": [
           {
@@ -2776,16 +2211,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Ayasofya Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image108.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Ayasofya Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image110.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2813,8 +2238,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image41.png",
         "images": [
           "/assets/meydan_photos/image41.png",
-          "/assets/meydan_photos/image40.png",
-          "/assets/meydan_photos/image42.jpg"
+          "/assets/meydan_photos/image40.png"
         ],
         "landmarks": [
           {
@@ -2826,16 +2250,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Beyazıt Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image40.png"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beyazıt Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image42.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -2867,8 +2281,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image44.jpg",
         "images": [
           "/assets/meydan_photos/image44.jpg",
-          "/assets/meydan_photos/image43.jpg",
-          "/assets/meydan_photos/image45.jpg"
+          "/assets/meydan_photos/image43.jpg"
         ],
         "landmarks": [
           {
@@ -2880,16 +2293,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Ortaköy Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image43.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Ortaköy Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image45.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2916,8 +2319,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image38.jpg",
         "images": [
           "/assets/meydan_photos/image38.jpg",
-          "/assets/meydan_photos/image37.jpg",
-          "/assets/meydan_photos/image39.jpg"
+          "/assets/meydan_photos/image37.jpg"
         ],
         "landmarks": [
           {
@@ -2929,16 +2331,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Beşiktaş Barbaros Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image37.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Beşiktaş Barbaros Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image39.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -2973,8 +2365,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image27.jpg",
         "images": [
           "/assets/meydan_photos/image27.jpg",
-          "/assets/meydan_photos/image26.jpg",
-          "/assets/meydan_photos/image28.jpg"
+          "/assets/meydan_photos/image26.jpg"
         ],
         "landmarks": [
           {
@@ -2986,16 +2377,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Bakırköy Özgürlük Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image26.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Bakırköy Özgürlük Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image28.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3033,8 +2414,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image15.jpg",
         "images": [
           "/assets/meydan_photos/image15.jpg",
-          "/assets/meydan_photos/image14.jpg",
-          "/assets/meydan_photos/image16.jpg"
+          "/assets/meydan_photos/image14.jpg"
         ],
         "landmarks": [
           {
@@ -3046,16 +2426,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Bağcılar Ebubekir Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image14.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Bağcılar Ebubekir Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image16.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3088,8 +2458,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image18.jpg",
         "images": [
           "/assets/meydan_photos/image18.jpg",
-          "/assets/meydan_photos/image17.jpg",
-          "/assets/meydan_photos/image19.jpg"
+          "/assets/meydan_photos/image17.jpg"
         ],
         "landmarks": [
           {
@@ -3101,16 +2470,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Bağcılar Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image17.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Bağcılar Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image19.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3148,8 +2507,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image95.jpg",
         "images": [
           "/assets/meydan_photos/image95.jpg",
-          "/assets/meydan_photos/image94.jpg",
-          "/assets/meydan_photos/image96.jpg"
+          "/assets/meydan_photos/image94.jpg"
         ],
         "landmarks": [
           {
@@ -3161,16 +2519,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Esenler Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image94.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Esenler Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image96.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3210,8 +2558,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image21.jpg",
         "images": [
           "/assets/meydan_photos/image21.jpg",
-          "/assets/meydan_photos/image20.jpg",
-          "/assets/meydan_photos/image22.jpg"
+          "/assets/meydan_photos/image20.jpg"
         ],
         "landmarks": [
           {
@@ -3223,16 +2570,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Bahçelievler Şirinevler Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image20.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Bahçelievler Şirinevler Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image22.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3262,8 +2599,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image24.jpg",
         "images": [
           "/assets/meydan_photos/image24.jpg",
-          "/assets/meydan_photos/image23.jpg",
-          "/assets/meydan_photos/image25.jpg"
+          "/assets/meydan_photos/image23.jpg"
         ],
         "landmarks": [
           {
@@ -3275,16 +2611,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image23.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image25.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3322,8 +2648,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image159.jpg",
         "images": [
           "/assets/meydan_photos/image159.jpg",
-          "/assets/meydan_photos/image158.jpg",
-          "/assets/meydan_photos/image160.jpg"
+          "/assets/meydan_photos/image158.jpg"
         ],
         "landmarks": [
           {
@@ -3335,16 +2660,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Kağıthane Metro Durağı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image158.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Kağıthane Metro Durağı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image160.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3383,16 +2698,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
             "img": "/assets/meydan_photos/image161.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3420,8 +2725,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image156.jpg",
         "images": [
           "/assets/meydan_photos/image156.jpg",
-          "/assets/meydan_photos/image155.jpg",
-          "/assets/meydan_photos/image157.jpg"
+          "/assets/meydan_photos/image155.jpg"
         ],
         "landmarks": [
           {
@@ -3433,16 +2737,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Çağlayan Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image155.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Çağlayan Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image157.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3476,8 +2770,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image104.jpg",
         "images": [
           "/assets/meydan_photos/image104.jpg",
-          "/assets/meydan_photos/image103.jpg",
-          "/assets/meydan_photos/image105.jpg"
+          "/assets/meydan_photos/image103.jpg"
         ],
         "landmarks": [
           {
@@ -3489,16 +2782,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Eyüpsultan Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image103.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Eyüpsultan Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image105.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3535,16 +2818,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Pierre Loti Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image106.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3577,8 +2850,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image124.jpg",
         "images": [
           "/assets/meydan_photos/image124.jpg",
-          "/assets/meydan_photos/image123.jpg",
-          "/assets/meydan_photos/image125.jpg"
+          "/assets/meydan_photos/image123.jpg"
         ],
         "landmarks": [
           {
@@ -3590,16 +2862,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image123.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image125.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3632,8 +2894,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image127.jpg",
         "images": [
           "/assets/meydan_photos/image127.jpg",
-          "/assets/meydan_photos/image126.jpg",
-          "/assets/meydan_photos/image128.jpg"
+          "/assets/meydan_photos/image126.jpg"
         ],
         "landmarks": [
           {
@@ -3645,16 +2906,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 2",
             "img": "/assets/meydan_photos/image126.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 3",
-            "img": "/assets/meydan_photos/image128.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3691,8 +2942,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image215.png",
         "images": [
           "/assets/meydan_photos/image215.png",
-          "/assets/meydan_photos/image214.png",
-          "/assets/meydan_photos/image216.png"
+          "/assets/meydan_photos/image214.png"
         ],
         "landmarks": [
           {
@@ -3704,16 +2954,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sultangazi Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image214.png"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sultangazi Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image216.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3747,8 +2987,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image35.jpg",
         "images": [
           "/assets/meydan_photos/image35.jpg",
-          "/assets/meydan_photos/image34.jpg",
-          "/assets/meydan_photos/image36.jpg"
+          "/assets/meydan_photos/image34.jpg"
         ],
         "landmarks": [
           {
@@ -3760,16 +2999,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Bayrampaşa Kartaltepe Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image34.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Bayrampaşa Kartaltepe Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image36.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3820,16 +3049,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Avcılar E-5 Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image9.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3855,8 +3074,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image12.jpg",
         "images": [
           "/assets/meydan_photos/image12.jpg",
-          "/assets/meydan_photos/image11.jpg",
-          "/assets/meydan_photos/image13.jpg"
+          "/assets/meydan_photos/image11.jpg"
         ],
         "landmarks": [
           {
@@ -3868,16 +3086,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Avcılar Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image11.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Avcılar Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image13.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3913,8 +3121,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image58.jpg",
         "images": [
           "/assets/meydan_photos/image58.jpg",
-          "/assets/meydan_photos/image57.jpg",
-          "/assets/meydan_photos/image59.jpg"
+          "/assets/meydan_photos/image57.jpg"
         ],
         "landmarks": [
           {
@@ -3926,16 +3133,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 2",
             "img": "/assets/meydan_photos/image57.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 3",
-            "img": "/assets/meydan_photos/image59.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -3970,8 +3167,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image173.jpg",
         "images": [
           "/assets/meydan_photos/image173.jpg",
-          "/assets/meydan_photos/image172.jpg",
-          "/assets/meydan_photos/image174.jpg"
+          "/assets/meydan_photos/image172.jpg"
         ],
         "landmarks": [
           {
@@ -3983,16 +3179,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image172.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image174.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4021,8 +3207,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image170.jpg",
         "images": [
           "/assets/meydan_photos/image170.jpg",
-          "/assets/meydan_photos/image169.jpg",
-          "/assets/meydan_photos/image171.jpg"
+          "/assets/meydan_photos/image169.jpg"
         ],
         "landmarks": [
           {
@@ -4034,16 +3219,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Küçükçekmece Cennet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image169.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Küçükçekmece Cennet Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image171.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4072,8 +3247,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image170.jpg",
         "images": [
           "/assets/meydan_photos/image170.jpg",
-          "/assets/meydan_photos/image169.jpg",
-          "/assets/meydan_photos/image171.jpg"
+          "/assets/meydan_photos/image169.jpg"
         ],
         "landmarks": [
           {
@@ -4085,16 +3259,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Küçükçekmece Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image169.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Küçükçekmece Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image171.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4127,8 +3291,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image98.jpg",
         "images": [
           "/assets/meydan_photos/image98.jpg",
-          "/assets/meydan_photos/image97.jpg",
-          "/assets/meydan_photos/image99.jpg"
+          "/assets/meydan_photos/image97.jpg"
         ],
         "landmarks": [
           {
@@ -4140,16 +3303,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Esenyurt Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image97.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Esenyurt Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image99.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4177,8 +3330,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image101.jpg",
         "images": [
           "/assets/meydan_photos/image101.jpg",
-          "/assets/meydan_photos/image100.jpg",
-          "/assets/meydan_photos/image102.jpg"
+          "/assets/meydan_photos/image100.jpg"
         ],
         "landmarks": [
           {
@@ -4190,16 +3342,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Esenyurt Yaşar Kemal Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image100.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Esenyurt Yaşar Kemal Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image102.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4225,8 +3367,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image92.jpg",
         "images": [
           "/assets/meydan_photos/image92.jpg",
-          "/assets/meydan_photos/image91.jpg",
-          "/assets/meydan_photos/image93.jpg"
+          "/assets/meydan_photos/image91.jpg"
         ],
         "landmarks": [
           {
@@ -4238,16 +3379,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Esenyurt Belediye Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image91.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Esenyurt Belediye Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image93.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4283,8 +3414,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image84.jpg",
         "images": [
           "/assets/meydan_photos/image84.jpg",
-          "/assets/meydan_photos/image83.jpg",
-          "/assets/meydan_photos/image85.png"
+          "/assets/meydan_photos/image83.jpg"
         ],
         "landmarks": [
           {
@@ -4296,16 +3426,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image83.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image85.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4340,8 +3460,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image32.jpg",
         "images": [
           "/assets/meydan_photos/image32.jpg",
-          "/assets/meydan_photos/image31.jpg",
-          "/assets/meydan_photos/image33.jpg"
+          "/assets/meydan_photos/image31.jpg"
         ],
         "landmarks": [
           {
@@ -4353,16 +3472,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 2",
             "img": "/assets/meydan_photos/image31.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 3",
-            "img": "/assets/meydan_photos/image33.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4402,16 +3511,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image29.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4451,16 +3550,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Başakşehir Kent Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image29.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4495,8 +3584,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image5.jpg",
         "images": [
           "/assets/meydan_photos/image5.jpg",
-          "/assets/meydan_photos/image4.jpg",
-          "/assets/meydan_photos/image6.png"
+          "/assets/meydan_photos/image4.jpg"
         ],
         "landmarks": [
           {
@@ -4508,16 +3596,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image4.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image6.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4556,16 +3634,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image7.png"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4606,8 +3674,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image264.jpg",
         "images": [
           "/assets/meydan_photos/image264.jpg",
-          "/assets/meydan_photos/image263.jpg",
-          "/assets/meydan_photos/image265.png"
+          "/assets/meydan_photos/image263.jpg"
         ],
         "landmarks": [
           {
@@ -4619,16 +3686,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Zeytinburnu Çırpıcı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image263.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Zeytinburnu Çırpıcı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image265.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4663,8 +3720,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image130.jpg",
         "images": [
           "/assets/meydan_photos/image130.jpg",
-          "/assets/meydan_photos/image129.jpg",
-          "/assets/meydan_photos/image131.jpg"
+          "/assets/meydan_photos/image129.jpg"
         ],
         "landmarks": [
           {
@@ -4676,16 +3732,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Güngören Kasım Sokak Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image129.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Güngören Kasım Sokak Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image131.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": [
@@ -4732,16 +3778,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Çatalca Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image86.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4775,8 +3811,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image223.jpg",
         "images": [
           "/assets/meydan_photos/image223.jpg",
-          "/assets/meydan_photos/image222.jpg",
-          "/assets/meydan_photos/image224.png"
+          "/assets/meydan_photos/image222.jpg"
         ],
         "landmarks": [
           {
@@ -4788,16 +3823,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Seymen Mahallesi Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image222.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Seymen Mahallesi Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image224.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4828,9 +3853,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image209.jpg",
         "images": [
           "/assets/meydan_photos/image209.jpg",
-          "/assets/meydan_photos/image208.jpg",
-          "/assets/meydan_photos/image210.jpg",
-          "/assets/meydan_photos/image207.png"
+          "/assets/meydan_photos/image208.jpg"
         ],
         "landmarks": [
           {
@@ -4842,16 +3865,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sarıyer Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image208.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sarıyer Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image210.jpg"
-          },
-          {
-            "id": "photo-4",
-            "name": "Sarıyer Meydanı Görsel 4",
-            "img": "/assets/meydan_photos/image207.png"
           }
         ],
         "personnel": []
@@ -4886,16 +3899,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sarıyer Ayazağa Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image204.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4931,16 +3934,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sarıyer İstinye Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image206.jpg"
-          },
-          {
-            "id": "point-3",
-            "name": "Meydan Alanı 3",
-            "img": "/assets/dashboard/kadikoy-iskele.jpg"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -4965,8 +3958,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image202.jpg",
         "images": [
           "/assets/meydan_photos/image202.jpg",
-          "/assets/meydan_photos/image201.jpg",
-          "/assets/meydan_photos/image203.png"
+          "/assets/meydan_photos/image201.jpg"
         ],
         "landmarks": [
           {
@@ -4978,16 +3970,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Emirgan Çınaraltı Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image201.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Emirgan Çınaraltı Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image203.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -5011,8 +3993,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/image212.jpg",
         "images": [
           "/assets/meydan_photos/image212.jpg",
-          "/assets/meydan_photos/image211.jpg",
-          "/assets/meydan_photos/image213.png"
+          "/assets/meydan_photos/image211.jpg"
         ],
         "landmarks": [
           {
@@ -5024,16 +4005,6 @@ export const AVRUPA_DISTRICTS = [
             "id": "photo-2",
             "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 2",
             "img": "/assets/meydan_photos/image211.jpg"
-          },
-          {
-            "id": "photo-3",
-            "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 3",
-            "img": "/assets/meydan_photos/image213.png"
-          },
-          {
-            "id": "point-4",
-            "name": "Meydan Alanı 4",
-            "img": "/login-scenes/cult/tarihi-yarimada.jpg"
           }
         ],
         "personnel": []
@@ -5066,8 +4037,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image67.jpg",
     "images": [
       "/assets/meydan_photos/image67.jpg",
-      "/assets/meydan_photos/image66.jpg",
-      "/assets/meydan_photos/image68.jpg"
+      "/assets/meydan_photos/image66.jpg"
     ],
     "landmarks": [
       {
@@ -5079,16 +4049,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image66.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beyoğlu Piyalepaşa Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image68.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5118,8 +4078,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image78.jpg",
     "images": [
       "/assets/meydan_photos/image78.jpg",
-      "/assets/meydan_photos/image77.jpg",
-      "/assets/meydan_photos/image79.jpg"
+      "/assets/meydan_photos/image77.jpg"
     ],
     "landmarks": [
       {
@@ -5131,16 +4090,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Taksim Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image77.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Taksim Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image79.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5166,8 +4115,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image64.jpg",
     "images": [
       "/assets/meydan_photos/image64.jpg",
-      "/assets/meydan_photos/image63.jpg",
-      "/assets/meydan_photos/image65.jpg"
+      "/assets/meydan_photos/image63.jpg"
     ],
     "landmarks": [
       {
@@ -5179,16 +4127,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beyoğlu Karaköy Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image63.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beyoğlu Karaköy Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image65.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5216,8 +4154,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image81.jpg",
     "images": [
       "/assets/meydan_photos/image81.jpg",
-      "/assets/meydan_photos/image80.jpg",
-      "/assets/meydan_photos/image82.jpg"
+      "/assets/meydan_photos/image80.jpg"
     ],
     "landmarks": [
       {
@@ -5229,16 +4166,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Tophane Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image80.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Tophane Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image82.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5265,8 +4192,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image75.jpg",
     "images": [
       "/assets/meydan_photos/image75.jpg",
-      "/assets/meydan_photos/image74.jpg",
-      "/assets/meydan_photos/image76.jpg"
+      "/assets/meydan_photos/image74.jpg"
     ],
     "landmarks": [
       {
@@ -5278,16 +4204,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Şişhane Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image74.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Şişhane Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image76.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5316,8 +4232,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image61.jpg",
     "images": [
       "/assets/meydan_photos/image61.jpg",
-      "/assets/meydan_photos/image60.jpg",
-      "/assets/meydan_photos/image62.jpg"
+      "/assets/meydan_photos/image60.jpg"
     ],
     "landmarks": [
       {
@@ -5329,16 +4244,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beyoğlu Kabataş Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image60.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beyoğlu Kabataş Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image62.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5367,8 +4272,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image229.jpg",
     "images": [
       "/assets/meydan_photos/image229.jpg",
-      "/assets/meydan_photos/image228.jpg",
-      "/assets/meydan_photos/image230.jpg"
+      "/assets/meydan_photos/image228.jpg"
     ],
     "landmarks": [
       {
@@ -5380,16 +4284,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Mecidiyeköy Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image228.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Mecidiyeköy Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image230.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5416,8 +4310,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image226.jpg",
     "images": [
       "/assets/meydan_photos/image226.jpg",
-      "/assets/meydan_photos/image225.jpg",
-      "/assets/meydan_photos/image227.png"
+      "/assets/meydan_photos/image225.jpg"
     ],
     "landmarks": [
       {
@@ -5429,16 +4322,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image225.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image227.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5476,16 +4359,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image233.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5523,16 +4396,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Şişli Cami Önü Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image231.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5561,8 +4424,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image15.jpg",
     "images": [
       "/assets/meydan_photos/image15.jpg",
-      "/assets/meydan_photos/image14.jpg",
-      "/assets/meydan_photos/image16.jpg"
+      "/assets/meydan_photos/image14.jpg"
     ],
     "landmarks": [
       {
@@ -5574,16 +4436,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Bağcılar Ebubekir Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image14.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Bağcılar Ebubekir Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image16.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5616,8 +4468,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image18.jpg",
     "images": [
       "/assets/meydan_photos/image18.jpg",
-      "/assets/meydan_photos/image17.jpg",
-      "/assets/meydan_photos/image19.jpg"
+      "/assets/meydan_photos/image17.jpg"
     ],
     "landmarks": [
       {
@@ -5629,16 +4480,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Bağcılar Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image17.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Bağcılar Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image19.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5684,16 +4525,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Avcılar E-5 Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image9.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5719,8 +4550,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image12.jpg",
     "images": [
       "/assets/meydan_photos/image12.jpg",
-      "/assets/meydan_photos/image11.jpg",
-      "/assets/meydan_photos/image13.jpg"
+      "/assets/meydan_photos/image11.jpg"
     ],
     "landmarks": [
       {
@@ -5732,16 +4562,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Avcılar Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image11.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Avcılar Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image13.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5769,8 +4589,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image58.jpg",
     "images": [
       "/assets/meydan_photos/image58.jpg",
-      "/assets/meydan_photos/image57.jpg",
-      "/assets/meydan_photos/image59.jpg"
+      "/assets/meydan_photos/image57.jpg"
     ],
     "landmarks": [
       {
@@ -5782,16 +4601,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 2",
         "img": "/assets/meydan_photos/image57.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 3",
-        "img": "/assets/meydan_photos/image59.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5819,8 +4628,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image98.jpg",
     "images": [
       "/assets/meydan_photos/image98.jpg",
-      "/assets/meydan_photos/image97.jpg",
-      "/assets/meydan_photos/image99.jpg"
+      "/assets/meydan_photos/image97.jpg"
     ],
     "landmarks": [
       {
@@ -5832,16 +4640,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Esenyurt Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image97.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Esenyurt Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image99.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5869,8 +4667,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image101.jpg",
     "images": [
       "/assets/meydan_photos/image101.jpg",
-      "/assets/meydan_photos/image100.jpg",
-      "/assets/meydan_photos/image102.jpg"
+      "/assets/meydan_photos/image100.jpg"
     ],
     "landmarks": [
       {
@@ -5882,16 +4679,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Esenyurt Yaşar Kemal Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image100.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Esenyurt Yaşar Kemal Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image102.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5917,8 +4704,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image92.jpg",
     "images": [
       "/assets/meydan_photos/image92.jpg",
-      "/assets/meydan_photos/image91.jpg",
-      "/assets/meydan_photos/image93.jpg"
+      "/assets/meydan_photos/image91.jpg"
     ],
     "landmarks": [
       {
@@ -5930,16 +4716,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Esenyurt Belediye Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image91.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Esenyurt Belediye Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image93.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -5966,8 +4742,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image44.jpg",
     "images": [
       "/assets/meydan_photos/image44.jpg",
-      "/assets/meydan_photos/image43.jpg",
-      "/assets/meydan_photos/image45.jpg"
+      "/assets/meydan_photos/image43.jpg"
     ],
     "landmarks": [
       {
@@ -5979,16 +4754,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Ortaköy Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image43.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Ortaköy Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image45.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6013,9 +4778,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image209.jpg",
     "images": [
       "/assets/meydan_photos/image209.jpg",
-      "/assets/meydan_photos/image208.jpg",
-      "/assets/meydan_photos/image210.jpg",
-      "/assets/meydan_photos/image207.png"
+      "/assets/meydan_photos/image208.jpg"
     ],
     "landmarks": [
       {
@@ -6027,16 +4790,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sarıyer Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image208.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sarıyer Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image210.jpg"
-      },
-      {
-        "id": "photo-4",
-        "name": "Sarıyer Meydanı Görsel 4",
-        "img": "/assets/meydan_photos/image207.png"
       }
     ],
     "personnel": []
@@ -6071,16 +4824,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sarıyer Ayazağa Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image204.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6116,16 +4859,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sarıyer İstinye Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image206.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6150,8 +4883,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image202.jpg",
     "images": [
       "/assets/meydan_photos/image202.jpg",
-      "/assets/meydan_photos/image201.jpg",
-      "/assets/meydan_photos/image203.png"
+      "/assets/meydan_photos/image201.jpg"
     ],
     "landmarks": [
       {
@@ -6163,16 +4895,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Emirgan Çınaraltı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image201.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Emirgan Çınaraltı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image203.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6196,8 +4918,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image212.jpg",
     "images": [
       "/assets/meydan_photos/image212.jpg",
-      "/assets/meydan_photos/image211.jpg",
-      "/assets/meydan_photos/image213.png"
+      "/assets/meydan_photos/image211.jpg"
     ],
     "landmarks": [
       {
@@ -6209,16 +4930,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image211.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image213.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6245,8 +4956,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image5.jpg",
     "images": [
       "/assets/meydan_photos/image5.jpg",
-      "/assets/meydan_photos/image4.jpg",
-      "/assets/meydan_photos/image6.png"
+      "/assets/meydan_photos/image4.jpg"
     ],
     "landmarks": [
       {
@@ -6258,16 +4968,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image4.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image6.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6292,8 +4992,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image124.jpg",
     "images": [
       "/assets/meydan_photos/image124.jpg",
-      "/assets/meydan_photos/image123.jpg",
-      "/assets/meydan_photos/image125.jpg"
+      "/assets/meydan_photos/image123.jpg"
     ],
     "landmarks": [
       {
@@ -6305,16 +5004,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image123.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image125.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6347,8 +5036,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image127.jpg",
     "images": [
       "/assets/meydan_photos/image127.jpg",
-      "/assets/meydan_photos/image126.jpg",
-      "/assets/meydan_photos/image128.jpg"
+      "/assets/meydan_photos/image126.jpg"
     ],
     "landmarks": [
       {
@@ -6360,16 +5048,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 2",
         "img": "/assets/meydan_photos/image126.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 3",
-        "img": "/assets/meydan_photos/image128.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6397,8 +5075,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image95.jpg",
     "images": [
       "/assets/meydan_photos/image95.jpg",
-      "/assets/meydan_photos/image94.jpg",
-      "/assets/meydan_photos/image96.jpg"
+      "/assets/meydan_photos/image94.jpg"
     ],
     "landmarks": [
       {
@@ -6410,16 +5087,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Esenler Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image94.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Esenler Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image96.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6446,8 +5113,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image104.jpg",
     "images": [
       "/assets/meydan_photos/image104.jpg",
-      "/assets/meydan_photos/image103.jpg",
-      "/assets/meydan_photos/image105.jpg"
+      "/assets/meydan_photos/image103.jpg"
     ],
     "landmarks": [
       {
@@ -6459,16 +5125,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Eyüpsultan Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image103.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Eyüpsultan Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image105.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6505,16 +5161,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Pierre Loti Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image106.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6540,8 +5186,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image35.jpg",
     "images": [
       "/assets/meydan_photos/image35.jpg",
-      "/assets/meydan_photos/image34.jpg",
-      "/assets/meydan_photos/image36.jpg"
+      "/assets/meydan_photos/image34.jpg"
     ],
     "landmarks": [
       {
@@ -6553,16 +5198,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Bayrampaşa Kartaltepe Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image34.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Bayrampaşa Kartaltepe Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image36.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6589,8 +5224,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image27.jpg",
     "images": [
       "/assets/meydan_photos/image27.jpg",
-      "/assets/meydan_photos/image26.jpg",
-      "/assets/meydan_photos/image28.jpg"
+      "/assets/meydan_photos/image26.jpg"
     ],
     "landmarks": [
       {
@@ -6602,16 +5236,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Bakırköy Özgürlük Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image26.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Bakırköy Özgürlük Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image28.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6640,8 +5264,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image84.jpg",
     "images": [
       "/assets/meydan_photos/image84.jpg",
-      "/assets/meydan_photos/image83.jpg",
-      "/assets/meydan_photos/image85.png"
+      "/assets/meydan_photos/image83.jpg"
     ],
     "landmarks": [
       {
@@ -6653,16 +5276,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image83.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image85.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6703,16 +5316,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Çatalca Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image86.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6738,8 +5341,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image223.jpg",
     "images": [
       "/assets/meydan_photos/image223.jpg",
-      "/assets/meydan_photos/image222.jpg",
-      "/assets/meydan_photos/image224.png"
+      "/assets/meydan_photos/image222.jpg"
     ],
     "landmarks": [
       {
@@ -6751,16 +5353,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Seymen Mahallesi Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image222.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Seymen Mahallesi Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image224.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -6788,8 +5380,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image21.jpg",
     "images": [
       "/assets/meydan_photos/image21.jpg",
-      "/assets/meydan_photos/image20.jpg",
-      "/assets/meydan_photos/image22.jpg"
+      "/assets/meydan_photos/image20.jpg"
     ],
     "landmarks": [
       {
@@ -6801,16 +5392,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Bahçelievler Şirinevler Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image20.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Bahçelievler Şirinevler Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image22.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6840,8 +5421,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image24.jpg",
     "images": [
       "/assets/meydan_photos/image24.jpg",
-      "/assets/meydan_photos/image23.jpg",
-      "/assets/meydan_photos/image25.jpg"
+      "/assets/meydan_photos/image23.jpg"
     ],
     "landmarks": [
       {
@@ -6853,16 +5433,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image23.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image25.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6891,8 +5461,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image130.jpg",
     "images": [
       "/assets/meydan_photos/image130.jpg",
-      "/assets/meydan_photos/image129.jpg",
-      "/assets/meydan_photos/image131.jpg"
+      "/assets/meydan_photos/image129.jpg"
     ],
     "landmarks": [
       {
@@ -6904,16 +5473,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Güngören Kasım Sokak Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image129.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Güngören Kasım Sokak Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image131.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6939,8 +5498,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image173.jpg",
     "images": [
       "/assets/meydan_photos/image173.jpg",
-      "/assets/meydan_photos/image172.jpg",
-      "/assets/meydan_photos/image174.jpg"
+      "/assets/meydan_photos/image172.jpg"
     ],
     "landmarks": [
       {
@@ -6952,16 +5510,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image172.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image174.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -6990,8 +5538,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image170.jpg",
     "images": [
       "/assets/meydan_photos/image170.jpg",
-      "/assets/meydan_photos/image169.jpg",
-      "/assets/meydan_photos/image171.jpg"
+      "/assets/meydan_photos/image169.jpg"
     ],
     "landmarks": [
       {
@@ -7003,16 +5550,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Küçükçekmece Cennet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image169.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Küçükçekmece Cennet Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image171.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7037,8 +5574,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image32.jpg",
     "images": [
       "/assets/meydan_photos/image32.jpg",
-      "/assets/meydan_photos/image31.jpg",
-      "/assets/meydan_photos/image33.jpg"
+      "/assets/meydan_photos/image31.jpg"
     ],
     "landmarks": [
       {
@@ -7050,16 +5586,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 2",
         "img": "/assets/meydan_photos/image31.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 3",
-        "img": "/assets/meydan_photos/image33.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7099,16 +5625,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image29.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7138,8 +5654,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image264.jpg",
     "images": [
       "/assets/meydan_photos/image264.jpg",
-      "/assets/meydan_photos/image263.jpg",
-      "/assets/meydan_photos/image265.png"
+      "/assets/meydan_photos/image263.jpg"
     ],
     "landmarks": [
       {
@@ -7151,16 +5666,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Zeytinburnu Çırpıcı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image263.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Zeytinburnu Çırpıcı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image265.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7188,8 +5693,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image159.jpg",
     "images": [
       "/assets/meydan_photos/image159.jpg",
-      "/assets/meydan_photos/image158.jpg",
-      "/assets/meydan_photos/image160.jpg"
+      "/assets/meydan_photos/image158.jpg"
     ],
     "landmarks": [
       {
@@ -7201,16 +5705,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kağıthane Metro Durağı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image158.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kağıthane Metro Durağı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image160.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7249,16 +5743,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
         "img": "/assets/meydan_photos/image161.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7286,8 +5770,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image156.jpg",
     "images": [
       "/assets/meydan_photos/image156.jpg",
-      "/assets/meydan_photos/image155.jpg",
-      "/assets/meydan_photos/image157.jpg"
+      "/assets/meydan_photos/image155.jpg"
     ],
     "landmarks": [
       {
@@ -7299,16 +5782,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Çağlayan Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image155.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Çağlayan Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image157.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7338,8 +5811,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image118.jpg",
     "images": [
       "/assets/meydan_photos/image118.jpg",
-      "/assets/meydan_photos/image117.jpg",
-      "/assets/meydan_photos/image119.jpg"
+      "/assets/meydan_photos/image117.jpg"
     ],
     "landmarks": [
       {
@@ -7351,16 +5823,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Fatih Eminönü Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image117.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Fatih Eminönü Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image119.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7390,8 +5852,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image115.jpg",
     "images": [
       "/assets/meydan_photos/image115.jpg",
-      "/assets/meydan_photos/image114.jpg",
-      "/assets/meydan_photos/image116.jpg"
+      "/assets/meydan_photos/image114.jpg"
     ],
     "landmarks": [
       {
@@ -7403,16 +5864,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Fatih Aksaray Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image114.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Fatih Aksaray Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image116.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7439,8 +5890,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image121.jpg",
     "images": [
       "/assets/meydan_photos/image121.jpg",
-      "/assets/meydan_photos/image120.jpg",
-      "/assets/meydan_photos/image122.jpg"
+      "/assets/meydan_photos/image120.jpg"
     ],
     "landmarks": [
       {
@@ -7452,16 +5902,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sultanahmet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image120.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sultanahmet Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image122.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7489,8 +5929,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image112.jpg",
     "images": [
       "/assets/meydan_photos/image112.jpg",
-      "/assets/meydan_photos/image111.jpg",
-      "/assets/meydan_photos/image113.jpg"
+      "/assets/meydan_photos/image111.jpg"
     ],
     "landmarks": [
       {
@@ -7502,16 +5941,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Çemberlitaş Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image111.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Çemberlitaş Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image113.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7539,8 +5968,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image109.jpg",
     "images": [
       "/assets/meydan_photos/image109.jpg",
-      "/assets/meydan_photos/image108.jpg",
-      "/assets/meydan_photos/image110.jpg"
+      "/assets/meydan_photos/image108.jpg"
     ],
     "landmarks": [
       {
@@ -7552,16 +5980,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Ayasofya Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image108.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Ayasofya Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image110.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7590,8 +6008,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image38.jpg",
     "images": [
       "/assets/meydan_photos/image38.jpg",
-      "/assets/meydan_photos/image37.jpg",
-      "/assets/meydan_photos/image39.jpg"
+      "/assets/meydan_photos/image37.jpg"
     ],
     "landmarks": [
       {
@@ -7603,16 +6020,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beşiktaş Barbaros Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image37.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beşiktaş Barbaros Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image39.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7641,8 +6048,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image138.jpg",
     "images": [
       "/assets/meydan_photos/image138.jpg",
-      "/assets/meydan_photos/image137.jpg",
-      "/assets/meydan_photos/image139.jpg"
+      "/assets/meydan_photos/image137.jpg"
     ],
     "landmarks": [
       {
@@ -7654,16 +6060,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kadıköy Bostancı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image137.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kadıköy Bostancı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image139.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7689,8 +6085,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image150.jpg",
     "images": [
       "/assets/meydan_photos/image150.jpg",
-      "/assets/meydan_photos/image149.jpg",
-      "/assets/meydan_photos/image151.jpg"
+      "/assets/meydan_photos/image149.jpg"
     ],
     "landmarks": [
       {
@@ -7702,16 +6097,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kozyatağı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image149.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kozyatağı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image151.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7740,8 +6125,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image141.jpg",
     "images": [
       "/assets/meydan_photos/image141.jpg",
-      "/assets/meydan_photos/image140.jpg",
-      "/assets/meydan_photos/image142.jpg"
+      "/assets/meydan_photos/image140.jpg"
     ],
     "landmarks": [
       {
@@ -7753,16 +6137,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kadıköy Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image140.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kadıköy Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image142.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7790,8 +6164,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image144.jpg",
     "images": [
       "/assets/meydan_photos/image144.jpg",
-      "/assets/meydan_photos/image143.jpg",
-      "/assets/meydan_photos/image145.jpg"
+      "/assets/meydan_photos/image143.jpg"
     ],
     "landmarks": [
       {
@@ -7803,16 +6176,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kadıköy Suadiye Sahil Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image143.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kadıköy Suadiye Sahil Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image145.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7840,8 +6203,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image153.jpg",
     "images": [
       "/assets/meydan_photos/image153.jpg",
-      "/assets/meydan_photos/image152.jpg",
-      "/assets/meydan_photos/image154.jpg"
+      "/assets/meydan_photos/image152.jpg"
     ],
     "landmarks": [
       {
@@ -7853,16 +6215,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Yoğurtçu Parkı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image152.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Yoğurtçu Parkı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image154.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7889,8 +6241,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image147.jpg",
     "images": [
       "/assets/meydan_photos/image147.jpg",
-      "/assets/meydan_photos/image146.jpg",
-      "/assets/meydan_photos/image148.jpg"
+      "/assets/meydan_photos/image146.jpg"
     ],
     "landmarks": [
       {
@@ -7902,16 +6253,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kalamış Parkı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image146.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kalamış Parkı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image148.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7950,16 +6291,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Fenerbahçe Parkı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image135.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -7986,8 +6317,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image133.jpg",
     "images": [
       "/assets/meydan_photos/image133.jpg",
-      "/assets/meydan_photos/image132.jpg",
-      "/assets/meydan_photos/image134.jpg"
+      "/assets/meydan_photos/image132.jpg"
     ],
     "landmarks": [
       {
@@ -7999,16 +6329,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Caddebostan Sahili Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image132.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Caddebostan Sahili Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image134.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8037,8 +6357,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image260.jpg",
     "images": [
       "/assets/meydan_photos/image260.jpg",
-      "/assets/meydan_photos/image262.png",
-      "/assets/meydan_photos/image261.jpg"
+      "/assets/meydan_photos/image262.png"
     ],
     "landmarks": [
       {
@@ -8050,16 +6369,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Mimar Sinan Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image262.png"
-      },
-      {
-        "id": "photo-3",
-        "name": "Mimar Sinan Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image261.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8092,8 +6401,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image255.jpg",
     "images": [
       "/assets/meydan_photos/image255.jpg",
-      "/assets/meydan_photos/image254.jpg",
-      "/assets/meydan_photos/image256.png"
+      "/assets/meydan_photos/image254.jpg"
     ],
     "landmarks": [
       {
@@ -8105,16 +6413,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sahil Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image254.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sahil Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image256.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8144,8 +6442,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image258.jpg",
     "images": [
       "/assets/meydan_photos/image258.jpg",
-      "/assets/meydan_photos/image257.jpg",
-      "/assets/meydan_photos/image259.png"
+      "/assets/meydan_photos/image257.jpg"
     ],
     "landmarks": [
       {
@@ -8157,16 +6454,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Salacak Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image257.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Salacak Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image259.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8195,8 +6482,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image251.jpg",
     "images": [
       "/assets/meydan_photos/image251.jpg",
-      "/assets/meydan_photos/image253.png",
-      "/assets/meydan_photos/image252.jpg"
+      "/assets/meydan_photos/image253.png"
     ],
     "landmarks": [
       {
@@ -8208,16 +6494,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Paşalimanı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image253.png"
-      },
-      {
-        "id": "photo-3",
-        "name": "Paşalimanı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image252.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8245,8 +6521,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image1.jpg",
     "images": [
       "/assets/meydan_photos/image1.jpg",
-      "/assets/meydan_photos/image3.jpg",
-      "/assets/meydan_photos/image2.jpg"
+      "/assets/meydan_photos/image3.jpg"
     ],
     "landmarks": [
       {
@@ -8258,16 +6533,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Adalar Büyükada Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image3.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Adalar Büyükada Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image2.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8295,8 +6560,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image47.jpg",
     "images": [
       "/assets/meydan_photos/image47.jpg",
-      "/assets/meydan_photos/image46.jpg",
-      "/assets/meydan_photos/image48.jpg"
+      "/assets/meydan_photos/image46.jpg"
     ],
     "landmarks": [
       {
@@ -8308,16 +6572,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beykoz Onçeşmeler Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image46.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beykoz Onçeşmeler Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image48.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8345,8 +6599,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image55.jpg",
     "images": [
       "/assets/meydan_photos/image55.jpg",
-      "/assets/meydan_photos/image54.jpg",
-      "/assets/meydan_photos/image56.jpg"
+      "/assets/meydan_photos/image54.jpg"
     ],
     "landmarks": [
       {
@@ -8358,16 +6611,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Paşabahçe Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image54.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Paşabahçe Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image56.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8395,8 +6638,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image50.jpg",
     "images": [
       "/assets/meydan_photos/image50.jpg",
-      "/assets/meydan_photos/image49.jpg",
-      "/assets/meydan_photos/image51.jpg"
+      "/assets/meydan_photos/image49.jpg"
     ],
     "landmarks": [
       {
@@ -8408,16 +6650,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Çubuklu Kent Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image49.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Çubuklu Kent Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image51.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8458,16 +6690,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kanlıca Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image52.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8496,8 +6718,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image218.jpg",
     "images": [
       "/assets/meydan_photos/image218.jpg",
-      "/assets/meydan_photos/image217.jpg",
-      "/assets/meydan_photos/image219.png"
+      "/assets/meydan_photos/image217.jpg"
     ],
     "landmarks": [
       {
@@ -8509,16 +6730,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Ağva Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image217.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Ağva Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image219.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8555,16 +6766,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Terminal Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image220.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8590,8 +6791,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image164.jpg",
     "images": [
       "/assets/meydan_photos/image164.jpg",
-      "/assets/meydan_photos/image163.jpg",
-      "/assets/meydan_photos/image165.jpg"
+      "/assets/meydan_photos/image163.jpg"
     ],
     "landmarks": [
       {
@@ -8603,16 +6803,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kartal Neyzen Tevfik Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image163.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kartal Neyzen Tevfik Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image165.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8643,8 +6833,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image167.jpg",
     "images": [
       "/assets/meydan_photos/image167.jpg",
-      "/assets/meydan_photos/image166.jpg",
-      "/assets/meydan_photos/image168.jpg"
+      "/assets/meydan_photos/image166.jpg"
     ],
     "landmarks": [
       {
@@ -8656,16 +6845,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kartal Sahil (Savarona) Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image166.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kartal Sahil (Savarona) Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image168.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8694,8 +6873,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image176.jpg",
     "images": [
       "/assets/meydan_photos/image176.jpg",
-      "/assets/meydan_photos/image175.jpg",
-      "/assets/meydan_photos/image177.jpg"
+      "/assets/meydan_photos/image175.jpg"
     ],
     "landmarks": [
       {
@@ -8707,16 +6885,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Maltepe Adalet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image175.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Maltepe Adalet Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image177.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8747,8 +6915,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image179.jpg",
     "images": [
       "/assets/meydan_photos/image179.jpg",
-      "/assets/meydan_photos/image178.jpg",
-      "/assets/meydan_photos/image180.jpg"
+      "/assets/meydan_photos/image178.jpg"
     ],
     "landmarks": [
       {
@@ -8760,16 +6927,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Maltepe Bakireler Anıtı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image178.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Maltepe Bakireler Anıtı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image180.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8801,8 +6958,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image182.jpg",
     "images": [
       "/assets/meydan_photos/image182.jpg",
-      "/assets/meydan_photos/image181.jpg",
-      "/assets/meydan_photos/image183.jpg"
+      "/assets/meydan_photos/image181.jpg"
     ],
     "landmarks": [
       {
@@ -8814,16 +6970,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Maltepe Cumhuriyet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image181.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Maltepe Cumhuriyet Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image183.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8854,8 +7000,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image249.jpg",
     "images": [
       "/assets/meydan_photos/image249.jpg",
-      "/assets/meydan_photos/image248.jpg",
-      "/assets/meydan_photos/image250.png"
+      "/assets/meydan_photos/image248.jpg"
     ],
     "landmarks": [
       {
@@ -8867,16 +7012,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Ümraniye Dudullu Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image248.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Ümraniye Dudullu Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image250.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8904,8 +7039,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image89.jpg",
     "images": [
       "/assets/meydan_photos/image89.jpg",
-      "/assets/meydan_photos/image88.jpg",
-      "/assets/meydan_photos/image90.jpg"
+      "/assets/meydan_photos/image88.jpg"
     ],
     "landmarks": [
       {
@@ -8917,16 +7051,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Çekmeköy Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image88.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Çekmeköy Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image90.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -8967,16 +7091,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sultanbeyli Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image234.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9017,16 +7131,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Pendik Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image190.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9052,8 +7156,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image237.jpg",
     "images": [
       "/assets/meydan_photos/image237.jpg",
-      "/assets/meydan_photos/image236.jpg",
-      "/assets/meydan_photos/image238.png"
+      "/assets/meydan_photos/image236.jpg"
     ],
     "landmarks": [
       {
@@ -9065,16 +7168,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Tahaffuzhane Caddesi Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image236.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Tahaffuzhane Caddesi Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image238.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9103,8 +7196,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image240.jpg",
     "images": [
       "/assets/meydan_photos/image240.jpg",
-      "/assets/meydan_photos/image239.jpg",
-      "/assets/meydan_photos/image241.png"
+      "/assets/meydan_photos/image239.jpg"
     ],
     "landmarks": [
       {
@@ -9116,16 +7208,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Tuzla Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image239.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Tuzla Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image241.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9155,8 +7237,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image246.jpg",
     "images": [
       "/assets/meydan_photos/image246.jpg",
-      "/assets/meydan_photos/image245.jpg",
-      "/assets/meydan_photos/image247.png"
+      "/assets/meydan_photos/image245.jpg"
     ],
     "landmarks": [
       {
@@ -9168,16 +7249,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image245.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image247.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9210,8 +7281,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image243.jpg",
     "images": [
       "/assets/meydan_photos/image243.jpg",
-      "/assets/meydan_photos/image242.jpg",
-      "/assets/meydan_photos/image244.png"
+      "/assets/meydan_photos/image242.jpg"
     ],
     "landmarks": [
       {
@@ -9223,16 +7293,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 2",
         "img": "/assets/meydan_photos/image242.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 3",
-        "img": "/assets/meydan_photos/image244.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9259,8 +7319,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image193.jpg",
     "images": [
       "/assets/meydan_photos/image193.jpg",
-      "/assets/meydan_photos/image192.jpg",
-      "/assets/meydan_photos/image194.jpg"
+      "/assets/meydan_photos/image192.jpg"
     ],
     "landmarks": [
       {
@@ -9272,16 +7331,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Pendik Sahil Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image192.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Pendik Sahil Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image194.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9309,8 +7358,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image196.jpg",
     "images": [
       "/assets/meydan_photos/image196.jpg",
-      "/assets/meydan_photos/image195.jpg",
-      "/assets/meydan_photos/image197.png"
+      "/assets/meydan_photos/image195.jpg"
     ],
     "landmarks": [
       {
@@ -9322,16 +7370,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image195.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image197.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9357,8 +7395,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image185.jpg",
     "images": [
       "/assets/meydan_photos/image185.jpg",
-      "/assets/meydan_photos/image184.jpg",
-      "/assets/meydan_photos/image186.jpg"
+      "/assets/meydan_photos/image184.jpg"
     ],
     "landmarks": [
       {
@@ -9370,16 +7407,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 2",
         "img": "/assets/meydan_photos/image184.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 3",
-        "img": "/assets/meydan_photos/image186.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9406,8 +7433,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image188.jpg",
     "images": [
       "/assets/meydan_photos/image188.jpg",
-      "/assets/meydan_photos/image187.jpg",
-      "/assets/meydan_photos/image189.jpg"
+      "/assets/meydan_photos/image187.jpg"
     ],
     "landmarks": [
       {
@@ -9419,16 +7445,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kaynarca Sahil Parkı Görsel 2",
         "img": "/assets/meydan_photos/image187.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Kaynarca Sahil Parkı Görsel 3",
-        "img": "/assets/meydan_photos/image189.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9469,16 +7485,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image72.png"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -9504,8 +7510,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image215.png",
     "images": [
       "/assets/meydan_photos/image215.png",
-      "/assets/meydan_photos/image214.png",
-      "/assets/meydan_photos/image216.png"
+      "/assets/meydan_photos/image214.png"
     ],
     "landmarks": [
       {
@@ -9517,16 +7522,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sultangazi Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image214.png"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sultangazi Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image216.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9555,8 +7550,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image170.jpg",
     "images": [
       "/assets/meydan_photos/image170.jpg",
-      "/assets/meydan_photos/image169.jpg",
-      "/assets/meydan_photos/image171.jpg"
+      "/assets/meydan_photos/image169.jpg"
     ],
     "landmarks": [
       {
@@ -9568,16 +7562,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Küçükçekmece Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image169.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Küçükçekmece Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image171.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -9614,16 +7598,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image7.png"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": [
@@ -9666,16 +7640,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Başakşehir Kent Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image29.jpg"
-      },
-      {
-        "id": "point-3",
-        "name": "Meydan Alanı 3",
-        "img": "/assets/dashboard/kadikoy-iskele.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -9699,8 +7663,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image199.jpg",
     "images": [
       "/assets/meydan_photos/image199.jpg",
-      "/assets/meydan_photos/image198.jpg",
-      "/assets/meydan_photos/image200.png"
+      "/assets/meydan_photos/image198.jpg"
     ],
     "landmarks": [
       {
@@ -9712,16 +7675,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Sancaktepe Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image198.jpg"
-      },
-      {
-        "id": "photo-3",
-        "name": "Sancaktepe Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image200.png"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []
@@ -9745,8 +7698,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/image41.png",
     "images": [
       "/assets/meydan_photos/image41.png",
-      "/assets/meydan_photos/image40.png",
-      "/assets/meydan_photos/image42.jpg"
+      "/assets/meydan_photos/image40.png"
     ],
     "landmarks": [
       {
@@ -9758,16 +7710,6 @@ export const ALL_CANONICAL_MEYDANLAR = [
         "id": "photo-2",
         "name": "Beyazıt Meydanı Görsel 2",
         "img": "/assets/meydan_photos/image40.png"
-      },
-      {
-        "id": "photo-3",
-        "name": "Beyazıt Meydanı Görsel 3",
-        "img": "/assets/meydan_photos/image42.jpg"
-      },
-      {
-        "id": "point-4",
-        "name": "Meydan Alanı 4",
-        "img": "/login-scenes/cult/tarihi-yarimada.jpg"
       }
     ],
     "personnel": []

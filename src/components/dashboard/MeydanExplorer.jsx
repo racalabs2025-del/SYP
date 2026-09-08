@@ -48,7 +48,7 @@ export default function MeydanExplorer({
 }) {
   const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa' | 'ortak'
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedDistricts, setExpandedDistricts] = useState({ kadikoy: true, uskudar: true, bakirkoy: true, beyoglu: true, fatih: true, sultangazi: true });
+  const [expandedDistricts, setExpandedDistricts] = useState({});
 
   function toggleDistrict(distId) {
     setExpandedDistricts((prev) => ({ ...prev, [distId]: !prev[distId] }));

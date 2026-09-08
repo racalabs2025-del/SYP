@@ -1296,11 +1296,17 @@
   gap: 8px;
 }
 
+.landmarks-grid--two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
 .landmark-preview-card {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  height: 72px;
+  height: 74px;
   cursor: pointer;
   border: 2px solid rgba(255, 255, 255, 0.65);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -1346,11 +1352,129 @@
   color: #ffffff;
 }
 
+/* Floating Sleek Meydan Navigation Arrows on Left and Right of Card */
+.hero-side-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.hero-side-nav-btn:hover {
+  background: rgba(2, 132, 199, 0.9);
+  border-color: #38bdf8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55);
+}
+
+.hero-side-nav-btn--prev {
+  left: 14px;
+}
+
+.hero-side-nav-btn--next {
+  right: 14px;
+}
+
+/* Meydan Presentation Briefing Snippet */
+.dashboard-hero-briefing-glass {
+  margin: 8px 0 10px;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.hero-briefing-text {
+  margin: 0 0 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #f1f5f9;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-briefing-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hero-briefing-tag {
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* Meydan Cycle Buttons */
+.btn-meydan-cycle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-meydan-cycle:hover {
+  background: rgba(2, 132, 199, 0.85);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.hero-slider-center-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-slider-meydan-counter {
+  font-size: 11px;
+  font-weight: 700;
+  color: #e2e8f0;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .landmarks-controls {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .landmarks-dots {

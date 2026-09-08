@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   MapPinIcon,
   UserGroupIcon,
@@ -103,26 +103,71 @@ export default function DashboardHero({
     return [];
   }, [selectedMeydan, todayShifts, isGeneralOverview]);
 
-  const landmarks = selectedMeydan?.landmarks || [
-    { id: 'boga', name: 'Boğa Heykeli', img: '/assets/dashboard/kadikoy-boga.jpg' },
-    { id: 'iskele', name: 'İskele', img: '/assets/dashboard/kadikoy-iskele.jpg' },
-    { id: 'genel', name: 'Meydan Genel', img: '/login-scenes/cult/kiz-kulesi.jpg' },
-    { id: 'sahil', name: 'Sahil Hattı', img: '/login-scenes/cult/ortakoy.jpg' },
-  ];
+  // Strictly 2 real photo landmarks per square
+  const landmarks = useMemo(() => {
+    if (selectedMeydan?.landmarks && selectedMeydan.landmarks.length > 0) {
+      return selectedMeydan.landmarks.slice(0, 2);
+    }
+    if (selectedMeydan?.images && selectedMeydan.images.length > 0) {
+      return selectedMeydan.images.slice(0, 2).map((img, i) => ({
+        id: `photo-${i + 1}`,
+        name: `${selectedMeydan.name} Görsel ${i + 1}`,
+        img,
+      }));
+    }
+    const defaultImg = selectedMeydan?.heroImage || '/assets/dashboard/kadikoy-boga.jpg';
+    return [
+      { id: 'photo-1', name: `${selectedMeydan?.name || 'Meydan'} Görsel 1`, img: defaultImg },
+      { id: 'photo-2', name: `${selectedMeydan?.name || 'Meydan'} Görsel 2`, img: defaultImg },
+    ];
+  }, [selectedMeydan]);
+
+  // Current Meydan index in 95 Canonical List
+  const currentMeydanIndex = useMemo(() => {
+    if (!selectedMeydan?.id) return 0;
+    const idx = ALL_CANONICAL_MEYDANLAR.findIndex((m) => m.id === selectedMeydan.id);
+    return idx >= 0 ? idx : 0;
+  }, [selectedMeydan?.id]);
+
+  const handlePrevMeydan = useCallback(() => {
+    const prevIdx = (currentMeydanIndex - 1 + ALL_CANONICAL_MEYDANLAR.length) % ALL_CANONICAL_MEYDANLAR.length;
+    const target = ALL_CANONICAL_MEYDANLAR[prevIdx];
+    if (onSelectMeydan) {
+      onSelectMeydan(target);
+    }
+  }, [currentMeydanIndex, onSelectMeydan]);
+
+  const handleNextMeydan = useCallback(() => {
+    const nextIdx = (currentMeydanIndex + 1) % ALL_CANONICAL_MEYDANLAR.length;
+    const target = ALL_CANONICAL_MEYDANLAR[nextIdx];
+    if (onSelectMeydan) {
+      onSelectMeydan(target);
+    }
+  }, [currentMeydanIndex, onSelectMeydan]);
+
+  // Keyboard navigation for meydan slider
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrevMeydan();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNextMeydan();
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handlePrevMeydan, handleNextMeydan]);
 
   // Hero visuals: switches dynamically when thumbnail or arrows are clicked
   const activeLandmarkImg = landmarks[activeThumbnailIndex]?.img;
   const heroImage = isGeneralOverview
     ? '/assets/dashboard/taksim-square.jpg'
     : (activeLandmarkImg || selectedMeydan?.heroImage || '/assets/dashboard/kadikoy-boga.jpg');
-
-  function handlePrev() {
-    setActiveThumbnailIndex((prev) => (prev > 0 ? prev - 1 : landmarks.length - 1));
-  }
-
-  function handleNext() {
-    setActiveThumbnailIndex((prev) => (prev < landmarks.length - 1 ? prev + 1 : 0));
-  }
 
   return (
     <div className="dashboard-hero-container">
@@ -232,6 +277,33 @@ export default function DashboardHero({
           ) : (
             /* ═══ SPECIFIC MEYDAN HERO ═══ */
             <>
+              {/* Floating Sleek Meydan Navigation Arrows on Left and Right of Card */}
+              <button
+                type="button"
+                className="hero-side-nav-btn hero-side-nav-btn--prev"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrevMeydan();
+                }}
+                title="Önceki Meydan (Sol Ok)"
+                aria-label="Önceki Meydan"
+              >
+                <ChevronLeftIcon width={22} height={22} />
+              </button>
+
+              <button
+                type="button"
+                className="hero-side-nav-btn hero-side-nav-btn--next"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNextMeydan();
+                }}
+                title="Sonraki Meydan (Sağ Ok)"
+                aria-label="Sonraki Meydan"
+              >
+                <ChevronRightIcon width={22} height={22} />
+              </button>
+
               <div className="dashboard-hero-card__header-row">
                 <div className="dashboard-hero-title-group">
                   <div className="dashboard-hero-pin-badge">
@@ -239,6 +311,20 @@ export default function DashboardHero({
                   </div>
                   <div>
                     <div className="hero-badge-row" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                      <span
+                        style={{
+                          background: 'rgba(3, 105, 161, 0.4)',
+                          border: '1px solid rgba(56, 189, 248, 0.6)',
+                          color: '#e0f2fe',
+                          fontSize: '11px',
+                          fontWeight: '700',
+                          padding: '2px 8px',
+                          borderRadius: '12px',
+                        }}
+                      >
+                        📍 Meydan {currentMeydanIndex + 1} / {ALL_CANONICAL_MEYDANLAR.length}
+                      </span>
+
                       {selectedMeydan?.kategori === 'ORTAK ÇALIŞMA' ? (
                         <span
                           className="hero-mgmt-chip"
@@ -307,28 +393,12 @@ export default function DashboardHero({
                 </div>
               </div>
 
-              {/* Action Buttons: Meydan Personeli + Meydan Detay Sayfası */}
+              {/* Action Buttons: Meydan Detay Sayfası + Meydan Personeli */}
               <div className="dashboard-hero-card__action-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <button
                   type="button"
                   className="btn-hero-action"
-                  onClick={() => {
-                    if (onOpenPersonnel) {
-                      onOpenPersonnel(selectedMeydan);
-                    } else if (selectedMeydan?.id) {
-                      navigate(`/meydan/${selectedMeydan.id}`);
-                    }
-                  }}
-                >
-                  <UserGroupIcon width={17} height={17} />
-                  <span>Meydan Personeli Detayı ({activePersonnel.length})</span>
-                  <ChevronRightIcon width={15} height={15} />
-                </button>
-
-                <button
-                  type="button"
-                  className="btn-hero-action"
-                  style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}
+                  style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', fontWeight: '700' }}
                   onClick={() => {
                     if (selectedMeydan?.id) {
                       navigate(`/meydan/${selectedMeydan.id}`);
@@ -338,7 +408,45 @@ export default function DashboardHero({
                   <span>Meydan Detay Sayfası</span>
                   <ChevronRightIcon width={15} height={15} />
                 </button>
+
+                {activePersonnel.length > 0 ? (
+                  <button
+                    type="button"
+                    className="btn-hero-action"
+                    onClick={() => {
+                      if (onOpenPersonnel) {
+                        onOpenPersonnel(selectedMeydan);
+                      } else if (selectedMeydan?.id) {
+                        navigate(`/meydan/${selectedMeydan.id}`);
+                      }
+                    }}
+                  >
+                    <UserGroupIcon width={17} height={17} />
+                    <span>Meydan Personeli Detayı ({activePersonnel.length})</span>
+                    <ChevronRightIcon width={15} height={15} />
+                  </button>
+                ) : null}
               </div>
+
+              {/* Presentation Briefing & Features snippet */}
+              {(selectedMeydan?.aciklama || (selectedMeydan?.fonksiyonlar && selectedMeydan.fonksiyonlar.length > 0)) && (
+                <div className="dashboard-hero-briefing-glass">
+                  {selectedMeydan?.aciklama && (
+                    <p className="hero-briefing-text">
+                      {selectedMeydan.aciklama}
+                    </p>
+                  )}
+                  {selectedMeydan?.fonksiyonlar && selectedMeydan.fonksiyonlar.length > 0 && (
+                    <div className="hero-briefing-tags">
+                      {selectedMeydan.fonksiyonlar.slice(0, 4).map((f, idx) => (
+                        <span key={idx} className="hero-briefing-tag">
+                          ✓ {f}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Prominent Active Field Personnel List Directly on Hero Card */}
               {activePersonnel.length > 0 && (
@@ -367,10 +475,10 @@ export default function DashboardHero({
               {/* Center space */}
               <div className="dashboard-hero-center-spacer" />
 
-              {/* Bottom 4 Preview Cards (Ref Image 1) */}
+              {/* Bottom 2 Preview Cards & Square Slider Controls */}
               <div className="dashboard-hero-detail-footer">
-                <div className="landmarks-grid">
-                  {landmarks.map((landmark, idx) => {
+                <div className="landmarks-grid landmarks-grid--two">
+                  {landmarks.slice(0, 2).map((landmark, idx) => {
                     const isActive = idx === activeThumbnailIndex;
                     return (
                       <div
@@ -384,7 +492,9 @@ export default function DashboardHero({
                         />
                         <div className="landmark-preview-card__caption">
                           <MapPinIcon width={11} height={11} className="landmark-caption-pin" />
-                          <span className="landmark-name">{landmark.name}</span>
+                          <span className="landmark-name">
+                            {idx === 0 ? 'Görsel 1 (Genel Görünüm)' : 'Görsel 2 (Meydan Alanı)'}
+                          </span>
                         </div>
                       </div>
                     );
@@ -393,38 +503,43 @@ export default function DashboardHero({
 
                 {/* Carousel Pagination & Arrows */}
                 <div className="landmarks-controls">
-                  <div className="landmarks-dots">
-                    {landmarks.map((_, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        className={`landmarks-dot ${idx === activeThumbnailIndex ? 'is-active' : ''}`}
-                        onClick={() => setActiveThumbnailIndex(idx)}
-                        aria-label={`Slide ${idx + 1}`}
-                      />
-                    ))}
+                  <button
+                    type="button"
+                    className="btn-meydan-cycle btn-meydan-cycle--prev"
+                    onClick={handlePrevMeydan}
+                    title="Önceki Meydan (Sol Ok)"
+                  >
+                    <ChevronLeftIcon width={14} height={14} />
+                    <span>Önceki Meydan</span>
+                  </button>
+
+                  <div className="hero-slider-center-info">
+                    <span className="hero-slider-meydan-counter">
+                      {currentMeydanIndex + 1} / {ALL_CANONICAL_MEYDANLAR.length}
+                    </span>
+                    <div className="landmarks-dots">
+                      {landmarks.slice(0, 2).map((_, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          className={`landmarks-dot ${idx === activeThumbnailIndex ? 'is-active' : ''}`}
+                          onClick={() => setActiveThumbnailIndex(idx)}
+                          aria-label={`Görsel ${idx + 1}`}
+                          title={`Görsel ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="landmarks-nav-buttons">
-                    <button
-                      type="button"
-                      className="landmarks-nav-btn"
-                      onClick={handlePrev}
-                      title="Önceki"
-                      aria-label="Önceki"
-                    >
-                      <ChevronLeftIcon width={15} height={15} />
-                    </button>
-                    <button
-                      type="button"
-                      className="landmarks-nav-btn"
-                      onClick={handleNext}
-                      title="Sonraki"
-                      aria-label="Sonraki"
-                    >
-                      <ChevronRightIcon width={15} height={15} />
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    className="btn-meydan-cycle btn-meydan-cycle--next"
+                    onClick={handleNextMeydan}
+                    title="Sonraki Meydan (Sağ Ok)"
+                  >
+                    <span>Sonraki Meydan</span>
+                    <ChevronRightIcon width={14} height={14} />
+                  </button>
                 </div>
               </div>
             </>
