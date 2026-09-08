@@ -30,21 +30,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "Dudullu–Bostancı Metro Hattı projesi kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları genişletilmiş, yeşil alanlar ve sosyal donatı alanları oluşturulmuş, yer altı otoparkı ile ulaşım entegrasyonu güçlendirilerek meydan daha erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image138.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide53_219839d02a.jpg",
         "images": [
-          "/assets/meydan_photos/image138.jpg",
-          "/assets/meydan_photos/image137.jpg"
+          "/assets/meydan_photos/photo_slide53_219839d02a.jpg",
+          "/assets/meydan_photos/photo_slide53_a6abbdd321.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kadıköy Bostancı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image138.jpg"
+            "img": "/assets/meydan_photos/photo_slide53_219839d02a.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kadıköy Bostancı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image137.jpg"
+            "img": "/assets/meydan_photos/photo_slide53_a6abbdd321.jpg"
           }
         ],
         "personnel": [
@@ -67,21 +67,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan"
         ],
         "aciklama": "İlçenin önemli ulaşım ve yaya odaklarından biri olup çevresindeki kamusal kullanım alanlarıyla bütünleşmektedir. Meydanda gerçekleştirilen düzenlemeler kapsamında yaya dolaşımının iyileştirilmesi, erişilebilirliğin artırılması ve kamusal kullanım niteliğinin güçlendirilmesi amaçlanmıştır.",
-        "heroImage": "/assets/meydan_photos/image150.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide57_622737335a.jpg",
         "images": [
-          "/assets/meydan_photos/image150.jpg",
-          "/assets/meydan_photos/image149.jpg"
+          "/assets/meydan_photos/photo_slide57_622737335a.jpg",
+          "/assets/meydan_photos/photo_slide57_7ebbd6ceca.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kozyatağı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image150.jpg"
+            "img": "/assets/meydan_photos/photo_slide57_622737335a.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kozyatağı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image149.jpg"
+            "img": "/assets/meydan_photos/photo_slide57_7ebbd6ceca.jpg"
           }
         ],
         "personnel": [
@@ -107,21 +107,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "İstanbul’un en önemli ulaşım ve aktarma merkezlerinden biri olup kapsamlı meydan dönüşüm projesiyle yeniden düzenlenmektedir. Proje kapsamında yaya öncelikli kullanımın artırılması, ulaşım sistemlerinin bütünleştirilmesi, yeşil alanların genişletilmesi ve meydanın daha nitelikli bir kamusal yaşam alanına dönüştürülmesi hedeflenmektedir.",
-        "heroImage": "/assets/meydan_photos/image141.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide54_3de4df0740.jpg",
         "images": [
-          "/assets/meydan_photos/image141.jpg",
-          "/assets/meydan_photos/image140.jpg"
+          "/assets/meydan_photos/photo_slide54_3de4df0740.jpg",
+          "/assets/meydan_photos/photo_slide54_7b4de6a7ff.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kadıköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image141.jpg"
+            "img": "/assets/meydan_photos/photo_slide54_3de4df0740.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kadıköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image140.jpg"
+            "img": "/assets/meydan_photos/photo_slide54_7b4de6a7ff.jpg"
           }
         ],
         "personnel": [
@@ -146,21 +146,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "Bağdat Caddesi ile sahil bandı arasında bağlantı sağlayan önemli kamusal alanlardan biridir. Meydan; yaya dolaşımı, dinlenme alanları ve kıyı kullanımıyla bütünleşen yapısı sayesinde rekreasyon ve sosyal yaşamı destekleyen önemli bir kamusal kullanım alanı niteliği taşımaktadır.",
-        "heroImage": "/assets/meydan_photos/image144.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg",
         "images": [
-          "/assets/meydan_photos/image144.jpg",
-          "/assets/meydan_photos/image143.jpg"
+          "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg",
+          "/assets/meydan_photos/photo_slide55_544cafc406.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kadıköy Suadiye Sahil Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image144.jpg"
+            "img": "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kadıköy Suadiye Sahil Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image143.jpg"
+            "img": "/assets/meydan_photos/photo_slide55_544cafc406.jpg"
           }
         ],
         "personnel": [
@@ -185,21 +185,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "Kurbağalıdere Yaşam Vadisi Projesi kapsamında yenilenen Yoğurtçu Parkı ile bütünleşen önemli bir kamusal alandır. Çalışmalar kapsamında altyapı sorunları giderilmiş, peyzaj düzenlemeleri tamamlanmış, spor ve dinlenme alanları oluşturularak kullanıcılar için daha nitelikli ve erişilebilir bir yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image153.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide58_3def34b4de.jpg",
         "images": [
-          "/assets/meydan_photos/image153.jpg",
-          "/assets/meydan_photos/image152.jpg"
+          "/assets/meydan_photos/photo_slide58_3def34b4de.jpg",
+          "/assets/meydan_photos/photo_slide58_72aec58246.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Yoğurtçu Parkı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image153.jpg"
+            "img": "/assets/meydan_photos/photo_slide58_3def34b4de.jpg"
           },
           {
             "id": "photo-2",
             "name": "Yoğurtçu Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image152.jpg"
+            "img": "/assets/meydan_photos/photo_slide58_72aec58246.jpg"
           }
         ],
         "personnel": [
@@ -223,21 +223,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "Kalamış sahil bandı ile bütünleşen önemli rekreasyon alanlarından biridir. Meydan, yürüyüş yolları, dinlenme alanları ve yeşil dokusuyla kıyı kullanımını destekleyen, kent yaşamına katkı sağlayan nitelikli bir kamusal alan olarak hizmet vermektedir.",
-        "heroImage": "/assets/meydan_photos/image147.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide56_1c655ea414.jpg",
         "images": [
-          "/assets/meydan_photos/image147.jpg",
-          "/assets/meydan_photos/image146.jpg"
+          "/assets/meydan_photos/photo_slide56_1c655ea414.jpg",
+          "/assets/meydan_photos/photo_slide56_be1b91d8ad.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kalamış Parkı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image147.jpg"
+            "img": "/assets/meydan_photos/photo_slide56_1c655ea414.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kalamış Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image146.jpg"
+            "img": "/assets/meydan_photos/photo_slide56_be1b91d8ad.jpg"
           }
         ],
         "personnel": [
@@ -261,21 +261,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "Tarihî Fenerbahçe Parkı ve kıyı bandıyla bütünleşen önemli kamusal alanlardan biridir. Doğal peyzajı, yürüyüş alanları ve dinlenme noktalarıyla kentlilere rekreasyon imkânı sunan meydan, kıyı kullanımını destekleyen önemli bir kamusal yaşam alanı niteliğindedir.",
-        "heroImage": "/assets/meydan_photos/image136.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
         "images": [
-          "/assets/meydan_photos/image136.jpg",
-          "/assets/meydan_photos/image135.jpg"
+          "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
+          "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Fenerbahçe Parkı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image136.jpg"
+            "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
           },
           {
             "id": "photo-2",
             "name": "Fenerbahçe Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image135.jpg"
+            "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
           }
         ],
         "personnel": [
@@ -299,21 +299,21 @@ export const ANADOLU_DISTRICTS = [
           "Beltur"
         ],
         "aciklama": "İstanbul’un en yoğun kullanılan kıyı ve rekreasyon alanlarından biri olup Marmara Denizi kıyısında yer alan önemli kamusal yaşam alanlarındandır. Meydan; yürüyüş ve bisiklet yolları, yeşil alanları ve dinlenme alanlarıyla kentlilerin sosyal ve sportif faaliyetlerine hizmet vermektedir. 2017 yılında İBB tarafından sahil bandında çevre düzenlemesi, altyapı, peyzaj ve yaya yolu iyileştirme çalışmaları gerçekleştirilmiş, böylece alanın erişilebilirliği ve kamusal kullanım niteliği güçlendirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image133.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide51_5638078c6f.jpg",
         "images": [
-          "/assets/meydan_photos/image133.jpg",
-          "/assets/meydan_photos/image132.jpg"
+          "/assets/meydan_photos/photo_slide51_5638078c6f.jpg",
+          "/assets/meydan_photos/photo_slide51_7ff92de6d4.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Caddebostan Sahili Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image133.jpg"
+            "img": "/assets/meydan_photos/photo_slide51_5638078c6f.jpg"
           },
           {
             "id": "photo-2",
             "name": "Caddebostan Sahili Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image132.jpg"
+            "img": "/assets/meydan_photos/photo_slide51_7ff92de6d4.jpg"
           }
         ],
         "personnel": [
@@ -347,21 +347,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "Eski belediye hizmet binası alanının dönüştürülmesiyle 16.01.2022 tarihinde hizmete açılmıştır. Proje kapsamında 16.110 m² alanda Hakimiyet-i Milliye Caddesi yeniden düzenlenmiş, tarihi Kara Davut Paşa Camii çevresinde yeşil etkinlik çayırı, tören alanı ile oturma ve dinlenme alanları oluşturulmuştur. Ayrıca 956 araç kapasiteli dört katlı zemin altı otoparkı inşa edilerek deniz, kara ve raylı sistem ulaşımı arasındaki entegrasyon güçlendirilmiş ve bölgeye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image260.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide97_8f03099c89.jpg",
         "images": [
-          "/assets/meydan_photos/image260.jpg",
-          "/assets/meydan_photos/image262.png"
+          "/assets/meydan_photos/photo_slide97_8f03099c89.jpg",
+          "/assets/meydan_photos/photo_slide97_49e650f4f8.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Mimar Sinan Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image260.jpg"
+            "img": "/assets/meydan_photos/photo_slide97_8f03099c89.jpg"
           },
           {
             "id": "photo-2",
             "name": "Mimar Sinan Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image262.png"
+            "img": "/assets/meydan_photos/photo_slide97_49e650f4f8.jpg"
           }
         ],
         "personnel": [
@@ -391,21 +391,21 @@ export const ANADOLU_DISTRICTS = [
           "Ticari Büfe"
         ],
         "aciklama": "İstanbul’un en önemli ulaşım ve kıyı odaklarından biri olup kapsamlı meydan ve sahil düzenleme çalışmalarıyla yeniden düzenlenmiştir. Proje kapsamında yaklaşık 25.000 m² meydan alanı, 16.000 m² yeşil alan, kesintisiz ve engelsiz yaya kullanım alanları oluşturulmuş; Harem ile Üsküdar arasında sahil bandı yürüyüş yolları, bisiklet yolu ve dinlenme alanlarıyla bütünleştirilmiştir. Böylece meydanın ulaşım, rekreasyon ve kamusal kullanım niteliği önemli ölçüde güçlendirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image255.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide95_4894e9e026.jpg",
         "images": [
-          "/assets/meydan_photos/image255.jpg",
-          "/assets/meydan_photos/image254.jpg"
+          "/assets/meydan_photos/photo_slide95_4894e9e026.jpg",
+          "/assets/meydan_photos/photo_slide95_b12b74f08b.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sahil Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image255.jpg"
+            "img": "/assets/meydan_photos/photo_slide95_4894e9e026.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sahil Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image254.jpg"
+            "img": "/assets/meydan_photos/photo_slide95_b12b74f08b.jpg"
           }
         ],
         "personnel": [
@@ -432,21 +432,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "Salacak Sahili Çevre Düzenleme Projesi kapsamında 18.03.2024 tarihinde  18.000 m² hizmete açılmıştır. Proje kapsamında uzun yıllar kaçak yapılar nedeniyle işgal altında bulunan sahil alanı kamusal kullanıma yeniden kazandırılmış, kaçak yapılar kaldırılarak geniş bir meydan, çocuk oyun alanı, seyir terasları ve peyzaj düzenlemeleri oluşturulmuştur. Ayrıca sahil güçlendirme çalışmaları gerçekleştirilmiş, doğal taş ve bitkisel peyzaj uygulamalarıyla Kız Kulesi siluetini öne çıkaran nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image258.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide96_cde737f39a.jpg",
         "images": [
-          "/assets/meydan_photos/image258.jpg",
-          "/assets/meydan_photos/image257.jpg"
+          "/assets/meydan_photos/photo_slide96_cde737f39a.jpg",
+          "/assets/meydan_photos/photo_slide96_fdf2321606.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Salacak Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image258.jpg"
+            "img": "/assets/meydan_photos/photo_slide96_cde737f39a.jpg"
           },
           {
             "id": "photo-2",
             "name": "Salacak Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image257.jpg"
+            "img": "/assets/meydan_photos/photo_slide96_fdf2321606.jpg"
           }
         ],
         "personnel": [
@@ -472,21 +472,21 @@ export const ANADOLU_DISTRICTS = [
           "Beltur"
         ],
         "aciklama": "Boğaz kıyısında 12.000 m² yer alan ve sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan ve çevresinde gerçekleştirilen düzenlemeler kapsamında kıyı kullanımını destekleyen yaya alanları ve dinlenme alanları oluşturulmuş, kamusal kullanım niteliği güçlendirilmiştir. Ayrıca 2024 yılında hizmete açılan Paşalimanı Sosyal Tesisi ile alanın sosyal kullanım kapasitesi artırılmış; deniz manzarasına sahip tesis bünyesinde dinlenme, sosyalleşme ve çalışma imkânı sunan açık ve kapalı oturma alanları, self-servis kafeterya ve kütüphane oluşturularak meydan ve sahil bandı daha nitelikli bir yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image251.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg",
         "images": [
-          "/assets/meydan_photos/image251.jpg",
-          "/assets/meydan_photos/image253.png"
+          "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg",
+          "/assets/meydan_photos/photo_slide94_8c6863902a.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Paşalimanı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image251.jpg"
+            "img": "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg"
           },
           {
             "id": "photo-2",
             "name": "Paşalimanı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image253.png"
+            "img": "/assets/meydan_photos/photo_slide94_8c6863902a.jpg"
           }
         ],
         "personnel": [
@@ -521,21 +521,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK Zemin Altı Otopark"
         ],
         "aciklama": "Yaklaşık 24 bin m² alanda hayata geçirilen proje kapsamında düzenlenmiştir. Meydanda peyzaj düzenlemeleri, oturma alanları ve yaya kullanımını destekleyen açık alanlar oluşturularak bölgenin meydan niteliği güçlendirilmiş, çevre düzenlemeleriyle kamusal kullanım kalitesi artırılarak nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image249.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide93_e480401da9.jpg",
         "images": [
-          "/assets/meydan_photos/image249.jpg",
-          "/assets/meydan_photos/image248.jpg"
+          "/assets/meydan_photos/photo_slide93_e480401da9.jpg",
+          "/assets/meydan_photos/photo_slide93_419149bf4b.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Ümraniye Dudullu Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image249.jpg"
+            "img": "/assets/meydan_photos/photo_slide93_e480401da9.jpg"
           },
           {
             "id": "photo-2",
             "name": "Ümraniye Dudullu Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image248.jpg"
+            "img": "/assets/meydan_photos/photo_slide93_419149bf4b.jpg"
           }
         ],
         "personnel": [
@@ -563,21 +563,21 @@ export const ANADOLU_DISTRICTS = [
           "İstanbul Kitapçısı"
         ],
         "aciklama": "150 Günde 150 Proje kapsamında yaklaşık 10.800 m² alanda düzenlenerek hizmete açılmıştır. Proje kapsamında bölgenin kamusal alan ihtiyacını karşılayacak şekilde meydan yeniden tasarlanmış, yaklaşık 1.000 araç kapasiteli zemin altı otopark ile çocuk oyun alanı oluşturulmuştur. Meydanın dönüşüm projesi kapsamında bölgenin kültürel yaşama erişimi güçlendirilmiş, kamusal kullanım niteliği artırılarak Ümraniye’ye sosyal yaşamı destekleyen nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image246.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg",
         "images": [
-          "/assets/meydan_photos/image246.jpg",
-          "/assets/meydan_photos/image245.jpg"
+          "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg",
+          "/assets/meydan_photos/photo_slide92_72d48be255.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image246.jpg"
+            "img": "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg"
           },
           {
             "id": "photo-2",
             "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image245.jpg"
+            "img": "/assets/meydan_photos/photo_slide92_72d48be255.jpg"
           }
         ],
         "personnel": [
@@ -612,21 +612,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Maltepe Adalet Meydanı Projesi kapsamında, Maltepe Yalı Mahallesi’nde atıl durumda bulunan ve bir dönem kafe olarak işletilen alan dönüştürülerek 4.760 m² büyüklüğünde yeni bir meydan oluşturulmuştur. Proje kapsamında mevcut yeşil alanlarla bütünleşik bir meydan tasarlanmış, bitki varlığı zenginleştirilmiş, altyapı ve drenaj sorunları giderilerek yaya kullanımına uygun nitelikli bir kamusal yaşam alanı kazandırılmıştır. Ayrıca meydan, Anadolu Adalet Sarayı çevresindeki yaya erişimini ve kamusal kullanım kalitesini artıracak şekilde düzenlenmiştir. Alan büyüklüğü: 4.760m²",
-        "heroImage": "/assets/meydan_photos/image176.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide66_2581f529d1.jpg",
         "images": [
-          "/assets/meydan_photos/image176.jpg",
-          "/assets/meydan_photos/image175.jpg"
+          "/assets/meydan_photos/photo_slide66_2581f529d1.jpg",
+          "/assets/meydan_photos/photo_slide66_27a155537f.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Maltepe Adalet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image176.jpg"
+            "img": "/assets/meydan_photos/photo_slide66_2581f529d1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Maltepe Adalet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image175.jpg"
+            "img": "/assets/meydan_photos/photo_slide66_27a155537f.jpg"
           }
         ],
         "personnel": [
@@ -654,21 +654,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "300 Günde 300 Proje kapsamında düzenlenerek hizmete açılmıştır. Proje kapsamında 1953 yılında inşa edilen Bakireler Anıtı restore edilerek yeni yerine taşınmış, 208 araç kapasiteli otopark, taksi durağı, yürüyüş yolları, altyapı çalışmaları ile yeşil alan ve peyzaj düzenlemeleri gerçekleştirilerek nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image179.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide67_065817eacd.jpg",
         "images": [
-          "/assets/meydan_photos/image179.jpg",
-          "/assets/meydan_photos/image178.jpg"
+          "/assets/meydan_photos/photo_slide67_065817eacd.jpg",
+          "/assets/meydan_photos/photo_slide67_391b3507fb.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Maltepe Bakireler Anıtı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image179.jpg"
+            "img": "/assets/meydan_photos/photo_slide67_065817eacd.jpg"
           },
           {
             "id": "photo-2",
             "name": "Maltepe Bakireler Anıtı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image178.jpg"
+            "img": "/assets/meydan_photos/photo_slide67_391b3507fb.jpg"
           }
         ],
         "personnel": [
@@ -697,21 +697,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "Maltepe Cumhuriyet Meydanı Projesi kapsamında, Maltepe Bağdat Caddesi ile Atatürk Caddesi arasında yaklaşık 25 bin m² büyüklüğünde yeni bir meydan oluşturulmuştur. Proje kapsamında araç trafiği Maltepe Cumhuriyet Meydanı Alt Geçidi ile yer altına alınarak trafik akışı kesintisiz hâle getirilmiş, meydan yayalaştırılarak yeni kamusal kullanım alanları oluşturulmuştur. Ayrıca bölgenin altyapısı yenilenmiş, yeşil alan miktarı artırılmış, İstanbul Kitapçısı, Beltur Kafe ve sosyal kullanım alanları ile desteklenen nitelikli bir kent meydanı İstanbul’a kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image182.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg",
         "images": [
-          "/assets/meydan_photos/image182.jpg",
-          "/assets/meydan_photos/image181.jpg"
+          "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg",
+          "/assets/meydan_photos/photo_slide68_72bf04753c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Maltepe Cumhuriyet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image182.jpg"
+            "img": "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg"
           },
           {
             "id": "photo-2",
             "name": "Maltepe Cumhuriyet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image181.jpg"
+            "img": "/assets/meydan_photos/photo_slide68_72bf04753c.jpg"
           }
         ],
         "personnel": [
@@ -745,21 +745,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "150 Günde 150 Proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje kapsamında yaklaşık 55 bin m² meydan ve çevre düzenlemesi gerçekleştirilmiş, kent parkı, 123 araçlık otopark, yeşil alanlar, oturma ve dinlenme alanları oluşturulmuştur. Meydan, Marmaray hattı nedeniyle işlevini kaybeden alanın yeniden düzenlenmesiyle Kartal’ın önemli kamusal yaşam alanlarından biri haline getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image164.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg",
         "images": [
-          "/assets/meydan_photos/image164.jpg",
-          "/assets/meydan_photos/image163.jpg"
+          "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg",
+          "/assets/meydan_photos/photo_slide62_3ae92cf807.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kartal Neyzen Tevfik Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image164.jpg"
+            "img": "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kartal Neyzen Tevfik Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image163.jpg"
+            "img": "/assets/meydan_photos/photo_slide62_3ae92cf807.jpg"
           }
         ],
         "personnel": [
@@ -787,21 +787,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "Marmara Denizi kıyısında yer alan ve sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan; yürüyüş yolları, dinlenme alanları ve yeşil alan düzenlemeleriyle kıyı kullanımını desteklemekte, Kartal sahilinin sosyal ve rekreatif kullanımına katkı sağlamaktadır.",
-        "heroImage": "/assets/meydan_photos/image167.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide63_627fb57386.jpg",
         "images": [
-          "/assets/meydan_photos/image167.jpg",
-          "/assets/meydan_photos/image166.jpg"
+          "/assets/meydan_photos/photo_slide63_627fb57386.jpg",
+          "/assets/meydan_photos/photo_slide63_fff0747e42.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kartal Sahil (Savarona) Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image167.jpg"
+            "img": "/assets/meydan_photos/photo_slide63_627fb57386.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kartal Sahil (Savarona) Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image166.jpg"
+            "img": "/assets/meydan_photos/photo_slide63_fff0747e42.jpg"
           }
         ],
         "personnel": [
@@ -838,21 +838,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "Sahil ve ilçe merkezi arasındaki yaya bağlantısını güçlendirecek şekilde düzenlenmiştir. Meydanda gerçekleştirilen çevre düzenleme çalışmaları kapsamında yeşil alanlar artırılmış, oturma alanları, kent mobilyaları ve peyzaj uygulamalarıyla kamusal kullanım kalitesi yükseltilerek kent yaşamına nitelikli bir meydan kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image191.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
         "images": [
-          "/assets/meydan_photos/image191.jpg",
-          "/assets/meydan_photos/image190.jpg"
+          "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
+          "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Pendik Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image191.jpg"
+            "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
           },
           {
             "id": "photo-2",
             "name": "Pendik Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image190.jpg"
+            "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
           }
         ],
         "personnel": [
@@ -876,21 +876,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "Sahil bandı ile bütünleşik olarak düzenlenmiş olup yaya dolaşımını destekleyen açık alanları, peyzaj düzenlemeleri ve dinlenme alanlarıyla kamusal kullanım kalitesi artırılmıştır. Meydan düzenlemesiyle sahil kullanımını güçlendiren nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image193.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg",
         "images": [
-          "/assets/meydan_photos/image193.jpg",
-          "/assets/meydan_photos/image192.jpg"
+          "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg",
+          "/assets/meydan_photos/photo_slide72_bd65ef2171.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Pendik Sahil Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image193.jpg"
+            "img": "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg"
           },
           {
             "id": "photo-2",
             "name": "Pendik Sahil Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image192.jpg"
+            "img": "/assets/meydan_photos/photo_slide72_bd65ef2171.jpg"
           }
         ],
         "personnel": [
@@ -915,21 +915,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Pendik sahil bandında 10.000 m²’lik yer alan kamusal yeşil alan niteliğinde bir kent parkı olarak 10.000 m² düzenlenmiştir. Yürüyüş, dinlenme ve rekreasyon amaçlı kullanıma uygun olarak tasarlanan alanda peyzaj düzenlemeleri ve açık kullanım alanlarıyla kamusal kullanım kalitesi artırılmış, bölgenin sosyal yaşamını destekleyen nitelikli bir kamusal alan oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image196.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg",
         "images": [
-          "/assets/meydan_photos/image196.jpg",
-          "/assets/meydan_photos/image195.jpg"
+          "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg",
+          "/assets/meydan_photos/photo_slide73_dcf94db113.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image196.jpg"
+            "img": "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg"
           },
           {
             "id": "photo-2",
             "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image195.jpg"
+            "img": "/assets/meydan_photos/photo_slide73_dcf94db113.jpg"
           }
         ],
         "personnel": [
@@ -952,21 +952,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Yaklaşık 5.000 m² alanda yürütülen yenileme çalışmaları kapsamında yeniden düzenlenmiştir. Proje kapsamında alanın drenaj problemi giderilmiş, yeni ağaçlandırma ve peyzaj düzenlemeleri gerçekleştirilmiş, oturma alanları artırılarak kamusal kullanım kalitesi güçlendirilmiştir. Geniş sert zeminli açık alan düzenine sahip olan meydan, resmî törenler, anma programları ve kamusal etkinliklere uygun şekilde tasarlanmış olup, modern ve sürdürülebilir bir kamusal yaşam alanı olarak hizmet vermektedir.",
-        "heroImage": "/assets/meydan_photos/image185.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg",
         "images": [
-          "/assets/meydan_photos/image185.jpg",
-          "/assets/meydan_photos/image184.jpg"
+          "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg",
+          "/assets/meydan_photos/photo_slide69_ef9f1671f3.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 1",
-            "img": "/assets/meydan_photos/image185.jpg"
+            "img": "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg"
           },
           {
             "id": "photo-2",
             "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 2",
-            "img": "/assets/meydan_photos/image184.jpg"
+            "img": "/assets/meydan_photos/photo_slide69_ef9f1671f3.jpg"
           }
         ],
         "personnel": [
@@ -990,21 +990,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "Sahil bandında yer alan kamusal açık rekreasyon alanı olarak düzenlenmiştir. Alan; yürüyüş yolları, yeşil alanlar ve peyzaj düzenlemeleriyle kamusal kullanım niteliği güçlendirilmiş, vatandaşların yürüyüş, dinlenme ve sosyal vakit geçirmelerine uygun bir yaşam alanına dönüştürülmüştür. Böylece sahil bandının rekreasyon ve kamusal kullanım kapasitesi artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image188.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg",
         "images": [
-          "/assets/meydan_photos/image188.jpg",
-          "/assets/meydan_photos/image187.jpg"
+          "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg",
+          "/assets/meydan_photos/photo_slide70_9d1efa56c1.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kaynarca Sahil Parkı Görsel 1",
-            "img": "/assets/meydan_photos/image188.jpg"
+            "img": "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kaynarca Sahil Parkı Görsel 2",
-            "img": "/assets/meydan_photos/image187.jpg"
+            "img": "/assets/meydan_photos/photo_slide70_9d1efa56c1.jpg"
           }
         ],
         "personnel": [
@@ -1035,21 +1035,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Yaklaşık 8.500 m² alanda hayata geçirilen proje kapsamında düzenlenmiştir. Proje ile bölge yalnızca bir geçiş noktası olmaktan çıkarılarak kültürel ve sosyal yaşamı destekleyen bir kamusal alana dönüştürülmüş; meydanda peyzaj düzenlemeleri, oturma alanları ve kent mobilyalarıyla kamusal kullanım kalitesi artırılmıştır. Ayrıca proje kapsamında İSPARK zemin altı otoparkı inşa edilerek bölgedeki ulaşım ve otopark ihtiyacına katkı sağlanmıştır.",
-        "heroImage": "/assets/meydan_photos/image237.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide89_bae789221d.jpg",
         "images": [
-          "/assets/meydan_photos/image237.jpg",
-          "/assets/meydan_photos/image236.jpg"
+          "/assets/meydan_photos/photo_slide89_bae789221d.jpg",
+          "/assets/meydan_photos/photo_slide89_73babd2670.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Tahaffuzhane Caddesi Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image237.jpg"
+            "img": "/assets/meydan_photos/photo_slide89_bae789221d.jpg"
           },
           {
             "id": "photo-2",
             "name": "Tahaffuzhane Caddesi Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image236.jpg"
+            "img": "/assets/meydan_photos/photo_slide89_73babd2670.jpg"
           }
         ],
         "personnel": [
@@ -1075,21 +1075,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "Ilçe merkezinde yürütülen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Proje ile meydan ve çevresindeki yaya kullanım alanları genişletilmiş, yeşil alanlar ve peyzaj düzenlemeleriyle kamusal kullanım kalitesi artırılmıştır. Ayrıca kent mobilyaları ve dinlenme alanlarıyla desteklenen meydan, Tuzla’nın sosyal ve kültürel yaşamını güçlendiren nitelikli bir kamusal yaşam alanına dönüştürülmüştür. Alan büyüklüğü: 16.000m²",
-        "heroImage": "/assets/meydan_photos/image240.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide90_70354560d8.jpg",
         "images": [
-          "/assets/meydan_photos/image240.jpg",
-          "/assets/meydan_photos/image239.jpg"
+          "/assets/meydan_photos/photo_slide90_70354560d8.jpg",
+          "/assets/meydan_photos/photo_slide90_f3ffca01db.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Tuzla Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image240.jpg"
+            "img": "/assets/meydan_photos/photo_slide90_70354560d8.jpg"
           },
           {
             "id": "photo-2",
             "name": "Tuzla Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image239.jpg"
+            "img": "/assets/meydan_photos/photo_slide90_f3ffca01db.jpg"
           }
         ],
         "personnel": [
@@ -1115,21 +1115,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK"
         ],
         "aciklama": "Tuzla Yaşam Vadisi 1. Etap 1. Kısım, Umur (Doğandere) Deresi boyunca hayata geçirilen yaşam vadisi projesi kapsamında yaklaşık 14.000 m² alanda düzenlenmiştir. Proje ile dere koridoru kamusal kullanıma kazandırılmış, yaya ve bisiklet ulaşımı güçlendirilmiş, yeşil alanlar ve peyzaj düzenlemeleriyle bölgenin rekreasyon niteliği artırılmıştır. Ayrıca Aygün ve Yenice Sokak araç trafiğinden arındırılarak kamusal kullanıma yönelik bir yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image243.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg",
         "images": [
-          "/assets/meydan_photos/image243.jpg",
-          "/assets/meydan_photos/image242.jpg"
+          "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg",
+          "/assets/meydan_photos/photo_slide91_1642362b81.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 1",
-            "img": "/assets/meydan_photos/image243.jpg"
+            "img": "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg"
           },
           {
             "id": "photo-2",
             "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 2",
-            "img": "/assets/meydan_photos/image242.jpg"
+            "img": "/assets/meydan_photos/photo_slide91_1642362b81.jpg"
           }
         ],
         "personnel": [
@@ -1162,21 +1162,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "11.000 m² büyüklüğündeki alan, 300 Günde 300 Proje kapsamında gerçekleştirilen meydan ve cadde düzenleme çalışmalarıyla yenilenmiştir. Proje kapsamında tarihî İshakağa Çeşmesi ön plana çıkarılmış, meydan ile sahil arasındaki yaya bağlantısı güçlendirilmiş; yeşil alan düzenlemeleri, kent mobilyaları ve otobüs duraklarıyla bölgeye Beykoz’un kimliğiyle uyumlu, modern ve nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image47.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg",
         "images": [
-          "/assets/meydan_photos/image47.jpg",
-          "/assets/meydan_photos/image46.jpg"
+          "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg",
+          "/assets/meydan_photos/photo_slide20_5973fe2034.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beykoz Onçeşmeler Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image47.jpg"
+            "img": "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beykoz Onçeşmeler Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image46.jpg"
+            "img": "/assets/meydan_photos/photo_slide20_5973fe2034.jpg"
           }
         ],
         "personnel": [
@@ -1201,21 +1201,21 @@ export const ANADOLU_DISTRICTS = [
           "Halk Ekmek"
         ],
         "aciklama": "7.000 m² büyüklüğündeki alan, Boğaz kıyısında yer alan önemli kamusal alanlardan biri olup sahil ile kent dokusunu buluşturmaktadır. Meydan; yaya dolaşımı, dinlenme alanları ve çevre düzenlemeleriyle bölgenin sosyal yaşamına katkı sağlayan önemli bir kamusal kullanım alanı niteliği taşımaktadır.",
-        "heroImage": "/assets/meydan_photos/image55.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg",
         "images": [
-          "/assets/meydan_photos/image55.jpg",
-          "/assets/meydan_photos/image54.jpg"
+          "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg",
+          "/assets/meydan_photos/photo_slide23_03987335fe.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Paşabahçe Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image55.jpg"
+            "img": "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg"
           },
           {
             "id": "photo-2",
             "name": "Paşabahçe Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image54.jpg"
+            "img": "/assets/meydan_photos/photo_slide23_03987335fe.jpg"
           }
         ],
         "personnel": [
@@ -1240,21 +1240,21 @@ export const ANADOLU_DISTRICTS = [
           "Beltur"
         ],
         "aciklama": "15.000 m² büyüklüğündeki alan, Boğaz kıyısı ve Çubuklu sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan ve çevresi; yaya kullanım alanları, kıyı düzenlemeleri ve rekreasyon alanlarıyla desteklenerek kent yaşamına katkı sağlayan işlevsel bir kamusal alan olarak kullanılmaktadır. Ayrıca Çubuklu kıyısında gerçekleştirilen kamusal alan projeleriyle bölgenin kıyı kullanımı ve sosyal yaşam niteliği güçlendirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image50.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg",
         "images": [
-          "/assets/meydan_photos/image50.jpg",
-          "/assets/meydan_photos/image49.jpg"
+          "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg",
+          "/assets/meydan_photos/photo_slide21_1f69ab0adb.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Çubuklu Kent Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image50.jpg"
+            "img": "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg"
           },
           {
             "id": "photo-2",
             "name": "Çubuklu Kent Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image49.jpg"
+            "img": "/assets/meydan_photos/photo_slide21_1f69ab0adb.jpg"
           }
         ],
         "personnel": [
@@ -1280,21 +1280,21 @@ export const ANADOLU_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "5.500 m² büyüklüğündeki alan, Tarihî Kanlıca İskelesi ve kıyı bandıyla bütünleşen Beykoz’un simgesel kamusal alanlarından biridir. Meydan, Boğaz kıyısındaki yaya kullanımını destekleyen düzenlemeleri ve tarihî çevresiyle bölgenin sosyal ve kültürel yaşamına katkı sağlayan önemli bir buluşma noktasıdır.",
-        "heroImage": "/assets/meydan_photos/image53.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
         "images": [
-          "/assets/meydan_photos/image53.jpg",
-          "/assets/meydan_photos/image52.jpg"
+          "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
+          "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kanlıca Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image53.jpg"
+            "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kanlıca Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image52.jpg"
+            "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
           }
         ],
         "personnel": [
@@ -1328,21 +1328,21 @@ export const ANADOLU_DISTRICTS = [
           "İstanbul Çiçekçisi"
         ],
         "aciklama": "İlçe merkezinde yaya önceliğini artırmaya yönelik çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Proje kapsamında meydan ve çevresinde peyzaj uygulamaları, oturma alanları, kent mobilyaları ve yaya dolaşımını destekleyen düzenlemeler gerçekleştirilerek kamusal kullanım kalitesi artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image89.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg",
         "images": [
-          "/assets/meydan_photos/image89.jpg",
-          "/assets/meydan_photos/image88.jpg"
+          "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg",
+          "/assets/meydan_photos/photo_slide35_fad7891d20.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Çekmeköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image89.jpg"
+            "img": "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg"
           },
           {
             "id": "photo-2",
             "name": "Çekmeköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image88.jpg"
+            "img": "/assets/meydan_photos/photo_slide35_fad7891d20.jpg"
           }
         ],
         "personnel": [
@@ -1376,21 +1376,21 @@ export const ANADOLU_DISTRICTS = [
           "İSPARK Zemin Altı Otopark"
         ],
         "aciklama": "İlçe merkezinde gerçekleştirilen meydan ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Proje kapsamında yaya kullanım alanları genişletilmiş, peyzaj ve kent mobilyalarıyla desteklenen dinlenme alanları oluşturulmuş, meydan sosyal ve kültürel etkinliklere uygun nitelikli bir kamusal yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image235.png",
+        "heroImage": "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
         "images": [
-          "/assets/meydan_photos/image235.png",
-          "/assets/meydan_photos/image234.jpg"
+          "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
+          "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sultanbeyli Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image235.png"
+            "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sultanbeyli Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image234.jpg"
+            "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
           }
         ],
         "personnel": [
@@ -1421,21 +1421,21 @@ export const ANADOLU_DISTRICTS = [
           "METRO"
         ],
         "aciklama": "İlçenin merkezinde kamusal kullanım ön planda tutularak yeniden 15.000 m² alan düzenlenmiştir. Proje kapsamında meydan; yaya dolaşımını destekleyen açık alanlar, peyzaj düzenlemeleri ve dinlenme alanlarıyla yeniden tasarlanmış, çevresiyle bütünleşen güvenli ve erişilebilir bir kamusal yaşam alanı oluşturulmuştur. Meydan düzenlemesiyle ilçenin sosyal ve kültürel yaşamı desteklenmiş, kent kimliğini güçlendiren nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image199.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg",
         "images": [
-          "/assets/meydan_photos/image199.jpg",
-          "/assets/meydan_photos/image198.jpg"
+          "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg",
+          "/assets/meydan_photos/photo_slide74_b375d74f8f.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sancaktepe Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image199.jpg"
+            "img": "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sancaktepe Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image198.jpg"
+            "img": "/assets/meydan_photos/photo_slide74_b375d74f8f.jpg"
           }
         ],
         "personnel": []
@@ -1464,21 +1464,21 @@ export const ANADOLU_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Adalar’ın en önemli kamusal alanlarından biri olan ve iskele çevresi ile Fayton Meydanı’nı kapsayan 22.500 m² büyüklüğündeki alan, kentsel tasarım çalışmaları kapsamında yeniden ele alınmıştır. İBB, İstanbul Planlama Ajansı ve Adalar Belediyesi iş birliğiyle düzenlenen Büyükada Fayton Meydanı Kentsel Tasarım Yarışması sonucunda hazırlanan proje, Koruma Kurulu onayının ardından uygulama aşamasına geçmiştir. Proje kapsamında meydanın tarihî kimliğinin korunması, kamusal kullanım alanlarının artırılması ve yaya öncelikli bir meydan düzeni oluşturulması hedeflenmektedir.",
-        "heroImage": "/assets/meydan_photos/image1.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide4_bee2254710.jpg",
         "images": [
-          "/assets/meydan_photos/image1.jpg",
-          "/assets/meydan_photos/image3.jpg"
+          "/assets/meydan_photos/photo_slide4_bee2254710.jpg",
+          "/assets/meydan_photos/photo_slide4_1cd471cc99.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Adalar Büyükada Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image1.jpg"
+            "img": "/assets/meydan_photos/photo_slide4_bee2254710.jpg"
           },
           {
             "id": "photo-2",
             "name": "Adalar Büyükada Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image3.jpg"
+            "img": "/assets/meydan_photos/photo_slide4_1cd471cc99.jpg"
           }
         ],
         "personnel": [
@@ -1510,21 +1510,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Göksu ve Yeşilçay derelerinin Karadeniz ile buluştuğu bölgede yer alan önemli kamusal 12.000 m² alanlardan biridir. Meydan; kıyı kullanımı, yaya dolaşımı ve rekreasyon alanlarıyla bütünleşen yapısı sayesinde turizm ve sosyal yaşam açısından bölgenin önemli odak noktalarından biri olarak hizmet vermektedir",
-        "heroImage": "/assets/meydan_photos/image218.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide81_213b288af3.jpg",
         "images": [
-          "/assets/meydan_photos/image218.jpg",
-          "/assets/meydan_photos/image217.jpg"
+          "/assets/meydan_photos/photo_slide81_213b288af3.jpg",
+          "/assets/meydan_photos/photo_slide81_4c935d8a0b.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Ağva Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image218.jpg"
+            "img": "/assets/meydan_photos/photo_slide81_213b288af3.jpg"
           },
           {
             "id": "photo-2",
             "name": "Ağva Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image217.jpg"
+            "img": "/assets/meydan_photos/photo_slide81_4c935d8a0b.jpg"
           }
         ],
         "personnel": [
@@ -1546,21 +1546,21 @@ export const ANADOLU_DISTRICTS = [
           "Yeşil Alan"
         ],
         "aciklama": "Ilçe merkezindeki ulaşım hareketliliğini destekleyen önemli 9.500 m² kamusal alanlardan biridir. Meydan; terminal bağlantıları, yaya dolaşımı ve çevre düzenlemeleriyle kent içi ulaşımı destekleyen, ilçe sakinleri ve ziyaretçiler tarafından yoğun olarak kullanılan işlevsel bir kamusal kullanım alanı niteliği taşımaktadır.",
-        "heroImage": "/assets/meydan_photos/image221.png",
+        "heroImage": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
         "images": [
-          "/assets/meydan_photos/image221.png",
-          "/assets/meydan_photos/image220.jpg"
+          "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
+          "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Terminal Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image221.png"
+            "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
           },
           {
             "id": "photo-2",
             "name": "Terminal Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image220.jpg"
+            "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
           }
         ],
         "personnel": [
@@ -1597,21 +1597,21 @@ export const AVRUPA_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "14.000 m² büyüklüğündeki alan, 2024 yılında hizmete açılmış olup bölgenin sosyal yaşamına ve yaya kullanımına katkı sağlayan önemli kamusal alanlardan biridir. Meydan; yeşil alanları, çocuk oyun alanı ve İBB hizmet birimleriyle bölge halkına hizmet vermektedir.",
-        "heroImage": "/assets/meydan_photos/image67.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
         "images": [
-          "/assets/meydan_photos/image67.jpg",
-          "/assets/meydan_photos/image66.jpg"
+          "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
+          "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Piyalepaşa Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image67.jpg"
+            "img": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image66.jpg"
+            "img": "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
           }
         ],
         "personnel": [
@@ -1638,21 +1638,21 @@ export const AVRUPA_DISTRICTS = [
           "Gezi Parkı"
         ],
         "aciklama": "160.000 m² büyüklüğündeki alan, 1928 yılında Cumhuriyet Anıtı’nın açılmasıyla bugünkü kimliğini kazanmış, 2021–2022 yıllarında gerçekleştirilen kapsamlı düzenleme çalışmalarıyla yenilenmiştir. İstanbul Büyükşehir Belediyesinin sorumluluğunda bulunan meydan, ulaşım, turizm ve kültürel etkinlikler açısından kentin en önemli kamusal alanlarından biridir.",
-        "heroImage": "/assets/meydan_photos/image78.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg",
         "images": [
-          "/assets/meydan_photos/image78.jpg",
-          "/assets/meydan_photos/image77.jpg"
+          "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg",
+          "/assets/meydan_photos/photo_slide31_7ac36be4e2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Taksim Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image78.jpg"
+            "img": "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg"
           },
           {
             "id": "photo-2",
             "name": "Taksim Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image77.jpg"
+            "img": "/assets/meydan_photos/photo_slide31_7ac36be4e2.jpg"
           }
         ],
         "personnel": [
@@ -1675,21 +1675,21 @@ export const AVRUPA_DISTRICTS = [
           "Karaköy Tramvay Durağı"
         ],
         "aciklama": "25.000 m² büyüklüğündeki alanda Beyoğlu Karaköy Meydanı projesi kapsamında mevcut katlı otopark kaldırılarak, Karaköy’ün tarihî dokusuna uygun yeni bir meydan ve zemin altı otopark oluşturulması planlanmıştır. Proje ile yaya kullanımının artırılması, kamusal alanların genişletilmesi ve bölgenin kent kimliğine uygun şekilde yeniden düzenlenmesi amaçlanmaktadır.",
-        "heroImage": "/assets/meydan_photos/image64.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
         "images": [
-          "/assets/meydan_photos/image64.jpg",
-          "/assets/meydan_photos/image63.jpg"
+          "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
+          "/assets/meydan_photos/photo_slide26_6477692101.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Karaköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image64.jpg"
+            "img": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Karaköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image63.jpg"
+            "img": "/assets/meydan_photos/photo_slide26_6477692101.jpg"
           }
         ],
         "personnel": [
@@ -1714,21 +1714,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "14.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Proje ile yaya dolaşımı ve kamusal kullanım alanları iyileştirilmiş, tarihî doku ile uyumlu peyzaj ve çevre düzenlemeleri gerçekleştirilerek bölgeye daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image81.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide32_68380e0405.jpg",
         "images": [
-          "/assets/meydan_photos/image81.jpg",
-          "/assets/meydan_photos/image80.jpg"
+          "/assets/meydan_photos/photo_slide32_68380e0405.jpg",
+          "/assets/meydan_photos/photo_slide32_0bee7f185c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Tophane Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image81.jpg"
+            "img": "/assets/meydan_photos/photo_slide32_68380e0405.jpg"
           },
           {
             "id": "photo-2",
             "name": "Tophane Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image80.jpg"
+            "img": "/assets/meydan_photos/photo_slide32_0bee7f185c.jpg"
           }
         ],
         "personnel": [
@@ -1752,21 +1752,21 @@ export const AVRUPA_DISTRICTS = [
           "İBB Tech İstanbul / Teknoloji Merkezi"
         ],
         "aciklama": "15.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Çalışmalarla yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve bölgeye daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image75.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide30_2e3533f772.jpg",
         "images": [
-          "/assets/meydan_photos/image75.jpg",
-          "/assets/meydan_photos/image74.jpg"
+          "/assets/meydan_photos/photo_slide30_2e3533f772.jpg",
+          "/assets/meydan_photos/photo_slide30_5dd4f25b5e.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şişhane Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image75.jpg"
+            "img": "/assets/meydan_photos/photo_slide30_2e3533f772.jpg"
           },
           {
             "id": "photo-2",
             "name": "Şişhane Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image74.jpg"
+            "img": "/assets/meydan_photos/photo_slide30_5dd4f25b5e.jpg"
           }
         ],
         "personnel": [
@@ -1792,21 +1792,21 @@ export const AVRUPA_DISTRICTS = [
           "Yeşil Alan"
         ],
         "aciklama": "70.000 m² büyüklüğündeki alan, Kabataş Transfer Merkezi ve meydan düzenleme projesi kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile yaya dolaşımı iyileştirilmiş, ulaşım entegrasyonu güçlendirilmiş ve kamusal kullanım alanları yeniden düzenlenerek bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image61.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
         "images": [
-          "/assets/meydan_photos/image61.jpg",
-          "/assets/meydan_photos/image60.jpg"
+          "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
+          "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Kabataş Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image61.jpg"
+            "img": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Kabataş Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image60.jpg"
+            "img": "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
           }
         ],
         "personnel": [
@@ -1833,21 +1833,21 @@ export const AVRUPA_DISTRICTS = [
           "Peyzaj ve Yeşil Alanlar"
         ],
         "aciklama": "Kasımpaşa Kızılay Meydanı, Beyoğlu ilçesinde yer alan ve bölgenin önemli kamusal yaşam alanlarından biridir. Meydan; sosyal, kültürel ve resmi etkinliklere ev sahipliği yapmakta olup, çevresindeki ticaret alanları ve ulaşım bağlantılarıyla yoğun yaya kullanımına hizmet vermektedir.",
-        "heroImage": "/assets/meydan_photos/image73.png",
+        "heroImage": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
         "images": [
-          "/assets/meydan_photos/image73.png",
-          "/assets/meydan_photos/image72.png"
+          "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
+          "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kasımpaşa Kızılay Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image73.png"
+            "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
           },
           {
             "id": "photo-2",
             "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image72.png"
+            "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
           }
         ],
         "personnel": []
@@ -1878,21 +1878,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Kitapçısı"
         ],
         "aciklama": "2021 yılında tamamlanan kapsamlı meydan düzenleme çalışmalarıyla yenilenerek  İstanbulluların 8.000 m² alan kullanımına sunulmuştur. Çalışmalar kapsamında yeşil alanlar artırılmış, yaya dolaşımı iyileştirilmiş ve meydan modern bir kamusal yaşam alanı olarak yeniden düzenlenmiştir. Böylece meydan, ulaşım işlevinin yanı sıra kent yaşamına katkı sağlayan önemli kamusal alanlardan biri hâline gelmiştir.",
-        "heroImage": "/assets/meydan_photos/image229.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
         "images": [
-          "/assets/meydan_photos/image229.jpg",
-          "/assets/meydan_photos/image228.jpg"
+          "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
+          "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Mecidiyeköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image229.jpg"
+            "img": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg"
           },
           {
             "id": "photo-2",
             "name": "Mecidiyeköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image228.jpg"
+            "img": "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
           }
         ],
         "personnel": [
@@ -1916,21 +1916,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Halaskar Gençlik ve Yaşam Merkezi projesi çalışma kapsamında İstanbul’un en önemli merkezlerinden olan Mecidiyeköy Fulya Mahallesinde 8.000 m² alanda yer almaktadır. Mecidiyeköy bölgesine yeni bir kamusal yaşam alanı kazandırmak amacıyla geliştirilen Halaskar Gençlik ve Yaşam Merkezi projesi kapsamında düzenlenmiştir. Proje ile bölgenin kentsel yaşam kalitesinin artırılması, yaya kullanımının iyileştirilmesi ve sosyal yaşamın desteklenmesi hedeflenmiştir.",
-        "heroImage": "/assets/meydan_photos/image226.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
         "images": [
-          "/assets/meydan_photos/image226.jpg",
-          "/assets/meydan_photos/image225.jpg"
+          "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
+          "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image226.jpg"
+            "img": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg"
           },
           {
             "id": "photo-2",
             "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image225.jpg"
+            "img": "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
           }
         ],
         "personnel": [
@@ -1953,21 +1953,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "2024 yılında gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 4.000 m² alan kullanıma açılmıştır. Proje kapsamında yapısal ve bitkisel peyzaj düzenlemeleri gerçekleştirilmiş, oturma ve dinlenme alanları oluşturularak meydan daha işlevsel ve estetik bir kamusal yaşam alanı hâline getirilmiştir. Böylece bölge sakinlerinin kullanımına yönelik nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image232.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
         "images": [
-          "/assets/meydan_photos/image232.jpg",
-          "/assets/meydan_photos/image233.jpg"
+          "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
+          "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şişli Uğur Mumcu Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image232.jpg"
+            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
           },
           {
             "id": "photo-2",
             "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image233.jpg"
+            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
           }
         ],
         "personnel": [
@@ -1990,21 +1990,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 3.500 m² alan kullanıma açılmıştır. Çalışmalar kapsamında yapısal ve bitkisel peyzaj düzenlemeleri yapılmış, yaya dolaşımı iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür. Böylece kent yaşamına katkı sağlayan nitelikli bir meydan olarak hizmet vermeye başlamıştır.",
-        "heroImage": "/assets/meydan_photos/image232.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
         "images": [
-          "/assets/meydan_photos/image232.jpg",
-          "/assets/meydan_photos/image231.jpg"
+          "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
+          "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şişli Cami Önü Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image232.jpg"
+            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
           },
           {
             "id": "photo-2",
             "name": "Şişli Cami Önü Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image231.jpg"
+            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
           }
         ],
         "personnel": [
@@ -2039,21 +2039,21 @@ export const AVRUPA_DISTRICTS = [
           "Alan büyüklüğü: 55.000m²"
         ],
         "aciklama": "İstanbul’un tarihî ve ticari merkezlerinden biri olup gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları genişletilmiş, ulaşım entegrasyonu güçlendirilmiş ve tarihî çevreyle uyumlu düzenlemeler yapılarak meydanın kamusal kullanım niteliği artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image118.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg",
         "images": [
-          "/assets/meydan_photos/image118.jpg",
-          "/assets/meydan_photos/image117.jpg"
+          "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg",
+          "/assets/meydan_photos/photo_slide46_6c763f20fe.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Fatih Eminönü Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image118.jpg"
+            "img": "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg"
           },
           {
             "id": "photo-2",
             "name": "Fatih Eminönü Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image117.jpg"
+            "img": "/assets/meydan_photos/photo_slide46_6c763f20fe.jpg"
           }
         ],
         "personnel": [
@@ -2080,21 +2080,21 @@ export const AVRUPA_DISTRICTS = [
           "Alan büyüklüğü: 62.000m²"
         ],
         "aciklama": "İstanbul’un önemli ulaşım ve aktarma merkezlerinden biri olup gerçekleştirilen bakım ve onarım çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın sert zemin kaplamaları, peyzaj düzenlemeleri ve yaya dolaşım alanları iyileştirilerek daha güvenli, erişilebilir ve işlevsel bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image115.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg",
         "images": [
-          "/assets/meydan_photos/image115.jpg",
-          "/assets/meydan_photos/image114.jpg"
+          "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg",
+          "/assets/meydan_photos/photo_slide45_ecca321dc9.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Fatih Aksaray Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image115.jpg"
+            "img": "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg"
           },
           {
             "id": "photo-2",
             "name": "Fatih Aksaray Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image114.jpg"
+            "img": "/assets/meydan_photos/photo_slide45_ecca321dc9.jpg"
           }
         ],
         "personnel": [
@@ -2118,21 +2118,21 @@ export const AVRUPA_DISTRICTS = [
           "Alan büyüklüğü: 60.000m²"
         ],
         "aciklama": "İstanbul’un en önemli tarihî ve kültürel miras alanlarından biri olup Sultanahmet Camii, Ayasofya-i Kebir Camii, Dikilitaş, Yılanlı Sütun ve Örme Sütun gibi önemli kültür varlıklarına ev sahipliği yapmaktadır. 2021 yılında gerçekleştirilen çevre düzenleme çalışmaları kapsamında meydandaki kamusal alan işgalleri kaldırılarak alanın yeşil dokuya kazandırılması sağlanmış, yaya kullanım alanları yeniden düzenlenmiş ve meydanın tarihî kimliği korunarak ziyaretçiler için daha erişilebilir ve nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image121.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide47_0b145f8153.jpg",
         "images": [
-          "/assets/meydan_photos/image121.jpg",
-          "/assets/meydan_photos/image120.jpg"
+          "/assets/meydan_photos/photo_slide47_0b145f8153.jpg",
+          "/assets/meydan_photos/photo_slide47_8aa3746a97.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sultanahmet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image121.jpg"
+            "img": "/assets/meydan_photos/photo_slide47_0b145f8153.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sultanahmet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image120.jpg"
+            "img": "/assets/meydan_photos/photo_slide47_8aa3746a97.jpg"
           }
         ],
         "personnel": [
@@ -2157,21 +2157,21 @@ export const AVRUPA_DISTRICTS = [
           "Tuvalet"
         ],
         "aciklama": "Adını Roma döneminden günümüze ulaşan Çemberlitaş Sütunu‘ndan alan İstanbul’un önemli tarihî meydanlarından biridir. Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında meydanın yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve tarihî doku korunarak kamusal kullanım alanlarının niteliği artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image112.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide44_cd31907adf.jpg",
         "images": [
-          "/assets/meydan_photos/image112.jpg",
-          "/assets/meydan_photos/image111.jpg"
+          "/assets/meydan_photos/photo_slide44_cd31907adf.jpg",
+          "/assets/meydan_photos/photo_slide44_3bc5df3c72.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Çemberlitaş Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image112.jpg"
+            "img": "/assets/meydan_photos/photo_slide44_cd31907adf.jpg"
           },
           {
             "id": "photo-2",
             "name": "Çemberlitaş Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image111.jpg"
+            "img": "/assets/meydan_photos/photo_slide44_3bc5df3c72.jpg"
           }
         ],
         "personnel": [
@@ -2196,21 +2196,21 @@ export const AVRUPA_DISTRICTS = [
           "Yerebatan Sarnıcı"
         ],
         "aciklama": "Ayasofya-i Kebir Camii, Sultanahmet Camii ve Topkapı Sarayı gibi dünya çapında öneme sahip tarihî ve kültürel miras alanlarının bulunduğu bölgede yer almaktadır. Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yaya erişilebilirliği artırılmış, çevre düzenlemeleri iyileştirilmiş ve meydanın tarihî kimliği korunarak ziyaretçi kullanımına uygun nitelikli bir kamusal alan oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image109.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg",
         "images": [
-          "/assets/meydan_photos/image109.jpg",
-          "/assets/meydan_photos/image108.jpg"
+          "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg",
+          "/assets/meydan_photos/photo_slide42_2682c96053.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Ayasofya Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image109.jpg"
+            "img": "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg"
           },
           {
             "id": "photo-2",
             "name": "Ayasofya Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image108.jpg"
+            "img": "/assets/meydan_photos/photo_slide42_2682c96053.jpg"
           }
         ],
         "personnel": [
@@ -2235,21 +2235,21 @@ export const AVRUPA_DISTRICTS = [
           "Çözüm Noktası"
         ],
         "aciklama": "İstanbul’un en önemli tarihi ve kamusal alanlarından biri olan 38.400 m² büyüklüğündeki Beyazıt Meydanı, kentin ulaşım, buluşma ve sosyal yaşam odaklarından biri olma özelliğini taşımaktadır. Yıllar içerisinde işlevini yitiren ve büyük ölçüde otopark olarak kullanılan meydan yeniden düzenlenmiştir. Çalışmalarla erişilebilirlik artırılmış, peyzaj ve sosyal kullanım alanları iyileştirilmiş, kuru havuz, kent mobilyaları ile dinlenme alanları oluşturularak meydanın kültürel kimliği güçlendirilmiş ve kentlilerin kullanımına nitelikli bir yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image41.png",
+        "heroImage": "/assets/meydan_photos/photo_slide18_2fc2608ba6.png",
         "images": [
-          "/assets/meydan_photos/image41.png",
-          "/assets/meydan_photos/image40.png"
+          "/assets/meydan_photos/photo_slide18_2fc2608ba6.png",
+          "/assets/meydan_photos/photo_slide18_43d53e4a4e.png"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyazıt Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image41.png"
+            "img": "/assets/meydan_photos/photo_slide18_2fc2608ba6.png"
           },
           {
             "id": "photo-2",
             "name": "Beyazıt Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image40.png"
+            "img": "/assets/meydan_photos/photo_slide18_43d53e4a4e.png"
           }
         ],
         "personnel": []
@@ -2278,21 +2278,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Çiçekçileri Satış Noktası"
         ],
         "aciklama": "9.000 m² büyüklüğündeki alanda gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte meydanın tarihi ve kültürel kimliği korunarak yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve daha nitelikli bir kamusal kullanım alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image44.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide19_87858215c3.jpg",
         "images": [
-          "/assets/meydan_photos/image44.jpg",
-          "/assets/meydan_photos/image43.jpg"
+          "/assets/meydan_photos/photo_slide19_87858215c3.jpg",
+          "/assets/meydan_photos/photo_slide19_5a616c81c5.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Ortaköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image44.jpg"
+            "img": "/assets/meydan_photos/photo_slide19_87858215c3.jpg"
           },
           {
             "id": "photo-2",
             "name": "Ortaköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image43.jpg"
+            "img": "/assets/meydan_photos/photo_slide19_5a616c81c5.jpg"
           }
         ],
         "personnel": [
@@ -2316,21 +2316,21 @@ export const AVRUPA_DISTRICTS = [
           "İBB Beşiktaş İskele Kütüphanesi"
         ],
         "aciklama": "Beşiktaş’ın en önemli ulaşım ve buluşma noktalarından biri olan 28.000 m² büyüklüğündeki alan; Barbaros Hayrettin Paşa Türbesi, Barbaros Hayrettin Paşa Anıtı, Beşiktaş İskelesi ve Deniz Müzesi ile bütünleşen önemli bir kamusal alandır. 2023 yılında tamamlanan meydan düzenleme çalışmaları kapsamında yaya-taşıt ilişkisi yeniden düzenlenmiş, yayalaştırılan alanlar genişletilmiş, meydan ile sahil arasındaki mekânsal bütünlük güçlendirilmiş ve kentlilerin kullanımına nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image38.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide17_14d7550514.jpg",
         "images": [
-          "/assets/meydan_photos/image38.jpg",
-          "/assets/meydan_photos/image37.jpg"
+          "/assets/meydan_photos/photo_slide17_14d7550514.jpg",
+          "/assets/meydan_photos/photo_slide17_f058654448.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beşiktaş Barbaros Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image38.jpg"
+            "img": "/assets/meydan_photos/photo_slide17_14d7550514.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beşiktaş Barbaros Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image37.jpg"
+            "img": "/assets/meydan_photos/photo_slide17_f058654448.jpg"
           }
         ],
         "personnel": [
@@ -2362,21 +2362,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Çiçekçisi"
         ],
         "aciklama": "İlçenin önemli kamusal alanlarından biri olan 42.000 m² büyüklüğündeki alan, yoğun yaya sirkülasyonuna sahiptir. Toplu taşıma bağlantıları sayesinde ulaşım açısından önemli bir merkez konumunda bulunan alan, 2024 yılında gerçekleştirilen kapsamlı çevre düzenleme çalışmalarıyla yenilenmiştir.",
-        "heroImage": "/assets/meydan_photos/image27.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide13_220470d836.jpg",
         "images": [
-          "/assets/meydan_photos/image27.jpg",
-          "/assets/meydan_photos/image26.jpg"
+          "/assets/meydan_photos/photo_slide13_220470d836.jpg",
+          "/assets/meydan_photos/photo_slide13_6bc9ae08bc.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Bakırköy Özgürlük Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image27.jpg"
+            "img": "/assets/meydan_photos/photo_slide13_220470d836.jpg"
           },
           {
             "id": "photo-2",
             "name": "Bakırköy Özgürlük Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image26.jpg"
+            "img": "/assets/meydan_photos/photo_slide13_6bc9ae08bc.jpg"
           }
         ],
         "personnel": [
@@ -2411,21 +2411,21 @@ export const AVRUPA_DISTRICTS = [
           "Bağcılar Belediyesi Zabıta Mobası (Pazar Alanı Girişi)"
         ],
         "aciklama": "12.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları, 2023 yılında tamamlanarak hizmete açılmıştır. Proje ile bölgenin kamusal kullanım alanları yeniden düzenlenmiş, yaya erişimi ve kent yaşam kalitesi artırılarak mahalleye modern ve işlevsel bir meydan kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image15.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg",
         "images": [
-          "/assets/meydan_photos/image15.jpg",
-          "/assets/meydan_photos/image14.jpg"
+          "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg",
+          "/assets/meydan_photos/photo_slide9_0e337aa110.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Bağcılar Ebubekir Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image15.jpg"
+            "img": "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg"
           },
           {
             "id": "photo-2",
             "name": "Bağcılar Ebubekir Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image14.jpg"
+            "img": "/assets/meydan_photos/photo_slide9_0e337aa110.jpg"
           }
         ],
         "personnel": [
@@ -2455,21 +2455,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Çiçekçileri Satış Noktası"
         ],
         "aciklama": "55.000 m² büyüklüğündeki alanda gerçekleştirilen kapsamlı çevre ve meydan düzenleme çalışmalarıyla alan yenilenerek modern bir kamusal yaşam alanına dönüştürülmüştür. Çalışmalar kapsamında meydanın yaya kullanım konforu artırılmış, yeşil alanlar ve sosyal kullanım alanları yeniden düzenlenerek bölgeye nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image18.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg",
         "images": [
-          "/assets/meydan_photos/image18.jpg",
-          "/assets/meydan_photos/image17.jpg"
+          "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg",
+          "/assets/meydan_photos/photo_slide10_ac6ef3e133.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Bağcılar Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image18.jpg"
+            "img": "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg"
           },
           {
             "id": "photo-2",
             "name": "Bağcılar Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image17.jpg"
+            "img": "/assets/meydan_photos/photo_slide10_ac6ef3e133.jpg"
           }
         ],
         "personnel": [
@@ -2504,21 +2504,21 @@ export const AVRUPA_DISTRICTS = [
           "Enstitü İstanbul İSMEK"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya erişimi ve kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri tamamlanarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-        "heroImage": "/assets/meydan_photos/image95.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide37_761cf2de50.jpg",
         "images": [
-          "/assets/meydan_photos/image95.jpg",
-          "/assets/meydan_photos/image94.jpg"
+          "/assets/meydan_photos/photo_slide37_761cf2de50.jpg",
+          "/assets/meydan_photos/photo_slide37_5f9cb2ba5c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Esenler Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image95.jpg"
+            "img": "/assets/meydan_photos/photo_slide37_761cf2de50.jpg"
           },
           {
             "id": "photo-2",
             "name": "Esenler Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image94.jpg"
+            "img": "/assets/meydan_photos/photo_slide37_5f9cb2ba5c.jpg"
           }
         ],
         "personnel": [
@@ -2555,21 +2555,21 @@ export const AVRUPA_DISTRICTS = [
           "İBB Zabıta Odası (Atıl Durumda)"
         ],
         "aciklama": "İstanbul’un önemli ulaşım ve yaya odaklarından biri olan 8.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve meydan daha erişilebilir ve işlevsel bir kent meydanı hâline getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image21.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg",
         "images": [
-          "/assets/meydan_photos/image21.jpg",
-          "/assets/meydan_photos/image20.jpg"
+          "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg",
+          "/assets/meydan_photos/photo_slide11_6b99005e69.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Bahçelievler Şirinevler Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image21.jpg"
+            "img": "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg"
           },
           {
             "id": "photo-2",
             "name": "Bahçelievler Şirinevler Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image20.jpg"
+            "img": "/assets/meydan_photos/photo_slide11_6b99005e69.jpg"
           }
         ],
         "personnel": [
@@ -2596,21 +2596,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "3.300 m² büyüklüğündeki alanda gerçekleştirilen proje kapsamında alan yeniden düzenlenerek hizmete açılmıştır. Çalışmalar kapsamında mevcut park alanı genişletilmiş; meydan, çocuk oyun alanları, oturma alanları ve otopark düzenlemeleri gerçekleştirilerek bölgeye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image24.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg",
         "images": [
-          "/assets/meydan_photos/image24.jpg",
-          "/assets/meydan_photos/image23.jpg"
+          "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg",
+          "/assets/meydan_photos/photo_slide12_63929f90b2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image24.jpg"
+            "img": "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg"
           },
           {
             "id": "photo-2",
             "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image23.jpg"
+            "img": "/assets/meydan_photos/photo_slide12_63929f90b2.jpg"
           }
         ],
         "personnel": [
@@ -2645,21 +2645,21 @@ export const AVRUPA_DISTRICTS = [
           "Kağıthane Metro İstasyonu"
         ],
         "aciklama": "Metro istasyonu çevresinde gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya erişimi güçlendirilmiş, ulaşım bağlantıları desteklenmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal alan hâline getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image159.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide60_81efcf936d.jpg",
         "images": [
-          "/assets/meydan_photos/image159.jpg",
-          "/assets/meydan_photos/image158.jpg"
+          "/assets/meydan_photos/photo_slide60_81efcf936d.jpg",
+          "/assets/meydan_photos/photo_slide60_cd6866d5d8.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kağıthane Metro Durağı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image159.jpg"
+            "img": "/assets/meydan_photos/photo_slide60_81efcf936d.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kağıthane Metro Durağı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image158.jpg"
+            "img": "/assets/meydan_photos/photo_slide60_cd6866d5d8.jpg"
           }
         ],
         "personnel": [
@@ -2683,21 +2683,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Nurtepe Metro Durağı çevresi, meydan ve çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya ulaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve kamusal kullanım alanlarının niteliği artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image162.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
         "images": [
-          "/assets/meydan_photos/image162.jpg",
-          "/assets/meydan_photos/image161.jpg"
+          "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
+          "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Kağıthane Nurtepe Metro Durağı Görsel 1",
-            "img": "/assets/meydan_photos/image162.jpg"
+            "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
           },
           {
             "id": "photo-2",
             "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
-            "img": "/assets/meydan_photos/image161.jpg"
+            "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
           }
         ],
         "personnel": [
@@ -2722,21 +2722,21 @@ export const AVRUPA_DISTRICTS = [
           "M7 Metro Hattı"
         ],
         "aciklama": "İstanbul’un önemli ulaşım ve yaya odaklarından biri olup gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve meydan daha erişilebilir ve işlevsel bir kent meydanı hâline getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image156.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg",
         "images": [
-          "/assets/meydan_photos/image156.jpg",
-          "/assets/meydan_photos/image155.jpg"
+          "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg",
+          "/assets/meydan_photos/photo_slide59_de73fcd4c7.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Çağlayan Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image156.jpg"
+            "img": "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg"
           },
           {
             "id": "photo-2",
             "name": "Çağlayan Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image155.jpg"
+            "img": "/assets/meydan_photos/photo_slide59_de73fcd4c7.jpg"
           }
         ],
         "personnel": [
@@ -2767,21 +2767,21 @@ export const AVRUPA_DISTRICTS = [
           "Çözüm Noktası"
         ],
         "aciklama": "İstanbul’un önemli tarihî ve kültürel odak noktalarından biri olup Eyüp Sultan Camii ve Eyüp Sultan Türbesi’nin bulunduğu alanda yer almaktadır. Meydanda gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yaya erişilebilirliği ve kamusal kullanım alanları iyileştirilmiş, tarihî kimliği korunarak daha düzenli ve işlevsel bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image104.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg",
         "images": [
-          "/assets/meydan_photos/image104.jpg",
-          "/assets/meydan_photos/image103.jpg"
+          "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg",
+          "/assets/meydan_photos/photo_slide40_82fe4fb9c7.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Eyüpsultan Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image104.jpg"
+            "img": "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg"
           },
           {
             "id": "photo-2",
             "name": "Eyüpsultan Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image103.jpg"
+            "img": "/assets/meydan_photos/photo_slide40_82fe4fb9c7.jpg"
           }
         ],
         "personnel": [
@@ -2803,21 +2803,21 @@ export const AVRUPA_DISTRICTS = [
           "Teleferik İstasyonu"
         ],
         "aciklama": "Gerçekleştirilen çevre ve meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image107.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
         "images": [
-          "/assets/meydan_photos/image107.jpg",
-          "/assets/meydan_photos/image106.jpg"
+          "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
+          "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Pierre Loti Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image107.jpg"
+            "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
           },
           {
             "id": "photo-2",
             "name": "Pierre Loti Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image106.jpg"
+            "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
           }
         ],
         "personnel": [
@@ -2847,21 +2847,21 @@ export const AVRUPA_DISTRICTS = [
           "Alan büyüklüğü: 14.000m²"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image124.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg",
         "images": [
-          "/assets/meydan_photos/image124.jpg",
-          "/assets/meydan_photos/image123.jpg"
+          "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg",
+          "/assets/meydan_photos/photo_slide48_d2d06a2060.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image124.jpg"
+            "img": "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg"
           },
           {
             "id": "photo-2",
             "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image123.jpg"
+            "img": "/assets/meydan_photos/photo_slide48_d2d06a2060.jpg"
           }
         ],
         "personnel": [
@@ -2891,21 +2891,21 @@ export const AVRUPA_DISTRICTS = [
           "Çözüm Noktası"
         ],
         "aciklama": "Gerçekleştirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje kapsamında sosyal yaşam merkezi, meydan, spor alanları, eğitim birimleri, açık pazar alanı ve 202 araç kapasiteli kapalı otopark inşa edilmiştir. Böylece bölgeye sosyal, kültürel ve sportif ihtiyaçlara cevap veren modern, erişilebilir ve çok işlevli bir kent merkezi kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image127.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide49_63fb821314.jpg",
         "images": [
-          "/assets/meydan_photos/image127.jpg",
-          "/assets/meydan_photos/image126.jpg"
+          "/assets/meydan_photos/photo_slide49_63fb821314.jpg",
+          "/assets/meydan_photos/photo_slide49_d75a008104.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 1",
-            "img": "/assets/meydan_photos/image127.jpg"
+            "img": "/assets/meydan_photos/photo_slide49_63fb821314.jpg"
           },
           {
             "id": "photo-2",
             "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 2",
-            "img": "/assets/meydan_photos/image126.jpg"
+            "img": "/assets/meydan_photos/photo_slide49_d75a008104.jpg"
           }
         ],
         "personnel": [
@@ -2939,21 +2939,21 @@ export const AVRUPA_DISTRICTS = [
           "İlçe Güvenlik Kulübesi"
         ],
         "aciklama": "Sultangazi ilçesinin merkezinde yer alan meydan, Sultangazi Belediyesi uhdesinde bulunan ve yaklaşık 48.000 m² alana sahip kamusal bir yaşam alanıdır. Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yaya dolaşımı ve çevre düzenlemeleri iyileştirilmiş, kamusal kullanım alanları artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-        "heroImage": "/assets/meydan_photos/image215.png",
+        "heroImage": "/assets/meydan_photos/photo_slide80_3f83d6a223.png",
         "images": [
-          "/assets/meydan_photos/image215.png",
-          "/assets/meydan_photos/image214.png"
+          "/assets/meydan_photos/photo_slide80_3f83d6a223.png",
+          "/assets/meydan_photos/photo_slide80_39c96b7f65.png"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sultangazi Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image215.png"
+            "img": "/assets/meydan_photos/photo_slide80_3f83d6a223.png"
           },
           {
             "id": "photo-2",
             "name": "Sultangazi Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image214.png"
+            "img": "/assets/meydan_photos/photo_slide80_39c96b7f65.png"
           }
         ],
         "personnel": [
@@ -2984,21 +2984,21 @@ export const AVRUPA_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "9.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Çalışmalarla birlikte yaya dolaşımı ve kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri tamamlanarak bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image35.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide16_95cf286002.jpg",
         "images": [
-          "/assets/meydan_photos/image35.jpg",
-          "/assets/meydan_photos/image34.jpg"
+          "/assets/meydan_photos/photo_slide16_95cf286002.jpg",
+          "/assets/meydan_photos/photo_slide16_022515d2ff.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Bayrampaşa Kartaltepe Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image35.jpg"
+            "img": "/assets/meydan_photos/photo_slide16_95cf286002.jpg"
           },
           {
             "id": "photo-2",
             "name": "Bayrampaşa Kartaltepe Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image34.jpg"
+            "img": "/assets/meydan_photos/photo_slide16_022515d2ff.jpg"
           }
         ],
         "personnel": [
@@ -3034,21 +3034,21 @@ export const AVRUPA_DISTRICTS = [
           "Sergi Alanı"
         ],
         "aciklama": "20.650 m² inşaat alanına sahip meydan düzenleme projesi kapsamında modern ve işlevsel bir kent alanı olarak planlanmıştır. Proje kapsamında zemin altı otopark, yaya alt geçidi ve meydan düzenlemesiyle birlikte bölgenin ulaşım altyapısının güçlendirilmesi ve kamusal kullanım alanlarının artırılması hedeflenmiştir. Ayrıca kültürel, sosyal ve eğitim amaçlı kullanım alanlarıyla kent yaşamına katkı sağlayacak çok yönlü bir yaşam merkezi tasarlanmayı hedeflenmiştir.",
-        "heroImage": "/assets/meydan_photos/image10.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
         "images": [
-          "/assets/meydan_photos/image10.jpg",
-          "/assets/meydan_photos/image9.jpg"
+          "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
+          "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Avcılar E-5 Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image10.jpg"
+            "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
           },
           {
             "id": "photo-2",
             "name": "Avcılar E-5 Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image9.jpg"
+            "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
           }
         ],
         "personnel": [
@@ -3071,21 +3071,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Büyükşehir Belediyesi (İBB) Çözüm Noktası"
         ],
         "aciklama": "18.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında meydan yeniden tasarlanmıştır. Çalışmalar sonucunda yaya erişimi iyileştirilmiş, kamusal kullanım alanları artırılmış ve meydan daha düzenli, güvenli ve işlevsel bir kamusal yaşam alanı olarak yeniden düzenlenmiştir.",
-        "heroImage": "/assets/meydan_photos/image12.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg",
         "images": [
-          "/assets/meydan_photos/image12.jpg",
-          "/assets/meydan_photos/image11.jpg"
+          "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg",
+          "/assets/meydan_photos/photo_slide8_de48f1d1f5.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Avcılar Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image12.jpg"
+            "img": "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg"
           },
           {
             "id": "photo-2",
             "name": "Avcılar Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image11.jpg"
+            "img": "/assets/meydan_photos/photo_slide8_de48f1d1f5.jpg"
           }
         ],
         "personnel": [
@@ -3118,21 +3118,21 @@ export const AVRUPA_DISTRICTS = [
           "BELTUR Kafe (Faaliyette Değil)"
         ],
         "aciklama": "E-5 Metrobüs yolu üzerinde yer alan 11.300 m² alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında İstanbulluların kullanımına sunulmuştur. Proje ile yaya kullanımının artırılması, kamusal alanların güçlendirilmesi ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image58.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide24_2299012819.jpg",
         "images": [
-          "/assets/meydan_photos/image58.jpg",
-          "/assets/meydan_photos/image57.jpg"
+          "/assets/meydan_photos/photo_slide24_2299012819.jpg",
+          "/assets/meydan_photos/photo_slide24_f951d31a8e.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 1",
-            "img": "/assets/meydan_photos/image58.jpg"
+            "img": "/assets/meydan_photos/photo_slide24_2299012819.jpg"
           },
           {
             "id": "photo-2",
             "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 2",
-            "img": "/assets/meydan_photos/image57.jpg"
+            "img": "/assets/meydan_photos/photo_slide24_f951d31a8e.jpg"
           }
         ],
         "personnel": [
@@ -3164,21 +3164,21 @@ export const AVRUPA_DISTRICTS = [
           "Park ve Bahçeler Müdürlüğü Mobası"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Proje ile kamusal kullanım alanları yeniden düzenlenmiş, yaya erişilebilirliği artırılmış ve meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-        "heroImage": "/assets/meydan_photos/image173.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg",
         "images": [
-          "/assets/meydan_photos/image173.jpg",
-          "/assets/meydan_photos/image172.jpg"
+          "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg",
+          "/assets/meydan_photos/photo_slide65_0abfb9b2b1.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image173.jpg"
+            "img": "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg"
           },
           {
             "id": "photo-2",
             "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image172.jpg"
+            "img": "/assets/meydan_photos/photo_slide65_0abfb9b2b1.jpg"
           }
         ],
         "personnel": [
@@ -3204,21 +3204,21 @@ export const AVRUPA_DISTRICTS = [
           "Sergi Alanı"
         ],
         "aciklama": "Zemin altı otoparkı ile birlikte hayata geçirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile meydanın kamusal kullanım kapasitesi artırılmış, yaya dolaşımı iyileştirilmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image170.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
         "images": [
-          "/assets/meydan_photos/image170.jpg",
-          "/assets/meydan_photos/image169.jpg"
+          "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
+          "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Küçükçekmece Cennet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image170.jpg"
+            "img": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg"
           },
           {
             "id": "photo-2",
             "name": "Küçükçekmece Cennet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image169.jpg"
+            "img": "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
           }
         ],
         "personnel": [
@@ -3244,21 +3244,21 @@ export const AVRUPA_DISTRICTS = [
           "Sergi Alanı"
         ],
         "aciklama": "Zemin altı otoparkı ile birlikte hayata geçirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile meydanın kamusal kullanım kapasitesi artırılmış, yaya dolaşımı iyileştirilmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image170.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
         "images": [
-          "/assets/meydan_photos/image170.jpg",
-          "/assets/meydan_photos/image169.jpg"
+          "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
+          "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Küçükçekmece Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image170.jpg"
+            "img": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg"
           },
           {
             "id": "photo-2",
             "name": "Küçükçekmece Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image169.jpg"
+            "img": "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
           }
         ],
         "personnel": []
@@ -3288,21 +3288,21 @@ export const AVRUPA_DISTRICTS = [
           "Alan büyüklüğü: 30.000m²"
         ],
         "aciklama": "Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın peyzajı ve kamusal kullanım alanları iyileştirilmiş, daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image98.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide38_830c201d34.jpg",
         "images": [
-          "/assets/meydan_photos/image98.jpg",
-          "/assets/meydan_photos/image97.jpg"
+          "/assets/meydan_photos/photo_slide38_830c201d34.jpg",
+          "/assets/meydan_photos/photo_slide38_be71aa3d6a.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Esenyurt Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image98.jpg"
+            "img": "/assets/meydan_photos/photo_slide38_830c201d34.jpg"
           },
           {
             "id": "photo-2",
             "name": "Esenyurt Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image97.jpg"
+            "img": "/assets/meydan_photos/photo_slide38_be71aa3d6a.jpg"
           }
         ],
         "personnel": [
@@ -3327,21 +3327,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Haramidere Yaşam Vadisi projesiyle entegre olarak hayata geçirilmiş ve 2024 yılında hizmete açılmıştır. Dere ıslahı ve yol düzenleme çalışmalarıyla birlikte çağdaş, estetik ve yeşil bir anlayışla düzenlenerek Esenyurt’a yeni bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image101.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg",
         "images": [
-          "/assets/meydan_photos/image101.jpg",
-          "/assets/meydan_photos/image100.jpg"
+          "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg",
+          "/assets/meydan_photos/photo_slide39_e9f7b0748c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Esenyurt Yaşar Kemal Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image101.jpg"
+            "img": "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg"
           },
           {
             "id": "photo-2",
             "name": "Esenyurt Yaşar Kemal Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image100.jpg"
+            "img": "/assets/meydan_photos/photo_slide39_e9f7b0748c.jpg"
           }
         ],
         "personnel": [
@@ -3364,21 +3364,21 @@ export const AVRUPA_DISTRICTS = [
           "İBB Kent Lokantası"
         ],
         "aciklama": "Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın kullanım konforu artırılmış, çevre düzenlemeleri iyileştirilmiş ve daha düzenli, erişilebilir ve işlevsel bir kamusal alan kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image92.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide36_39eda1a894.jpg",
         "images": [
-          "/assets/meydan_photos/image92.jpg",
-          "/assets/meydan_photos/image91.jpg"
+          "/assets/meydan_photos/photo_slide36_39eda1a894.jpg",
+          "/assets/meydan_photos/photo_slide36_ae801202a9.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Esenyurt Belediye Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image92.jpg"
+            "img": "/assets/meydan_photos/photo_slide36_39eda1a894.jpg"
           },
           {
             "id": "photo-2",
             "name": "Esenyurt Belediye Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image91.jpg"
+            "img": "/assets/meydan_photos/photo_slide36_ae801202a9.jpg"
           }
         ],
         "personnel": [
@@ -3411,21 +3411,21 @@ export const AVRUPA_DISTRICTS = [
           "Şehir Tuvaleti"
         ],
         "aciklama": "35.000 m² büyüklüğündeki alan, sahil düzenleme projesi kapsamında yenilenerek hizmete açılmıştır. Çalışmalar kapsamında kıyı altyapısı iyileştirilmiş, yaya ve bisiklet ulaşımı güçlendirilmiş, yeşil alanlar ve sosyal kullanım alanları yeniden düzenlenerek sahil bandının kamusal kullanım niteliği artırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image84.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg",
         "images": [
-          "/assets/meydan_photos/image84.jpg",
-          "/assets/meydan_photos/image83.jpg"
+          "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg",
+          "/assets/meydan_photos/photo_slide33_51b7be0294.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image84.jpg"
+            "img": "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg"
           },
           {
             "id": "photo-2",
             "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image83.jpg"
+            "img": "/assets/meydan_photos/photo_slide33_51b7be0294.jpg"
           }
         ],
         "personnel": [
@@ -3457,21 +3457,21 @@ export const AVRUPA_DISTRICTS = [
           "Saat Kulesi ve Cami"
         ],
         "aciklama": "Yeşil Vadi Caddesi Saat Kulesi ve çevresinde yer alan 7.500 m² büyüklüğündeki alan, çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, bölgenin kent estetiği güçlendirilerek daha nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image32.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide15_f28e33a322.jpg",
         "images": [
-          "/assets/meydan_photos/image32.jpg",
-          "/assets/meydan_photos/image31.jpg"
+          "/assets/meydan_photos/photo_slide15_f28e33a322.jpg",
+          "/assets/meydan_photos/photo_slide15_0d36f662d4.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 1",
-            "img": "/assets/meydan_photos/image32.jpg"
+            "img": "/assets/meydan_photos/photo_slide15_f28e33a322.jpg"
           },
           {
             "id": "photo-2",
             "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 2",
-            "img": "/assets/meydan_photos/image31.jpg"
+            "img": "/assets/meydan_photos/photo_slide15_0d36f662d4.jpg"
           }
         ],
         "personnel": [
@@ -3496,21 +3496,21 @@ export const AVRUPA_DISTRICTS = [
           "İETT Hareket Amirliği"
         ],
         "aciklama": "Metro istasyonu çevresinde yer alan 14.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya sirkülasyonu iyileştirilmiş, ulaşım entegrasyonu desteklenmiş ve kamusal kullanım alanları daha işlevsel hâle getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image30.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
         "images": [
-          "/assets/meydan_photos/image30.jpg",
-          "/assets/meydan_photos/image29.jpg"
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Metrokent Metro İstasyonu Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image30.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           },
           {
             "id": "photo-2",
             "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image29.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           }
         ],
         "personnel": [
@@ -3535,21 +3535,21 @@ export const AVRUPA_DISTRICTS = [
           "İETT Hareket Amirliği"
         ],
         "aciklama": "Metro istasyonu çevresinde yer alan 14.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya sirkülasyonu iyileştirilmiş, ulaşım entegrasyonu desteklenmiş ve kamusal kullanım alanları daha işlevsel hâle getirilmiştir.",
-        "heroImage": "/assets/meydan_photos/image30.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
         "images": [
-          "/assets/meydan_photos/image30.jpg",
-          "/assets/meydan_photos/image29.jpg"
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Başakşehir Kent Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image30.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           },
           {
             "id": "photo-2",
             "name": "Başakşehir Kent Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image29.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           }
         ],
         "personnel": []
@@ -3581,21 +3581,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "15.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte kamusal kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, yaya erişimi artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-        "heroImage": "/assets/meydan_photos/image5.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg",
         "images": [
-          "/assets/meydan_photos/image5.jpg",
-          "/assets/meydan_photos/image4.jpg"
+          "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg",
+          "/assets/meydan_photos/photo_slide5_aa28bef7e5.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image5.jpg"
+            "img": "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg"
           },
           {
             "id": "photo-2",
             "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image4.jpg"
+            "img": "/assets/meydan_photos/photo_slide5_aa28bef7e5.jpg"
           }
         ],
         "personnel": [
@@ -3619,21 +3619,21 @@ export const AVRUPA_DISTRICTS = [
           "Peyzaj ve Yeşil Alanlar"
         ],
         "aciklama": "Arnavutköy Cumhuriyet Meydanı, Arnavutköy Belediyesi uhdesinde bulunan ve yaklaşık 6.015 m² alana sahip kamusal bir yaşam alanıdır. Meydan; resmi törenler, sosyal ve kültürel etkinlikler ile günlük yaya kullanımına hizmet vermekte olup, çevresindeki kamu kurumları, ticaret alanları ve ulaşım bağlantıları sayesinde ilçenin önemli odak noktalarından biri olarak kullanılmaktadır. Meydan, yayaların güvenli ve konforlu kullanımını destekleyen düzenlemeleriyle ilçenin önemli kamusal odak noktalarından biridir.",
-        "heroImage": "/assets/meydan_photos/image8.png",
+        "heroImage": "/assets/meydan_photos/photo_slide6_472dba0087.png",
         "images": [
-          "/assets/meydan_photos/image8.png",
-          "/assets/meydan_photos/image7.png"
+          "/assets/meydan_photos/photo_slide6_472dba0087.png",
+          "/assets/meydan_photos/photo_slide6_472dba0087.png"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Arnavutköy Cumhuriyet Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image8.png"
+            "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
           },
           {
             "id": "photo-2",
             "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image7.png"
+            "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
           }
         ],
         "personnel": [
@@ -3671,21 +3671,21 @@ export const AVRUPA_DISTRICTS = [
           "İSPARK Güvenlik Mobası"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında 48.000 m² alanda yeniden düzenlenmiştir. Proje ile yaya dolaşımı ve çevre düzenlemeleri iyileştirilmiş, kamusal kullanım alanları artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-        "heroImage": "/assets/meydan_photos/image264.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg",
         "images": [
-          "/assets/meydan_photos/image264.jpg",
-          "/assets/meydan_photos/image263.jpg"
+          "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg",
+          "/assets/meydan_photos/photo_slide98_f8078f87dd.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Zeytinburnu Çırpıcı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image264.jpg"
+            "img": "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg"
           },
           {
             "id": "photo-2",
             "name": "Zeytinburnu Çırpıcı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image263.jpg"
+            "img": "/assets/meydan_photos/photo_slide98_f8078f87dd.jpg"
           }
         ],
         "personnel": [
@@ -3717,21 +3717,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Kasım ve Poyrazlı sokaklarının kesişiminde yer alan kamusal alanın yeniden düzenlenmesi amacıyla hayata geçirilen proje kapsamında yenilenmiştir. Çalışmalar kapsamında yaya dolaşımı iyileştirilmiş, yürüyüş yolları, aydınlatma ve peyzaj düzenlemeleri gerçekleştirilerek meydanın kamusal kullanım niteliği artırılmış ve bölgeye daha düzenli, erişilebilir ve işlevsel bir yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image130.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg",
         "images": [
-          "/assets/meydan_photos/image130.jpg",
-          "/assets/meydan_photos/image129.jpg"
+          "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg",
+          "/assets/meydan_photos/photo_slide50_d64a552e5c.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Güngören Kasım Sokak Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image130.jpg"
+            "img": "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg"
           },
           {
             "id": "photo-2",
             "name": "Güngören Kasım Sokak Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image129.jpg"
+            "img": "/assets/meydan_photos/photo_slide50_d64a552e5c.jpg"
           }
         ],
         "personnel": [
@@ -3763,21 +3763,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "16.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte yaya erişilebilirliği artırılmış, çevre düzenlemeleri iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanı olarak düzenlenmiştir.",
-        "heroImage": "/assets/meydan_photos/image87.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
         "images": [
-          "/assets/meydan_photos/image87.jpg",
-          "/assets/meydan_photos/image86.jpg"
+          "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
+          "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Çatalca Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image87.jpg"
+            "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
           },
           {
             "id": "photo-2",
             "name": "Çatalca Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image86.jpg"
+            "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
           }
         ],
         "personnel": []
@@ -3808,21 +3808,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Çevre ve meydan düzenleme çalışmaları kapsamında 4.000 m² Alan yeniden düzenlenmiştir. Proje ile kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri gerçekleştirilmiş ve mahalleye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image223.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide83_a86094f25a.jpg",
         "images": [
-          "/assets/meydan_photos/image223.jpg",
-          "/assets/meydan_photos/image222.jpg"
+          "/assets/meydan_photos/photo_slide83_a86094f25a.jpg",
+          "/assets/meydan_photos/photo_slide83_eef13b7dc3.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Seymen Mahallesi Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image223.jpg"
+            "img": "/assets/meydan_photos/photo_slide83_a86094f25a.jpg"
           },
           {
             "id": "photo-2",
             "name": "Seymen Mahallesi Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image222.jpg"
+            "img": "/assets/meydan_photos/photo_slide83_eef13b7dc3.jpg"
           }
         ],
         "personnel": []
@@ -3850,21 +3850,21 @@ export const AVRUPA_DISTRICTS = [
           "Çözüm Noktası"
         ],
         "aciklama": "Denizle bütünleşen 17.000 m² yeni bir kamusal yaşam alanı oluşturmak amacıyla yeniden düzenlenmektedir. Proje kapsamında yeşil alanlar, dinlenme alanları ve yaya kullanımına yönelik düzenlemelerle bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılması amaçlanmaktadır.",
-        "heroImage": "/assets/meydan_photos/image209.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg",
         "images": [
-          "/assets/meydan_photos/image209.jpg",
-          "/assets/meydan_photos/image208.jpg"
+          "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg",
+          "/assets/meydan_photos/photo_slide78_ab967ebdef.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sarıyer Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image209.jpg"
+            "img": "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sarıyer Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image208.jpg"
+            "img": "/assets/meydan_photos/photo_slide78_ab967ebdef.jpg"
           }
         ],
         "personnel": []
@@ -3884,21 +3884,21 @@ export const AVRUPA_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Gerçekleştirilen meydan yenileme çalışmaları kapsamında yeniden düzenlenerek hizmete açılmıştır. Çalışmalar kapsamında yakın zamana kadar otopark olarak kullanılan alan parka dönüştürülmüş, yeni oturma alanları oluşturulmuş ve araç trafiği yeniden düzenlenmiştir. Ayrıca alanda yürüyüş yolu, etkinlik alanı, seyir terasları ile 2.700 m² park düzenlemesi yapılarak bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image205.png",
+        "heroImage": "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
         "images": [
-          "/assets/meydan_photos/image205.png",
-          "/assets/meydan_photos/image204.jpg"
+          "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
+          "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sarıyer Ayazağa Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image205.png"
+            "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sarıyer Ayazağa Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image204.jpg"
+            "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
           }
         ],
         "personnel": []
@@ -3919,21 +3919,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Gerçekleştirilen meydan ve çevre düzenleme çalışmaları kapsamında 8.500 m² alan yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, peyzaj ve kamusal kullanım alanları yeniden düzenlenerek daha erişilebilir, düzenli ve işlevsel bir kent meydanı oluşturulmuştur.",
-        "heroImage": "/assets/meydan_photos/image207.png",
+        "heroImage": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
         "images": [
-          "/assets/meydan_photos/image207.png",
-          "/assets/meydan_photos/image206.jpg"
+          "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
+          "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sarıyer İstinye Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image207.png"
+            "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sarıyer İstinye Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image206.jpg"
+            "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
           }
         ],
         "personnel": []
@@ -3955,21 +3955,21 @@ export const AVRUPA_DISTRICTS = [
           "Anıt Çınar Ağaçları"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmalar kapsamında 7.500 m² alan yenilenmiştir. Çalışmalarla meydanda tasarım bütünlüğü sağlanmış, tarihi çeşme özgün kotuna ulaştırılmış, geçirgen zemin uygulamaları gerçekleştirilmiş ve Boğaz-Emirgan yaya bağlantısı kesintisiz hâle getirilerek meydan daha erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-        "heroImage": "/assets/meydan_photos/image202.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide75_9217716d5e.jpg",
         "images": [
-          "/assets/meydan_photos/image202.jpg",
-          "/assets/meydan_photos/image201.jpg"
+          "/assets/meydan_photos/photo_slide75_9217716d5e.jpg",
+          "/assets/meydan_photos/photo_slide75_bc5093dcd5.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Emirgan Çınaraltı Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image202.jpg"
+            "img": "/assets/meydan_photos/photo_slide75_9217716d5e.jpg"
           },
           {
             "id": "photo-2",
             "name": "Emirgan Çınaraltı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image201.jpg"
+            "img": "/assets/meydan_photos/photo_slide75_bc5093dcd5.jpg"
           }
         ],
         "personnel": []
@@ -3990,21 +3990,21 @@ export const AVRUPA_DISTRICTS = [
           "İETT Garaj Amirliği Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenerek hizmete açılmıştır. Yaklaşık 11.000 m² alanda gerçekleştirilen proje ile yaya kullanım alanları iyileştirilmiş, meydan donatıları yenilenmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/image212.jpg",
+        "heroImage": "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg",
         "images": [
-          "/assets/meydan_photos/image212.jpg",
-          "/assets/meydan_photos/image211.jpg"
+          "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg",
+          "/assets/meydan_photos/photo_slide79_47b2487896.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/image212.jpg"
+            "img": "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg"
           },
           {
             "id": "photo-2",
             "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/image211.jpg"
+            "img": "/assets/meydan_photos/photo_slide79_47b2487896.jpg"
           }
         ],
         "personnel": []
@@ -4034,21 +4034,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "14.000 m² büyüklüğündeki alan, 2024 yılında hizmete açılmış olup bölgenin sosyal yaşamına ve yaya kullanımına katkı sağlayan önemli kamusal alanlardan biridir. Meydan; yeşil alanları, çocuk oyun alanı ve İBB hizmet birimleriyle bölge halkına hizmet vermektedir.",
-    "heroImage": "/assets/meydan_photos/image67.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
     "images": [
-      "/assets/meydan_photos/image67.jpg",
-      "/assets/meydan_photos/image66.jpg"
+      "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
+      "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Piyalepaşa Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image67.jpg"
+        "img": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image66.jpg"
+        "img": "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
       }
     ],
     "personnel": [
@@ -4075,21 +4075,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Gezi Parkı"
     ],
     "aciklama": "160.000 m² büyüklüğündeki alan, 1928 yılında Cumhuriyet Anıtı’nın açılmasıyla bugünkü kimliğini kazanmış, 2021–2022 yıllarında gerçekleştirilen kapsamlı düzenleme çalışmalarıyla yenilenmiştir. İstanbul Büyükşehir Belediyesinin sorumluluğunda bulunan meydan, ulaşım, turizm ve kültürel etkinlikler açısından kentin en önemli kamusal alanlarından biridir.",
-    "heroImage": "/assets/meydan_photos/image78.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg",
     "images": [
-      "/assets/meydan_photos/image78.jpg",
-      "/assets/meydan_photos/image77.jpg"
+      "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg",
+      "/assets/meydan_photos/photo_slide31_7ac36be4e2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Taksim Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image78.jpg"
+        "img": "/assets/meydan_photos/photo_slide31_6f9181bb1c.jpg"
       },
       {
         "id": "photo-2",
         "name": "Taksim Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image77.jpg"
+        "img": "/assets/meydan_photos/photo_slide31_7ac36be4e2.jpg"
       }
     ],
     "personnel": [
@@ -4112,21 +4112,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Karaköy Tramvay Durağı"
     ],
     "aciklama": "25.000 m² büyüklüğündeki alanda Beyoğlu Karaköy Meydanı projesi kapsamında mevcut katlı otopark kaldırılarak, Karaköy’ün tarihî dokusuna uygun yeni bir meydan ve zemin altı otopark oluşturulması planlanmıştır. Proje ile yaya kullanımının artırılması, kamusal alanların genişletilmesi ve bölgenin kent kimliğine uygun şekilde yeniden düzenlenmesi amaçlanmaktadır.",
-    "heroImage": "/assets/meydan_photos/image64.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
     "images": [
-      "/assets/meydan_photos/image64.jpg",
-      "/assets/meydan_photos/image63.jpg"
+      "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
+      "/assets/meydan_photos/photo_slide26_6477692101.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Karaköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image64.jpg"
+        "img": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Karaköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image63.jpg"
+        "img": "/assets/meydan_photos/photo_slide26_6477692101.jpg"
       }
     ],
     "personnel": [
@@ -4151,21 +4151,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "14.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Proje ile yaya dolaşımı ve kamusal kullanım alanları iyileştirilmiş, tarihî doku ile uyumlu peyzaj ve çevre düzenlemeleri gerçekleştirilerek bölgeye daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image81.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide32_68380e0405.jpg",
     "images": [
-      "/assets/meydan_photos/image81.jpg",
-      "/assets/meydan_photos/image80.jpg"
+      "/assets/meydan_photos/photo_slide32_68380e0405.jpg",
+      "/assets/meydan_photos/photo_slide32_0bee7f185c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Tophane Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image81.jpg"
+        "img": "/assets/meydan_photos/photo_slide32_68380e0405.jpg"
       },
       {
         "id": "photo-2",
         "name": "Tophane Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image80.jpg"
+        "img": "/assets/meydan_photos/photo_slide32_0bee7f185c.jpg"
       }
     ],
     "personnel": [
@@ -4189,21 +4189,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İBB Tech İstanbul / Teknoloji Merkezi"
     ],
     "aciklama": "15.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Çalışmalarla yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve bölgeye daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image75.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide30_2e3533f772.jpg",
     "images": [
-      "/assets/meydan_photos/image75.jpg",
-      "/assets/meydan_photos/image74.jpg"
+      "/assets/meydan_photos/photo_slide30_2e3533f772.jpg",
+      "/assets/meydan_photos/photo_slide30_5dd4f25b5e.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Şişhane Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image75.jpg"
+        "img": "/assets/meydan_photos/photo_slide30_2e3533f772.jpg"
       },
       {
         "id": "photo-2",
         "name": "Şişhane Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image74.jpg"
+        "img": "/assets/meydan_photos/photo_slide30_5dd4f25b5e.jpg"
       }
     ],
     "personnel": [
@@ -4229,21 +4229,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan"
     ],
     "aciklama": "70.000 m² büyüklüğündeki alan, Kabataş Transfer Merkezi ve meydan düzenleme projesi kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile yaya dolaşımı iyileştirilmiş, ulaşım entegrasyonu güçlendirilmiş ve kamusal kullanım alanları yeniden düzenlenerek bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image61.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
     "images": [
-      "/assets/meydan_photos/image61.jpg",
-      "/assets/meydan_photos/image60.jpg"
+      "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
+      "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Kabataş Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image61.jpg"
+        "img": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Kabataş Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image60.jpg"
+        "img": "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
       }
     ],
     "personnel": [
@@ -4269,21 +4269,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Kitapçısı"
     ],
     "aciklama": "2021 yılında tamamlanan kapsamlı meydan düzenleme çalışmalarıyla yenilenerek  İstanbulluların 8.000 m² alan kullanımına sunulmuştur. Çalışmalar kapsamında yeşil alanlar artırılmış, yaya dolaşımı iyileştirilmiş ve meydan modern bir kamusal yaşam alanı olarak yeniden düzenlenmiştir. Böylece meydan, ulaşım işlevinin yanı sıra kent yaşamına katkı sağlayan önemli kamusal alanlardan biri hâline gelmiştir.",
-    "heroImage": "/assets/meydan_photos/image229.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
     "images": [
-      "/assets/meydan_photos/image229.jpg",
-      "/assets/meydan_photos/image228.jpg"
+      "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
+      "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Mecidiyeköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image229.jpg"
+        "img": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg"
       },
       {
         "id": "photo-2",
         "name": "Mecidiyeköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image228.jpg"
+        "img": "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
       }
     ],
     "personnel": [
@@ -4307,21 +4307,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Halaskar Gençlik ve Yaşam Merkezi projesi çalışma kapsamında İstanbul’un en önemli merkezlerinden olan Mecidiyeköy Fulya Mahallesinde 8.000 m² alanda yer almaktadır. Mecidiyeköy bölgesine yeni bir kamusal yaşam alanı kazandırmak amacıyla geliştirilen Halaskar Gençlik ve Yaşam Merkezi projesi kapsamında düzenlenmiştir. Proje ile bölgenin kentsel yaşam kalitesinin artırılması, yaya kullanımının iyileştirilmesi ve sosyal yaşamın desteklenmesi hedeflenmiştir.",
-    "heroImage": "/assets/meydan_photos/image226.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
     "images": [
-      "/assets/meydan_photos/image226.jpg",
-      "/assets/meydan_photos/image225.jpg"
+      "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
+      "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image226.jpg"
+        "img": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg"
       },
       {
         "id": "photo-2",
         "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image225.jpg"
+        "img": "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
       }
     ],
     "personnel": [
@@ -4344,21 +4344,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "2024 yılında gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 4.000 m² alan kullanıma açılmıştır. Proje kapsamında yapısal ve bitkisel peyzaj düzenlemeleri gerçekleştirilmiş, oturma ve dinlenme alanları oluşturularak meydan daha işlevsel ve estetik bir kamusal yaşam alanı hâline getirilmiştir. Böylece bölge sakinlerinin kullanımına yönelik nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image232.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
     "images": [
-      "/assets/meydan_photos/image232.jpg",
-      "/assets/meydan_photos/image233.jpg"
+      "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
+      "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Şişli Uğur Mumcu Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image232.jpg"
+        "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
       },
       {
         "id": "photo-2",
         "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image233.jpg"
+        "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
       }
     ],
     "personnel": [
@@ -4381,21 +4381,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 3.500 m² alan kullanıma açılmıştır. Çalışmalar kapsamında yapısal ve bitkisel peyzaj düzenlemeleri yapılmış, yaya dolaşımı iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür. Böylece kent yaşamına katkı sağlayan nitelikli bir meydan olarak hizmet vermeye başlamıştır.",
-    "heroImage": "/assets/meydan_photos/image232.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
     "images": [
-      "/assets/meydan_photos/image232.jpg",
-      "/assets/meydan_photos/image231.jpg"
+      "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
+      "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Şişli Cami Önü Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image232.jpg"
+        "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
       },
       {
         "id": "photo-2",
         "name": "Şişli Cami Önü Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image231.jpg"
+        "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
       }
     ],
     "personnel": [
@@ -4421,21 +4421,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Bağcılar Belediyesi Zabıta Mobası (Pazar Alanı Girişi)"
     ],
     "aciklama": "12.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları, 2023 yılında tamamlanarak hizmete açılmıştır. Proje ile bölgenin kamusal kullanım alanları yeniden düzenlenmiş, yaya erişimi ve kent yaşam kalitesi artırılarak mahalleye modern ve işlevsel bir meydan kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image15.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg",
     "images": [
-      "/assets/meydan_photos/image15.jpg",
-      "/assets/meydan_photos/image14.jpg"
+      "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg",
+      "/assets/meydan_photos/photo_slide9_0e337aa110.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Bağcılar Ebubekir Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image15.jpg"
+        "img": "/assets/meydan_photos/photo_slide9_2e932ac76c.jpg"
       },
       {
         "id": "photo-2",
         "name": "Bağcılar Ebubekir Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image14.jpg"
+        "img": "/assets/meydan_photos/photo_slide9_0e337aa110.jpg"
       }
     ],
     "personnel": [
@@ -4465,21 +4465,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Çiçekçileri Satış Noktası"
     ],
     "aciklama": "55.000 m² büyüklüğündeki alanda gerçekleştirilen kapsamlı çevre ve meydan düzenleme çalışmalarıyla alan yenilenerek modern bir kamusal yaşam alanına dönüştürülmüştür. Çalışmalar kapsamında meydanın yaya kullanım konforu artırılmış, yeşil alanlar ve sosyal kullanım alanları yeniden düzenlenerek bölgeye nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image18.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg",
     "images": [
-      "/assets/meydan_photos/image18.jpg",
-      "/assets/meydan_photos/image17.jpg"
+      "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg",
+      "/assets/meydan_photos/photo_slide10_ac6ef3e133.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Bağcılar Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image18.jpg"
+        "img": "/assets/meydan_photos/photo_slide10_858dea9ad9.jpg"
       },
       {
         "id": "photo-2",
         "name": "Bağcılar Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image17.jpg"
+        "img": "/assets/meydan_photos/photo_slide10_ac6ef3e133.jpg"
       }
     ],
     "personnel": [
@@ -4510,21 +4510,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Sergi Alanı"
     ],
     "aciklama": "20.650 m² inşaat alanına sahip meydan düzenleme projesi kapsamında modern ve işlevsel bir kent alanı olarak planlanmıştır. Proje kapsamında zemin altı otopark, yaya alt geçidi ve meydan düzenlemesiyle birlikte bölgenin ulaşım altyapısının güçlendirilmesi ve kamusal kullanım alanlarının artırılması hedeflenmiştir. Ayrıca kültürel, sosyal ve eğitim amaçlı kullanım alanlarıyla kent yaşamına katkı sağlayacak çok yönlü bir yaşam merkezi tasarlanmayı hedeflenmiştir.",
-    "heroImage": "/assets/meydan_photos/image10.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
     "images": [
-      "/assets/meydan_photos/image10.jpg",
-      "/assets/meydan_photos/image9.jpg"
+      "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
+      "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Avcılar E-5 Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image10.jpg"
+        "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
       },
       {
         "id": "photo-2",
         "name": "Avcılar E-5 Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image9.jpg"
+        "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
       }
     ],
     "personnel": [
@@ -4547,21 +4547,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Büyükşehir Belediyesi (İBB) Çözüm Noktası"
     ],
     "aciklama": "18.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında meydan yeniden tasarlanmıştır. Çalışmalar sonucunda yaya erişimi iyileştirilmiş, kamusal kullanım alanları artırılmış ve meydan daha düzenli, güvenli ve işlevsel bir kamusal yaşam alanı olarak yeniden düzenlenmiştir.",
-    "heroImage": "/assets/meydan_photos/image12.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg",
     "images": [
-      "/assets/meydan_photos/image12.jpg",
-      "/assets/meydan_photos/image11.jpg"
+      "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg",
+      "/assets/meydan_photos/photo_slide8_de48f1d1f5.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Avcılar Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image12.jpg"
+        "img": "/assets/meydan_photos/photo_slide8_6f73756e7c.jpg"
       },
       {
         "id": "photo-2",
         "name": "Avcılar Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image11.jpg"
+        "img": "/assets/meydan_photos/photo_slide8_de48f1d1f5.jpg"
       }
     ],
     "personnel": [
@@ -4586,21 +4586,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "BELTUR Kafe (Faaliyette Değil)"
     ],
     "aciklama": "E-5 Metrobüs yolu üzerinde yer alan 11.300 m² alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında İstanbulluların kullanımına sunulmuştur. Proje ile yaya kullanımının artırılması, kamusal alanların güçlendirilmesi ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image58.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide24_2299012819.jpg",
     "images": [
-      "/assets/meydan_photos/image58.jpg",
-      "/assets/meydan_photos/image57.jpg"
+      "/assets/meydan_photos/photo_slide24_2299012819.jpg",
+      "/assets/meydan_photos/photo_slide24_f951d31a8e.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 1",
-        "img": "/assets/meydan_photos/image58.jpg"
+        "img": "/assets/meydan_photos/photo_slide24_2299012819.jpg"
       },
       {
         "id": "photo-2",
         "name": "100. Yıl Meydanı (Beylikdüzü E5 Meydanı) Görsel 2",
-        "img": "/assets/meydan_photos/image57.jpg"
+        "img": "/assets/meydan_photos/photo_slide24_f951d31a8e.jpg"
       }
     ],
     "personnel": [
@@ -4625,21 +4625,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Alan büyüklüğü: 30.000m²"
     ],
     "aciklama": "Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın peyzajı ve kamusal kullanım alanları iyileştirilmiş, daha düzenli, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image98.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide38_830c201d34.jpg",
     "images": [
-      "/assets/meydan_photos/image98.jpg",
-      "/assets/meydan_photos/image97.jpg"
+      "/assets/meydan_photos/photo_slide38_830c201d34.jpg",
+      "/assets/meydan_photos/photo_slide38_be71aa3d6a.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Esenyurt Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image98.jpg"
+        "img": "/assets/meydan_photos/photo_slide38_830c201d34.jpg"
       },
       {
         "id": "photo-2",
         "name": "Esenyurt Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image97.jpg"
+        "img": "/assets/meydan_photos/photo_slide38_be71aa3d6a.jpg"
       }
     ],
     "personnel": [
@@ -4664,21 +4664,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Haramidere Yaşam Vadisi projesiyle entegre olarak hayata geçirilmiş ve 2024 yılında hizmete açılmıştır. Dere ıslahı ve yol düzenleme çalışmalarıyla birlikte çağdaş, estetik ve yeşil bir anlayışla düzenlenerek Esenyurt’a yeni bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image101.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg",
     "images": [
-      "/assets/meydan_photos/image101.jpg",
-      "/assets/meydan_photos/image100.jpg"
+      "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg",
+      "/assets/meydan_photos/photo_slide39_e9f7b0748c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Esenyurt Yaşar Kemal Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image101.jpg"
+        "img": "/assets/meydan_photos/photo_slide39_bcad4bdbc8.jpg"
       },
       {
         "id": "photo-2",
         "name": "Esenyurt Yaşar Kemal Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image100.jpg"
+        "img": "/assets/meydan_photos/photo_slide39_e9f7b0748c.jpg"
       }
     ],
     "personnel": [
@@ -4701,21 +4701,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İBB Kent Lokantası"
     ],
     "aciklama": "Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın kullanım konforu artırılmış, çevre düzenlemeleri iyileştirilmiş ve daha düzenli, erişilebilir ve işlevsel bir kamusal alan kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image92.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide36_39eda1a894.jpg",
     "images": [
-      "/assets/meydan_photos/image92.jpg",
-      "/assets/meydan_photos/image91.jpg"
+      "/assets/meydan_photos/photo_slide36_39eda1a894.jpg",
+      "/assets/meydan_photos/photo_slide36_ae801202a9.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Esenyurt Belediye Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image92.jpg"
+        "img": "/assets/meydan_photos/photo_slide36_39eda1a894.jpg"
       },
       {
         "id": "photo-2",
         "name": "Esenyurt Belediye Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image91.jpg"
+        "img": "/assets/meydan_photos/photo_slide36_ae801202a9.jpg"
       }
     ],
     "personnel": [
@@ -4739,21 +4739,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Çiçekçileri Satış Noktası"
     ],
     "aciklama": "9.000 m² büyüklüğündeki alanda gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte meydanın tarihi ve kültürel kimliği korunarak yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve daha nitelikli bir kamusal kullanım alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image44.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide19_87858215c3.jpg",
     "images": [
-      "/assets/meydan_photos/image44.jpg",
-      "/assets/meydan_photos/image43.jpg"
+      "/assets/meydan_photos/photo_slide19_87858215c3.jpg",
+      "/assets/meydan_photos/photo_slide19_5a616c81c5.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Ortaköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image44.jpg"
+        "img": "/assets/meydan_photos/photo_slide19_87858215c3.jpg"
       },
       {
         "id": "photo-2",
         "name": "Ortaköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image43.jpg"
+        "img": "/assets/meydan_photos/photo_slide19_5a616c81c5.jpg"
       }
     ],
     "personnel": [
@@ -4775,21 +4775,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Çözüm Noktası"
     ],
     "aciklama": "Denizle bütünleşen 17.000 m² yeni bir kamusal yaşam alanı oluşturmak amacıyla yeniden düzenlenmektedir. Proje kapsamında yeşil alanlar, dinlenme alanları ve yaya kullanımına yönelik düzenlemelerle bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılması amaçlanmaktadır.",
-    "heroImage": "/assets/meydan_photos/image209.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg",
     "images": [
-      "/assets/meydan_photos/image209.jpg",
-      "/assets/meydan_photos/image208.jpg"
+      "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg",
+      "/assets/meydan_photos/photo_slide78_ab967ebdef.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sarıyer Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image209.jpg"
+        "img": "/assets/meydan_photos/photo_slide78_0907a1b77c.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sarıyer Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image208.jpg"
+        "img": "/assets/meydan_photos/photo_slide78_ab967ebdef.jpg"
       }
     ],
     "personnel": []
@@ -4809,21 +4809,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Gerçekleştirilen meydan yenileme çalışmaları kapsamında yeniden düzenlenerek hizmete açılmıştır. Çalışmalar kapsamında yakın zamana kadar otopark olarak kullanılan alan parka dönüştürülmüş, yeni oturma alanları oluşturulmuş ve araç trafiği yeniden düzenlenmiştir. Ayrıca alanda yürüyüş yolu, etkinlik alanı, seyir terasları ile 2.700 m² park düzenlemesi yapılarak bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image205.png",
+    "heroImage": "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
     "images": [
-      "/assets/meydan_photos/image205.png",
-      "/assets/meydan_photos/image204.jpg"
+      "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
+      "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sarıyer Ayazağa Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image205.png"
+        "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sarıyer Ayazağa Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image204.jpg"
+        "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
       }
     ],
     "personnel": []
@@ -4844,21 +4844,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Gerçekleştirilen meydan ve çevre düzenleme çalışmaları kapsamında 8.500 m² alan yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, peyzaj ve kamusal kullanım alanları yeniden düzenlenerek daha erişilebilir, düzenli ve işlevsel bir kent meydanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image207.png",
+    "heroImage": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
     "images": [
-      "/assets/meydan_photos/image207.png",
-      "/assets/meydan_photos/image206.jpg"
+      "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
+      "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sarıyer İstinye Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image207.png"
+        "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sarıyer İstinye Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image206.jpg"
+        "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
       }
     ],
     "personnel": []
@@ -4880,21 +4880,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Anıt Çınar Ağaçları"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmalar kapsamında 7.500 m² alan yenilenmiştir. Çalışmalarla meydanda tasarım bütünlüğü sağlanmış, tarihi çeşme özgün kotuna ulaştırılmış, geçirgen zemin uygulamaları gerçekleştirilmiş ve Boğaz-Emirgan yaya bağlantısı kesintisiz hâle getirilerek meydan daha erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image202.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide75_9217716d5e.jpg",
     "images": [
-      "/assets/meydan_photos/image202.jpg",
-      "/assets/meydan_photos/image201.jpg"
+      "/assets/meydan_photos/photo_slide75_9217716d5e.jpg",
+      "/assets/meydan_photos/photo_slide75_bc5093dcd5.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Emirgan Çınaraltı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image202.jpg"
+        "img": "/assets/meydan_photos/photo_slide75_9217716d5e.jpg"
       },
       {
         "id": "photo-2",
         "name": "Emirgan Çınaraltı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image201.jpg"
+        "img": "/assets/meydan_photos/photo_slide75_bc5093dcd5.jpg"
       }
     ],
     "personnel": []
@@ -4915,21 +4915,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İETT Garaj Amirliği Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenerek hizmete açılmıştır. Yaklaşık 11.000 m² alanda gerçekleştirilen proje ile yaya kullanım alanları iyileştirilmiş, meydan donatıları yenilenmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image212.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg",
     "images": [
-      "/assets/meydan_photos/image212.jpg",
-      "/assets/meydan_photos/image211.jpg"
+      "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg",
+      "/assets/meydan_photos/photo_slide79_47b2487896.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image212.jpg"
+        "img": "/assets/meydan_photos/photo_slide79_f49315bd8b.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sarıyer Rumeli Hisarüstü Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image211.jpg"
+        "img": "/assets/meydan_photos/photo_slide79_47b2487896.jpg"
       }
     ],
     "personnel": []
@@ -4953,21 +4953,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "15.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte kamusal kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, yaya erişimi artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-    "heroImage": "/assets/meydan_photos/image5.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg",
     "images": [
-      "/assets/meydan_photos/image5.jpg",
-      "/assets/meydan_photos/image4.jpg"
+      "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg",
+      "/assets/meydan_photos/photo_slide5_aa28bef7e5.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image5.jpg"
+        "img": "/assets/meydan_photos/photo_slide5_05eb1b72b4.jpg"
       },
       {
         "id": "photo-2",
         "name": "Arnavutköy 15 Temmuz Demokrası Ve Şehitler Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image4.jpg"
+        "img": "/assets/meydan_photos/photo_slide5_aa28bef7e5.jpg"
       }
     ],
     "personnel": [
@@ -4989,21 +4989,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Alan büyüklüğü: 14.000m²"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image124.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg",
     "images": [
-      "/assets/meydan_photos/image124.jpg",
-      "/assets/meydan_photos/image123.jpg"
+      "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg",
+      "/assets/meydan_photos/photo_slide48_d2d06a2060.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image124.jpg"
+        "img": "/assets/meydan_photos/photo_slide48_40b4ca6f48.jpg"
       },
       {
         "id": "photo-2",
         "name": "Gaziosmanpaşa Cumhuriyet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image123.jpg"
+        "img": "/assets/meydan_photos/photo_slide48_d2d06a2060.jpg"
       }
     ],
     "personnel": [
@@ -5033,21 +5033,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Çözüm Noktası"
     ],
     "aciklama": "Gerçekleştirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje kapsamında sosyal yaşam merkezi, meydan, spor alanları, eğitim birimleri, açık pazar alanı ve 202 araç kapasiteli kapalı otopark inşa edilmiştir. Böylece bölgeye sosyal, kültürel ve sportif ihtiyaçlara cevap veren modern, erişilebilir ve çok işlevli bir kent merkezi kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image127.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide49_63fb821314.jpg",
     "images": [
-      "/assets/meydan_photos/image127.jpg",
-      "/assets/meydan_photos/image126.jpg"
+      "/assets/meydan_photos/photo_slide49_63fb821314.jpg",
+      "/assets/meydan_photos/photo_slide49_d75a008104.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 1",
-        "img": "/assets/meydan_photos/image127.jpg"
+        "img": "/assets/meydan_photos/photo_slide49_63fb821314.jpg"
       },
       {
         "id": "photo-2",
         "name": "Gaziosmanpaşa Meydanı ve Kent Merkezi Görsel 2",
-        "img": "/assets/meydan_photos/image126.jpg"
+        "img": "/assets/meydan_photos/photo_slide49_d75a008104.jpg"
       }
     ],
     "personnel": [
@@ -5072,21 +5072,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Enstitü İstanbul İSMEK"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya erişimi ve kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri tamamlanarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-    "heroImage": "/assets/meydan_photos/image95.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide37_761cf2de50.jpg",
     "images": [
-      "/assets/meydan_photos/image95.jpg",
-      "/assets/meydan_photos/image94.jpg"
+      "/assets/meydan_photos/photo_slide37_761cf2de50.jpg",
+      "/assets/meydan_photos/photo_slide37_5f9cb2ba5c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Esenler Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image95.jpg"
+        "img": "/assets/meydan_photos/photo_slide37_761cf2de50.jpg"
       },
       {
         "id": "photo-2",
         "name": "Esenler Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image94.jpg"
+        "img": "/assets/meydan_photos/photo_slide37_5f9cb2ba5c.jpg"
       }
     ],
     "personnel": [
@@ -5110,21 +5110,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Çözüm Noktası"
     ],
     "aciklama": "İstanbul’un önemli tarihî ve kültürel odak noktalarından biri olup Eyüp Sultan Camii ve Eyüp Sultan Türbesi’nin bulunduğu alanda yer almaktadır. Meydanda gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yaya erişilebilirliği ve kamusal kullanım alanları iyileştirilmiş, tarihî kimliği korunarak daha düzenli ve işlevsel bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image104.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg",
     "images": [
-      "/assets/meydan_photos/image104.jpg",
-      "/assets/meydan_photos/image103.jpg"
+      "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg",
+      "/assets/meydan_photos/photo_slide40_82fe4fb9c7.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Eyüpsultan Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image104.jpg"
+        "img": "/assets/meydan_photos/photo_slide40_c8c9dcd921.jpg"
       },
       {
         "id": "photo-2",
         "name": "Eyüpsultan Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image103.jpg"
+        "img": "/assets/meydan_photos/photo_slide40_82fe4fb9c7.jpg"
       }
     ],
     "personnel": [
@@ -5146,21 +5146,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Teleferik İstasyonu"
     ],
     "aciklama": "Gerçekleştirilen çevre ve meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image107.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
     "images": [
-      "/assets/meydan_photos/image107.jpg",
-      "/assets/meydan_photos/image106.jpg"
+      "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
+      "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Pierre Loti Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image107.jpg"
+        "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
       },
       {
         "id": "photo-2",
         "name": "Pierre Loti Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image106.jpg"
+        "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
       }
     ],
     "personnel": [
@@ -5183,21 +5183,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "9.500 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yeniden düzenlenmiştir. Çalışmalarla birlikte yaya dolaşımı ve kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri tamamlanarak bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image35.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide16_95cf286002.jpg",
     "images": [
-      "/assets/meydan_photos/image35.jpg",
-      "/assets/meydan_photos/image34.jpg"
+      "/assets/meydan_photos/photo_slide16_95cf286002.jpg",
+      "/assets/meydan_photos/photo_slide16_022515d2ff.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Bayrampaşa Kartaltepe Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image35.jpg"
+        "img": "/assets/meydan_photos/photo_slide16_95cf286002.jpg"
       },
       {
         "id": "photo-2",
         "name": "Bayrampaşa Kartaltepe Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image34.jpg"
+        "img": "/assets/meydan_photos/photo_slide16_022515d2ff.jpg"
       }
     ],
     "personnel": [
@@ -5221,21 +5221,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Çiçekçisi"
     ],
     "aciklama": "İlçenin önemli kamusal alanlarından biri olan 42.000 m² büyüklüğündeki alan, yoğun yaya sirkülasyonuna sahiptir. Toplu taşıma bağlantıları sayesinde ulaşım açısından önemli bir merkez konumunda bulunan alan, 2024 yılında gerçekleştirilen kapsamlı çevre düzenleme çalışmalarıyla yenilenmiştir.",
-    "heroImage": "/assets/meydan_photos/image27.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide13_220470d836.jpg",
     "images": [
-      "/assets/meydan_photos/image27.jpg",
-      "/assets/meydan_photos/image26.jpg"
+      "/assets/meydan_photos/photo_slide13_220470d836.jpg",
+      "/assets/meydan_photos/photo_slide13_6bc9ae08bc.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Bakırköy Özgürlük Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image27.jpg"
+        "img": "/assets/meydan_photos/photo_slide13_220470d836.jpg"
       },
       {
         "id": "photo-2",
         "name": "Bakırköy Özgürlük Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image26.jpg"
+        "img": "/assets/meydan_photos/photo_slide13_6bc9ae08bc.jpg"
       }
     ],
     "personnel": [
@@ -5261,21 +5261,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "35.000 m² büyüklüğündeki alan, sahil düzenleme projesi kapsamında yenilenerek hizmete açılmıştır. Çalışmalar kapsamında kıyı altyapısı iyileştirilmiş, yaya ve bisiklet ulaşımı güçlendirilmiş, yeşil alanlar ve sosyal kullanım alanları yeniden düzenlenerek sahil bandının kamusal kullanım niteliği artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image84.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg",
     "images": [
-      "/assets/meydan_photos/image84.jpg",
-      "/assets/meydan_photos/image83.jpg"
+      "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg",
+      "/assets/meydan_photos/photo_slide33_51b7be0294.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image84.jpg"
+        "img": "/assets/meydan_photos/photo_slide33_f7884c06ea.jpg"
       },
       {
         "id": "photo-2",
         "name": "Büyükçekmece Albatros Sahil Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image83.jpg"
+        "img": "/assets/meydan_photos/photo_slide33_51b7be0294.jpg"
       }
     ],
     "personnel": [
@@ -5301,21 +5301,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "16.000 m² büyüklüğündeki alanda gerçekleştirilen meydan düzenleme çalışmaları kapsamında alan yenilenmiştir. Çalışmalarla birlikte yaya erişilebilirliği artırılmış, çevre düzenlemeleri iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanı olarak düzenlenmiştir.",
-    "heroImage": "/assets/meydan_photos/image87.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
     "images": [
-      "/assets/meydan_photos/image87.jpg",
-      "/assets/meydan_photos/image86.jpg"
+      "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
+      "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Çatalca Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image87.jpg"
+        "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
       },
       {
         "id": "photo-2",
         "name": "Çatalca Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image86.jpg"
+        "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
       }
     ],
     "personnel": []
@@ -5338,21 +5338,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Çevre ve meydan düzenleme çalışmaları kapsamında 4.000 m² Alan yeniden düzenlenmiştir. Proje ile kamusal kullanım alanları iyileştirilmiş, peyzaj düzenlemeleri gerçekleştirilmiş ve mahalleye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image223.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide83_a86094f25a.jpg",
     "images": [
-      "/assets/meydan_photos/image223.jpg",
-      "/assets/meydan_photos/image222.jpg"
+      "/assets/meydan_photos/photo_slide83_a86094f25a.jpg",
+      "/assets/meydan_photos/photo_slide83_eef13b7dc3.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Seymen Mahallesi Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image223.jpg"
+        "img": "/assets/meydan_photos/photo_slide83_a86094f25a.jpg"
       },
       {
         "id": "photo-2",
         "name": "Seymen Mahallesi Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image222.jpg"
+        "img": "/assets/meydan_photos/photo_slide83_eef13b7dc3.jpg"
       }
     ],
     "personnel": []
@@ -5377,21 +5377,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İBB Zabıta Odası (Atıl Durumda)"
     ],
     "aciklama": "İstanbul’un önemli ulaşım ve yaya odaklarından biri olan 8.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve meydan daha erişilebilir ve işlevsel bir kent meydanı hâline getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image21.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg",
     "images": [
-      "/assets/meydan_photos/image21.jpg",
-      "/assets/meydan_photos/image20.jpg"
+      "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg",
+      "/assets/meydan_photos/photo_slide11_6b99005e69.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Bahçelievler Şirinevler Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image21.jpg"
+        "img": "/assets/meydan_photos/photo_slide11_7af7fbf47d.jpg"
       },
       {
         "id": "photo-2",
         "name": "Bahçelievler Şirinevler Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image20.jpg"
+        "img": "/assets/meydan_photos/photo_slide11_6b99005e69.jpg"
       }
     ],
     "personnel": [
@@ -5418,21 +5418,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "3.300 m² büyüklüğündeki alanda gerçekleştirilen proje kapsamında alan yeniden düzenlenerek hizmete açılmıştır. Çalışmalar kapsamında mevcut park alanı genişletilmiş; meydan, çocuk oyun alanları, oturma alanları ve otopark düzenlemeleri gerçekleştirilerek bölgeye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image24.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg",
     "images": [
-      "/assets/meydan_photos/image24.jpg",
-      "/assets/meydan_photos/image23.jpg"
+      "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg",
+      "/assets/meydan_photos/photo_slide12_63929f90b2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image24.jpg"
+        "img": "/assets/meydan_photos/photo_slide12_f62b8f35ac.jpg"
       },
       {
         "id": "photo-2",
         "name": "Şehit Yarbay Cesur Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image23.jpg"
+        "img": "/assets/meydan_photos/photo_slide12_63929f90b2.jpg"
       }
     ],
     "personnel": [
@@ -5458,21 +5458,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Kasım ve Poyrazlı sokaklarının kesişiminde yer alan kamusal alanın yeniden düzenlenmesi amacıyla hayata geçirilen proje kapsamında yenilenmiştir. Çalışmalar kapsamında yaya dolaşımı iyileştirilmiş, yürüyüş yolları, aydınlatma ve peyzaj düzenlemeleri gerçekleştirilerek meydanın kamusal kullanım niteliği artırılmış ve bölgeye daha düzenli, erişilebilir ve işlevsel bir yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image130.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg",
     "images": [
-      "/assets/meydan_photos/image130.jpg",
-      "/assets/meydan_photos/image129.jpg"
+      "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg",
+      "/assets/meydan_photos/photo_slide50_d64a552e5c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Güngören Kasım Sokak Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image130.jpg"
+        "img": "/assets/meydan_photos/photo_slide50_d9cbceaca4.jpg"
       },
       {
         "id": "photo-2",
         "name": "Güngören Kasım Sokak Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image129.jpg"
+        "img": "/assets/meydan_photos/photo_slide50_d64a552e5c.jpg"
       }
     ],
     "personnel": [
@@ -5495,21 +5495,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Park ve Bahçeler Müdürlüğü Mobası"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Proje ile kamusal kullanım alanları yeniden düzenlenmiş, yaya erişilebilirliği artırılmış ve meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-    "heroImage": "/assets/meydan_photos/image173.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg",
     "images": [
-      "/assets/meydan_photos/image173.jpg",
-      "/assets/meydan_photos/image172.jpg"
+      "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg",
+      "/assets/meydan_photos/photo_slide65_0abfb9b2b1.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image173.jpg"
+        "img": "/assets/meydan_photos/photo_slide65_5fae1637cc.jpg"
       },
       {
         "id": "photo-2",
         "name": "Küçükçekmece Fevzi Çakmak Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image172.jpg"
+        "img": "/assets/meydan_photos/photo_slide65_0abfb9b2b1.jpg"
       }
     ],
     "personnel": [
@@ -5535,21 +5535,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Sergi Alanı"
     ],
     "aciklama": "Zemin altı otoparkı ile birlikte hayata geçirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile meydanın kamusal kullanım kapasitesi artırılmış, yaya dolaşımı iyileştirilmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image170.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
     "images": [
-      "/assets/meydan_photos/image170.jpg",
-      "/assets/meydan_photos/image169.jpg"
+      "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
+      "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Küçükçekmece Cennet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image170.jpg"
+        "img": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg"
       },
       {
         "id": "photo-2",
         "name": "Küçükçekmece Cennet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image169.jpg"
+        "img": "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
       }
     ],
     "personnel": [
@@ -5571,21 +5571,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Saat Kulesi ve Cami"
     ],
     "aciklama": "Yeşil Vadi Caddesi Saat Kulesi ve çevresinde yer alan 7.500 m² büyüklüğündeki alan, çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları ve peyzaj düzenlemeleri iyileştirilmiş, bölgenin kent estetiği güçlendirilerek daha nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image32.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide15_f28e33a322.jpg",
     "images": [
-      "/assets/meydan_photos/image32.jpg",
-      "/assets/meydan_photos/image31.jpg"
+      "/assets/meydan_photos/photo_slide15_f28e33a322.jpg",
+      "/assets/meydan_photos/photo_slide15_0d36f662d4.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 1",
-        "img": "/assets/meydan_photos/image32.jpg"
+        "img": "/assets/meydan_photos/photo_slide15_f28e33a322.jpg"
       },
       {
         "id": "photo-2",
         "name": "Yeşil Vadi Caddesi Saat Kulesi Ve Çevresi Görsel 2",
-        "img": "/assets/meydan_photos/image31.jpg"
+        "img": "/assets/meydan_photos/photo_slide15_0d36f662d4.jpg"
       }
     ],
     "personnel": [
@@ -5610,21 +5610,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İETT Hareket Amirliği"
     ],
     "aciklama": "Metro istasyonu çevresinde yer alan 14.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya sirkülasyonu iyileştirilmiş, ulaşım entegrasyonu desteklenmiş ve kamusal kullanım alanları daha işlevsel hâle getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image30.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
     "images": [
-      "/assets/meydan_photos/image30.jpg",
-      "/assets/meydan_photos/image29.jpg"
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Metrokent Metro İstasyonu Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image30.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       },
       {
         "id": "photo-2",
         "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image29.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       }
     ],
     "personnel": [
@@ -5651,21 +5651,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK Güvenlik Mobası"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında 48.000 m² alanda yeniden düzenlenmiştir. Proje ile yaya dolaşımı ve çevre düzenlemeleri iyileştirilmiş, kamusal kullanım alanları artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-    "heroImage": "/assets/meydan_photos/image264.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg",
     "images": [
-      "/assets/meydan_photos/image264.jpg",
-      "/assets/meydan_photos/image263.jpg"
+      "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg",
+      "/assets/meydan_photos/photo_slide98_f8078f87dd.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Zeytinburnu Çırpıcı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image264.jpg"
+        "img": "/assets/meydan_photos/photo_slide98_6bd7f709d8.jpg"
       },
       {
         "id": "photo-2",
         "name": "Zeytinburnu Çırpıcı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image263.jpg"
+        "img": "/assets/meydan_photos/photo_slide98_f8078f87dd.jpg"
       }
     ],
     "personnel": [
@@ -5690,21 +5690,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Kağıthane Metro İstasyonu"
     ],
     "aciklama": "Metro istasyonu çevresinde gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya erişimi güçlendirilmiş, ulaşım bağlantıları desteklenmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal alan hâline getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image159.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide60_81efcf936d.jpg",
     "images": [
-      "/assets/meydan_photos/image159.jpg",
-      "/assets/meydan_photos/image158.jpg"
+      "/assets/meydan_photos/photo_slide60_81efcf936d.jpg",
+      "/assets/meydan_photos/photo_slide60_cd6866d5d8.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kağıthane Metro Durağı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image159.jpg"
+        "img": "/assets/meydan_photos/photo_slide60_81efcf936d.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kağıthane Metro Durağı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image158.jpg"
+        "img": "/assets/meydan_photos/photo_slide60_cd6866d5d8.jpg"
       }
     ],
     "personnel": [
@@ -5728,21 +5728,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Nurtepe Metro Durağı çevresi, meydan ve çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya ulaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve kamusal kullanım alanlarının niteliği artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image162.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
     "images": [
-      "/assets/meydan_photos/image162.jpg",
-      "/assets/meydan_photos/image161.jpg"
+      "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
+      "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kağıthane Nurtepe Metro Durağı Görsel 1",
-        "img": "/assets/meydan_photos/image162.jpg"
+        "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
-        "img": "/assets/meydan_photos/image161.jpg"
+        "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
       }
     ],
     "personnel": [
@@ -5767,21 +5767,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "M7 Metro Hattı"
     ],
     "aciklama": "İstanbul’un önemli ulaşım ve yaya odaklarından biri olup gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya dolaşımı iyileştirilmiş, kamusal kullanım alanları yeniden düzenlenmiş ve meydan daha erişilebilir ve işlevsel bir kent meydanı hâline getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image156.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg",
     "images": [
-      "/assets/meydan_photos/image156.jpg",
-      "/assets/meydan_photos/image155.jpg"
+      "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg",
+      "/assets/meydan_photos/photo_slide59_de73fcd4c7.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Çağlayan Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image156.jpg"
+        "img": "/assets/meydan_photos/photo_slide59_97fd9342fc.jpg"
       },
       {
         "id": "photo-2",
         "name": "Çağlayan Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image155.jpg"
+        "img": "/assets/meydan_photos/photo_slide59_de73fcd4c7.jpg"
       }
     ],
     "personnel": [
@@ -5808,21 +5808,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Alan büyüklüğü: 55.000m²"
     ],
     "aciklama": "İstanbul’un tarihî ve ticari merkezlerinden biri olup gerçekleştirilen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları genişletilmiş, ulaşım entegrasyonu güçlendirilmiş ve tarihî çevreyle uyumlu düzenlemeler yapılarak meydanın kamusal kullanım niteliği artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image118.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg",
     "images": [
-      "/assets/meydan_photos/image118.jpg",
-      "/assets/meydan_photos/image117.jpg"
+      "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg",
+      "/assets/meydan_photos/photo_slide46_6c763f20fe.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Fatih Eminönü Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image118.jpg"
+        "img": "/assets/meydan_photos/photo_slide46_3776d2c8aa.jpg"
       },
       {
         "id": "photo-2",
         "name": "Fatih Eminönü Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image117.jpg"
+        "img": "/assets/meydan_photos/photo_slide46_6c763f20fe.jpg"
       }
     ],
     "personnel": [
@@ -5849,21 +5849,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Alan büyüklüğü: 62.000m²"
     ],
     "aciklama": "İstanbul’un önemli ulaşım ve aktarma merkezlerinden biri olup gerçekleştirilen bakım ve onarım çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte meydanın sert zemin kaplamaları, peyzaj düzenlemeleri ve yaya dolaşım alanları iyileştirilerek daha güvenli, erişilebilir ve işlevsel bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image115.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg",
     "images": [
-      "/assets/meydan_photos/image115.jpg",
-      "/assets/meydan_photos/image114.jpg"
+      "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg",
+      "/assets/meydan_photos/photo_slide45_ecca321dc9.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Fatih Aksaray Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image115.jpg"
+        "img": "/assets/meydan_photos/photo_slide45_a3f90d5517.jpg"
       },
       {
         "id": "photo-2",
         "name": "Fatih Aksaray Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image114.jpg"
+        "img": "/assets/meydan_photos/photo_slide45_ecca321dc9.jpg"
       }
     ],
     "personnel": [
@@ -5887,21 +5887,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Alan büyüklüğü: 60.000m²"
     ],
     "aciklama": "İstanbul’un en önemli tarihî ve kültürel miras alanlarından biri olup Sultanahmet Camii, Ayasofya-i Kebir Camii, Dikilitaş, Yılanlı Sütun ve Örme Sütun gibi önemli kültür varlıklarına ev sahipliği yapmaktadır. 2021 yılında gerçekleştirilen çevre düzenleme çalışmaları kapsamında meydandaki kamusal alan işgalleri kaldırılarak alanın yeşil dokuya kazandırılması sağlanmış, yaya kullanım alanları yeniden düzenlenmiş ve meydanın tarihî kimliği korunarak ziyaretçiler için daha erişilebilir ve nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image121.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide47_0b145f8153.jpg",
     "images": [
-      "/assets/meydan_photos/image121.jpg",
-      "/assets/meydan_photos/image120.jpg"
+      "/assets/meydan_photos/photo_slide47_0b145f8153.jpg",
+      "/assets/meydan_photos/photo_slide47_8aa3746a97.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sultanahmet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image121.jpg"
+        "img": "/assets/meydan_photos/photo_slide47_0b145f8153.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sultanahmet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image120.jpg"
+        "img": "/assets/meydan_photos/photo_slide47_8aa3746a97.jpg"
       }
     ],
     "personnel": [
@@ -5926,21 +5926,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Tuvalet"
     ],
     "aciklama": "Adını Roma döneminden günümüze ulaşan Çemberlitaş Sütunu‘ndan alan İstanbul’un önemli tarihî meydanlarından biridir. Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında meydanın yaya dolaşımı iyileştirilmiş, çevre düzenlemeleri tamamlanmış ve tarihî doku korunarak kamusal kullanım alanlarının niteliği artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image112.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide44_cd31907adf.jpg",
     "images": [
-      "/assets/meydan_photos/image112.jpg",
-      "/assets/meydan_photos/image111.jpg"
+      "/assets/meydan_photos/photo_slide44_cd31907adf.jpg",
+      "/assets/meydan_photos/photo_slide44_3bc5df3c72.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Çemberlitaş Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image112.jpg"
+        "img": "/assets/meydan_photos/photo_slide44_cd31907adf.jpg"
       },
       {
         "id": "photo-2",
         "name": "Çemberlitaş Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image111.jpg"
+        "img": "/assets/meydan_photos/photo_slide44_3bc5df3c72.jpg"
       }
     ],
     "personnel": [
@@ -5965,21 +5965,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yerebatan Sarnıcı"
     ],
     "aciklama": "Ayasofya-i Kebir Camii, Sultanahmet Camii ve Topkapı Sarayı gibi dünya çapında öneme sahip tarihî ve kültürel miras alanlarının bulunduğu bölgede yer almaktadır. Gerçekleştirilen bakım ve çevre düzenleme çalışmaları kapsamında yaya erişilebilirliği artırılmış, çevre düzenlemeleri iyileştirilmiş ve meydanın tarihî kimliği korunarak ziyaretçi kullanımına uygun nitelikli bir kamusal alan oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image109.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg",
     "images": [
-      "/assets/meydan_photos/image109.jpg",
-      "/assets/meydan_photos/image108.jpg"
+      "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg",
+      "/assets/meydan_photos/photo_slide42_2682c96053.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Ayasofya Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image109.jpg"
+        "img": "/assets/meydan_photos/photo_slide42_2f8f9f0959.jpg"
       },
       {
         "id": "photo-2",
         "name": "Ayasofya Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image108.jpg"
+        "img": "/assets/meydan_photos/photo_slide42_2682c96053.jpg"
       }
     ],
     "personnel": [
@@ -6005,21 +6005,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İBB Beşiktaş İskele Kütüphanesi"
     ],
     "aciklama": "Beşiktaş’ın en önemli ulaşım ve buluşma noktalarından biri olan 28.000 m² büyüklüğündeki alan; Barbaros Hayrettin Paşa Türbesi, Barbaros Hayrettin Paşa Anıtı, Beşiktaş İskelesi ve Deniz Müzesi ile bütünleşen önemli bir kamusal alandır. 2023 yılında tamamlanan meydan düzenleme çalışmaları kapsamında yaya-taşıt ilişkisi yeniden düzenlenmiş, yayalaştırılan alanlar genişletilmiş, meydan ile sahil arasındaki mekânsal bütünlük güçlendirilmiş ve kentlilerin kullanımına nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image38.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide17_14d7550514.jpg",
     "images": [
-      "/assets/meydan_photos/image38.jpg",
-      "/assets/meydan_photos/image37.jpg"
+      "/assets/meydan_photos/photo_slide17_14d7550514.jpg",
+      "/assets/meydan_photos/photo_slide17_f058654448.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beşiktaş Barbaros Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image38.jpg"
+        "img": "/assets/meydan_photos/photo_slide17_14d7550514.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beşiktaş Barbaros Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image37.jpg"
+        "img": "/assets/meydan_photos/photo_slide17_f058654448.jpg"
       }
     ],
     "personnel": [
@@ -6045,21 +6045,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "Dudullu–Bostancı Metro Hattı projesi kapsamında yeniden düzenlenmiştir. Çalışmalarla birlikte yaya kullanım alanları genişletilmiş, yeşil alanlar ve sosyal donatı alanları oluşturulmuş, yer altı otoparkı ile ulaşım entegrasyonu güçlendirilerek meydan daha erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image138.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide53_219839d02a.jpg",
     "images": [
-      "/assets/meydan_photos/image138.jpg",
-      "/assets/meydan_photos/image137.jpg"
+      "/assets/meydan_photos/photo_slide53_219839d02a.jpg",
+      "/assets/meydan_photos/photo_slide53_a6abbdd321.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kadıköy Bostancı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image138.jpg"
+        "img": "/assets/meydan_photos/photo_slide53_219839d02a.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kadıköy Bostancı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image137.jpg"
+        "img": "/assets/meydan_photos/photo_slide53_a6abbdd321.jpg"
       }
     ],
     "personnel": [
@@ -6082,21 +6082,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan"
     ],
     "aciklama": "İlçenin önemli ulaşım ve yaya odaklarından biri olup çevresindeki kamusal kullanım alanlarıyla bütünleşmektedir. Meydanda gerçekleştirilen düzenlemeler kapsamında yaya dolaşımının iyileştirilmesi, erişilebilirliğin artırılması ve kamusal kullanım niteliğinin güçlendirilmesi amaçlanmıştır.",
-    "heroImage": "/assets/meydan_photos/image150.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide57_622737335a.jpg",
     "images": [
-      "/assets/meydan_photos/image150.jpg",
-      "/assets/meydan_photos/image149.jpg"
+      "/assets/meydan_photos/photo_slide57_622737335a.jpg",
+      "/assets/meydan_photos/photo_slide57_7ebbd6ceca.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kozyatağı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image150.jpg"
+        "img": "/assets/meydan_photos/photo_slide57_622737335a.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kozyatağı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image149.jpg"
+        "img": "/assets/meydan_photos/photo_slide57_7ebbd6ceca.jpg"
       }
     ],
     "personnel": [
@@ -6122,21 +6122,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "İstanbul’un en önemli ulaşım ve aktarma merkezlerinden biri olup kapsamlı meydan dönüşüm projesiyle yeniden düzenlenmektedir. Proje kapsamında yaya öncelikli kullanımın artırılması, ulaşım sistemlerinin bütünleştirilmesi, yeşil alanların genişletilmesi ve meydanın daha nitelikli bir kamusal yaşam alanına dönüştürülmesi hedeflenmektedir.",
-    "heroImage": "/assets/meydan_photos/image141.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide54_3de4df0740.jpg",
     "images": [
-      "/assets/meydan_photos/image141.jpg",
-      "/assets/meydan_photos/image140.jpg"
+      "/assets/meydan_photos/photo_slide54_3de4df0740.jpg",
+      "/assets/meydan_photos/photo_slide54_7b4de6a7ff.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kadıköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image141.jpg"
+        "img": "/assets/meydan_photos/photo_slide54_3de4df0740.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kadıköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image140.jpg"
+        "img": "/assets/meydan_photos/photo_slide54_7b4de6a7ff.jpg"
       }
     ],
     "personnel": [
@@ -6161,21 +6161,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "Bağdat Caddesi ile sahil bandı arasında bağlantı sağlayan önemli kamusal alanlardan biridir. Meydan; yaya dolaşımı, dinlenme alanları ve kıyı kullanımıyla bütünleşen yapısı sayesinde rekreasyon ve sosyal yaşamı destekleyen önemli bir kamusal kullanım alanı niteliği taşımaktadır.",
-    "heroImage": "/assets/meydan_photos/image144.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg",
     "images": [
-      "/assets/meydan_photos/image144.jpg",
-      "/assets/meydan_photos/image143.jpg"
+      "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg",
+      "/assets/meydan_photos/photo_slide55_544cafc406.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kadıköy Suadiye Sahil Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image144.jpg"
+        "img": "/assets/meydan_photos/photo_slide55_f90c8c20ef.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kadıköy Suadiye Sahil Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image143.jpg"
+        "img": "/assets/meydan_photos/photo_slide55_544cafc406.jpg"
       }
     ],
     "personnel": [
@@ -6200,21 +6200,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "Kurbağalıdere Yaşam Vadisi Projesi kapsamında yenilenen Yoğurtçu Parkı ile bütünleşen önemli bir kamusal alandır. Çalışmalar kapsamında altyapı sorunları giderilmiş, peyzaj düzenlemeleri tamamlanmış, spor ve dinlenme alanları oluşturularak kullanıcılar için daha nitelikli ve erişilebilir bir yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image153.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide58_3def34b4de.jpg",
     "images": [
-      "/assets/meydan_photos/image153.jpg",
-      "/assets/meydan_photos/image152.jpg"
+      "/assets/meydan_photos/photo_slide58_3def34b4de.jpg",
+      "/assets/meydan_photos/photo_slide58_72aec58246.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Yoğurtçu Parkı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image153.jpg"
+        "img": "/assets/meydan_photos/photo_slide58_3def34b4de.jpg"
       },
       {
         "id": "photo-2",
         "name": "Yoğurtçu Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image152.jpg"
+        "img": "/assets/meydan_photos/photo_slide58_72aec58246.jpg"
       }
     ],
     "personnel": [
@@ -6238,21 +6238,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "Kalamış sahil bandı ile bütünleşen önemli rekreasyon alanlarından biridir. Meydan, yürüyüş yolları, dinlenme alanları ve yeşil dokusuyla kıyı kullanımını destekleyen, kent yaşamına katkı sağlayan nitelikli bir kamusal alan olarak hizmet vermektedir.",
-    "heroImage": "/assets/meydan_photos/image147.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide56_1c655ea414.jpg",
     "images": [
-      "/assets/meydan_photos/image147.jpg",
-      "/assets/meydan_photos/image146.jpg"
+      "/assets/meydan_photos/photo_slide56_1c655ea414.jpg",
+      "/assets/meydan_photos/photo_slide56_be1b91d8ad.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kalamış Parkı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image147.jpg"
+        "img": "/assets/meydan_photos/photo_slide56_1c655ea414.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kalamış Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image146.jpg"
+        "img": "/assets/meydan_photos/photo_slide56_be1b91d8ad.jpg"
       }
     ],
     "personnel": [
@@ -6276,21 +6276,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "Tarihî Fenerbahçe Parkı ve kıyı bandıyla bütünleşen önemli kamusal alanlardan biridir. Doğal peyzajı, yürüyüş alanları ve dinlenme noktalarıyla kentlilere rekreasyon imkânı sunan meydan, kıyı kullanımını destekleyen önemli bir kamusal yaşam alanı niteliğindedir.",
-    "heroImage": "/assets/meydan_photos/image136.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
     "images": [
-      "/assets/meydan_photos/image136.jpg",
-      "/assets/meydan_photos/image135.jpg"
+      "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
+      "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Fenerbahçe Parkı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image136.jpg"
+        "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
       },
       {
         "id": "photo-2",
         "name": "Fenerbahçe Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image135.jpg"
+        "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
       }
     ],
     "personnel": [
@@ -6314,21 +6314,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Beltur"
     ],
     "aciklama": "İstanbul’un en yoğun kullanılan kıyı ve rekreasyon alanlarından biri olup Marmara Denizi kıyısında yer alan önemli kamusal yaşam alanlarındandır. Meydan; yürüyüş ve bisiklet yolları, yeşil alanları ve dinlenme alanlarıyla kentlilerin sosyal ve sportif faaliyetlerine hizmet vermektedir. 2017 yılında İBB tarafından sahil bandında çevre düzenlemesi, altyapı, peyzaj ve yaya yolu iyileştirme çalışmaları gerçekleştirilmiş, böylece alanın erişilebilirliği ve kamusal kullanım niteliği güçlendirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image133.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide51_5638078c6f.jpg",
     "images": [
-      "/assets/meydan_photos/image133.jpg",
-      "/assets/meydan_photos/image132.jpg"
+      "/assets/meydan_photos/photo_slide51_5638078c6f.jpg",
+      "/assets/meydan_photos/photo_slide51_7ff92de6d4.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Caddebostan Sahili Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image133.jpg"
+        "img": "/assets/meydan_photos/photo_slide51_5638078c6f.jpg"
       },
       {
         "id": "photo-2",
         "name": "Caddebostan Sahili Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image132.jpg"
+        "img": "/assets/meydan_photos/photo_slide51_7ff92de6d4.jpg"
       }
     ],
     "personnel": [
@@ -6354,21 +6354,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "Eski belediye hizmet binası alanının dönüştürülmesiyle 16.01.2022 tarihinde hizmete açılmıştır. Proje kapsamında 16.110 m² alanda Hakimiyet-i Milliye Caddesi yeniden düzenlenmiş, tarihi Kara Davut Paşa Camii çevresinde yeşil etkinlik çayırı, tören alanı ile oturma ve dinlenme alanları oluşturulmuştur. Ayrıca 956 araç kapasiteli dört katlı zemin altı otoparkı inşa edilerek deniz, kara ve raylı sistem ulaşımı arasındaki entegrasyon güçlendirilmiş ve bölgeye nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image260.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide97_8f03099c89.jpg",
     "images": [
-      "/assets/meydan_photos/image260.jpg",
-      "/assets/meydan_photos/image262.png"
+      "/assets/meydan_photos/photo_slide97_8f03099c89.jpg",
+      "/assets/meydan_photos/photo_slide97_49e650f4f8.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Mimar Sinan Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image260.jpg"
+        "img": "/assets/meydan_photos/photo_slide97_8f03099c89.jpg"
       },
       {
         "id": "photo-2",
         "name": "Mimar Sinan Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image262.png"
+        "img": "/assets/meydan_photos/photo_slide97_49e650f4f8.jpg"
       }
     ],
     "personnel": [
@@ -6398,21 +6398,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Ticari Büfe"
     ],
     "aciklama": "İstanbul’un en önemli ulaşım ve kıyı odaklarından biri olup kapsamlı meydan ve sahil düzenleme çalışmalarıyla yeniden düzenlenmiştir. Proje kapsamında yaklaşık 25.000 m² meydan alanı, 16.000 m² yeşil alan, kesintisiz ve engelsiz yaya kullanım alanları oluşturulmuş; Harem ile Üsküdar arasında sahil bandı yürüyüş yolları, bisiklet yolu ve dinlenme alanlarıyla bütünleştirilmiştir. Böylece meydanın ulaşım, rekreasyon ve kamusal kullanım niteliği önemli ölçüde güçlendirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image255.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide95_4894e9e026.jpg",
     "images": [
-      "/assets/meydan_photos/image255.jpg",
-      "/assets/meydan_photos/image254.jpg"
+      "/assets/meydan_photos/photo_slide95_4894e9e026.jpg",
+      "/assets/meydan_photos/photo_slide95_b12b74f08b.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sahil Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image255.jpg"
+        "img": "/assets/meydan_photos/photo_slide95_4894e9e026.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sahil Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image254.jpg"
+        "img": "/assets/meydan_photos/photo_slide95_b12b74f08b.jpg"
       }
     ],
     "personnel": [
@@ -6439,21 +6439,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "Salacak Sahili Çevre Düzenleme Projesi kapsamında 18.03.2024 tarihinde  18.000 m² hizmete açılmıştır. Proje kapsamında uzun yıllar kaçak yapılar nedeniyle işgal altında bulunan sahil alanı kamusal kullanıma yeniden kazandırılmış, kaçak yapılar kaldırılarak geniş bir meydan, çocuk oyun alanı, seyir terasları ve peyzaj düzenlemeleri oluşturulmuştur. Ayrıca sahil güçlendirme çalışmaları gerçekleştirilmiş, doğal taş ve bitkisel peyzaj uygulamalarıyla Kız Kulesi siluetini öne çıkaran nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image258.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide96_cde737f39a.jpg",
     "images": [
-      "/assets/meydan_photos/image258.jpg",
-      "/assets/meydan_photos/image257.jpg"
+      "/assets/meydan_photos/photo_slide96_cde737f39a.jpg",
+      "/assets/meydan_photos/photo_slide96_fdf2321606.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Salacak Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image258.jpg"
+        "img": "/assets/meydan_photos/photo_slide96_cde737f39a.jpg"
       },
       {
         "id": "photo-2",
         "name": "Salacak Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image257.jpg"
+        "img": "/assets/meydan_photos/photo_slide96_fdf2321606.jpg"
       }
     ],
     "personnel": [
@@ -6479,21 +6479,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Beltur"
     ],
     "aciklama": "Boğaz kıyısında 12.000 m² yer alan ve sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan ve çevresinde gerçekleştirilen düzenlemeler kapsamında kıyı kullanımını destekleyen yaya alanları ve dinlenme alanları oluşturulmuş, kamusal kullanım niteliği güçlendirilmiştir. Ayrıca 2024 yılında hizmete açılan Paşalimanı Sosyal Tesisi ile alanın sosyal kullanım kapasitesi artırılmış; deniz manzarasına sahip tesis bünyesinde dinlenme, sosyalleşme ve çalışma imkânı sunan açık ve kapalı oturma alanları, self-servis kafeterya ve kütüphane oluşturularak meydan ve sahil bandı daha nitelikli bir yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image251.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg",
     "images": [
-      "/assets/meydan_photos/image251.jpg",
-      "/assets/meydan_photos/image253.png"
+      "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg",
+      "/assets/meydan_photos/photo_slide94_8c6863902a.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Paşalimanı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image251.jpg"
+        "img": "/assets/meydan_photos/photo_slide94_9e19782f4e.jpg"
       },
       {
         "id": "photo-2",
         "name": "Paşalimanı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image253.png"
+        "img": "/assets/meydan_photos/photo_slide94_8c6863902a.jpg"
       }
     ],
     "personnel": [
@@ -6518,21 +6518,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Adalar’ın en önemli kamusal alanlarından biri olan ve iskele çevresi ile Fayton Meydanı’nı kapsayan 22.500 m² büyüklüğündeki alan, kentsel tasarım çalışmaları kapsamında yeniden ele alınmıştır. İBB, İstanbul Planlama Ajansı ve Adalar Belediyesi iş birliğiyle düzenlenen Büyükada Fayton Meydanı Kentsel Tasarım Yarışması sonucunda hazırlanan proje, Koruma Kurulu onayının ardından uygulama aşamasına geçmiştir. Proje kapsamında meydanın tarihî kimliğinin korunması, kamusal kullanım alanlarının artırılması ve yaya öncelikli bir meydan düzeni oluşturulması hedeflenmektedir.",
-    "heroImage": "/assets/meydan_photos/image1.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide4_bee2254710.jpg",
     "images": [
-      "/assets/meydan_photos/image1.jpg",
-      "/assets/meydan_photos/image3.jpg"
+      "/assets/meydan_photos/photo_slide4_bee2254710.jpg",
+      "/assets/meydan_photos/photo_slide4_1cd471cc99.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Adalar Büyükada Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image1.jpg"
+        "img": "/assets/meydan_photos/photo_slide4_bee2254710.jpg"
       },
       {
         "id": "photo-2",
         "name": "Adalar Büyükada Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image3.jpg"
+        "img": "/assets/meydan_photos/photo_slide4_1cd471cc99.jpg"
       }
     ],
     "personnel": [
@@ -6557,21 +6557,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "11.000 m² büyüklüğündeki alan, 300 Günde 300 Proje kapsamında gerçekleştirilen meydan ve cadde düzenleme çalışmalarıyla yenilenmiştir. Proje kapsamında tarihî İshakağa Çeşmesi ön plana çıkarılmış, meydan ile sahil arasındaki yaya bağlantısı güçlendirilmiş; yeşil alan düzenlemeleri, kent mobilyaları ve otobüs duraklarıyla bölgeye Beykoz’un kimliğiyle uyumlu, modern ve nitelikli bir kamusal yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image47.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg",
     "images": [
-      "/assets/meydan_photos/image47.jpg",
-      "/assets/meydan_photos/image46.jpg"
+      "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg",
+      "/assets/meydan_photos/photo_slide20_5973fe2034.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beykoz Onçeşmeler Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image47.jpg"
+        "img": "/assets/meydan_photos/photo_slide20_154bdd6a51.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beykoz Onçeşmeler Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image46.jpg"
+        "img": "/assets/meydan_photos/photo_slide20_5973fe2034.jpg"
       }
     ],
     "personnel": [
@@ -6596,21 +6596,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "7.000 m² büyüklüğündeki alan, Boğaz kıyısında yer alan önemli kamusal alanlardan biri olup sahil ile kent dokusunu buluşturmaktadır. Meydan; yaya dolaşımı, dinlenme alanları ve çevre düzenlemeleriyle bölgenin sosyal yaşamına katkı sağlayan önemli bir kamusal kullanım alanı niteliği taşımaktadır.",
-    "heroImage": "/assets/meydan_photos/image55.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg",
     "images": [
-      "/assets/meydan_photos/image55.jpg",
-      "/assets/meydan_photos/image54.jpg"
+      "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg",
+      "/assets/meydan_photos/photo_slide23_03987335fe.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Paşabahçe Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image55.jpg"
+        "img": "/assets/meydan_photos/photo_slide23_b1c7fdafed.jpg"
       },
       {
         "id": "photo-2",
         "name": "Paşabahçe Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image54.jpg"
+        "img": "/assets/meydan_photos/photo_slide23_03987335fe.jpg"
       }
     ],
     "personnel": [
@@ -6635,21 +6635,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Beltur"
     ],
     "aciklama": "15.000 m² büyüklüğündeki alan, Boğaz kıyısı ve Çubuklu sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan ve çevresi; yaya kullanım alanları, kıyı düzenlemeleri ve rekreasyon alanlarıyla desteklenerek kent yaşamına katkı sağlayan işlevsel bir kamusal alan olarak kullanılmaktadır. Ayrıca Çubuklu kıyısında gerçekleştirilen kamusal alan projeleriyle bölgenin kıyı kullanımı ve sosyal yaşam niteliği güçlendirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image50.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg",
     "images": [
-      "/assets/meydan_photos/image50.jpg",
-      "/assets/meydan_photos/image49.jpg"
+      "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg",
+      "/assets/meydan_photos/photo_slide21_1f69ab0adb.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Çubuklu Kent Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image50.jpg"
+        "img": "/assets/meydan_photos/photo_slide21_2dddd6ed48.jpg"
       },
       {
         "id": "photo-2",
         "name": "Çubuklu Kent Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image49.jpg"
+        "img": "/assets/meydan_photos/photo_slide21_1f69ab0adb.jpg"
       }
     ],
     "personnel": [
@@ -6675,21 +6675,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "5.500 m² büyüklüğündeki alan, Tarihî Kanlıca İskelesi ve kıyı bandıyla bütünleşen Beykoz’un simgesel kamusal alanlarından biridir. Meydan, Boğaz kıyısındaki yaya kullanımını destekleyen düzenlemeleri ve tarihî çevresiyle bölgenin sosyal ve kültürel yaşamına katkı sağlayan önemli bir buluşma noktasıdır.",
-    "heroImage": "/assets/meydan_photos/image53.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
     "images": [
-      "/assets/meydan_photos/image53.jpg",
-      "/assets/meydan_photos/image52.jpg"
+      "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
+      "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kanlıca Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image53.jpg"
+        "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kanlıca Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image52.jpg"
+        "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
       }
     ],
     "personnel": [
@@ -6715,21 +6715,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Göksu ve Yeşilçay derelerinin Karadeniz ile buluştuğu bölgede yer alan önemli kamusal 12.000 m² alanlardan biridir. Meydan; kıyı kullanımı, yaya dolaşımı ve rekreasyon alanlarıyla bütünleşen yapısı sayesinde turizm ve sosyal yaşam açısından bölgenin önemli odak noktalarından biri olarak hizmet vermektedir",
-    "heroImage": "/assets/meydan_photos/image218.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide81_213b288af3.jpg",
     "images": [
-      "/assets/meydan_photos/image218.jpg",
-      "/assets/meydan_photos/image217.jpg"
+      "/assets/meydan_photos/photo_slide81_213b288af3.jpg",
+      "/assets/meydan_photos/photo_slide81_4c935d8a0b.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Ağva Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image218.jpg"
+        "img": "/assets/meydan_photos/photo_slide81_213b288af3.jpg"
       },
       {
         "id": "photo-2",
         "name": "Ağva Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image217.jpg"
+        "img": "/assets/meydan_photos/photo_slide81_4c935d8a0b.jpg"
       }
     ],
     "personnel": [
@@ -6751,21 +6751,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan"
     ],
     "aciklama": "Ilçe merkezindeki ulaşım hareketliliğini destekleyen önemli 9.500 m² kamusal alanlardan biridir. Meydan; terminal bağlantıları, yaya dolaşımı ve çevre düzenlemeleriyle kent içi ulaşımı destekleyen, ilçe sakinleri ve ziyaretçiler tarafından yoğun olarak kullanılan işlevsel bir kamusal kullanım alanı niteliği taşımaktadır.",
-    "heroImage": "/assets/meydan_photos/image221.png",
+    "heroImage": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
     "images": [
-      "/assets/meydan_photos/image221.png",
-      "/assets/meydan_photos/image220.jpg"
+      "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
+      "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Terminal Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image221.png"
+        "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
       },
       {
         "id": "photo-2",
         "name": "Terminal Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image220.jpg"
+        "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
       }
     ],
     "personnel": [
@@ -6788,21 +6788,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "150 Günde 150 Proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje kapsamında yaklaşık 55 bin m² meydan ve çevre düzenlemesi gerçekleştirilmiş, kent parkı, 123 araçlık otopark, yeşil alanlar, oturma ve dinlenme alanları oluşturulmuştur. Meydan, Marmaray hattı nedeniyle işlevini kaybeden alanın yeniden düzenlenmesiyle Kartal’ın önemli kamusal yaşam alanlarından biri haline getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image164.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg",
     "images": [
-      "/assets/meydan_photos/image164.jpg",
-      "/assets/meydan_photos/image163.jpg"
+      "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg",
+      "/assets/meydan_photos/photo_slide62_3ae92cf807.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kartal Neyzen Tevfik Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image164.jpg"
+        "img": "/assets/meydan_photos/photo_slide62_21c5d1863b.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kartal Neyzen Tevfik Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image163.jpg"
+        "img": "/assets/meydan_photos/photo_slide62_3ae92cf807.jpg"
       }
     ],
     "personnel": [
@@ -6830,21 +6830,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "Marmara Denizi kıyısında yer alan ve sahil bandıyla bütünleşen önemli kamusal alanlardan biridir. Meydan; yürüyüş yolları, dinlenme alanları ve yeşil alan düzenlemeleriyle kıyı kullanımını desteklemekte, Kartal sahilinin sosyal ve rekreatif kullanımına katkı sağlamaktadır.",
-    "heroImage": "/assets/meydan_photos/image167.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide63_627fb57386.jpg",
     "images": [
-      "/assets/meydan_photos/image167.jpg",
-      "/assets/meydan_photos/image166.jpg"
+      "/assets/meydan_photos/photo_slide63_627fb57386.jpg",
+      "/assets/meydan_photos/photo_slide63_fff0747e42.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kartal Sahil (Savarona) Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image167.jpg"
+        "img": "/assets/meydan_photos/photo_slide63_627fb57386.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kartal Sahil (Savarona) Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image166.jpg"
+        "img": "/assets/meydan_photos/photo_slide63_fff0747e42.jpg"
       }
     ],
     "personnel": [
@@ -6870,21 +6870,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Maltepe Adalet Meydanı Projesi kapsamında, Maltepe Yalı Mahallesi’nde atıl durumda bulunan ve bir dönem kafe olarak işletilen alan dönüştürülerek 4.760 m² büyüklüğünde yeni bir meydan oluşturulmuştur. Proje kapsamında mevcut yeşil alanlarla bütünleşik bir meydan tasarlanmış, bitki varlığı zenginleştirilmiş, altyapı ve drenaj sorunları giderilerek yaya kullanımına uygun nitelikli bir kamusal yaşam alanı kazandırılmıştır. Ayrıca meydan, Anadolu Adalet Sarayı çevresindeki yaya erişimini ve kamusal kullanım kalitesini artıracak şekilde düzenlenmiştir. Alan büyüklüğü: 4.760m²",
-    "heroImage": "/assets/meydan_photos/image176.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide66_2581f529d1.jpg",
     "images": [
-      "/assets/meydan_photos/image176.jpg",
-      "/assets/meydan_photos/image175.jpg"
+      "/assets/meydan_photos/photo_slide66_2581f529d1.jpg",
+      "/assets/meydan_photos/photo_slide66_27a155537f.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Maltepe Adalet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image176.jpg"
+        "img": "/assets/meydan_photos/photo_slide66_2581f529d1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Maltepe Adalet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image175.jpg"
+        "img": "/assets/meydan_photos/photo_slide66_27a155537f.jpg"
       }
     ],
     "personnel": [
@@ -6912,21 +6912,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "300 Günde 300 Proje kapsamında düzenlenerek hizmete açılmıştır. Proje kapsamında 1953 yılında inşa edilen Bakireler Anıtı restore edilerek yeni yerine taşınmış, 208 araç kapasiteli otopark, taksi durağı, yürüyüş yolları, altyapı çalışmaları ile yeşil alan ve peyzaj düzenlemeleri gerçekleştirilerek nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image179.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide67_065817eacd.jpg",
     "images": [
-      "/assets/meydan_photos/image179.jpg",
-      "/assets/meydan_photos/image178.jpg"
+      "/assets/meydan_photos/photo_slide67_065817eacd.jpg",
+      "/assets/meydan_photos/photo_slide67_391b3507fb.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Maltepe Bakireler Anıtı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image179.jpg"
+        "img": "/assets/meydan_photos/photo_slide67_065817eacd.jpg"
       },
       {
         "id": "photo-2",
         "name": "Maltepe Bakireler Anıtı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image178.jpg"
+        "img": "/assets/meydan_photos/photo_slide67_391b3507fb.jpg"
       }
     ],
     "personnel": [
@@ -6955,21 +6955,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Halk Ekmek"
     ],
     "aciklama": "Maltepe Cumhuriyet Meydanı Projesi kapsamında, Maltepe Bağdat Caddesi ile Atatürk Caddesi arasında yaklaşık 25 bin m² büyüklüğünde yeni bir meydan oluşturulmuştur. Proje kapsamında araç trafiği Maltepe Cumhuriyet Meydanı Alt Geçidi ile yer altına alınarak trafik akışı kesintisiz hâle getirilmiş, meydan yayalaştırılarak yeni kamusal kullanım alanları oluşturulmuştur. Ayrıca bölgenin altyapısı yenilenmiş, yeşil alan miktarı artırılmış, İstanbul Kitapçısı, Beltur Kafe ve sosyal kullanım alanları ile desteklenen nitelikli bir kent meydanı İstanbul’a kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image182.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg",
     "images": [
-      "/assets/meydan_photos/image182.jpg",
-      "/assets/meydan_photos/image181.jpg"
+      "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg",
+      "/assets/meydan_photos/photo_slide68_72bf04753c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Maltepe Cumhuriyet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image182.jpg"
+        "img": "/assets/meydan_photos/photo_slide68_54d57e2ff4.jpg"
       },
       {
         "id": "photo-2",
         "name": "Maltepe Cumhuriyet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image181.jpg"
+        "img": "/assets/meydan_photos/photo_slide68_72bf04753c.jpg"
       }
     ],
     "personnel": [
@@ -6997,21 +6997,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK Zemin Altı Otopark"
     ],
     "aciklama": "Yaklaşık 24 bin m² alanda hayata geçirilen proje kapsamında düzenlenmiştir. Meydanda peyzaj düzenlemeleri, oturma alanları ve yaya kullanımını destekleyen açık alanlar oluşturularak bölgenin meydan niteliği güçlendirilmiş, çevre düzenlemeleriyle kamusal kullanım kalitesi artırılarak nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image249.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide93_e480401da9.jpg",
     "images": [
-      "/assets/meydan_photos/image249.jpg",
-      "/assets/meydan_photos/image248.jpg"
+      "/assets/meydan_photos/photo_slide93_e480401da9.jpg",
+      "/assets/meydan_photos/photo_slide93_419149bf4b.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Ümraniye Dudullu Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image249.jpg"
+        "img": "/assets/meydan_photos/photo_slide93_e480401da9.jpg"
       },
       {
         "id": "photo-2",
         "name": "Ümraniye Dudullu Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image248.jpg"
+        "img": "/assets/meydan_photos/photo_slide93_419149bf4b.jpg"
       }
     ],
     "personnel": [
@@ -7036,21 +7036,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Çiçekçisi"
     ],
     "aciklama": "İlçe merkezinde yaya önceliğini artırmaya yönelik çevre düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Proje kapsamında meydan ve çevresinde peyzaj uygulamaları, oturma alanları, kent mobilyaları ve yaya dolaşımını destekleyen düzenlemeler gerçekleştirilerek kamusal kullanım kalitesi artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image89.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg",
     "images": [
-      "/assets/meydan_photos/image89.jpg",
-      "/assets/meydan_photos/image88.jpg"
+      "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg",
+      "/assets/meydan_photos/photo_slide35_fad7891d20.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Çekmeköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image89.jpg"
+        "img": "/assets/meydan_photos/photo_slide35_a32361d2cb.jpg"
       },
       {
         "id": "photo-2",
         "name": "Çekmeköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image88.jpg"
+        "img": "/assets/meydan_photos/photo_slide35_fad7891d20.jpg"
       }
     ],
     "personnel": [
@@ -7076,21 +7076,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK Zemin Altı Otopark"
     ],
     "aciklama": "İlçe merkezinde gerçekleştirilen meydan ve çevre düzenleme çalışmaları kapsamında yenilenmiştir. Proje kapsamında yaya kullanım alanları genişletilmiş, peyzaj ve kent mobilyalarıyla desteklenen dinlenme alanları oluşturulmuş, meydan sosyal ve kültürel etkinliklere uygun nitelikli bir kamusal yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image235.png",
+    "heroImage": "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
     "images": [
-      "/assets/meydan_photos/image235.png",
-      "/assets/meydan_photos/image234.jpg"
+      "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
+      "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sultanbeyli Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image235.png"
+        "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sultanbeyli Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image234.jpg"
+        "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
       }
     ],
     "personnel": [
@@ -7116,21 +7116,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "Sahil ve ilçe merkezi arasındaki yaya bağlantısını güçlendirecek şekilde düzenlenmiştir. Meydanda gerçekleştirilen çevre düzenleme çalışmaları kapsamında yeşil alanlar artırılmış, oturma alanları, kent mobilyaları ve peyzaj uygulamalarıyla kamusal kullanım kalitesi yükseltilerek kent yaşamına nitelikli bir meydan kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image191.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
     "images": [
-      "/assets/meydan_photos/image191.jpg",
-      "/assets/meydan_photos/image190.jpg"
+      "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
+      "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Pendik Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image191.jpg"
+        "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
       },
       {
         "id": "photo-2",
         "name": "Pendik Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image190.jpg"
+        "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
       }
     ],
     "personnel": [
@@ -7153,21 +7153,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Yaklaşık 8.500 m² alanda hayata geçirilen proje kapsamında düzenlenmiştir. Proje ile bölge yalnızca bir geçiş noktası olmaktan çıkarılarak kültürel ve sosyal yaşamı destekleyen bir kamusal alana dönüştürülmüş; meydanda peyzaj düzenlemeleri, oturma alanları ve kent mobilyalarıyla kamusal kullanım kalitesi artırılmıştır. Ayrıca proje kapsamında İSPARK zemin altı otoparkı inşa edilerek bölgedeki ulaşım ve otopark ihtiyacına katkı sağlanmıştır.",
-    "heroImage": "/assets/meydan_photos/image237.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide89_bae789221d.jpg",
     "images": [
-      "/assets/meydan_photos/image237.jpg",
-      "/assets/meydan_photos/image236.jpg"
+      "/assets/meydan_photos/photo_slide89_bae789221d.jpg",
+      "/assets/meydan_photos/photo_slide89_73babd2670.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Tahaffuzhane Caddesi Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image237.jpg"
+        "img": "/assets/meydan_photos/photo_slide89_bae789221d.jpg"
       },
       {
         "id": "photo-2",
         "name": "Tahaffuzhane Caddesi Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image236.jpg"
+        "img": "/assets/meydan_photos/photo_slide89_73babd2670.jpg"
       }
     ],
     "personnel": [
@@ -7193,21 +7193,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "Ilçe merkezinde yürütülen meydan düzenleme çalışmaları kapsamında yeniden düzenlenmiştir. Proje ile meydan ve çevresindeki yaya kullanım alanları genişletilmiş, yeşil alanlar ve peyzaj düzenlemeleriyle kamusal kullanım kalitesi artırılmıştır. Ayrıca kent mobilyaları ve dinlenme alanlarıyla desteklenen meydan, Tuzla’nın sosyal ve kültürel yaşamını güçlendiren nitelikli bir kamusal yaşam alanına dönüştürülmüştür. Alan büyüklüğü: 16.000m²",
-    "heroImage": "/assets/meydan_photos/image240.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide90_70354560d8.jpg",
     "images": [
-      "/assets/meydan_photos/image240.jpg",
-      "/assets/meydan_photos/image239.jpg"
+      "/assets/meydan_photos/photo_slide90_70354560d8.jpg",
+      "/assets/meydan_photos/photo_slide90_f3ffca01db.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Tuzla Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image240.jpg"
+        "img": "/assets/meydan_photos/photo_slide90_70354560d8.jpg"
       },
       {
         "id": "photo-2",
         "name": "Tuzla Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image239.jpg"
+        "img": "/assets/meydan_photos/photo_slide90_f3ffca01db.jpg"
       }
     ],
     "personnel": [
@@ -7234,21 +7234,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Kitapçısı"
     ],
     "aciklama": "150 Günde 150 Proje kapsamında yaklaşık 10.800 m² alanda düzenlenerek hizmete açılmıştır. Proje kapsamında bölgenin kamusal alan ihtiyacını karşılayacak şekilde meydan yeniden tasarlanmış, yaklaşık 1.000 araç kapasiteli zemin altı otopark ile çocuk oyun alanı oluşturulmuştur. Meydanın dönüşüm projesi kapsamında bölgenin kültürel yaşama erişimi güçlendirilmiş, kamusal kullanım niteliği artırılarak Ümraniye’ye sosyal yaşamı destekleyen nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image246.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg",
     "images": [
-      "/assets/meydan_photos/image246.jpg",
-      "/assets/meydan_photos/image245.jpg"
+      "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg",
+      "/assets/meydan_photos/photo_slide92_72d48be255.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image246.jpg"
+        "img": "/assets/meydan_photos/photo_slide92_ccbf0fec33.jpg"
       },
       {
         "id": "photo-2",
         "name": "Ümraniye 15 Temmuz Şehitler Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image245.jpg"
+        "img": "/assets/meydan_photos/photo_slide92_72d48be255.jpg"
       }
     ],
     "personnel": [
@@ -7278,21 +7278,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "Tuzla Yaşam Vadisi 1. Etap 1. Kısım, Umur (Doğandere) Deresi boyunca hayata geçirilen yaşam vadisi projesi kapsamında yaklaşık 14.000 m² alanda düzenlenmiştir. Proje ile dere koridoru kamusal kullanıma kazandırılmış, yaya ve bisiklet ulaşımı güçlendirilmiş, yeşil alanlar ve peyzaj düzenlemeleriyle bölgenin rekreasyon niteliği artırılmıştır. Ayrıca Aygün ve Yenice Sokak araç trafiğinden arındırılarak kamusal kullanıma yönelik bir yaşam alanına dönüştürülmüştür.",
-    "heroImage": "/assets/meydan_photos/image243.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg",
     "images": [
-      "/assets/meydan_photos/image243.jpg",
-      "/assets/meydan_photos/image242.jpg"
+      "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg",
+      "/assets/meydan_photos/photo_slide91_1642362b81.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 1",
-        "img": "/assets/meydan_photos/image243.jpg"
+        "img": "/assets/meydan_photos/photo_slide91_3efaf0f452.jpg"
       },
       {
         "id": "photo-2",
         "name": "Tuzla Yaşam Vadisi 1.Etap 1. Kısım Görsel 2",
-        "img": "/assets/meydan_photos/image242.jpg"
+        "img": "/assets/meydan_photos/photo_slide91_1642362b81.jpg"
       }
     ],
     "personnel": [
@@ -7316,21 +7316,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İSPARK"
     ],
     "aciklama": "Sahil bandı ile bütünleşik olarak düzenlenmiş olup yaya dolaşımını destekleyen açık alanları, peyzaj düzenlemeleri ve dinlenme alanlarıyla kamusal kullanım kalitesi artırılmıştır. Meydan düzenlemesiyle sahil kullanımını güçlendiren nitelikli bir kamusal yaşam alanı oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image193.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg",
     "images": [
-      "/assets/meydan_photos/image193.jpg",
-      "/assets/meydan_photos/image192.jpg"
+      "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg",
+      "/assets/meydan_photos/photo_slide72_bd65ef2171.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Pendik Sahil Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image193.jpg"
+        "img": "/assets/meydan_photos/photo_slide72_c5e4d46810.jpg"
       },
       {
         "id": "photo-2",
         "name": "Pendik Sahil Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image192.jpg"
+        "img": "/assets/meydan_photos/photo_slide72_bd65ef2171.jpg"
       }
     ],
     "personnel": [
@@ -7355,21 +7355,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Pendik sahil bandında 10.000 m²’lik yer alan kamusal yeşil alan niteliğinde bir kent parkı olarak 10.000 m² düzenlenmiştir. Yürüyüş, dinlenme ve rekreasyon amaçlı kullanıma uygun olarak tasarlanan alanda peyzaj düzenlemeleri ve açık kullanım alanlarıyla kamusal kullanım kalitesi artırılmış, bölgenin sosyal yaşamını destekleyen nitelikli bir kamusal alan oluşturulmuştur.",
-    "heroImage": "/assets/meydan_photos/image196.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg",
     "images": [
-      "/assets/meydan_photos/image196.jpg",
-      "/assets/meydan_photos/image195.jpg"
+      "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg",
+      "/assets/meydan_photos/photo_slide73_dcf94db113.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image196.jpg"
+        "img": "/assets/meydan_photos/photo_slide73_c25eaa3c9e.jpg"
       },
       {
         "id": "photo-2",
         "name": "Toprak Dede Hayrettin Karaca Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image195.jpg"
+        "img": "/assets/meydan_photos/photo_slide73_dcf94db113.jpg"
       }
     ],
     "personnel": [
@@ -7392,21 +7392,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "Yaklaşık 5.000 m² alanda yürütülen yenileme çalışmaları kapsamında yeniden düzenlenmiştir. Proje kapsamında alanın drenaj problemi giderilmiş, yeni ağaçlandırma ve peyzaj düzenlemeleri gerçekleştirilmiş, oturma alanları artırılarak kamusal kullanım kalitesi güçlendirilmiştir. Geniş sert zeminli açık alan düzenine sahip olan meydan, resmî törenler, anma programları ve kamusal etkinliklere uygun şekilde tasarlanmış olup, modern ve sürdürülebilir bir kamusal yaşam alanı olarak hizmet vermektedir.",
-    "heroImage": "/assets/meydan_photos/image185.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg",
     "images": [
-      "/assets/meydan_photos/image185.jpg",
-      "/assets/meydan_photos/image184.jpg"
+      "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg",
+      "/assets/meydan_photos/photo_slide69_ef9f1671f3.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 1",
-        "img": "/assets/meydan_photos/image185.jpg"
+        "img": "/assets/meydan_photos/photo_slide69_918a9cf7aa.jpg"
       },
       {
         "id": "photo-2",
         "name": "Dr. Tahsin Arcan Tören Alanı/Parkı Görsel 2",
-        "img": "/assets/meydan_photos/image184.jpg"
+        "img": "/assets/meydan_photos/photo_slide69_ef9f1671f3.jpg"
       }
     ],
     "personnel": [
@@ -7430,21 +7430,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Şehir Tuvaleti"
     ],
     "aciklama": "Sahil bandında yer alan kamusal açık rekreasyon alanı olarak düzenlenmiştir. Alan; yürüyüş yolları, yeşil alanlar ve peyzaj düzenlemeleriyle kamusal kullanım niteliği güçlendirilmiş, vatandaşların yürüyüş, dinlenme ve sosyal vakit geçirmelerine uygun bir yaşam alanına dönüştürülmüştür. Böylece sahil bandının rekreasyon ve kamusal kullanım kapasitesi artırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image188.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg",
     "images": [
-      "/assets/meydan_photos/image188.jpg",
-      "/assets/meydan_photos/image187.jpg"
+      "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg",
+      "/assets/meydan_photos/photo_slide70_9d1efa56c1.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kaynarca Sahil Parkı Görsel 1",
-        "img": "/assets/meydan_photos/image188.jpg"
+        "img": "/assets/meydan_photos/photo_slide70_8cd5d7cad5.jpg"
       },
       {
         "id": "photo-2",
         "name": "Kaynarca Sahil Parkı Görsel 2",
-        "img": "/assets/meydan_photos/image187.jpg"
+        "img": "/assets/meydan_photos/photo_slide70_9d1efa56c1.jpg"
       }
     ],
     "personnel": [
@@ -7470,21 +7470,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Peyzaj ve Yeşil Alanlar"
     ],
     "aciklama": "Kasımpaşa Kızılay Meydanı, Beyoğlu ilçesinde yer alan ve bölgenin önemli kamusal yaşam alanlarından biridir. Meydan; sosyal, kültürel ve resmi etkinliklere ev sahipliği yapmakta olup, çevresindeki ticaret alanları ve ulaşım bağlantılarıyla yoğun yaya kullanımına hizmet vermektedir.",
-    "heroImage": "/assets/meydan_photos/image73.png",
+    "heroImage": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
     "images": [
-      "/assets/meydan_photos/image73.png",
-      "/assets/meydan_photos/image72.png"
+      "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
+      "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Kasımpaşa Kızılay Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image73.png"
+        "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
       },
       {
         "id": "photo-2",
         "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image72.png"
+        "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
       }
     ],
     "personnel": []
@@ -7507,21 +7507,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İlçe Güvenlik Kulübesi"
     ],
     "aciklama": "Sultangazi ilçesinin merkezinde yer alan meydan, Sultangazi Belediyesi uhdesinde bulunan ve yaklaşık 48.000 m² alana sahip kamusal bir yaşam alanıdır. Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yaya dolaşımı ve çevre düzenlemeleri iyileştirilmiş, kamusal kullanım alanları artırılarak meydan daha düzenli, erişilebilir ve işlevsel bir kent meydanı olarak hizmete sunulmuştur.",
-    "heroImage": "/assets/meydan_photos/image215.png",
+    "heroImage": "/assets/meydan_photos/photo_slide80_3f83d6a223.png",
     "images": [
-      "/assets/meydan_photos/image215.png",
-      "/assets/meydan_photos/image214.png"
+      "/assets/meydan_photos/photo_slide80_3f83d6a223.png",
+      "/assets/meydan_photos/photo_slide80_39c96b7f65.png"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sultangazi Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image215.png"
+        "img": "/assets/meydan_photos/photo_slide80_3f83d6a223.png"
       },
       {
         "id": "photo-2",
         "name": "Sultangazi Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image214.png"
+        "img": "/assets/meydan_photos/photo_slide80_39c96b7f65.png"
       }
     ],
     "personnel": [
@@ -7547,21 +7547,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Sergi Alanı"
     ],
     "aciklama": "Zemin altı otoparkı ile birlikte hayata geçirilen proje kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile meydanın kamusal kullanım kapasitesi artırılmış, yaya dolaşımı iyileştirilmiş ve bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image170.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
     "images": [
-      "/assets/meydan_photos/image170.jpg",
-      "/assets/meydan_photos/image169.jpg"
+      "/assets/meydan_photos/photo_slide64_27bf12d723.jpg",
+      "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Küçükçekmece Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image170.jpg"
+        "img": "/assets/meydan_photos/photo_slide64_27bf12d723.jpg"
       },
       {
         "id": "photo-2",
         "name": "Küçükçekmece Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image169.jpg"
+        "img": "/assets/meydan_photos/photo_slide64_a667db00f8.jpg"
       }
     ],
     "personnel": []
@@ -7583,21 +7583,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Peyzaj ve Yeşil Alanlar"
     ],
     "aciklama": "Arnavutköy Cumhuriyet Meydanı, Arnavutköy Belediyesi uhdesinde bulunan ve yaklaşık 6.015 m² alana sahip kamusal bir yaşam alanıdır. Meydan; resmi törenler, sosyal ve kültürel etkinlikler ile günlük yaya kullanımına hizmet vermekte olup, çevresindeki kamu kurumları, ticaret alanları ve ulaşım bağlantıları sayesinde ilçenin önemli odak noktalarından biri olarak kullanılmaktadır. Meydan, yayaların güvenli ve konforlu kullanımını destekleyen düzenlemeleriyle ilçenin önemli kamusal odak noktalarından biridir.",
-    "heroImage": "/assets/meydan_photos/image8.png",
+    "heroImage": "/assets/meydan_photos/photo_slide6_472dba0087.png",
     "images": [
-      "/assets/meydan_photos/image8.png",
-      "/assets/meydan_photos/image7.png"
+      "/assets/meydan_photos/photo_slide6_472dba0087.png",
+      "/assets/meydan_photos/photo_slide6_472dba0087.png"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Arnavutköy Cumhuriyet Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image8.png"
+        "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
       },
       {
         "id": "photo-2",
         "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image7.png"
+        "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
       }
     ],
     "personnel": [
@@ -7625,21 +7625,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İETT Hareket Amirliği"
     ],
     "aciklama": "Metro istasyonu çevresinde yer alan 14.000 m² büyüklüğündeki alan, gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenmiştir. Çalışmalarla birlikte yaya sirkülasyonu iyileştirilmiş, ulaşım entegrasyonu desteklenmiş ve kamusal kullanım alanları daha işlevsel hâle getirilmiştir.",
-    "heroImage": "/assets/meydan_photos/image30.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
     "images": [
-      "/assets/meydan_photos/image30.jpg",
-      "/assets/meydan_photos/image29.jpg"
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Başakşehir Kent Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image30.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       },
       {
         "id": "photo-2",
         "name": "Başakşehir Kent Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image29.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       }
     ],
     "personnel": []
@@ -7660,21 +7660,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "METRO"
     ],
     "aciklama": "İlçenin merkezinde kamusal kullanım ön planda tutularak yeniden 15.000 m² alan düzenlenmiştir. Proje kapsamında meydan; yaya dolaşımını destekleyen açık alanlar, peyzaj düzenlemeleri ve dinlenme alanlarıyla yeniden tasarlanmış, çevresiyle bütünleşen güvenli ve erişilebilir bir kamusal yaşam alanı oluşturulmuştur. Meydan düzenlemesiyle ilçenin sosyal ve kültürel yaşamı desteklenmiş, kent kimliğini güçlendiren nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image199.jpg",
+    "heroImage": "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg",
     "images": [
-      "/assets/meydan_photos/image199.jpg",
-      "/assets/meydan_photos/image198.jpg"
+      "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg",
+      "/assets/meydan_photos/photo_slide74_b375d74f8f.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Sancaktepe Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image199.jpg"
+        "img": "/assets/meydan_photos/photo_slide74_9bab7a73d9.jpg"
       },
       {
         "id": "photo-2",
         "name": "Sancaktepe Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image198.jpg"
+        "img": "/assets/meydan_photos/photo_slide74_b375d74f8f.jpg"
       }
     ],
     "personnel": []
@@ -7695,21 +7695,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Çözüm Noktası"
     ],
     "aciklama": "İstanbul’un en önemli tarihi ve kamusal alanlarından biri olan 38.400 m² büyüklüğündeki Beyazıt Meydanı, kentin ulaşım, buluşma ve sosyal yaşam odaklarından biri olma özelliğini taşımaktadır. Yıllar içerisinde işlevini yitiren ve büyük ölçüde otopark olarak kullanılan meydan yeniden düzenlenmiştir. Çalışmalarla erişilebilirlik artırılmış, peyzaj ve sosyal kullanım alanları iyileştirilmiş, kuru havuz, kent mobilyaları ile dinlenme alanları oluşturularak meydanın kültürel kimliği güçlendirilmiş ve kentlilerin kullanımına nitelikli bir yaşam alanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/image41.png",
+    "heroImage": "/assets/meydan_photos/photo_slide18_2fc2608ba6.png",
     "images": [
-      "/assets/meydan_photos/image41.png",
-      "/assets/meydan_photos/image40.png"
+      "/assets/meydan_photos/photo_slide18_2fc2608ba6.png",
+      "/assets/meydan_photos/photo_slide18_43d53e4a4e.png"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyazıt Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/image41.png"
+        "img": "/assets/meydan_photos/photo_slide18_2fc2608ba6.png"
       },
       {
         "id": "photo-2",
         "name": "Beyazıt Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/image40.png"
+        "img": "/assets/meydan_photos/photo_slide18_43d53e4a4e.png"
       }
     ],
     "personnel": []
