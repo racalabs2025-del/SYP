@@ -69,7 +69,13 @@ export default function Header({ onLogout = null }) {
         )}
 
         {/* SYP Corporate Logo Badge */}
-        <div className="app-header__brand">
+        <div
+          className="app-header__brand"
+          onClick={() => navigate('/')}
+          role="button"
+          tabIndex={0}
+          title="Ana Sayfaya Git"
+        >
           <div className="syp-header-badge">
             <span className="syp-header-badge__text">SYP</span>
           </div>

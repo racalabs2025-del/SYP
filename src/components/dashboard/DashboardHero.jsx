@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   MapPinIcon,
   UserGroupIcon,
@@ -48,20 +48,26 @@ export default function DashboardHero({
   const navigate = useNavigate();
   const [activeThumbnailIndex, setActiveThumbnailIndex] = useState(0);
 
+  // When selected square changes, reset active thumbnail to 0
+  useEffect(() => {
+    setActiveThumbnailIndex(0);
+  }, [selectedMeydan?.id]);
+
   // If no square is selected or selectedMeydan is 'tum-meydanlar', show General Overview (Ref Image 2)
   const isGeneralOverview = !selectedMeydan || selectedMeydan.id === 'tum-meydanlar';
 
-  // Hero visuals
-  const heroImage = isGeneralOverview
-    ? '/assets/dashboard/taksim-square.jpg'
-    : (selectedMeydan?.heroImage || '/assets/dashboard/kadikoy-boga.jpg');
-
   const landmarks = selectedMeydan?.landmarks || [
-    { id: 'iskele', name: 'İskele', img: '/assets/dashboard/kadikoy-iskele.jpg' },
     { id: 'boga', name: 'Boğa Heykeli', img: '/assets/dashboard/kadikoy-boga.jpg' },
+    { id: 'iskele', name: 'İskele', img: '/assets/dashboard/kadikoy-iskele.jpg' },
     { id: 'genel', name: 'Meydan Genel', img: '/login-scenes/cult/kiz-kulesi.jpg' },
     { id: 'sahil', name: 'Sahil Hattı', img: '/login-scenes/cult/ortakoy.jpg' },
   ];
+
+  // Hero visuals: switches dynamically when thumbnail or arrows are clicked
+  const activeLandmarkImg = landmarks[activeThumbnailIndex]?.img;
+  const heroImage = isGeneralOverview
+    ? '/assets/dashboard/taksim-square.jpg'
+    : (activeLandmarkImg || selectedMeydan?.heroImage || '/assets/dashboard/kadikoy-boga.jpg');
 
   function handlePrev() {
     setActiveThumbnailIndex((prev) => (prev > 0 ? prev - 1 : landmarks.length - 1));
@@ -98,10 +104,6 @@ export default function DashboardHero({
                 <p className="dashboard-hero-lead">
                   Daha düzenli, daha güvenli, daha yaşanabilir meydanlar için.
                 </p>
-              </div>
-
-              <div className="dashboard-hero-decorative-slogan dashboard-hero-decorative-slogan--overview">
-                <span>İstanbul Hepimizin</span>
               </div>
 
               {/* 3 Large Stat Cards Centered inside Hero (Ref Image 2) */}
@@ -195,11 +197,6 @@ export default function DashboardHero({
                       <span className="dashboard-hero-location">{selectedMeydan?.subtitle || `${selectedMeydan?.district || 'Kadıköy'}, İstanbul`}</span>
                     </div>
                   </div>
-                </div>
-
-                {/* Decorative Slogan */}
-                <div className="dashboard-hero-decorative-slogan">
-                  <span>İstanbul Hepimizin</span>
                 </div>
               </div>
 
