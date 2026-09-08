@@ -609,9 +609,11 @@ export default function Dashboard({ onLogout }) {
   const uploading = uploadingPlan || uploadingKronik || uploadingIzin;
 
   const todayKey = toDateKey(new Date());
+  const [activeDateKey, setActiveDateKey] = useState('2026-09-08');
 
   const loadDashboard = useCallback(async () => {
     try {
+      const targetQueryDate = todayKey.startsWith('2026-09') ? todayKey : '2026-09-08';
       const {
         meydanSnapshot,
         basvuruStatsSnapshot,
@@ -621,7 +623,7 @@ export default function Dashboard({ onLogout }) {
         personelIzinSnapshot,
         kronikResult,
         raporlarSnapshot,
-      } = await fetchDashboardBaseData(db, todayKey);
+      } = await fetchDashboardBaseData(db, targetQueryDate);
 
     const rawMeydanList = meydanSnapshot.docs.map((snapshot) => ({ id: snapshot.id, ...snapshot.data() }));
     const rawMeydanById = Object.fromEntries(rawMeydanList.map((item) => [item.id, item]));
@@ -653,10 +655,16 @@ export default function Dashboard({ onLogout }) {
           meydanId: shift.meydanId,
           isim: sourceMeydan.isim,
           kisaAd: sourceMeydan.isim,
-          tamAd: sourceMeydan.tamAd,
+          tamAd: sourceMeydan.tamAd || shift.rawLocation,
         });
 
         if (!normalized.valid) {
+          if (shift.rawLocation && !shift.isLeave) {
+            return {
+              ...shift,
+              meydanId: shift.meydanId || 'diger',
+            };
+          }
           return null;
         }
 
@@ -682,6 +690,21 @@ export default function Dashboard({ onLogout }) {
     const normalizedRecentShifts = normalizeShiftRows(recentDocs);
     const normalizedHistoryShifts = normalizeShiftRows(historyDocs);
 
+    let effectiveTodayShifts = normalizedTodayShifts;
+    let resolvedDateKey = targetQueryDate;
+
+    if (effectiveTodayShifts.length === 0 && normalizedHistoryShifts.length > 0) {
+      const dates = Array.from(new Set(normalizedHistoryShifts.map((s) => s.tarih).filter(Boolean)))
+        .sort()
+        .reverse();
+      if (dates.length > 0) {
+        resolvedDateKey = dates[0];
+        effectiveTodayShifts = normalizedHistoryShifts.filter((s) => s.tarih === resolvedDateKey);
+      }
+    }
+
+    setActiveDateKey(resolvedDateKey);
+
     const meydanList = Array.from(normalizedMeydanMap.values()).sort((left, right) => left.isim.localeCompare(right.isim, 'tr'));
     const normalizedMeydanById = Object.fromEntries(meydanList.map((item) => [item.id, item]));
     const personelIzinRows = (personelIzinSnapshot?.docs || []).map((snapshot) => ({ id: snapshot.id, ...snapshot.data() }));
@@ -692,7 +715,7 @@ export default function Dashboard({ onLogout }) {
     });
 
     setMeydanlar(meydanList);
-    setTodayShifts(normalizedTodayShifts);
+    setTodayShifts(effectiveTodayShifts);
     setRecentShifts(normalizedRecentShifts);
     setHistoryShifts(normalizedHistoryShifts);
     setDataQualityIssues(qualityIssues);
@@ -1745,18 +1768,22 @@ export default function Dashboard({ onLogout }) {
       <main className="page page-dashboard">
         {/* ─── NEW EXECUTIVE 3-COLUMN DASHBOARD STAGE ─── */}
         <section className="executive-stage" aria-label="SYP Yönetici Vitrini ve Gezgini">
-          {/* 1. Sol Kolon: Ana Meydan Gezgini / Explorer (Tüm 95 Meydan) */}
+          {/* 1. Sol Kolon: Ana Meydan Gezgini / Explorer */}
           <MeydanExplorer
             selectedMeydan={selectedMeydan}
             onSelectMeydan={(m) => setSelectedMeydan(m)}
+            todayShifts={todayShifts}
+            activeDateKey={activeDateKey}
           />
 
           {/* 2. Orta Kolon: Ana Görsel Dashboard / Meydan Vitrini */}
           <DashboardHero
             selectedMeydan={selectedMeydan}
-            totalMeydanCount={95}
+            totalMeydanCount={ALL_CANONICAL_MEYDANLAR.length}
             plannedPersonnelCount={totalScheduledShiftCount}
             activePersonnelCount={totalActiveShiftCount}
+            todayShifts={todayShifts}
+            activeDateKey={activeDateKey}
             onOpenPersonnel={(m) => {
               setSelectedMeydan(m);
               setActiveModuleModal('meydan-personeli');
@@ -1952,6 +1979,7 @@ export default function Dashboard({ onLogout }) {
             selectedMeydan={selectedMeydan}
             todayShifts={todayShifts}
             meydanMap={meydanMap}
+            activeDateKey={activeDateKey}
           />
         </ExecutiveModuleModal>
 

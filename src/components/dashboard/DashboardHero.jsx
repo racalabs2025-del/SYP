@@ -38,9 +38,11 @@ const GUNUN_ISTANBULU_CARDS = [
 
 export default function DashboardHero({
   selectedMeydan,
-  totalMeydanCount = 95,
-  plannedPersonnelCount = 48,
-  activePersonnelCount = 42,
+  totalMeydanCount = 50,
+  plannedPersonnelCount = 35,
+  activePersonnelCount = 28,
+  todayShifts = [],
+  activeDateKey = '',
   onOpenPersonnel,
   onOpenStatOverlay,
   onSelectMeydan,
@@ -55,6 +57,45 @@ export default function DashboardHero({
 
   // If no square is selected or selectedMeydan is 'tum-meydanlar', show General Overview (Ref Image 2)
   const isGeneralOverview = !selectedMeydan || selectedMeydan.id === 'tum-meydanlar';
+
+  // Compute personnel assigned to selected meydan
+  const activePersonnel = useMemo(() => {
+    if (!selectedMeydan || isGeneralOverview) return [];
+
+    if (todayShifts && todayShifts.length > 0) {
+      const matched = todayShifts.filter((s) => {
+        if (s.isLeave) return false;
+        if (selectedMeydan.rawVariants && s.rawLocation && selectedMeydan.rawVariants.some(v => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())) {
+          return true;
+        }
+        if (s.rawLocation && (s.rawLocation.toLowerCase().includes(selectedMeydan.name.toLowerCase()) || selectedMeydan.name.toLowerCase().includes(s.rawLocation.toLowerCase()))) {
+          return true;
+        }
+        if (selectedMeydan.personnel && s.personelAdi && selectedMeydan.personnel.some(p => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())) {
+          return true;
+        }
+        return false;
+      });
+
+      if (matched.length > 0) {
+        return matched.map((s) => ({
+          name: s.personelAdi,
+          hours: s.saatAraligi || '10:00 - 18:30',
+          type: s.vardiyaTipi || 'Tam Gün',
+        }));
+      }
+    }
+
+    if (selectedMeydan.personnel && selectedMeydan.personnel.length > 0) {
+      return selectedMeydan.personnel.map((p) => ({
+        name: p,
+        hours: '10:00 - 18:30',
+        type: 'Planlı Saha Görevi',
+      }));
+    }
+
+    return [];
+  }, [selectedMeydan, todayShifts, isGeneralOverview]);
 
   const landmarks = selectedMeydan?.landmarks || [
     { id: 'boga', name: 'Boğa Heykeli', img: '/assets/dashboard/kadikoy-boga.jpg' },
@@ -214,12 +255,36 @@ export default function DashboardHero({
                   }}
                 >
                   <UserGroupIcon width={17} height={17} />
-                  <span>Meydan Personeli</span>
+                  <span>Meydan Personeli Detayı ({activePersonnel.length})</span>
                   <ChevronRightIcon width={15} height={15} />
                 </button>
               </div>
 
-              {/* Center space is open and highlights the statue / city life! */}
+              {/* Prominent Active Field Personnel List Directly on Hero Card */}
+              {activePersonnel.length > 0 && (
+                <div className="dashboard-hero-roster-glass">
+                  <div className="hero-roster-title-row">
+                    <div className="hero-roster-title-left">
+                      <div className="hero-roster-pulse-dot" />
+                      <span className="hero-roster-heading">Sahada Görevli Personel</span>
+                    </div>
+                    <span className="hero-roster-count-badge">{activePersonnel.length} Görevli</span>
+                  </div>
+                  <div className="hero-roster-items">
+                    {activePersonnel.map((person, idx) => (
+                      <div key={idx} className="hero-roster-person-card">
+                        <div className="hero-roster-avatar">{person.name.charAt(0)}</div>
+                        <div className="hero-roster-person-meta">
+                          <strong className="hero-roster-person-name">{person.name}</strong>
+                          <span className="hero-roster-person-shift">{person.hours} • {person.type}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Center space */}
               <div className="dashboard-hero-center-spacer" />
 
               {/* Bottom 4 Preview Cards (Ref Image 1) */}

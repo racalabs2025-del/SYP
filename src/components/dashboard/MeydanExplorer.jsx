@@ -40,11 +40,13 @@ function getDistrictIcon(districtName) {
 export default function MeydanExplorer({
   selectedMeydan,
   onSelectMeydan,
+  todayShifts = [],
+  activeDateKey = '',
   className = '',
 }) {
   const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa'
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedDistricts, setExpandedDistricts] = useState({ kadikoy: true, beyoglu: true });
+  const [expandedDistricts, setExpandedDistricts] = useState({ kadikoy: true, uskudar: true, bakirkoy: true, beyoglu: true });
 
   function toggleDistrict(distId) {
     setExpandedDistricts((prev) => ({ ...prev, [distId]: !prev[distId] }));
@@ -57,6 +59,33 @@ export default function MeydanExplorer({
     return [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
   }, [activeYaka]);
 
+  // Helper to find personnel for a specific square
+  function getSquarePersonnel(m) {
+    if (!m) return [];
+
+    if (todayShifts && todayShifts.length > 0) {
+      const matched = todayShifts.filter((s) => {
+        if (s.isLeave) return false;
+        if (m.rawVariants && s.rawLocation && m.rawVariants.some(v => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())) {
+          return true;
+        }
+        if (s.rawLocation && (s.rawLocation.toLowerCase().includes(m.name.toLowerCase()) || m.name.toLowerCase().includes(s.rawLocation.toLowerCase()))) {
+          return true;
+        }
+        if (m.personnel && s.personelAdi && m.personnel.some(p => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())) {
+          return true;
+        }
+        return false;
+      });
+
+      if (matched.length > 0) {
+        return matched.map((s) => s.personelAdi);
+      }
+    }
+
+    return m.personnel || [];
+  }
+
   // Search filtered results
   const searchResults = useMemo(() => {
     if (!searchQuery.trim()) return null;
@@ -64,7 +93,8 @@ export default function MeydanExplorer({
     return ALL_CANONICAL_MEYDANLAR.filter(
       (m) =>
         m.name.toLowerCase('tr-TR').includes(query) ||
-        m.district.toLowerCase('tr-TR').includes(query)
+        m.district.toLowerCase('tr-TR').includes(query) ||
+        (m.personnel && m.personnel.some((p) => p.toLowerCase('tr-TR').includes(query)))
     );
   }, [searchQuery]);
 
@@ -85,7 +115,7 @@ export default function MeydanExplorer({
           </div>
           <div className="explorer-overview-text">
             <strong className="explorer-main-title">Tüm Meydanlar</strong>
-            <span className="explorer-sub-label">İstanbul Geneli</span>
+            <span className="explorer-sub-label">Vardiya & Görev Noktaları</span>
           </div>
           <span className="explorer-badge-total">{TOTAL_MEYDAN_COUNT}</span>
         </button>
@@ -96,7 +126,7 @@ export default function MeydanExplorer({
           <input
             type="text"
             className="explorer-search-input"
-            placeholder="Meydan veya ilçe ara..."
+            placeholder="Meydan, ilçe veya personel ara..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -156,22 +186,32 @@ export default function MeydanExplorer({
           <div className="explorer-search-results">
             <div className="explorer-section-label">Arama Sonuçları ({searchResults.length})</div>
             {searchResults.length === 0 ? (
-              <div className="explorer-empty-search">Eşleşen meydan bulunamadı.</div>
+              <div className="explorer-empty-search">Eşleşen meydan veya personel bulunamadı.</div>
             ) : (
               searchResults.map((m) => {
                 const isSelected = selectedMeydan?.id === m.id;
+                const staff = getSquarePersonnel(m);
+                const thumbImg = m.heroImage || '/assets/dashboard/kadikoy-boga.jpg';
                 return (
                   <button
                     key={m.id}
                     type="button"
-                    className={`explorer-item-btn ${isSelected ? 'is-active' : ''}`}
+                    className={`explorer-item-btn tree-square-row ${isSelected ? 'is-selected' : ''}`}
                     onClick={() => onSelectMeydan(m)}
                   >
-                    <div className="explorer-item-left">
-                      <span className="explorer-district-dot" />
-                      <span className="explorer-item-name">{m.name}</span>
+                    <div
+                      className="tree-square-thumb"
+                      style={{ backgroundImage: `url(${thumbImg})` }}
+                    />
+                    <div className="tree-square-info">
+                      <strong className="tree-square-name">{m.name}</strong>
+                      <span className="tree-square-staff">
+                        👤 {staff.length > 0 ? staff.slice(0, 2).join(', ') : 'Personel Planlanıyor'}
+                      </span>
                     </div>
-                    <span className="explorer-item-count">{m.district}</span>
+                    <span className="tree-square-count-pill" title={`${staff.length} Personel`}>
+                      {staff.length}
+                    </span>
                   </button>
                 );
               })
@@ -213,6 +253,8 @@ export default function MeydanExplorer({
                       {dist.meydanlar.map((m) => {
                         const isSelected = selectedMeydan?.id === m.id;
                         const thumbImg = m.heroImage || '/assets/dashboard/kadikoy-boga.jpg';
+                        const staff = getSquarePersonnel(m);
+
                         return (
                           <button
                             key={m.id}
@@ -224,8 +266,22 @@ export default function MeydanExplorer({
                               className="tree-square-thumb"
                               style={{ backgroundImage: `url(${thumbImg})` }}
                             />
-                            <span className="tree-square-name">{m.name}</span>
-                            <ChevronRightIcon width={12} height={12} className="tree-square-arrow" />
+                            <div className="tree-square-info">
+                              <span className="tree-square-name">{m.name}</span>
+                              <span className="tree-square-staff">
+                                {staff.length > 0 ? (
+                                  <>
+                                    <span className="staff-icon">👤</span> {staff.slice(0, 2).join(', ')}
+                                    {staff.length > 2 ? ` +${staff.length - 2}` : ''}
+                                  </>
+                                ) : (
+                                  'Personel planlanıyor'
+                                )}
+                              </span>
+                            </div>
+                            <span className="tree-square-count-pill" title={`${staff.length} Görevli Personel`}>
+                              {staff.length}
+                            </span>
                           </button>
                         );
                       })}

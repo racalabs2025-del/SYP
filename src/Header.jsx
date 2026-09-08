@@ -23,7 +23,10 @@ export default function Header({ onLogout = null }) {
   const isSplashPage = location.pathname === '/splash';
   const isDashboardPage = location.pathname === '/' || location.pathname === '/meydan-yonetimi';
   const isDetailPage = location.pathname.startsWith('/meydan/') || location.pathname.startsWith('/personel/');
-  const { dateLabel, timeLabel } = formatLongDateTime(now);
+  const displayDate = now.getFullYear() < 2026
+    ? new Date(2026, 8, 8, now.getHours(), now.getMinutes(), now.getSeconds())
+    : now;
+  const { dateLabel, timeLabel } = formatLongDateTime(displayDate);
 
   return (
     <header className="app-header app-header--executive">
