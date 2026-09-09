@@ -2,8 +2,13 @@
 Buyuk_guncelleme/
 *.xlsx
 *.xls
+*.pptx
+*.docx
+*.pdf
+*.bak
 basvurudetaylar.xlsx
 scripts/
 server/
 .env*
 !dist
+
