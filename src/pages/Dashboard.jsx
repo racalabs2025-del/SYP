@@ -32,8 +32,7 @@ import { parseKronikExcelRows, parsePersonelIzinExcelRows, splitToChunks } from 
 import '../ExecutiveDashboard.css';
 import MeydanExplorer from '../components/dashboard/MeydanExplorer';
 import DashboardHero from '../components/dashboard/DashboardHero';
-import SmartModuleCards from '../components/dashboard/SmartModuleCards';
-import QuickAccessGrid from '../components/dashboard/QuickAccessGrid';
+import ExecutiveModuleCards from '../components/dashboard/ExecutiveModuleCards';
 import ExecutiveModuleModal from '../components/dashboard/ExecutiveModuleModal';
 import SmartSupportModalContent from '../components/dashboard/SmartSupportModalContent';
 import IbbServicesModalContent from '../components/dashboard/IbbServicesModalContent';
@@ -50,7 +49,6 @@ import KronikSorunlarSection from '../components/dashboard/KronikSorunlarSection
 import MeydanYonetimiSection from '../components/dashboard/MeydanYonetimiSection';
 import OperationalInsightsSection from '../components/dashboard/OperationalInsightsSection';
 import DataManagementSection from '../components/dashboard/DataManagementSection';
-import SectionToggleBar, { SectionLinkBar, getSectionItem } from '../components/dashboard/SectionToggleBar';
 import StatusToast from '../components/shared/StatusToast';
 
 const ExcelUpload = lazy(() => import('../ExcelUpload'));
@@ -1837,21 +1835,6 @@ export default function Dashboard({ onLogout }) {
             onOpenStatOverlay={(type) => setActiveStatOverlay(type)}
             onSelectMeydan={(m) => setSelectedMeydan(m)}
           />
-
-          {/* 3. Sağ Kolon: Akıllı Modül Kartları ve Hızlı Erişim Gridi */}
-          <div className="executive-right-col">
-            <SmartModuleCards
-              onOpenSmartSupport={() => setActiveModuleModal('support')}
-              onOpenSmartBriefing={() => setActiveModuleModal('briefing')}
-            />
-
-            <QuickAccessGrid
-              onOpenMeydanYonetimi={() => setActiveModuleModal('meydan-yonetimi')}
-              onOpenIstanbulIcinCalisiyoruz={() => setActiveModuleModal('istanbul-calisiyoruz')}
-              onOpenIbbBilgiHizmetleri={() => setActiveModuleModal('ibb-bilgi')}
-              onOpenVeriYonetimi={() => setActiveModuleModal('veri-yonetimi')}
-            />
-          </div>
         </section>
 
         {/* Stat Drawer Overlay (Meydanlar, Planlı, Sahada Şu An) */}
@@ -1862,6 +1845,17 @@ export default function Dashboard({ onLogout }) {
           scheduledPersonnelRows={scheduledPersonnelRows}
           activePersonnelRows={activePersonnelRows}
           statOverlayPanelRef={statOverlayPanelRef}
+        />
+
+        {/* ─── AŞAĞIYA HİZALANMIŞ AKILLI & YÖNETİM MODÜL KARTLARI ─── */}
+        <ExecutiveModuleCards
+          onOpenSmartSupport={() => setActiveModuleModal('support')}
+          onOpenSmartBriefing={() => setActiveModuleModal('briefing')}
+          onOpenYonetimPaneli={() => setActiveModuleModal('yonetim-paneli')}
+          onOpenMeydanYonetimi={() => setActiveModuleModal('meydan-yonetimi')}
+          onOpenIstanbulIcinCalisiyoruz={() => setActiveModuleModal('istanbul-calisiyoruz')}
+          onOpenIbbBilgiHizmetleri={() => setActiveModuleModal('ibb-bilgi')}
+          onOpenVeriYonetimi={() => setActiveModuleModal('veri-yonetimi')}
         />
 
         {/* ─── EXECUTIVE MODULE MODALS ─── */}
@@ -1897,6 +1891,24 @@ export default function Dashboard({ onLogout }) {
           />
         </ExecutiveModuleModal>
 
+        {/* Yönetim Paneli & Yönetici Özeti Modal */}
+        <ExecutiveModuleModal
+          isOpen={activeModuleModal === 'yonetim-paneli'}
+          onClose={() => setActiveModuleModal(null)}
+          title="Yönetim Paneli & Yönetici Özeti"
+          subtitle="Saha operasyon KPI analizi, açık başvuru takibi ve resmi rapor ihracı"
+          maxWidth="1200px"
+        >
+          <ExecutiveSummarySection
+            todayShifts={todayShifts}
+            activeMeydanlar={activeMeydanlar}
+            historyShifts={historyShifts}
+            meydanlar={meydanlar}
+            isPresentationMode={isPresentationMode}
+            onTogglePresentationMode={() => setIsPresentationMode((prev) => !prev)}
+          />
+        </ExecutiveModuleModal>
+
         {/* Meydan Yönetimi Modal */}
         <ExecutiveModuleModal
           isOpen={activeModuleModal === 'meydan-yonetimi'}
@@ -1906,7 +1918,8 @@ export default function Dashboard({ onLogout }) {
           maxWidth="1080px"
         >
           <MeydanYonetimiSection
-            forcedSection="about"
+            activeMeydanYonetimiBolumu={activeMeydanYonetimiBolumu}
+            setActiveMeydanYonetimiBolumu={setActiveMeydanYonetimiBolumu}
             meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
             visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
             toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
@@ -2134,252 +2147,6 @@ export default function Dashboard({ onLogout }) {
             </button>
           </div>
         ) : null}
-
-        <div className="section-accordion-list">
-          <SectionToggleBar itemKey="active-meydanlar" isOpen={openSections.has('active-meydanlar')} onToggle={toggleSection}>
-            <ActiveMeydanlarSection
-              loading={loading}
-              activeMeydanlar={activeMeydanlar}
-              visibleMeydanlar={visibleMeydanlar}
-              expandedMeydanId={expandedMeydanId}
-              getPlannedPersonnelNames={(meydanId) => plannedPersonnelSummaryByMeydan.get(meydanId) || []}
-              getPlannedPersonnelDetails={(meydanId) => plannedPersonnelWithHoursByMeydan.get(meydanId) || []}
-              getActiveCount={getActiveCount}
-              getScheduledCount={getScheduledCount}
-              showAllMeydanlar={showAllMeydanlar}
-              initialVisibleCount={INITIAL_VISIBLE_MEYDAN_COUNT}
-              onToggleMeydan={handleToggleExpandedMeydan}
-              onToggleShowAll={() => setShowAllMeydanlar((current) => !current)}
-            />
-          </SectionToggleBar>
-
-          <SectionToggleBar itemKey="meydan-yonetimi-grup" isOpen={openSections.has('meydan-yonetimi-grup')} onToggle={toggleSection}>
-            <section className="panel-section meydan-yonetimi-group-panel">
-              <div className="panel-section__header">
-                <div className="meydan-yonetimi-group-panel__intro">
-                  <h2>Meydan Yönetimi</h2>
-                </div>
-              </div>
-
-              <div className="meydan-yonetimi-subnav" role="tablist" aria-label="Meydan yönetimi alt başlıkları">
-                {MEYDAN_YONETIMI_GROUP_ITEMS.map((itemKey) => {
-                  const item = getSectionItem(itemKey);
-                  if (!item) {
-                    return null;
-                  }
-
-                  const isActive = activeMeydanYonetimiBolumu === itemKey;
-                  return (
-                    <button
-                      key={itemKey}
-                      type="button"
-                      role="tab"
-                      aria-selected={isActive}
-                      className={`meydan-yonetimi-subnav__item${isActive ? ' is-active' : ''}`}
-                      onClick={() => setActiveMeydanYonetimiBolumu(itemKey)}
-                    >
-                      <span className="meydan-yonetimi-subnav__icon">{item.icon}</span>
-                      <span className="meydan-yonetimi-subnav__label">{item.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="meydan-yonetimi-group-panel__body">
-                {activeMeydanYonetimiBolumu === 'meydan-hakkinda' ? (
-                  <MeydanYonetimiSection
-                    forcedSection="about"
-                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-                    raporUrls={raporUrls}
-                    toggleRaporAcilimi={toggleRaporAcilimi}
-                    formatFileSize={formatFileSize}
-                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-                  />
-                ) : null}
-
-                {activeMeydanYonetimiBolumu === 'ziyaret-formu' ? (
-                  <MeydanYonetimiSection
-                    forcedSection="ziyaret"
-                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-                    raporUrls={raporUrls}
-                    toggleRaporAcilimi={toggleRaporAcilimi}
-                    formatFileSize={formatFileSize}
-                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-                  />
-                ) : null}
-
-                {activeMeydanYonetimiBolumu === 'faaliyet-raporlari' ? (
-                  <MeydanYonetimiSection
-                    forcedSection="reports"
-                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-                    raporUrls={raporUrls}
-                    toggleRaporAcilimi={toggleRaporAcilimi}
-                    formatFileSize={formatFileSize}
-                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-                  />
-                ) : null}
-
-                {activeMeydanYonetimiBolumu === 'personel-listesi' ? (
-                  <MeydanYonetimiSection
-                    forcedSection="personel"
-                    meydanYonetimiAciklama={MEYDAN_YONETIMI_ACIKLAMA}
-                    visibleMeydanYonetimiGorevleri={visibleMeydanYonetimiGorevleri}
-                    toplamMeydanYonetimiGorev={MEYDAN_YONETIMI_GOREVLER.length}
-                    aboutVisibleResponsibilityCount={ABOUT_VISIBLE_RESPONSIBILITY_COUNT}
-                    showAllMeydanYonetimiGorevleri={showAllMeydanYonetimiGorevleri}
-                    onToggleShowAllMeydanYonetimiGorevleri={() => setShowAllMeydanYonetimiGorevleri((current) => !current)}
-                    meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-                    raporUrls={raporUrls}
-                    toggleRaporAcilimi={toggleRaporAcilimi}
-                    formatFileSize={formatFileSize}
-                    showAllMeydanYonetimiPersonel={showAllMeydanYonetimiPersonel}
-                    initialVisibleMeydanPersonelCount={INITIAL_VISIBLE_MEYDAN_PERSONEL_COUNT}
-                    onToggleShowAllMeydanYonetimiPersonel={() => setShowAllMeydanYonetimiPersonel((current) => !current)}
-                  />
-                ) : null}
-
-                {activeMeydanYonetimiBolumu === 'kronik-sorunlar' ? (
-                  <KronikSorunlarSection
-                    loading={loading}
-                    kronikLoadError={kronikLoadError}
-                    kronikSorunlar={kronikSorunlar}
-                    visibleKronikSorunlar={visibleKronikSorunlar}
-                    showAllKronik={showAllKronik}
-                    initialVisibleCount={INITIAL_VISIBLE_KRONIK_COUNT}
-                    previewLimit={KRONIK_PREVIEW_LIMIT}
-                    truncateText={truncateText}
-                    onOpenKronikModal={setActiveKronikModalId}
-                    onToggleShowAll={() => setShowAllKronik((current) => !current)}
-                  />
-                ) : null}
-              </div>
-            </section>
-          </SectionToggleBar>
-
-          <SectionToggleBar itemKey="ai-icgoru" isOpen={openSections.has('ai-icgoru')} onToggle={toggleSection}>
-            <OperationalInsightsSection
-              insights={operationalInsights}
-              loading={insightsLoading}
-              onRefresh={() => refreshOperationalInsights({ silent: false, preferStored: false })}
-              lastUpdatedAt={insightsLastUpdatedAt}
-            />
-          </SectionToggleBar>
-
-          <SectionLinkBar
-            itemKey="istanbul-icin-calisiyoruz"
-            href="https://istanbul.ekremimamoglu.com/"
-          />
-
-          <SectionLinkBar
-            itemKey="ibb-bilgi-hizmetleri"
-            href="https://ibb.istanbul/tum-hizmetler/bilgi-hizmetleri"
-          />
-
-          <SectionToggleBar itemKey="akilli-brifing" isOpen={openSections.has('akilli-brifing')} onToggle={toggleSection}>
-            <AIDailyExecutiveSummary
-              todayShifts={todayShifts}
-              activeMeydanCount={activeMeydanlar.length}
-              dataQualityIssuesCount={dataQualityIssues.length}
-              kronikSorunlarCount={kronikSorunlar.length}
-            />
-          </SectionToggleBar>
-
-          <SectionToggleBar itemKey="yonetim-paneli" isOpen={openSections.has('yonetim-paneli')} onToggle={toggleSection}>
-            <ExecutiveSummarySection
-              todayShifts={todayShifts}
-              activeMeydanlar={activeMeydanlar}
-              historyShifts={historyShifts}
-              meydanlar={meydanlar}
-              isPresentationMode={isPresentationMode}
-              onTogglePresentationMode={() => setIsPresentationMode((prev) => !prev)}
-            />
-          </SectionToggleBar>
-
-          <SectionToggleBar itemKey="veri-yonetimi" isOpen={openSections.has('veri-yonetimi')} onToggle={toggleSection}>
-            <DataManagementSection
-          adminUnlocked={adminUnlocked}
-          adminPasswordInput={adminPasswordInput}
-          adminPasswordError={adminPasswordError}
-          onAdminPasswordChange={(e) => { setAdminPasswordInput(e.target.value); setAdminPasswordError(false); }}
-          onAdminUnlock={handleAdminUnlock}
-          onRefreshOperationalInsights={() => refreshOperationalInsights({ silent: false })}
-          insightsLoading={insightsLoading}
-          insightsLastUpdatedAt={insightsLastUpdatedAt}
-          uploadingPlan={uploadingPlan}
-          uploadingIzin={uploadingIzin}
-          uploading={uploading}
-          uploadingKronik={uploadingKronik}
-          progress={progress}
-          uploadPercent={uploadPercent}
-          izinProgress={izinProgress}
-          izinUploadPercent={izinUploadPercent}
-          ExcelUpload={ExcelUpload}
-          LoadingUploadModule={LoadingUploadModule}
-          handleExcelUpload={handleExcelUpload}
-          handleKronikUpload={handleKronikUpload}
-          handleIzinUpload={handleIzinUpload}
-          raporBaslik={raporBaslik}
-          setRaporBaslik={setRaporBaslik}
-          uploadingRapor={uploadingRapor}
-          handleUploadMeydanRaporu={handleUploadMeydanRaporu}
-          meydanFaaliyetRaporlari={meydanFaaliyetRaporlari}
-          raporUrls={raporUrls}
-          toggleRaporAcilimi={toggleRaporAcilimi}
-          formatFileSize={formatFileSize}
-          handleRemoveMeydanRaporu={handleRemoveMeydanRaporu}
-          handleDeleteAll={handleDeleteAll}
-          lastImportSummary={lastImportSummary}
-          kronikSorunlar={kronikSorunlar}
-          visibleAdminKronikSorunlar={visibleAdminKronikSorunlar}
-          getKronikDraft={getKronikDraft}
-          kronikSavingId={kronikSavingId}
-          expandedAdminKronikId={expandedAdminKronikId}
-          setExpandedAdminKronikId={setExpandedAdminKronikId}
-          handleKronikFieldChange={handleKronikFieldChange}
-          handleAddDetailRow={handleAddDetailRow}
-          handleKronikDetailChange={handleKronikDetailChange}
-          handleRemoveDetailRow={handleRemoveDetailRow}
-          handleSaveKronik={handleSaveKronik}
-          handleDeleteKronik={handleDeleteKronik}
-          showAllAdminKronik={showAllAdminKronik}
-          setShowAllAdminKronik={setShowAllAdminKronik}
-          initialVisibleAdminKronikCount={INITIAL_VISIBLE_ADMIN_KRONIK_COUNT}
-          dataQualityIssues={dataQualityIssues}
-          dataQualityUpdatedAt={dataQualityUpdatedAt}
-          onRefreshDataQuality={handleRefreshDataQuality}
-          qualityRefreshing={qualityRefreshing}
-          recentShifts={recentShifts}
-          visibleShiftsCount={visibleShiftsCount}
-          setVisibleShiftsCount={setVisibleShiftsCount}
-          meydanMap={meydanMap}
-              handleDeleteShift={handleDeleteShift}
-            />
-          </SectionToggleBar>
-        </div>
       </main>
     </div>
   );

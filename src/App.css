@@ -9,7 +9,8 @@
 }
 
 .page-dashboard {
-  width: min(1320px, calc(100% - 32px));
+  width: min(1560px, calc(100% - 32px));
+  margin: 0 auto;
 }
 
 .page-detail {
