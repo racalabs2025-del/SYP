@@ -170,7 +170,24 @@ function extractRaporPeriod(baslik) {
 }
 
 function isLeaveShift(type) {
-  return type === 'Izinli' || type === 'İzinli' || type === 'HAFTA TATILI' || type === 'HAFTA TATİLİ';
+  const norm = String(type || '')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/[ıi]/g, 'i')
+    .replace(/[ğ]/g, 'g')
+    .replace(/[ü]/g, 'u')
+    .replace(/[ş]/g, 's')
+    .replace(/[ö]/g, 'o')
+    .replace(/[ç]/g, 'c')
+    .trim();
+  return (
+    norm.includes('izn') ||
+    norm.includes('izin') ||
+    norm.includes('tatil') ||
+    norm.includes('rapor') ||
+    norm.includes('istirahat') ||
+    norm.includes('ofis') ||
+    norm.includes('calistay')
+  );
 }
 
 function compareActiveMeydanOrder(left, right) {
@@ -322,15 +339,16 @@ function dayDiffInclusiveForQuality(fromDateKey, endDateKey) {
 
 function listDateRangeForQuality(fromDateKey, endDateKey) {
   const result = [];
-  const from = new Date(`${fromDateKey}T00:00:00`);
-  const to = new Date(`${endDateKey}T00:00:00`);
-  if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
-    return result;
-  }
+  if (!fromDateKey || !endDateKey) return result;
 
-  const cursor = new Date(from);
-  const safeTo = to < from ? from : to;
-  while (cursor <= safeTo) {
+  const [sy, sm, sd] = fromDateKey.split('-').map(Number);
+  const [ey, em, ed] = endDateKey.split('-').map(Number);
+  if (!sy || !sm || !sd || !ey || !em || !ed) return result;
+
+  const cursor = new Date(sy, sm - 1, sd);
+  const to = new Date(ey, em - 1, ed);
+
+  while (cursor <= to) {
     result.push(toDateKey(cursor));
     cursor.setDate(cursor.getDate() + 1);
   }
@@ -414,8 +432,8 @@ function buildDataQualityIssues({ shifts = [], leaveRows = [], meydanMap = {} })
   leaveRows.forEach((row, index) => {
     const personelAdi = String(row?.personelAdi || '').trim();
     const personelKey = normalizePersonelKeyForQuality(personelAdi || row?.personelAdiNorm);
-    const rawFrom = String(row?.baslangicTarihi || '').trim();
-    const rawTo = String(row?.bitisTarihi || row?.baslangicTarihi || '').trim();
+    const rawFrom = String(row?.baslangicTarihi || row?.tarih || '').trim();
+    const rawTo = String(row?.bitisTarihi || row?.tarih || row?.baslangicTarihi || '').trim();
     const rawGunSayisi = Number(row?.gunSayisi);
 
     if (!personelKey) {
@@ -537,7 +555,8 @@ export default function Dashboard({ onLogout }) {
   const [dataQualityUpdatedAt, setDataQualityUpdatedAt] = useState('');
   const [qualityRefreshing, setQualityRefreshing] = useState(false);
   const [openSections, setOpenSections] = useState(() => new Set([]));
-  const [selectedMeydan, setSelectedMeydan] = useState(() => ALL_CANONICAL_MEYDANLAR[0]);
+  const [heroMeydan, setHeroMeydan] = useState(() => ALL_CANONICAL_MEYDANLAR[0]);
+  const [selectedMeydan, setSelectedMeydan] = useState(null);
   const [activeModuleModal, setActiveModuleModal] = useState(null);
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const wasDataManagementOpenRef = useRef(false);
@@ -1815,25 +1834,35 @@ export default function Dashboard({ onLogout }) {
           {/* 1. Sol Kolon: Ana Meydan Gezgini / Explorer */}
           <MeydanExplorer
             selectedMeydan={selectedMeydan}
-            onSelectMeydan={(m) => setSelectedMeydan(m)}
+            onSelectMeydan={(m) => {
+              setSelectedMeydan(m);
+              if (m) {
+                setHeroMeydan(m);
+              } else {
+                setHeroMeydan(null);
+              }
+            }}
             todayShifts={todayShifts}
             activeDateKey={activeDateKey}
           />
 
           {/* 2. Orta Kolon: Ana Görsel Dashboard / Meydan Vitrini */}
           <DashboardHero
-            selectedMeydan={selectedMeydan}
+            selectedMeydan={heroMeydan}
             totalMeydanCount={ALL_CANONICAL_MEYDANLAR.length}
             plannedPersonnelCount={totalScheduledShiftCount}
             activePersonnelCount={totalActiveShiftCount}
             todayShifts={todayShifts}
             activeDateKey={activeDateKey}
             onOpenPersonnel={(m) => {
-              setSelectedMeydan(m);
+              setHeroMeydan(m);
               setActiveModuleModal('meydan-personeli');
             }}
             onOpenStatOverlay={(type) => setActiveStatOverlay(type)}
-            onSelectMeydan={(m) => setSelectedMeydan(m)}
+            onSelectMeydan={(m) => {
+              setHeroMeydan(m);
+              setSelectedMeydan(null);
+            }}
           />
         </section>
 
@@ -1871,7 +1900,7 @@ export default function Dashboard({ onLogout }) {
             activeMeydanCount={95}
             scheduledCount={totalScheduledShiftCount}
             activeCount={totalActiveShiftCount}
-            selectedMeydan={selectedMeydan}
+            selectedMeydan={heroMeydan || ALL_CANONICAL_MEYDANLAR[0]}
           />
         </ExecutiveModuleModal>
 
@@ -2031,11 +2060,11 @@ export default function Dashboard({ onLogout }) {
           isOpen={activeModuleModal === 'meydan-personeli'}
           onClose={() => setActiveModuleModal(null)}
           title="Meydan Saha Personeli"
-          subtitle={`${selectedMeydan?.name || 'Kadıköy Meydanı'} - Bugünkü Vardiya ve Görev Dağılımı`}
+          subtitle={`${(heroMeydan || ALL_CANONICAL_MEYDANLAR[0])?.name || 'Meydan'} - Bugünkü Vardiya ve Görev Dağılımı`}
           maxWidth="760px"
         >
           <MeydanPersoneliModalContent
-            selectedMeydan={selectedMeydan}
+            selectedMeydan={heroMeydan || ALL_CANONICAL_MEYDANLAR[0]}
             todayShifts={todayShifts}
             meydanMap={meydanMap}
             activeDateKey={activeDateKey}

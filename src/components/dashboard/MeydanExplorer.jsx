@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
   MapPinIcon,
   ChevronRightIcon,
@@ -94,37 +94,6 @@ export default function MeydanExplorer({
       setExpandedDistricts({ [distId]: true });
     }
   }
-
-  // Auto-expand district & scroll to selected square when selectedMeydan changes (e.g. via hero slider)
-  useEffect(() => {
-    if (!selectedMeydan || selectedMeydan.id === 'tum-meydanlar') return;
-
-    const all = [...ANADOLU_DISTRICTS, ...AVRUPA_DISTRICTS];
-    const parent = all.find((d) => d.meydanlar.some((m) => m.id === selectedMeydan.id));
-
-    if (parent) {
-      // Auto-open this district
-      setExpandedDistricts({ [parent.id]: true });
-
-      // Check yaka
-      const isAnadolu = ANADOLU_DISTRICTS.some((d) => d.id === parent.id);
-      if (activeYaka === 'anadolu' && !isAnadolu) {
-        setActiveYaka('avrupa');
-      } else if (activeYaka === 'avrupa' && isAnadolu) {
-        setActiveYaka('anadolu');
-      }
-
-      // Smooth scroll the square row into view inside the explorer body
-      const timer = setTimeout(() => {
-        const el = document.querySelector(`[data-square-id="${selectedMeydan.id}"]`);
-        if (el) {
-          el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        }
-      }, 70);
-
-      return () => clearTimeout(timer);
-    }
-  }, [selectedMeydan?.id]);
 
   // Filtered districts (either 1 district if chip active, or all displayed districts)
   const filteredDistricts = useMemo(() => {
