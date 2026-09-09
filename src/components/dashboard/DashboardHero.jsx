@@ -68,39 +68,68 @@ export default function DashboardHero({
   const activePersonnel = useMemo(() => {
     if (!selectedMeydan || isGeneralOverview) return [];
 
-    if (todayShifts && todayShifts.length > 0) {
-      const matched = todayShifts.filter((s) => {
-        if (s.isLeave) return false;
-        if (selectedMeydan.rawVariants && s.rawLocation && selectedMeydan.rawVariants.some(v => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())) {
-          return true;
-        }
-        if (s.rawLocation && (s.rawLocation.toLowerCase().includes(selectedMeydan.name.toLowerCase()) || selectedMeydan.name.toLowerCase().includes(s.rawLocation.toLowerCase()))) {
-          return true;
-        }
-        if (selectedMeydan.personnel && s.personelAdi && selectedMeydan.personnel.some(p => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())) {
-          return true;
-        }
-        return false;
+    const rosterMap = new Map();
+
+    // 1. Seed with designated personnel of this meydan (from canonical data / meydan definition)
+    if (selectedMeydan.personnel && Array.isArray(selectedMeydan.personnel)) {
+      selectedMeydan.personnel.forEach((pName) => {
+        if (!pName) return;
+        const cleanName = pName.trim();
+        rosterMap.set(cleanName.toLowerCase('tr-TR'), {
+          name: cleanName,
+          hours: '10:00 - 18:30',
+          type: 'Planlı Saha Görevi',
+          isLive: false,
+        });
       });
-
-      if (matched.length > 0) {
-        return matched.map((s) => ({
-          name: s.personelAdi,
-          hours: s.saatAraligi || '10:00 - 18:30',
-          type: s.vardiyaTipi || 'Tam Gün',
-        }));
-      }
     }
 
-    if (selectedMeydan.personnel && selectedMeydan.personnel.length > 0) {
-      return selectedMeydan.personnel.map((p) => ({
-        name: p,
-        hours: '10:00 - 18:30',
-        type: 'Planlı Saha Görevi',
-      }));
+    // 2. Overlay or add live shifts from todayShifts
+    if (todayShifts && todayShifts.length > 0) {
+      todayShifts.forEach((s) => {
+        if (s.isLeave) return;
+
+        let matchesMeydan = false;
+        if (s.meydanId && s.meydanId === selectedMeydan.id) {
+          matchesMeydan = true;
+        } else if (
+          selectedMeydan.rawVariants &&
+          s.rawLocation &&
+          selectedMeydan.rawVariants.some(
+            (v) => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim()
+          )
+        ) {
+          matchesMeydan = true;
+        } else if (
+          s.rawLocation &&
+          (s.rawLocation.toLowerCase().includes(selectedMeydan.name.toLowerCase()) ||
+            selectedMeydan.name.toLowerCase().includes(s.rawLocation.toLowerCase()))
+        ) {
+          matchesMeydan = true;
+        } else if (
+          selectedMeydan.personnel &&
+          s.personelAdi &&
+          selectedMeydan.personnel.some(
+            (p) => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim()
+          )
+        ) {
+          matchesMeydan = true;
+        }
+
+        if (matchesMeydan && s.personelAdi) {
+          const cleanName = s.personelAdi.trim();
+          const key = cleanName.toLowerCase('tr-TR');
+          rosterMap.set(key, {
+            name: cleanName,
+            hours: s.saatAraligi || '10:00 - 18:30',
+            type: s.vardiyaTipi || 'Tam Gün',
+            isLive: true,
+          });
+        }
+      });
     }
 
-    return [];
+    return Array.from(rosterMap.values());
   }, [selectedMeydan, todayShifts, isGeneralOverview]);
 
   // Strictly 2 real photo landmarks per square

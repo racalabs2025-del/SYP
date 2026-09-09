@@ -21,46 +21,72 @@ export default function MeydanPersoneliModalContent({
   const staffList = useMemo(() => {
     if (!selectedMeydan) return [];
 
-    if (todayShifts && todayShifts.length > 0) {
-      const matched = todayShifts.filter((shift) => {
-        if (shift.isLeave) return false;
-        if (selectedMeydan.rawVariants && shift.rawLocation && selectedMeydan.rawVariants.some((v) => v.toLowerCase().trim() === shift.rawLocation.toLowerCase().trim())) {
-          return true;
-        }
-        if (shift.rawLocation && (shift.rawLocation.toLowerCase().includes(selectedMeydan.name.toLowerCase()) || selectedMeydan.name.toLowerCase().includes(shift.rawLocation.toLowerCase()))) {
-          return true;
-        }
-        if (selectedMeydan.personnel && shift.personelAdi && selectedMeydan.personnel.some((p) => p.toLowerCase().trim() === shift.personelAdi.toLowerCase().trim())) {
-          return true;
-        }
-        return false;
+    const rosterMap = new Map();
+
+    // 1. Seed with designated personnel of this meydan
+    if (selectedMeydan.personnel && Array.isArray(selectedMeydan.personnel)) {
+      selectedMeydan.personnel.forEach((pName, idx) => {
+        if (!pName) return;
+        const cleanName = pName.trim();
+        rosterMap.set(cleanName.toLowerCase('tr-TR'), {
+          id: `person-${idx}`,
+          personelAdi: cleanName,
+          saatAraligi: '10:00 - 18:30',
+          vardiyaTipi: 'Planlı Saha Görevi',
+          rawLocation: selectedMeydan.name,
+          isLive: false,
+        });
       });
-
-      if (matched.length > 0) {
-        return matched.map((s, idx) => ({
-          id: s.id || `shift-${idx}`,
-          personelAdi: s.personelAdi,
-          saatAraligi: s.saatAraligi || '10:00 - 18:30',
-          vardiyaTipi: s.vardiyaTipi || 'Tam Gün',
-          rawLocation: s.rawLocation || selectedMeydan.name,
-          isLive: true,
-        }));
-      }
     }
 
-    // Fallback to designated personnel from vardiya dataset
-    if (selectedMeydan.personnel && selectedMeydan.personnel.length > 0) {
-      return selectedMeydan.personnel.map((name, idx) => ({
-        id: `person-${idx}`,
-        personelAdi: name,
-        saatAraligi: '10:00 - 18:30',
-        vardiyaTipi: 'Planlı Saha Görevi',
-        rawLocation: selectedMeydan.name,
-        isLive: false,
-      }));
+    // 2. Overlay or add live shifts from todayShifts
+    if (todayShifts && todayShifts.length > 0) {
+      todayShifts.forEach((shift, idx) => {
+        if (shift.isLeave) return;
+
+        let matchesMeydan = false;
+        if (shift.meydanId && shift.meydanId === selectedMeydan.id) {
+          matchesMeydan = true;
+        } else if (
+          selectedMeydan.rawVariants &&
+          shift.rawLocation &&
+          selectedMeydan.rawVariants.some(
+            (v) => v.toLowerCase().trim() === shift.rawLocation.toLowerCase().trim()
+          )
+        ) {
+          matchesMeydan = true;
+        } else if (
+          shift.rawLocation &&
+          (shift.rawLocation.toLowerCase().includes(selectedMeydan.name.toLowerCase()) ||
+            selectedMeydan.name.toLowerCase().includes(shift.rawLocation.toLowerCase()))
+        ) {
+          matchesMeydan = true;
+        } else if (
+          selectedMeydan.personnel &&
+          shift.personelAdi &&
+          selectedMeydan.personnel.some(
+            (p) => p.toLowerCase().trim() === shift.personelAdi.toLowerCase().trim()
+          )
+        ) {
+          matchesMeydan = true;
+        }
+
+        if (matchesMeydan && shift.personelAdi) {
+          const cleanName = shift.personelAdi.trim();
+          const key = cleanName.toLowerCase('tr-TR');
+          rosterMap.set(key, {
+            id: shift.id || `shift-${idx}`,
+            personelAdi: cleanName,
+            saatAraligi: shift.saatAraligi || '10:00 - 18:30',
+            vardiyaTipi: shift.vardiyaTipi || 'Tam Gün',
+            rawLocation: shift.rawLocation || selectedMeydan.name,
+            isLive: true,
+          });
+        }
+      });
     }
 
-    return [];
+    return Array.from(rosterMap.values());
   }, [selectedMeydan, todayShifts]);
 
   return (

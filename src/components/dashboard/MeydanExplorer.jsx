@@ -105,39 +105,62 @@ export default function MeydanExplorer({
   function getSquarePersonnel(m) {
     if (!m) return [];
 
+    const rosterSet = new Set();
+    const result = [];
+
+    // 1. Seed with designated personnel of this meydan
+    if (m.personnel && Array.isArray(m.personnel)) {
+      m.personnel.forEach((pName) => {
+        if (!pName) return;
+        const clean = pName.trim();
+        const key = clean.toLowerCase('tr-TR');
+        if (!rosterSet.has(key)) {
+          rosterSet.add(key);
+          result.push(clean);
+        }
+      });
+    }
+
+    // 2. Add any additional personnel from todayShifts matching this square
     if (todayShifts && todayShifts.length > 0) {
-      const matched = todayShifts.filter((s) => {
-        if (s.isLeave) return false;
-        if (
+      todayShifts.forEach((s) => {
+        if (s.isLeave) return;
+
+        let matchesMeydan = false;
+        if (s.meydanId && s.meydanId === m.id) {
+          matchesMeydan = true;
+        } else if (
           m.rawVariants &&
           s.rawLocation &&
           m.rawVariants.some((v) => v.toLowerCase().trim() === s.rawLocation.toLowerCase().trim())
         ) {
-          return true;
-        }
-        if (
+          matchesMeydan = true;
+        } else if (
           s.rawLocation &&
           (s.rawLocation.toLowerCase().includes(m.name.toLowerCase()) ||
             m.name.toLowerCase().includes(s.rawLocation.toLowerCase()))
         ) {
-          return true;
-        }
-        if (
+          matchesMeydan = true;
+        } else if (
           m.personnel &&
           s.personelAdi &&
           m.personnel.some((p) => p.toLowerCase().trim() === s.personelAdi.toLowerCase().trim())
         ) {
-          return true;
+          matchesMeydan = true;
         }
-        return false;
-      });
 
-      if (matched.length > 0) {
-        return matched.map((s) => s.personelAdi);
-      }
+        if (matchesMeydan && s.personelAdi) {
+          const clean = s.personelAdi.trim();
+          const key = clean.toLowerCase('tr-TR');
+          if (!rosterSet.has(key)) {
+            rosterSet.add(key);
+            result.push(clean);
+          }
+        }
+      });
     }
 
-    return m.personnel || [];
+    return result;
   }
 
   // Search filtered results
