@@ -264,7 +264,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
-          "/assets/meydan_photos/photo_slide52_daabd61132_detail.jpg"
+          "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
         ],
         "landmarks": [
           {
@@ -275,7 +275,7 @@ export const ANADOLU_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Fenerbahçe Parkı Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide52_daabd61132_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
           }
         ],
         "personnel": [
@@ -841,7 +841,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
-          "/assets/meydan_photos/photo_slide71_9f169c121c_detail.jpg"
+          "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
         ],
         "landmarks": [
           {
@@ -852,7 +852,7 @@ export const ANADOLU_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Pendik Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide71_9f169c121c_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
           }
         ],
         "personnel": [
@@ -1283,7 +1283,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
-          "/assets/meydan_photos/photo_slide22_6f1f703ce1_detail.jpg"
+          "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
         ],
         "landmarks": [
           {
@@ -1294,7 +1294,7 @@ export const ANADOLU_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Kanlıca Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
           }
         ],
         "personnel": [
@@ -1379,7 +1379,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
-          "/assets/meydan_photos/photo_slide88_ab45959257_detail.jpg"
+          "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
         ],
         "landmarks": [
           {
@@ -1390,7 +1390,7 @@ export const ANADOLU_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Sultanbeyli Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide88_ab45959257_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
           }
         ],
         "personnel": [
@@ -1549,7 +1549,7 @@ export const ANADOLU_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
-          "/assets/meydan_photos/photo_slide82_71aea930a2_detail.jpg"
+          "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
         ],
         "landmarks": [
           {
@@ -1560,7 +1560,7 @@ export const ANADOLU_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Terminal Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide82_71aea930a2_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
           }
         ],
         "personnel": [
@@ -1836,7 +1836,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
         "images": [
           "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
-          "/assets/meydan_photos/photo_slide29_5f9c8a9b16_detail.jpg"
+          "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
         ],
         "landmarks": [
           {
@@ -1847,7 +1847,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
           }
         ],
         "personnel": []
@@ -1956,7 +1956,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
-          "/assets/meydan_photos/photo_slide87_e1433cd88a_detail.jpg"
+          "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
         ],
         "landmarks": [
           {
@@ -1967,7 +1967,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
           }
         ],
         "personnel": [
@@ -1993,7 +1993,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
-          "/assets/meydan_photos/photo_slide86_f0d4b23867_detail.jpg"
+          "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
         ],
         "landmarks": [
           {
@@ -2004,7 +2004,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Şişli Cami Önü Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
           }
         ],
         "personnel": [
@@ -2686,7 +2686,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
-          "/assets/meydan_photos/photo_slide61_03a41ef6df_detail.jpg"
+          "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
         ],
         "landmarks": [
           {
@@ -2697,7 +2697,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide61_03a41ef6df_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
           }
         ],
         "personnel": [
@@ -2806,7 +2806,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
-          "/assets/meydan_photos/photo_slide41_c61029530e_detail.jpg"
+          "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
         ],
         "landmarks": [
           {
@@ -2817,7 +2817,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Pierre Loti Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide41_c61029530e_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
           }
         ],
         "personnel": [
@@ -3037,7 +3037,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
-          "/assets/meydan_photos/photo_slide7_49a9b79d62_detail.jpg"
+          "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
         ],
         "landmarks": [
           {
@@ -3048,7 +3048,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Avcılar E-5 Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide7_49a9b79d62_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
           }
         ],
         "personnel": [
@@ -3499,7 +3499,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
-          "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
         ],
         "landmarks": [
           {
@@ -3510,7 +3510,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           }
         ],
         "personnel": [
@@ -3538,7 +3538,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
-          "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+          "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
         ],
         "landmarks": [
           {
@@ -3549,7 +3549,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Başakşehir Kent Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
           }
         ],
         "personnel": []
@@ -3622,7 +3622,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide6_472dba0087.png",
         "images": [
           "/assets/meydan_photos/photo_slide6_472dba0087.png",
-          "/assets/meydan_photos/photo_slide6_472dba0087_detail.jpg"
+          "/assets/meydan_photos/photo_slide6_472dba0087.png"
         ],
         "landmarks": [
           {
@@ -3633,7 +3633,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide6_472dba0087_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
           }
         ],
         "personnel": [
@@ -3766,7 +3766,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
-          "/assets/meydan_photos/photo_slide34_5df42f4617_detail.jpg"
+          "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
         ],
         "landmarks": [
           {
@@ -3777,7 +3777,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Çatalca Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide34_5df42f4617_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
           }
         ],
         "personnel": []
@@ -3887,7 +3887,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
-          "/assets/meydan_photos/photo_slide76_988da9402b_detail.jpg"
+          "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
         ],
         "landmarks": [
           {
@@ -3898,7 +3898,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Sarıyer Ayazağa Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide76_988da9402b_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
           }
         ],
         "personnel": []
@@ -3922,7 +3922,7 @@ export const AVRUPA_DISTRICTS = [
         "heroImage": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
         "images": [
           "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
-          "/assets/meydan_photos/photo_slide77_2a64e26d6e_detail.jpg"
+          "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
         ],
         "landmarks": [
           {
@@ -3933,7 +3933,7 @@ export const AVRUPA_DISTRICTS = [
           {
             "id": "photo-2",
             "name": "Sarıyer İstinye Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e_detail.jpg"
+            "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
           }
         ],
         "personnel": []
@@ -4347,7 +4347,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
-      "/assets/meydan_photos/photo_slide87_e1433cd88a_detail.jpg"
+      "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
     ],
     "landmarks": [
       {
@@ -4358,7 +4358,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide87_e1433cd88a_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
       }
     ],
     "personnel": [
@@ -4384,7 +4384,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
-      "/assets/meydan_photos/photo_slide86_f0d4b23867_detail.jpg"
+      "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
     ],
     "landmarks": [
       {
@@ -4395,7 +4395,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Şişli Cami Önü Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide86_f0d4b23867_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
       }
     ],
     "personnel": [
@@ -4513,7 +4513,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg",
-      "/assets/meydan_photos/photo_slide7_49a9b79d62_detail.jpg"
+      "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
     ],
     "landmarks": [
       {
@@ -4524,7 +4524,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Avcılar E-5 Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide7_49a9b79d62_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide7_49a9b79d62.jpg"
       }
     ],
     "personnel": [
@@ -4812,7 +4812,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide76_988da9402b.jpg",
-      "/assets/meydan_photos/photo_slide76_988da9402b_detail.jpg"
+      "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
     ],
     "landmarks": [
       {
@@ -4823,7 +4823,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Sarıyer Ayazağa Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide76_988da9402b_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide76_988da9402b.jpg"
       }
     ],
     "personnel": []
@@ -4847,7 +4847,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg",
-      "/assets/meydan_photos/photo_slide77_2a64e26d6e_detail.jpg"
+      "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
     ],
     "landmarks": [
       {
@@ -4858,7 +4858,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Sarıyer İstinye Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide77_2a64e26d6e.jpg"
       }
     ],
     "personnel": []
@@ -5149,7 +5149,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide41_c61029530e.jpg",
-      "/assets/meydan_photos/photo_slide41_c61029530e_detail.jpg"
+      "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
     ],
     "landmarks": [
       {
@@ -5160,7 +5160,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Pierre Loti Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide41_c61029530e_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide41_c61029530e.jpg"
       }
     ],
     "personnel": [
@@ -5304,7 +5304,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide34_5df42f4617.jpg",
-      "/assets/meydan_photos/photo_slide34_5df42f4617_detail.jpg"
+      "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
     ],
     "landmarks": [
       {
@@ -5315,7 +5315,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Çatalca Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide34_5df42f4617_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide34_5df42f4617.jpg"
       }
     ],
     "personnel": []
@@ -5613,7 +5613,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
-      "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
     ],
     "landmarks": [
       {
@@ -5624,7 +5624,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Metrokent Metro İstasyonu Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       }
     ],
     "personnel": [
@@ -5731,7 +5731,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg",
-      "/assets/meydan_photos/photo_slide61_03a41ef6df_detail.jpg"
+      "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
     ],
     "landmarks": [
       {
@@ -5742,7 +5742,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Kağıthane Nurtepe Metro Durağı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide61_03a41ef6df_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide61_03a41ef6df.jpg"
       }
     ],
     "personnel": [
@@ -6279,7 +6279,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide52_daabd61132.jpg",
-      "/assets/meydan_photos/photo_slide52_daabd61132_detail.jpg"
+      "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
     ],
     "landmarks": [
       {
@@ -6290,7 +6290,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Fenerbahçe Parkı Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide52_daabd61132_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide52_daabd61132.jpg"
       }
     ],
     "personnel": [
@@ -6678,7 +6678,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg",
-      "/assets/meydan_photos/photo_slide22_6f1f703ce1_detail.jpg"
+      "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
     ],
     "landmarks": [
       {
@@ -6689,7 +6689,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Kanlıca Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide22_6f1f703ce1.jpg"
       }
     ],
     "personnel": [
@@ -6754,7 +6754,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide82_71aea930a2.jpg",
-      "/assets/meydan_photos/photo_slide82_71aea930a2_detail.jpg"
+      "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
     ],
     "landmarks": [
       {
@@ -6765,7 +6765,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Terminal Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide82_71aea930a2_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide82_71aea930a2.jpg"
       }
     ],
     "personnel": [
@@ -7079,7 +7079,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide88_ab45959257.jpg",
-      "/assets/meydan_photos/photo_slide88_ab45959257_detail.jpg"
+      "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
     ],
     "landmarks": [
       {
@@ -7090,7 +7090,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Sultanbeyli Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide88_ab45959257_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide88_ab45959257.jpg"
       }
     ],
     "personnel": [
@@ -7119,7 +7119,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide71_9f169c121c.jpg",
-      "/assets/meydan_photos/photo_slide71_9f169c121c_detail.jpg"
+      "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
     ],
     "landmarks": [
       {
@@ -7130,7 +7130,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Pendik Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide71_9f169c121c_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide71_9f169c121c.jpg"
       }
     ],
     "personnel": [
@@ -7473,7 +7473,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
     "images": [
       "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png",
-      "/assets/meydan_photos/photo_slide29_5f9c8a9b16_detail.jpg"
+      "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
     ],
     "landmarks": [
       {
@@ -7484,7 +7484,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Kasımpaşa Kızılay Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide29_5f9c8a9b16.png"
       }
     ],
     "personnel": []
@@ -7586,7 +7586,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide6_472dba0087.png",
     "images": [
       "/assets/meydan_photos/photo_slide6_472dba0087.png",
-      "/assets/meydan_photos/photo_slide6_472dba0087_detail.jpg"
+      "/assets/meydan_photos/photo_slide6_472dba0087.png"
     ],
     "landmarks": [
       {
@@ -7597,7 +7597,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Arnavutköy Cumhuriyet Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide6_472dba0087_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide6_472dba0087.png"
       }
     ],
     "personnel": [
@@ -7628,7 +7628,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
     "heroImage": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
     "images": [
       "/assets/meydan_photos/photo_slide14_7c9e956070.jpg",
-      "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+      "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
     ],
     "landmarks": [
       {
@@ -7639,7 +7639,7 @@ export const ALL_CANONICAL_MEYDANLAR = [
       {
         "id": "photo-2",
         "name": "Başakşehir Kent Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide14_7c9e956070_detail.jpg"
+        "img": "/assets/meydan_photos/photo_slide14_7c9e956070.jpg"
       }
     ],
     "personnel": []
