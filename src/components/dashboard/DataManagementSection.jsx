@@ -3,10 +3,7 @@ import ExcelWizardModal from './ExcelWizardModal';
 
 export default function DataManagementSection({
   adminUnlocked,
-  adminPasswordInput,
-  adminPasswordError,
-  onAdminPasswordChange,
-  onAdminUnlock,
+  canDelete,
   onRefreshOperationalInsights,
   insightsLoading,
   insightsLastUpdatedAt,
@@ -106,24 +103,7 @@ export default function DataManagementSection({
             </svg>
           </div>
           <p className="admin-lock__description">Yetkili erişim gerekli.</p>
-          <form className="admin-lock__form" onSubmit={onAdminUnlock}>
-            <label htmlFor="admin-password-input" className="sr-only">Yönetici parolası</label>
-            <input
-              id="admin-password-input"
-              type="password"
-              className={`admin-lock__input${adminPasswordError ? ' admin-lock__input--error' : ''}`}
-              placeholder="Erişim kodu"
-              value={adminPasswordInput}
-              onChange={onAdminPasswordChange}
-              aria-invalid={adminPasswordError ? 'true' : 'false'}
-              aria-describedby={adminPasswordError ? 'admin-password-error' : undefined}
-              autoComplete="current-password"
-            />
-            <button className="btn btn-primary" type="submit">Giriş Yap</button>
-          </form>
-          {adminPasswordError ? (
-            <p id="admin-password-error" className="admin-lock__error">Parola hatalı. Lütfen tekrar deneyin.</p>
-          ) : null}
+          <p>Hesabınız yalnızca görüntüleme yetkisine sahip. Veri yüklemek için yöneticinizden yetki isteyin.</p>
         </div>
       ) : (
         <>
@@ -325,7 +305,7 @@ export default function DataManagementSection({
                                   <a className="btn btn-primary btn-inline" href={reportUrl} download={report.ad}>İndir</a>
                                 </>
                               )}
-                              <button className="btn btn-ghost btn-inline" type="button" onClick={() => handleRemoveMeydanRaporu(report.id)}>Kaldır</button>
+                              <button className="btn btn-ghost btn-inline" type="button" disabled={!canDelete} onClick={() => handleRemoveMeydanRaporu(report.id)}>Kaldır</button>
                             </div>
                             {reportUrl && reportUrl !== 'loading' && reportUrl !== 'error' && previewReportId === report.id ? (
                               <div className="report-preview-frame-wrap">
@@ -366,7 +346,7 @@ export default function DataManagementSection({
                 Bu işlem geri alınamaz. Sistemdeki tüm vardiya kayıtları ve meydan tanımları silinecektir.
                 Devam etmeden önce verilerinizi yedeklediğinizden emin olun.
               </p>
-              <button className="btn btn-danger btn-block" type="button" onClick={handleDeleteAll} disabled={uploading}>
+              <button className="btn btn-danger btn-block" type="button" onClick={handleDeleteAll} disabled={!canDelete || uploading}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px' }}>
                   <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
                   <line x1="12" y1="9" x2="12" y2="13" />
@@ -692,7 +672,7 @@ export default function DataManagementSection({
                             >
                               {isSaving ? 'Kaydediliyor...' : 'Kaydet'}
                             </button>
-                            <button className="btn btn-ghost btn-inline" type="button" onClick={() => handleDeleteKronik(item)}>
+                            <button className="btn btn-ghost btn-inline" type="button" disabled={!canDelete} onClick={() => handleDeleteKronik(item)}>
                               Sil
                             </button>
                           </div>
@@ -744,7 +724,7 @@ export default function DataManagementSection({
                       <td>{shift.tarih}</td>
                       <td>{shift.saatAraligi || '-'}</td>
                       <td>
-                        <button className="btn btn-ghost btn-inline" type="button" onClick={() => handleDeleteShift(shift.id)}>
+                        <button className="btn btn-ghost btn-inline" type="button" disabled={!canDelete} onClick={() => handleDeleteShift(shift.id)}>
                           Sil
                         </button>
                       </td>

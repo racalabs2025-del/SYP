@@ -1,6 +1,6 @@
+import { fetchPanelAI } from './aiClient';
 import { getMeydanReadingNote } from './meydanReadingNotes';
 
-const DEEPSEEK_PROXY_ENDPOINT = '/api/deepseek';
 
 function trimText(value, maxLength) {
   const text = String(value || '').replace(/\s+/g, ' ').trim();
@@ -123,68 +123,6 @@ function finalizeSpotlight(meydan, spotlight) {
   };
 }
 
-function buildContextPhrase(meydan) {
-  const exactName = String(meydan?.isim || '').trim();
-  const fullName = String(meydan?.tamAd || '').trim();
-  const normalizedFullName = normalizeSpotlightText(fullName);
-
-  if (/sahil/.test(normalizedFullName)) {
-    return `${exactName || 'Bu meydan'}, sahil hattına yakın konumu nedeniyle gün içi akışın görünür olduğu bir buluşma alanıdır.`;
-  }
-
-  if (/cumhuriyet|ozgurluk|demokrasi|kent/.test(normalizedFullName)) {
-    return `${exactName || 'Bu meydan'}, kamusal odak noktası niteliğiyle çevresindeki yaya hareketini ve günlük meydan düzenini toparlayan bir merkezdir.`;
-  }
-
-  if (/rihtim|iskele/.test(normalizedFullName)) {
-    return `${exactName || 'Bu meydan'}, geçiş ve bekleme hareketinin hissedildiği güçlü bir bağlantı alanı olarak öne çıkar.`;
-  }
-
-  if (/park|vadi/.test(normalizedFullName)) {
-    return `${exactName || 'Bu meydan'}, açık alan kullanımı ve çevre dolaşımıyla daha geniş bir nefes alanı hissi veren operasyon noktalarından biridir.`;
-  }
-
-  return `${exactName || 'Bu meydan'}, çevresindeki günlük kullanım akışını toplayan aktif bir kamusal temas noktası olarak öne çıkar.`;
-}
-
-function buildDetailPhrase(meydan) {
-  const fullName = String(meydan?.tamAd || '').trim();
-  const exactName = String(meydan?.isim || '').trim();
-
-  if (fullName && fullName !== exactName) {
-    return `${fullName} çevresindeki hareket, bu alanın yönlendirme ve görünürlük açısından düzenli takibini önemli kılar.`;
-  }
-
-  const variants = [
-    'Yakın çevresindeki yaya dolaşımı nedeniyle sahadaki düzenin dengeli yürütülmesi beklenir.',
-    'Günlük kullanım yoğunluğu, saha ekibinin görünürlüğünü ve hızlı koordinasyonu öne çıkarır.',
-    'Çevre akışı, kısa temas ve yönlendirme ihtiyacını gün içinde belirgin hale getirebilir.',
-  ];
-
-  return variants[hashText(exactName || fullName) % variants.length];
-}
-
-function buildBadge(meydan) {
-  const normalized = normalizeSpotlightText(`${meydan?.isim || ''} ${meydan?.tamAd || ''}`);
-
-  if (/sahil/.test(normalized)) {
-    return 'Sahil odağı';
-  }
-
-  if (/rihtim|iskele/.test(normalized)) {
-    return 'Geçiş odağı';
-  }
-
-  if (/park|vadi/.test(normalized)) {
-    return 'Açık alan odağı';
-  }
-
-  if (/cumhuriyet|kent|ozgurluk|demokrasi/.test(normalized)) {
-    return 'Kamusal merkez';
-  }
-
-  return 'Meydan özeti';
-}
 
 function createFallbackSpotlight(meydan) {
   return finalizeSpotlight(meydan, {
@@ -216,7 +154,7 @@ async function generateDeepSeekSpotlight(meydan, signal) {
     ],
   };
 
-  const response = await fetch(DEEPSEEK_PROXY_ENDPOINT, {
+  const response = await fetchPanelAI({
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

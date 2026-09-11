@@ -14,7 +14,7 @@ export function exportExecutiveBriefingToPdf(dataset) {
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>SYP_Yonetici_Brifingi_${dataset.lastDataDate || '2026-08-14'}</title>
+  <title>SYP_Yonetici_Brifingi_${dataset.lastDataDate || 'tarih-belirtilmedi'}</title>
   <style>
     @page {
       size: A4 portrait;
@@ -307,7 +307,7 @@ export function exportExecutiveBriefingToPdf(dataset) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `SYP_Yonetici_Brifingi_${dataset.lastDataDate || '2026-08-14'}.html`;
+    a.download = `SYP_Yonetici_Brifingi_${dataset.lastDataDate || 'tarih-belirtilmedi'}.html`;
     a.click();
     URL.revokeObjectURL(url);
   }

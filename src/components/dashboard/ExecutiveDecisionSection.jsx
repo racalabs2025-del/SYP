@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
 
 export default function ExecutiveDecisionSection() {
@@ -6,19 +6,7 @@ export default function ExecutiveDecisionSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 6;
 
-  const metadata = compiledExecutiveData?.metadata || {
-    totalUnresolved: 232,
-    totalSlaBreached: 173,
-    totalAging30Plus: 147,
-    totalCritical: 32,
-    agingBuckets: [
-      { id: '0_3', label: '0–3 Gün', count: 26, percentage: 11, color: '#3b82f6' },
-      { id: '4_7', label: '4–7 Gün', count: 14, percentage: 6, color: '#06b6d4' },
-      { id: '8_14', label: '8–14 Gün', count: 15, percentage: 6, color: '#eab308' },
-      { id: '15_30', label: '15–30 Gün', count: 30, percentage: 13, color: '#f97316' },
-      { id: '30_plus', label: '30+ Gün', count: 147, percentage: 63, color: '#ef4444' },
-    ],
-  };
+  const metadata = compiledExecutiveData?.metadata || { agingBuckets: [] };
 
   const slaItems = compiledExecutiveData?.slaBreachedItems || [];
   const criticalItems = compiledExecutiveData?.criticalItems || [];
@@ -136,7 +124,7 @@ export default function ExecutiveDecisionSection() {
             {metadata.totalOpenCritical || 0}
           </strong>
           <span style={{ fontSize: '0.75rem', color: '#15803d', fontWeight: '500' }}>
-            Toplam: {metadata.totalCritical || 32} (Tümü Çözüldü/Kapandı)
+            Toplam: {metadata.totalCritical ?? 0} · Açık kritik: {metadata.totalOpenCritical ?? 0}
           </span>
         </div>
 
@@ -159,7 +147,7 @@ export default function ExecutiveDecisionSection() {
             {metadata.totalUnresolved}
           </strong>
           <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: '500' }}>
-            Açık ({metadata.totalOpen || 32}) + Süreçte ({metadata.totalInProgress || 200})
+            Açık ({metadata.totalOpen ?? 0}) + Süreçte ({metadata.totalInProgress ?? 0})
           </span>
         </div>
       </div>

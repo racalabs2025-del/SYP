@@ -16,7 +16,8 @@
  *      - onemDerecesi === "2-Yüksek" veya onemDerecesi içinde "2" / "yüksek"
  */
 
-export const DEFAULT_REFERENCE_DATE = '2026-08-14';
+import { DEFAULT_REFERENCE_DATE } from './dataFreshness.js';
+export { DEFAULT_REFERENCE_DATE } from './dataFreshness.js';
 
 import { toPrivacySafeApplication } from './privacySafeApplication.js';
 
@@ -78,7 +79,7 @@ export function isOpenOrInProgress(durum) {
  * Başvurunun taahhüt süresini aşıp aşmadığını (SLA Breach) kontrol eder.
  * Kural: Halen kapanmamış AND taahhüt tarihi var AND taahhüt tarihi < referans tarih
  */
-export function isSlaBreached(item, referenceDate = dataFreshness?.lastApplicationDate || '2026-08-14') {
+export function isSlaBreached(item, referenceDate = DEFAULT_REFERENCE_DATE) {
   if (!item || !isOpenOrInProgress(item.durum)) return false;
   if (!item.taahhutTarihi) return false;
 
@@ -90,7 +91,7 @@ export function isSlaBreached(item, referenceDate = dataFreshness?.lastApplicati
 /**
  * Başvurunun yaşını (açık kaldığı gün sayısını) hesaplar.
  */
-export function getAgingDays(item, referenceDate = dataFreshness?.lastApplicationDate || '2026-08-14') {
+export function getAgingDays(item, referenceDate = DEFAULT_REFERENCE_DATE) {
   if (!item || !item.tarih) return 0;
   try {
     const tMs = new Date(item.tarih).getTime();
@@ -128,7 +129,7 @@ export function isCriticalApplication(item) {
  */
 export function computeDecisionSupportMetrics(
   applications = [],
-  referenceDate = dataFreshness?.lastApplicationDate || '2026-08-14'
+  referenceDate = DEFAULT_REFERENCE_DATE
 ) {
   let totalClosed = 0;
   let totalInProgress = 0;

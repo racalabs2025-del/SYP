@@ -8,38 +8,24 @@ const DEFAULT_FIREBASE_CONFIG = {
   measurementId: 'G-FM5NNE1JRX',
 };
 
-const nodeProcess = typeof globalThis !== 'undefined' ? globalThis.process : undefined;
-
-function readEnvValue(viteKey, nodeKey, fallback = '') {
-  if (typeof import.meta !== 'undefined' && import.meta.env?.[viteKey]) {
-    return import.meta.env[viteKey];
-  }
-
-  if (nodeProcess?.env?.[nodeKey]) {
-    return nodeProcess.env[nodeKey];
-  }
-
-  return fallback;
-}
+// Static property access includes only these public Firebase settings in the browser.
+const viteFirebaseConfig = typeof window === 'undefined' ? {} : {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+};
+const nodeEnv = globalThis.process?.env;
 
 export const firebaseConfig = {
-  apiKey: readEnvValue('VITE_FIREBASE_API_KEY', 'FIREBASE_API_KEY', DEFAULT_FIREBASE_CONFIG.apiKey),
-  authDomain: readEnvValue('VITE_FIREBASE_AUTH_DOMAIN', 'FIREBASE_AUTH_DOMAIN', DEFAULT_FIREBASE_CONFIG.authDomain),
-  projectId: readEnvValue('VITE_FIREBASE_PROJECT_ID', 'FIREBASE_PROJECT_ID', DEFAULT_FIREBASE_CONFIG.projectId),
-  storageBucket: readEnvValue('VITE_FIREBASE_STORAGE_BUCKET', 'FIREBASE_STORAGE_BUCKET', DEFAULT_FIREBASE_CONFIG.storageBucket),
-  messagingSenderId: readEnvValue('VITE_FIREBASE_MESSAGING_SENDER_ID', 'FIREBASE_MESSAGING_SENDER_ID', DEFAULT_FIREBASE_CONFIG.messagingSenderId),
-  appId: readEnvValue('VITE_FIREBASE_APP_ID', 'FIREBASE_APP_ID', DEFAULT_FIREBASE_CONFIG.appId),
-  measurementId: readEnvValue('VITE_FIREBASE_MEASUREMENT_ID', 'FIREBASE_MEASUREMENT_ID', DEFAULT_FIREBASE_CONFIG.measurementId),
+  apiKey: viteFirebaseConfig.apiKey || nodeEnv?.FIREBASE_API_KEY || DEFAULT_FIREBASE_CONFIG.apiKey,
+  authDomain: viteFirebaseConfig.authDomain || nodeEnv?.FIREBASE_AUTH_DOMAIN || DEFAULT_FIREBASE_CONFIG.authDomain,
+  projectId: viteFirebaseConfig.projectId || nodeEnv?.FIREBASE_PROJECT_ID || DEFAULT_FIREBASE_CONFIG.projectId,
+  storageBucket: viteFirebaseConfig.storageBucket || nodeEnv?.FIREBASE_STORAGE_BUCKET || DEFAULT_FIREBASE_CONFIG.storageBucket,
+  messagingSenderId: viteFirebaseConfig.messagingSenderId || nodeEnv?.FIREBASE_MESSAGING_SENDER_ID || DEFAULT_FIREBASE_CONFIG.messagingSenderId,
+  appId: viteFirebaseConfig.appId || nodeEnv?.FIREBASE_APP_ID || DEFAULT_FIREBASE_CONFIG.appId,
+  measurementId: viteFirebaseConfig.measurementId || nodeEnv?.FIREBASE_MEASUREMENT_ID || DEFAULT_FIREBASE_CONFIG.measurementId,
 };
-
-export function readAppSecret(key, fallback = '') {
-  if (typeof import.meta !== 'undefined' && import.meta.env?.[key]) {
-    return import.meta.env[key];
-  }
-
-  if (nodeProcess?.env?.[key]) {
-    return nodeProcess.env[key];
-  }
-
-  return fallback;
-}

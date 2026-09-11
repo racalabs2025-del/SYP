@@ -44,22 +44,17 @@ const GUNUN_ISTANBULU_CARDS = [
 
 export default function DashboardHero({
   selectedMeydan,
-  totalMeydanCount = 50,
-  plannedPersonnelCount = 35,
-  activePersonnelCount = 28,
+  totalMeydanCount = 0,
+  plannedPersonnelCount = 0,
+  activePersonnelCount = 0,
   todayShifts = [],
-  activeDateKey = '',
-  onOpenPersonnel,
   onOpenStatOverlay,
   onSelectMeydan,
 }) {
   const navigate = useNavigate();
-  const [activeThumbnailIndex, setActiveThumbnailIndex] = useState(0);
-
-  // When selected square changes, reset active thumbnail to 0
-  useEffect(() => {
-    setActiveThumbnailIndex(0);
-  }, [selectedMeydan?.id]);
+  const [thumbnail, setThumbnail] = useState({ meydanId: null, index: 0 });
+  const activeThumbnailIndex = thumbnail.meydanId === selectedMeydan?.id ? thumbnail.index : 0;
+  const setActiveThumbnailIndex = (index) => setThumbnail({ meydanId: selectedMeydan?.id, index });
 
   // If no square is selected or selectedMeydan is 'tum-meydanlar', show General Overview (Ref Image 2)
   const isGeneralOverview = !selectedMeydan || selectedMeydan.id === 'tum-meydanlar';
@@ -156,7 +151,7 @@ export default function DashboardHero({
     if (!selectedMeydan?.id) return 0;
     const idx = ALL_CANONICAL_MEYDANLAR.findIndex((m) => m.id === selectedMeydan.id);
     return idx >= 0 ? idx : 0;
-  }, [selectedMeydan?.id]);
+  }, [selectedMeydan]);
 
   const handlePrevMeydan = useCallback(() => {
     const prevIdx = (currentMeydanIndex - 1 + ALL_CANONICAL_MEYDANLAR.length) % ALL_CANONICAL_MEYDANLAR.length;

@@ -111,7 +111,7 @@ export function exportExecutiveBriefingToExcel(dataset) {
   const wsMeydan = XLSX.utils.aoa_to_sheet(meydanRows);
   XLSX.utils.book_append_sheet(wb, wsMeydan, 'Meydan_Vardiya');
 
-  const fileName = `SYP_Yonetici_Veri_Seti_${dataset.lastDataDate || '2026-08-14'}.xlsx`;
+  const fileName = `SYP_Yonetici_Veri_Seti_${dataset.lastDataDate || 'tarih-belirtilmedi'}.xlsx`;
   XLSX.writeFile(wb, fileName);
   return fileName;
 }

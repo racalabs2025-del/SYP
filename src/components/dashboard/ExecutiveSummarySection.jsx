@@ -1,3 +1,4 @@
+import DataFreshnessNotice from '../shared/DataFreshnessNotice';
 import React, { useMemo, useState } from 'react';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
 import dataFreshness from '../../data/dataFreshness.json';
@@ -9,6 +10,8 @@ import OpenApplicationsSection from './OpenApplicationsSection';
 
 export default function ExecutiveSummarySection({
   todayShifts = [],
+  shiftDate = '',
+  loadedAt = '',
   activeMeydanlar = [],
   historyShifts = [],
   meydanlar = [],
@@ -40,7 +43,7 @@ export default function ExecutiveSummarySection({
 
   const { recordLeader, mobilityLeader, meydanSpecialist, generalStats } = champions;
   const { kpiSummary } = dataset;
-  const lastDataDateFormatted = dataFreshness?.lastApplicationDateFormatted || '14 Ağustos 2026';
+  const lastDataDateFormatted = dataset.lastDataDateFormatted;
 
   const handleExportPdf = () => {
     exportExecutiveBriefingToPdf(dataset);
@@ -55,13 +58,14 @@ export default function ExecutiveSummarySection({
     }
   };
 
-  const totalUnresolvedCount = kpiSummary.totalUnresolved || 232;
+  const totalUnresolvedCount = kpiSummary.totalUnresolved ?? 0;
   const activeCriticalCount = kpiSummary.activeCritical || 0;
-  const totalOpenCount = compiledExecutiveData?.metadata?.totalOpen || 32;
-  const totalInProgressCount = compiledExecutiveData?.metadata?.totalInProgress || 200;
+  const totalOpenCount = compiledExecutiveData?.metadata?.totalOpen ?? 0;
+  const totalInProgressCount = compiledExecutiveData?.metadata?.totalInProgress ?? 0;
 
   return (
     <section className="panel-section executive-summary-section" style={{ marginTop: '1.5rem' }}>
+      <DataFreshnessNotice executiveData={compiledExecutiveData} shiftDate={shiftDate} loadedAt={loadedAt} />
       {/* 1. SECTION HEADER & EXPORT ACTIONS */}
       <div
         className="panel-section__header"
@@ -88,7 +92,7 @@ export default function ExecutiveSummarySection({
                 borderRadius: '999px',
               }}
             >
-              🗓️ Son Saha Verisi: {lastDataDateFormatted}
+              🗓️ Başvuru Veri Tarihi: {lastDataDateFormatted}
             </span>
           </div>
           <h2>Yönetici Özeti</h2>
@@ -395,20 +399,20 @@ export default function ExecutiveSummarySection({
                 {activeCriticalCount}
               </strong>
               <span style={{ fontSize: '0.74rem', color: '#15803d' }}>
-                Müdahale bekleyen öncelikli kayıt bulunmuyor
+                {activeCriticalCount > 0 ? 'Öncelikli kayıtların son durumunu kontrol edin' : 'Veri tarihi itibarıyla açık öncelikli kayıt yok'}
               </span>
             </div>
 
             {/* Günlük Saha Gücü */}
             <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1rem' }}>
               <span style={{ fontSize: '0.78rem', color: '#00498E', fontWeight: '600', display: 'block' }}>
-                Bugün Sahadaki Personel
+                Bugün Planlanan Personel
               </span>
               <strong style={{ fontSize: '1.6rem', color: '#00498E', display: 'block', margin: '0.2rem 0' }}>
                 {generalStats.staffOnDutyToday}
               </strong>
               <span style={{ fontSize: '0.74rem', color: '#64748b' }}>
-                {generalStats.staffedMeydansToday} meydanda aktif koordinasyon
+                {generalStats.staffedMeydansToday} meydanda kayıtlı görevlendirme
               </span>
             </div>
           </div>

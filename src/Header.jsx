@@ -22,7 +22,7 @@ export default function Header({ onLogout = null }) {
   const isLoginPage = location.pathname === '/login';
   const isSplashPage = location.pathname === '/splash';
   const isDashboardPage = location.pathname === '/' || location.pathname === '/meydan-yonetimi';
-  const isDetailPage = location.pathname.startsWith('/meydan/') || location.pathname.startsWith('/personel/');
+
   const displayDate = now.getFullYear() < 2026
     ? new Date(2026, 8, 8, now.getHours(), now.getMinutes(), now.getSeconds())
     : now;

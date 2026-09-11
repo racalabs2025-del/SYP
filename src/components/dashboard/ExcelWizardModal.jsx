@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { fetchPanelAI } from '../../service/aiClient';
+import { useState } from 'react';
 import * as XLSX from 'xlsx';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
@@ -303,7 +304,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
 `;
 
     try {
-      const res = await fetch('http://127.0.0.1:8787/api/deepseek', {
+      const res = await fetchPanelAI({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

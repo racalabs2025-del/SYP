@@ -12,7 +12,6 @@ import {
 export default function MeydanPersoneliModalContent({
   selectedMeydan,
   todayShifts = [],
-  meydanMap = {},
   activeDateKey = '',
 }) {
   const navigate = useNavigate();

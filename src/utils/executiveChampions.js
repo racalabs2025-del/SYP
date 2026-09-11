@@ -1,16 +1,6 @@
-import compiledPersonelBasvurular from '../data/compiledPersonelBasvurular.json';
+import compiledPersonelBasvurular from '../data/compiledPersonelBasvurular.json' with { type: 'json' };
 
-function normalizeText(value) {
-  return String(value || '')
-    .toLocaleLowerCase('tr-TR')
-    .replace(/[ıi]/g, 'i')
-    .replace(/[ğ]/g, 'g')
-    .replace(/[ü]/g, 'u')
-    .replace(/[ş]/g, 's')
-    .replace(/[ö]/g, 'o')
-    .replace(/[ç]/g, 'c')
-    .trim();
-}
+
 
 function isLeave(type) {
   const t = String(type || '').toUpperCase();
@@ -23,6 +13,7 @@ function isLeave(type) {
  */
 export function getExecutiveChampionsData({
   historyShifts = [],
+  personelData = compiledPersonelBasvurular,
   todayShifts = [],
   activeMeydanlar = [],
   meydanlar = [],
@@ -34,7 +25,7 @@ export function getExecutiveChampionsData({
     }
   });
 
-  const personelList = Object.values(compiledPersonelBasvurular || {});
+  const personelList = Object.values(personelData || {});
 
   // 1. EN ÇOK KAYIT AÇAN PERSONEL (Saha Çözüm & Kayıt Lideri)
   const sortedByRecords = [...personelList].sort(
@@ -42,15 +33,15 @@ export function getExecutiveChampionsData({
   );
 
   const topRecordPerson = sortedByRecords[0] || {
-    personelAdi: 'ERHAN EKİNCİ',
-    toplamBasvuru: 1188,
-    kapandi: 1173,
+    personelAdi: 'Veri bulunmuyor',
+    toplamBasvuru: 0,
+    kapandi: 0,
     yaka: 'Avrupa',
   };
 
   const recordRate = topRecordPerson.toplamBasvuru > 0
     ? ((topRecordPerson.kapandi / topRecordPerson.toplamBasvuru) * 100).toFixed(1)
-    : '98.5';
+    : '0.0';
 
   const recordLeader = {
     name: topRecordPerson.personelAdi,
@@ -109,15 +100,15 @@ export function getExecutiveChampionsData({
       (a, b) => Object.keys(b.ilceDagilimi || {}).length - Object.keys(a.ilceDagilimi || {}).length
     );
     const top = sortedByDistricts[0] || {
-      personelAdi: 'ERHAN EKİNCİ',
+      personelAdi: 'Veri bulunmuyor',
       ilceDagilimi: {},
-      toplamBasvuru: 1188,
+      toplamBasvuru: 0,
     };
     const topDistricts = Object.keys(top.ilceDagilimi || {}).slice(0, 4);
     mobilityLeader = {
       name: top.personelAdi,
-      distinctCount: Object.keys(top.ilceDagilimi || {}).length || 25,
-      totalAssignments: top.toplamBasvuru || 1188,
+      distinctCount: Object.keys(top.ilceDagilimi || {}).length,
+      totalAssignments: top.toplamBasvuru ?? 0,
       locationsPreview: topDistricts.join(', ') || 'İstanbul Geneli',
       source: 'dataset',
     };
@@ -160,16 +151,16 @@ export function getExecutiveChampionsData({
         allPairs.push({
           name: p.personelAdi,
           district,
-          meydanName: `${district} Meydanı & Çevresi`,
+          meydanName: `${district} ilçesi`,
           count,
         });
       });
     });
     allPairs.sort((a, b) => b.count - a.count);
     const top = allPairs[0] || {
-      name: 'HELİN ÖZDEMİR',
-      meydanName: 'Üsküdar Meydanı & Çevresi',
-      count: 748,
+      name: 'Veri bulunmuyor',
+      meydanName: 'Veri bulunmuyor',
+      count: 0,
     };
     meydanSpecialist = {
       name: top.name,
@@ -191,9 +182,9 @@ export function getExecutiveChampionsData({
     mobilityLeader,
     meydanSpecialist,
     generalStats: {
-      staffedMeydansToday: staffedMeydanCount || 13,
-      staffOnDutyToday: todayShifts.length || 15,
-      totalAllTimeResolved: totalAllTimeResolved || 12840,
+      staffedMeydansToday: staffedMeydanCount,
+      staffOnDutyToday: new Set(todayShifts.filter((s) => !isLeave(s.vardiyaTipi)).map((s) => s.personelAdi?.trim()).filter(Boolean)).size,
+      totalAllTimeResolved: totalAllTimeResolved,
     },
   };
 }

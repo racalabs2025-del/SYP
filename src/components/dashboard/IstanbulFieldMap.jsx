@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
-import compiledMeydanStats from '../../data/compiledMeydanStats.json';
-import dataFreshness from '../../data/dataFreshness.json';
+import { getApplicationFreshness } from '../../utils/dataFreshness';
+import DataFreshnessNotice from '../shared/DataFreshnessNotice';
 
 const ANADOLU_DISTRICTS = [
   { id: 'kadikoy', name: 'Kadıköy', ilce: 'KADIKÖY', title: 'Kadıköy Rıhtım Meydanı' },
@@ -47,7 +47,7 @@ const AVRUPA_DISTRICTS = [
   { id: 'kucukcekmece', name: 'Küçükçekmece', ilce: 'KÜÇÜKÇEKMECE', title: 'Küçükçekmece Meydanı' },
 ];
 
-export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [] }) {
+export default function IstanbulFieldMap({ todayShifts = [], shiftDate = '' }) {
   const [selectedMeydan, setSelectedMeydan] = useState(null);
   const [sideFilter, setSideFilter] = useState('all'); // 'all' | 'avrupa' | 'anadolu'
   const [showAllMeydanlar, setShowAllMeydanlar] = useState(false);
@@ -91,8 +91,7 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
     const plannedCount = staff.length;
     const openCount = districtStats.openByDistrict[ilce] || 0;
     const activePriorityCount = districtStats.priorityByDistrict[ilce] || 0;
-    const statsObj = compiledMeydanStats[m.id] || {};
-    const sonTarih = statsObj.sonTarih || dataFreshness?.lastApplicationDateFormatted || '14 Ağustos 2026';
+    const sonTarih = getApplicationFreshness(compiledExecutiveData).formatted;
 
     return {
       ...m,
@@ -105,12 +104,10 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
     };
   };
 
-  const allMeydanList = useMemo(() => {
-    return [
+  const allMeydanList = [
       ...AVRUPA_DISTRICTS.map((d) => ({ ...d, side: 'avrupa' })),
       ...ANADOLU_DISTRICTS.map((d) => ({ ...d, side: 'anadolu' })),
     ].map(evaluateMeydan);
-  }, [districtStats, staffByMeydan]);
 
   // Counts summary
   const totalStaffCount = useMemo(() => {
@@ -158,6 +155,7 @@ export default function IstanbulFieldMap({ todayShifts = [], activeMeydanlar = [
 
   return (
     <div className="istanbul-field-map-container" style={{ marginTop: '1rem' }}>
+      <DataFreshnessNotice executiveData={compiledExecutiveData} shiftDate={shiftDate} />
       {/* Controls & Filter Bar */}
       <div
         className="map-controls"

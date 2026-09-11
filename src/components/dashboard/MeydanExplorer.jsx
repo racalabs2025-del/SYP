@@ -43,7 +43,6 @@ export default function MeydanExplorer({
   selectedMeydan,
   onSelectMeydan,
   todayShifts = [],
-  activeDateKey = '',
   className = '',
 }) {
   const [activeYaka, setActiveYaka] = useState('anadolu'); // 'all' | 'anadolu' | 'avrupa' | 'ortak'

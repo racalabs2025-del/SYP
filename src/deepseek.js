@@ -1,5 +1,4 @@
-const DEFAULT_DIRECT_ENDPOINT = 'https://api.deepseek.com/v1/chat/completions';
-const DEFAULT_PROXY_ENDPOINT = '/api/deepseek';
+import { fetchPanelAI } from './service/aiClient';
 const CHUNK_SIZE = 8;
 const MAX_RETRY = 4;
 
@@ -38,15 +37,6 @@ function parseDeepSeekResponse(text) {
   }
 
   return rawList.map(normalizeShift).filter((item) => item && item.personelAdi && item.meydanId && item.tarih);
-}
-
-function readAiConfig() {
-  const proxyEndpoint = import.meta.env.VITE_AI_PROXY_URL || DEFAULT_PROXY_ENDPOINT;
-  const directApiKey = import.meta.env.VITE_DEEPSEEK_API_KEY;
-  const directEndpoint = import.meta.env.VITE_DEEPSEEK_ENDPOINT || DEFAULT_DIRECT_ENDPOINT;
-  const allowDirect = import.meta.env.VITE_ALLOW_CLIENT_DEEPSEEK === 'true';
-
-  return { allowDirect, directApiKey, directEndpoint, proxyEndpoint };
 }
 
 function shouldRetry(error) {
@@ -92,7 +82,6 @@ async function postWithRetry(requestFactory, retryCount = MAX_RETRY, onRetry) {
 }
 
 export async function sendToDeepSeek(rawJson, onProgress, options = {}) {
-  const config = readAiConfig();
   if (!Array.isArray(rawJson) || !rawJson.length) {
     return [];
   }
@@ -107,7 +96,7 @@ export async function sendToDeepSeek(rawJson, onProgress, options = {}) {
     const chunk = rawJson.slice(i, i + CHUNK_SIZE);
 
     try {
-      const chunkResult = await postWithRetry(() => fetchDeepSeekChunk(chunk, config, options));
+      const chunkResult = await postWithRetry(() => fetchDeepSeekChunk(chunk, options));
       allVardiyalar = [...allVardiyalar, ...chunkResult];
     } catch (error) {
       console.error(`Grup ${currentChunk} islenirken hata:`, error);
@@ -124,7 +113,7 @@ export async function sendToDeepSeek(rawJson, onProgress, options = {}) {
   return Array.from(unique.values());
 }
 
-async function fetchDeepSeekChunk(chunk, config, options = {}) {
+async function fetchDeepSeekChunk(chunk, options = {}) {
   const compactData = convertToCompactText(chunk);
   const expectedYear = Number(options.expectedYear) || new Date().getFullYear();
 
@@ -161,61 +150,15 @@ KURALLAR:
     response_format: { type: 'json_object' },
   };
 
-  try {
-    const proxyResponse = await fetch(config.proxyEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ provider: 'deepseek', payload: body }),
-    });
-
-    if (!proxyResponse.ok) {
-      const detail = await proxyResponse.text();
-      const proxyError = new Error(`Proxy yanıtı başarısız: ${proxyResponse.status}`);
-      proxyError.status = proxyResponse.status;
-      proxyError.detail = detail.slice(0, 200);
-      throw proxyError;
-    }
-
-    const proxyData = await proxyResponse.json();
-    const proxyText =
-      proxyData.choices?.[0]?.message?.content ||
-      proxyData.data?.choices?.[0]?.message?.content ||
-      proxyData.content ||
-      '';
-
-    return parseDeepSeekResponse(proxyText);
-  } catch {
-    // Proxy yoksa fallback denenecek.
-  }
-
-  if (!config.allowDirect || !config.directApiKey) {
-    throw new Error('DeepSeek proxy ulasilamadi. Ayrı terminalde `npm run proxy:ai` calistirin. Gerekirse VITE_AI_PROXY_URL ayarlayin veya gecici olarak VITE_ALLOW_CLIENT_DEEPSEEK=true kullanin.');
-  }
-
-  const res = await fetch(config.directEndpoint, {
+  const response = await fetchPanelAI({
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${config.directApiKey}`,
-    },
-    body: JSON.stringify(body),
+    body: JSON.stringify({ payload: body }),
   });
-
-  if (!res.ok) {
-    const errorBody = await res.text();
-    const directError = new Error(`DeepSeek API hatasi: ${res.status} - ${errorBody.substring(0, 120)}`);
-    directError.status = res.status;
-    throw directError;
+  if (!response.ok) {
+    const error = new Error('Akıllı servis isteği başarısız: ' + response.status);
+    error.status = response.status;
+    throw error;
   }
-
-  const data = await res.json();
-  const text = data.choices?.[0]?.message?.content || '';
-
-  try {
-    return parseDeepSeekResponse(text);
-  } catch (error) {
-    throw new Error(`Parse hatasi: ${error.message}. Ham yanitin basi: ${text.substring(0, 80)}`);
-  }
+  const data = await response.json();
+  return parseDeepSeekResponse(data.choices?.[0]?.message?.content || '');
 }

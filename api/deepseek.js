@@ -1,5 +1,5 @@
+import { authorizePanelRequest } from '../server/authorize.js';
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
@@ -11,7 +11,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY || process.env.VITE_DEEPSEEK_API_KEY;
+  const access = await authorizePanelRequest(req);
+  if (access.status !== 200) return res.status(access.status).json({ error: access.error });
+
+  const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
     return res.status(500).json({
       error: 'DeepSeek API Anahtarı sunucuda bulunamadı. Lütfen Vercel panelinden DEEPSEEK_API_KEY değişkenini ekleyin.',

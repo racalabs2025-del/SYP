@@ -1,3 +1,4 @@
+import { usePanelAccess } from '../hooks/usePanelAccess';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CalendarDaysIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, UserGroupIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { addDoc, collection, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, startAfter, where } from 'firebase/firestore';
@@ -997,6 +998,7 @@ function BasvuruGundemPanel({ meydanId }) {
 }
 
 export default function MeydanDetail({ onLogout }) {
+  const { canWrite } = usePanelAccess();
   const { id } = useParams();
   const [meydan, setMeydan] = useState(null);
   const [spotlight, setSpotlight] = useState(null);
@@ -1036,11 +1038,7 @@ export default function MeydanDetail({ onLogout }) {
   const startDateKey = visibleWeekKeys[0];
   const endDateKey = visibleWeekKeys[visibleWeekKeys.length - 1];
   const todayDateKey = toDateKey(new Date());
-  const thirtyDaysAgoDateKey = useMemo(() => {
-    const baseDate = new Date();
-    baseDate.setDate(baseDate.getDate() - 29);
-    return toDateKey(baseDate);
-  }, []);
+
 
   useEffect(() => {
     let active = true;
@@ -1276,6 +1274,7 @@ export default function MeydanDetail({ onLogout }) {
   }, [isGunlukOpen, loadGunlukNotlar]);
 
   const handleAddGunlukNot = useCallback(async () => {
+    if (!canWrite) { setGunlukError('Not ekleme yetkiniz bulunmuyor.'); return; }
     const personelAdi = String(selectedPersonel || '').trim();
     const notIcerik = String(gunlukText || '').trim();
 
@@ -1314,7 +1313,7 @@ export default function MeydanDetail({ onLogout }) {
     } finally {
       setSavingGunluk(false);
     }
-  }, [gunlukText, id, meydan?.isim, meydan?.tamAd, selectedPersonel]);
+  }, [gunlukText, id, meydan?.isim, meydan?.tamAd, selectedPersonel, canWrite]);
 
   const toggleGunlukNot = useCallback((noteId) => {
     setExpandedGunlukNotlar((current) => ({
@@ -1959,7 +1958,7 @@ export default function MeydanDetail({ onLogout }) {
                       type="button"
                       className="btn btn-primary"
                       onClick={handleAddGunlukNot}
-                      disabled={savingGunluk || !selectedPersonel || !gunlukText.trim()}
+                      disabled={!canWrite || savingGunluk || !selectedPersonel || !gunlukText.trim()}
                     >
                       {savingGunluk ? 'Kaydediliyor...' : 'Günlüğe Ekle'}
                     </button>

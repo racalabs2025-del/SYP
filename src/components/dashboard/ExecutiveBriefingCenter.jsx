@@ -1,3 +1,4 @@
+import DataFreshnessNotice from '../shared/DataFreshnessNotice';
 import React, { useMemo, useState } from 'react';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
 import dataFreshness from '../../data/dataFreshness.json';
@@ -7,6 +8,8 @@ import { exportExecutiveBriefingToExcel } from '../../utils/excelExport';
 
 export default function ExecutiveBriefingCenter({
   todayShifts = [],
+  shiftDate = '',
+  loadedAt = '',
   activeMeydanlar = [],
   isPresentationMode = false,
   onTogglePresentationMode = null,
@@ -39,6 +42,7 @@ export default function ExecutiveBriefingCenter({
 
   return (
     <section className="panel-section executive-briefing-section" style={{ marginTop: '1.5rem' }}>
+      <DataFreshnessNotice executiveData={compiledExecutiveData} shiftDate={shiftDate} loadedAt={loadedAt} />
       <div
         className="panel-section__header"
         style={{

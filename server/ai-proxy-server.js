@@ -1,3 +1,4 @@
+import { authorizePanelRequest } from './authorize.js';
 import http from 'http';
 import { readSecret } from '../scripts/shared/env.js';
 
@@ -398,7 +399,13 @@ const server = http.createServer(async (request, response) => {
     return;
   }
 
-  const apiKey = readSecret('DEEPSEEK_API_KEY', readSecret('VITE_DEEPSEEK_API_KEY'));
+  const access = await authorizePanelRequest(request);
+  if (access.status !== 200) {
+    sendJson(response, access.status, { error: access.error });
+    return;
+  }
+
+  const apiKey = readSecret('DEEPSEEK_API_KEY');
 
   if (!apiKey) {
     sendJson(response, 500, { error: 'DEEPSEEK_API_KEY tanimli degil.' });

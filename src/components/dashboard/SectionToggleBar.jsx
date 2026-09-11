@@ -146,7 +146,7 @@ const ChevronIcon = () => (
   </svg>
 );
 
-export function getSectionItem(itemKey) {
+function getSectionItem(itemKey) {
   return SECTION_ITEMS.find((section) => section.key === itemKey) || null;
 }
 

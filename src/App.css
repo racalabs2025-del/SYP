@@ -4309,7 +4309,7 @@
   pointer-events: none;
 }
 
-.login-form__input {
+.login-form .login-form__input {
   width: 100%;
   padding: 14px 16px 14px 44px;
   border-radius: 14px;
@@ -4321,7 +4321,7 @@
 }
 
 .login-form__input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .login-form__input:focus {

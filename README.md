@@ -1,138 +1,46 @@
-# SYP - Saha Yonetim Paneli
+# SYP — Saha Yönetim Paneli
 
-Saha Yonetim Paneli, IBB saha ekipleri icin meydan gorunurlugu, vardiya takibi ve Excel tabanli veri yukleme akisini yoneten bir React + Vite uygulamasidir.
+İBB saha ekipleri için meydan, vardiya, personel, başvuru ve faaliyet raporu yönetimi. React 19 + Vite arayüzü, Firebase Auth/Firestore ve Vercel API uçları kullanır.
 
-## Faz 1 Kapsami
+## Başlangıç
 
-- Mobil oncelikli ve kurumsal renklerle yenilenmis splash, login, dashboard ve meydan detay ekranlari
-- Session tabanli yonetici girisi
-- Firestore uzerinden meydan ve vardiya verisi okuma
-- Excel dosyalarini tarayip DeepSeek yardimiyla vardiya listesine donusturen yukleme akisi
-- Batch limitine uygun Firestore toplu yazma ve silme yardimcilari
-- Node scriptleri icin tasinabilir env ve kaynak klasor destegi
+Node 24 önerilir. Ortam değişkenleri için .env.example dosyasını temel alın; değerleri .env içine yazın.
 
-## Kurulum
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
-```
-
-Tek komutla hem Vite hem AI proxy calistirmak icin:
-
-```bash
+# Arayüz ve yerel AI/hava durumu proxy birlikte:
 npm run dev:full
 ```
 
-AI import akisi icin ayri terminalde proxy sunucusunu calistirin:
+## Giriş ve roller
 
-```bash
-npm run proxy:ai
-```
+Giriş e-posta ve hesap parolasıyla yapılır. Hesabın Firebase Email/Password sağlayıcısında bulunması ve sypRole yetki alanına sahip olması gerekir:
 
-## Ortam Degiskenleri
+- viewer: panel ve raporları görüntüler.
+- editor: veri ekler ve günceller.
+- admin: ek olarak kayıtları siler.
 
-Istemci tarafinda Vite degiskenleri kullanilir:
+İlk yönetici hesabı, sunucu kimlik bilgileri ve kuralların yayımlanması için [canlıya geçiş rehberini](SECURITY_ROLLOUT.md) izleyin. Eski ortak parola ve anonim giriş akışı kaldırılmıştır. Hesaplar hazır olmadan yeni kuralları canlıya yayımlamayın.
 
-```env
-VITE_AI_PROXY_URL=/api/deepseek
-VITE_ALLOW_CLIENT_DEEPSEEK=false
-VITE_FIREBASE_API_KEY=...
-VITE_FIREBASE_AUTH_DOMAIN=...
-VITE_FIREBASE_PROJECT_ID=...
-VITE_FIREBASE_STORAGE_BUCKET=...
-VITE_FIREBASE_MESSAGING_SENDER_ID=...
-VITE_FIREBASE_APP_ID=...
-VITE_FIREBASE_MEASUREMENT_ID=...
-```
+## Veri kaynakları
 
-Node scriptleri ayni degerleri process env veya kok `.env` dosyasindan okur.
+Meydanlar, vardiyalar, izinler, kronik sorunlar ve raporlar Firestore'dan okunur. Yönetici başvuru göstergeleri src/data altındaki derlenmiş özetlerden gelir. Başvuru veri tarihi, vardiya planı tarihi ve son okuma zamanı ayrı gösterilir. Yeni vardiya yüklemek başvuru özetini güncellemez.
 
-Proxy sunucusu icin su degiskenlerden biri gerekir:
+Başlıca koleksiyonlar: meydanlar, vardiyalar, personelIzinler, kronikSorunlar, meydanBasvurulari, meydanBasvuruStats, personelBasvuruOzetleri, meydanFaaliyetRaporlari ve operasyonelIcgoruler. Günlük notlar meydanların gunlukNotlar alt koleksiyonunda; parçalı raporlar chunks alt koleksiyonunda tutulur.
 
-```env
-DEEPSEEK_API_KEY=...
-# veya gecis donemi icin
-VITE_DEEPSEEK_API_KEY=...
-```
+## AI servisi
 
-Not: Firebase Authentication > Sign-in method altinda Anonymous secenegi acik olmali.
+Tarayıcı yalnızca VITE_AI_PROXY_URL (varsayılan /api/deepseek) üzerinden, oturum tokenıyla istek gönderir. DEEPSEEK_API_KEY sunucuda tutulur; istemciye doğrudan AI anahtarı gönderilmez. Yerel ve Vercel proxy aynı yetki doğrulamasını kullanır. Servis kullanılamadığında yönetici bülteni gerçek kayıtlardan hesaplanan özeti gösterir.
 
-## Firestore Rules Deploy
+## Kontroller
 
-Kronik sorun importu veya yonetim panelindeki yazma islemleri `permission-denied` hatasi veriyorsa canli projedeki Firestore kurallari bu repo ile senkron degildir.
-
-Kurallari deploy etmek icin:
-
-```bash
-npx firebase-tools login
-npx firebase-tools use <project-id>
-npm run deploy:rules
-```
-
-Bu repo icinde [firestore.rules](firestore.rules) ve [storage.rules](storage.rules) dosyalari [firebase.json](firebase.json) uzerinden deploy edilir.
-
-## Firestore Yapisi
-
-### `meydanlar`
-
-- `isim`: Kartta gosterilen kisa ad
-- `tamAd`: Detay veya tooltip icin uzun ad
-
-### `vardiyalar`
-
-- `personelAdi`
-- `meydanId`
-- `tarih` (`YYYY-MM-DD`)
-- `saatAraligi` (`HH:MM-HH:MM`)
-- `vardiyaTipi`
-- `createdAt`
-
-## Komutlar
-
-```bash
-npm run dev
-npm run build
+```sh
 npm run lint
+npm run smoke:verify
+npm run test:rules
 ```
 
-Ek yardimci scriptler:
+smoke:verify derleme ve güvenilirlik testlerini çalıştırır. test:rules Java 17+ gerektirir; demo-syp-tests projesinde yerel Firestore/Storage emülatörlerini kullanır. Canlı veri okumaz veya değiştirmez.
 
-```bash
-node scripts/test_ai.js
-node scripts/test_excel.js C:/ornek/klasor
-node scripts/bulk_import.js C:/ornek/klasor
-CONFIRM_WIPE=true node scripts/wipe_vardiyalar.js
-npm run seed:rapor
-npm run proxy:ai
-npm run assets:login:optimize
-```
-
-Ilk ornek faaliyet raporunu Firestore'a eklemek icin:
-
-```bash
-npm run seed:rapor
-```
-
-Komut varsayilan olarak kucuk bir PDF olusturur ve `meydanFaaliyetRaporlari/{docId}/chunks` formatinda yazar.
-Istege bagli parametreler:
-
-```bash
-npm run seed:rapor -- --title="Nisan 2026 Faaliyet Raporu" --name="nisan-2026-faaliyet-raporu.pdf"
-```
-
-Kaynak klasor parametresi verilmezse scriptler `PLANLAR_DIR` ortam degiskenini, o da yoksa varsayilan klasoru kullanir.
-
-## Bilinen Riskler
-
-- Firebase Auth kullanilsa da istemci tarafli route kontrolu tek basina guvenlik saglamaz; Firestore security rules mutlaka aktif edilmelidir.
-- `meydanFaaliyetRaporlari` ve altindaki `chunks` belgeleri icin uygun read/write rule olmadan rapor yukleme ve seed komutu `permission-denied` ile durur.
-- DeepSeek cagrisi varsayilan olarak `VITE_AI_PROXY_URL` uzerinden yapilir. Proxy yoksa ve `VITE_ALLOW_CLIENT_DEEPSEEK=true` ise istemci fallback devreye girer; bu durumda API anahtari istemcide oldugu icin gizli kalmaz.
-- `createdAt` olmayan eski vardiya kayitlari icin panel fallback okuma yapar; veri buyudukce gercek siralama icin tum kayitlarin timestamp ile yazilmasi onerilir.
-
-## Faz 2 Onerisi
-
-- Gercek kimlik dogrulama ve rol yonetimi
-- AI import katmanini backend'e tasima
-- Firestore sorgularini index destekli detayli filtrelere tasima
-- Vardiya kayitlarina audit log ve olusturan kullanici bilgisi ekleme
+Eski anonim bakım/import scriptleri yeni kurallarla yetkilendirilmez. Excel yükleme için yetkili panel akışını kullanın; scriptlerin geçiş sınırları ve doğrulama ayrıntıları [rehberde](SECURITY_ROLLOUT.md) açıklanmıştır.

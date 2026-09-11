@@ -1,3 +1,4 @@
+import { usePanelAccess } from '../hooks/usePanelAccess';
 import { lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   addDoc,
@@ -5,8 +6,6 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  limit,
-  orderBy,
   query,
   serverTimestamp,
   updateDoc,
@@ -241,14 +240,6 @@ function detectExpectedYear(rawJson, fileNames = []) {
   return validYears.sort((a, b) => b - a)[0];
 }
 
-function truncateText(value, maxLength = KRONIK_PREVIEW_LIMIT) {
-  const raw = String(value || '').trim();
-  if (raw.length <= maxLength) {
-    return raw;
-  }
-
-  return `${raw.slice(0, maxLength).trim()}...`;
-}
 
 function formatFileSize(bytes) {
   const value = Number(bytes) || 0;
@@ -503,6 +494,8 @@ function buildDataQualityIssues({ shifts = [], leaveRows = [], meydanMap = {} })
 }
 
 export default function Dashboard({ onLogout }) {
+  const { canWrite, canDelete } = usePanelAccess();
+  const adminUnlocked = canWrite;
   const statOverlayPanelRef = useRef(null);
   const kronikModalPanelRef = useRef(null);
   const [meydanlar, setMeydanlar] = useState([]);
@@ -510,7 +503,7 @@ export default function Dashboard({ onLogout }) {
   const [recentShifts, setRecentShifts] = useState([]);
   const [historyShifts, setHistoryShifts] = useState([]);
   const [kronikSorunlar, setKronikSorunlar] = useState([]);
-  const [kronikLoadError, setKronikLoadError] = useState('');
+  const [, setKronikLoadError] = useState('');
   const [loading, setLoading] = useState(true);
   const [uploadingPlan, setUploadingPlan] = useState(false);
   const [uploadingKronik, setUploadingKronik] = useState(false);
@@ -518,9 +511,6 @@ export default function Dashboard({ onLogout }) {
   const [status, setStatus] = useState({ type: '', text: '' });
   const [progress, setProgress] = useState(null);
   const [izinProgress, setIzinProgress] = useState(null);
-  const [adminUnlocked, setAdminUnlocked] = useState(false);
-  const [adminPasswordInput, setAdminPasswordInput] = useState('');
-  const [adminPasswordError, setAdminPasswordError] = useState(false);
   const [lastImportSummary, setLastImportSummary] = useState(null);
   const [showAllMeydanlar, setShowAllMeydanlar] = useState(false);
   const [expandedMeydanId, setExpandedMeydanId] = useState(() => getExpandedActiveMeydanId());
@@ -547,7 +537,7 @@ export default function Dashboard({ onLogout }) {
     setActiveId: setActiveStatOverlay,
     close: closeStatOverlay,
   } = useModalState('');
-  const [operationalInsights, setOperationalInsights] = useState([]);
+  const [, setOperationalInsights] = useState([]);
   const [insightsLoading, setInsightsLoading] = useState(false);
   const [insightsLastUpdatedAt, setInsightsLastUpdatedAt] = useState('');
   const [basvuruCountByMeydan, setBasvuruCountByMeydan] = useState({});
@@ -611,26 +601,15 @@ export default function Dashboard({ onLogout }) {
     return () => window.removeEventListener('syp:navigate-section', handleNavigateSection);
   }, []);
 
-  function toggleSection(key) {
-    setOpenSections((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) {
-        next.delete(key);
-      } else {
-        next.add(key);
-      }
-      return next;
-    });
-  }
 
   const uploading = uploadingPlan || uploadingKronik || uploadingIzin;
 
   const todayKey = toDateKey(new Date());
-  const [activeDateKey, setActiveDateKey] = useState('2026-09-08');
+  const [activeDateKey, setActiveDateKey] = useState(todayKey);
 
   const loadDashboard = useCallback(async () => {
     try {
-      const targetQueryDate = todayKey.startsWith('2026-09') ? todayKey : '2026-09-08';
+      const targetQueryDate = todayKey;
       const {
         meydanSnapshot,
         basvuruStatsSnapshot,
@@ -747,20 +726,8 @@ export default function Dashboard({ onLogout }) {
     const normalizedRecentShifts = normalizeShiftRows(recentDocs);
     const normalizedHistoryShifts = normalizeShiftRows(historyDocs);
 
-    let effectiveTodayShifts = normalizedTodayShifts;
-    let resolvedDateKey = targetQueryDate;
-
-    if (effectiveTodayShifts.length === 0 && normalizedHistoryShifts.length > 0) {
-      const dates = Array.from(new Set(normalizedHistoryShifts.map((s) => s.tarih).filter(Boolean)))
-        .sort()
-        .reverse();
-      if (dates.length > 0) {
-        resolvedDateKey = dates[0];
-        effectiveTodayShifts = normalizedHistoryShifts.filter((s) => s.tarih === resolvedDateKey);
-      }
-    }
-
-    setActiveDateKey(resolvedDateKey);
+    const effectiveTodayShifts = normalizedTodayShifts;
+    setActiveDateKey(targetQueryDate);
 
     const meydanList = Array.from(normalizedMeydanMap.values()).sort((left, right) => left.isim.localeCompare(right.isim, 'tr'));
     const normalizedMeydanById = Object.fromEntries(meydanList.map((item) => [item.id, item]));
@@ -895,6 +862,21 @@ export default function Dashboard({ onLogout }) {
     };
   }, [loadDashboard]);
 
+  const handleRefreshDataQuality = useCallback(async () => {
+    setQualityRefreshing(true);
+    setStatus((current) => ({ ...current, text: current.type === 'error' ? current.text : '' }));
+
+    try {
+      await loadDashboard();
+      setStatus({ type: 'success', text: 'Veri kalite taraması güncellendi.' });
+    } catch (error) {
+      console.error('Data quality refresh failed.', error);
+      setStatus({ type: 'error', text: 'Veri kalite taraması yenilenemedi.' });
+    } finally {
+      setQualityRefreshing(false);
+    }
+  }, [loadDashboard]);
+
   useEffect(() => {
     if (!adminUnlocked) {
       wasDataManagementOpenRef.current = false;
@@ -981,14 +963,6 @@ export default function Dashboard({ onLogout }) {
     setExpandedActiveMeydanId(expandedMeydanId);
   }, [expandedMeydanId]);
 
-  const handleToggleExpandedMeydan = useCallback((meydanId) => {
-    setExpandedMeydanId((current) => (current === meydanId ? '' : meydanId));
-  }, []);
-
-  const visibleKronikSorunlar = useMemo(
-    () => (showAllKronik ? kronikSorunlar : kronikSorunlar.slice(0, INITIAL_VISIBLE_KRONIK_COUNT)),
-    [kronikSorunlar, showAllKronik],
-  );
 
   const visibleAdminKronikSorunlar = useMemo(
     () => (showAllAdminKronik ? kronikSorunlar : kronikSorunlar.slice(0, INITIAL_VISIBLE_ADMIN_KRONIK_COUNT)),
@@ -1002,33 +976,6 @@ export default function Dashboard({ onLogout }) {
     [showAllMeydanYonetimiGorevleri],
   );
 
-  const scheduledShiftCountByMeydan = useMemo(() => {
-    const counts = new Map();
-
-    todayShifts.forEach((shift) => {
-      if (!shift.meydanId || isLeaveShift(shift.vardiyaTipi)) {
-        return;
-      }
-
-      counts.set(shift.meydanId, (counts.get(shift.meydanId) || 0) + 1);
-    });
-
-    return counts;
-  }, [todayShifts]);
-
-  const activeShiftCountByMeydan = useMemo(() => {
-    const counts = new Map();
-
-    todayShifts.forEach((shift) => {
-      if (!shift.meydanId || isLeaveShift(shift.vardiyaTipi) || !isShiftActive(shift.saatAraligi)) {
-        return;
-      }
-
-      counts.set(shift.meydanId, (counts.get(shift.meydanId) || 0) + 1);
-    });
-
-    return counts;
-  }, [todayShifts]);
 
   const scheduledPersonnelRows = useMemo(
     () => todayShifts
@@ -1054,55 +1001,6 @@ export default function Dashboard({ onLogout }) {
     [meydanMap, todayShifts],
   );
 
-  const plannedPersonnelSummaryByMeydan = useMemo(() => {
-    const summary = new Map();
-
-    todayShifts.forEach((shift) => {
-      if (!shift?.meydanId || isLeaveShift(shift.vardiyaTipi)) {
-        return;
-      }
-
-      const personelAdi = String(shift.personelAdi || '').trim();
-      if (!personelAdi) {
-        return;
-      }
-
-      const current = summary.get(shift.meydanId) || [];
-      if (!current.includes(personelAdi)) {
-        current.push(personelAdi);
-      }
-      summary.set(shift.meydanId, current);
-    });
-
-    return summary;
-  }, [todayShifts]);
-
-  const plannedPersonnelWithHoursByMeydan = useMemo(() => {
-    const summary = new Map();
-
-    todayShifts.forEach((shift) => {
-      if (!shift?.meydanId || isLeaveShift(shift.vardiyaTipi)) {
-        return;
-      }
-
-      const personelAdi = String(shift.personelAdi || '').trim();
-      if (!personelAdi) {
-        return;
-      }
-
-      const saatAraligi = String(shift.saatAraligi || '').trim() || '-';
-      const display = `${personelAdi} (${saatAraligi})`;
-      const current = summary.get(shift.meydanId) || [];
-
-      if (!current.includes(display)) {
-        current.push(display);
-      }
-
-      summary.set(shift.meydanId, current);
-    });
-
-    return summary;
-  }, [todayShifts]);
 
   const totalScheduledShiftCount = useMemo(
     () => scheduledPersonnelRows.length,
@@ -1176,7 +1074,7 @@ export default function Dashboard({ onLogout }) {
       const sanitizedInsights = insights.filter(isValidInsightText);
       setOperationalInsights(sanitizedInsights);
       setInsightsLastUpdatedAt(new Date().toLocaleString('tr-TR'));
-      saveOperationalInsights(db, todayKey, sanitizedInsights).catch(() => {});
+      if (canWrite) saveOperationalInsights(db, todayKey, sanitizedInsights).catch(() => {});
 
       if (!silent) {
         setStatus({ type: 'success', text: 'Akıllı destek içerikleri güncellendi.' });
@@ -1190,7 +1088,7 @@ export default function Dashboard({ onLogout }) {
         setInsightsLoading(false);
       }
     }
-  }, [basvuruCountByMeydan, historyShifts, kronikSorunlar, meydanlar, recentShifts, todayKey]);
+  }, [basvuruCountByMeydan, historyShifts, kronikSorunlar, meydanlar, recentShifts, todayKey, canWrite]);
 
   useEffect(() => {
     if (!meydanlar.length || loading) {
@@ -1205,13 +1103,6 @@ export default function Dashboard({ onLogout }) {
     };
   }, [loading, meydanlar.length, refreshOperationalInsights]);
 
-  function getScheduledCount(meydanId) {
-    return scheduledShiftCountByMeydan.get(meydanId) || 0;
-  }
-
-  function getActiveCount(meydanId) {
-    return activeShiftCountByMeydan.get(meydanId) || 0;
-  }
 
   async function loadRaporUrl(reportId) {
     if (raporUrls[reportId] && raporUrls[reportId] !== 'error') {
@@ -1250,6 +1141,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleUploadMeydanRaporu(event) {
+    if (!canWrite) { setStatus({ type: 'error', text: 'Veri düzenleme yetkiniz bulunmuyor.' }); return; }
     const files = Array.from(event.target.files || []);
     if (!files.length) {
       return;
@@ -1343,6 +1235,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleRemoveMeydanRaporu(reportId) {
+    if (!canDelete) { setStatus({ type: 'error', text: 'Silme işlemi için yönetici yetkisi gerekiyor.' }); return; }
     try {
       // Önce chunk'ları sil
       const chunksSnapshot = await getDocs(
@@ -1396,22 +1289,9 @@ export default function Dashboard({ onLogout }) {
     }
   }
 
-  async function handleRefreshDataQuality() {
-    setQualityRefreshing(true);
-    setStatus((current) => ({ ...current, text: current.type === 'error' ? current.text : '' }));
-
-    try {
-      await loadDashboard();
-      setStatus({ type: 'success', text: 'Veri kalite taraması güncellendi.' });
-    } catch (error) {
-      console.error('Data quality refresh failed.', error);
-      setStatus({ type: 'error', text: 'Veri kalite taraması yenilenemedi.' });
-    } finally {
-      setQualityRefreshing(false);
-    }
-  }
 
   async function handleDeleteAll() {
+    if (!canDelete) { setStatus({ type: 'error', text: 'Silme işlemi için yönetici yetkisi gerekiyor.' }); return; }
     const shouldDelete = window.confirm(
       'Tüm vardiyaları ve tanımlanmış meydanları silmek istediğinize emin misiniz? Sistem tamamen sıfırlanacaktır.',
     );
@@ -1436,6 +1316,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleDeleteShift(shiftId) {
+    if (!canDelete) { setStatus({ type: 'error', text: 'Silme işlemi için yönetici yetkisi gerekiyor.' }); return; }
     const shouldDelete = window.confirm('Bu vardiyayı silmek istediğinize emin misiniz?');
 
     if (!shouldDelete) {
@@ -1454,19 +1335,8 @@ export default function Dashboard({ onLogout }) {
     }
   }
 
-  function handleAdminUnlock(e) {
-    e.preventDefault();
-    if (adminPasswordInput === 'admin') {
-      setAdminUnlocked(true);
-      setAdminPasswordError(false);
-      setAdminPasswordInput('');
-    } else {
-      setAdminPasswordError(true);
-      setAdminPasswordInput('');
-    }
-  }
-
   async function handleExcelUpload(rawJson, meta = {}) {
+    if (!canWrite) { setStatus({ type: 'error', text: 'Veri düzenleme yetkiniz bulunmuyor.' }); return; }
     setUploadingPlan(true);
     setStatus({ type: '', text: '' });
     setLastImportSummary(null);
@@ -1503,6 +1373,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleKronikUpload(rawJson) {
+    if (!canWrite) { setStatus({ type: 'error', text: 'Veri düzenleme yetkiniz bulunmuyor.' }); return; }
     setUploadingKronik(true);
     setStatus({ type: '', text: '' });
 
@@ -1613,6 +1484,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleIzinUpload(rawJson) {
+    if (!canWrite) { setStatus({ type: 'error', text: 'Veri düzenleme yetkiniz bulunmuyor.' }); return; }
     setUploadingIzin(true);
     setIzinProgress(null);
     setStatus({ type: '', text: '' });
@@ -1758,6 +1630,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleSaveKronik(item) {
+    if (!canWrite) { setStatus({ type: 'error', text: 'Veri düzenleme yetkiniz bulunmuyor.' }); return; }
     const draft = getKronikDraft(item);
     const payload = {
       basvuruNo: String(draft.basvuruNo || '').trim() || '-',
@@ -1796,6 +1669,7 @@ export default function Dashboard({ onLogout }) {
   }
 
   async function handleDeleteKronik(item) {
+    if (!canDelete) { setStatus({ type: 'error', text: 'Silme işlemi için yönetici yetkisi gerekiyor.' }); return; }
     const shouldDelete = window.confirm(`${item.basvuruNo} numaralı kronik başvuruyu silmek istediğinize emin misiniz?`);
     if (!shouldDelete) {
       return;
@@ -1912,9 +1786,9 @@ export default function Dashboard({ onLogout }) {
           subtitle="Günün saha özeti, vardiya dengesi ve kritik operasyonel analizler"
           maxWidth="960px"
         >
-          <AIDailyExecutiveSummary
+          <AIDailyExecutiveSummary shiftDate={todayKey}
             todayShifts={todayShifts}
-            activeMeydanCount={activeMeydanlar.length || 95}
+            activeMeydanCount={new Set(todayShifts.map((shift) => shift.meydanId).filter(Boolean)).size}
             dataQualityIssuesCount={dataQualityIssues.length}
             kronikSorunlarCount={kronikSorunlar.length}
           />
@@ -1928,7 +1802,7 @@ export default function Dashboard({ onLogout }) {
           subtitle="Saha operasyon KPI analizi, açık başvuru takibi ve resmi rapor ihracı"
           maxWidth="1200px"
         >
-          <ExecutiveSummarySection
+          <ExecutiveSummarySection shiftDate={todayKey} loadedAt={dataQualityUpdatedAt}
             todayShifts={todayShifts}
             activeMeydanlar={activeMeydanlar}
             historyShifts={historyShifts}
@@ -1997,10 +1871,7 @@ export default function Dashboard({ onLogout }) {
         >
           <DataManagementSection
             adminUnlocked={adminUnlocked}
-            adminPasswordInput={adminPasswordInput}
-            adminPasswordError={adminPasswordError}
-            onAdminPasswordChange={(e) => { setAdminPasswordInput(e.target.value); setAdminPasswordError(false); }}
-            onAdminUnlock={handleAdminUnlock}
+            canDelete={canDelete}
             onRefreshOperationalInsights={() => refreshOperationalInsights({ silent: false })}
             insightsLoading={insightsLoading}
             insightsLastUpdatedAt={insightsLastUpdatedAt}

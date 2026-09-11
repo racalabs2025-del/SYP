@@ -8,7 +8,6 @@ import React from 'react';
  */
 export default function SypCircularLogo({
   size = 'md',
-  variant = 'minimal', // 'minimal' | 'shield' | 'location'
   animated = false,
   showText = false,
   className = '',

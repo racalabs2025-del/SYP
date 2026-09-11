@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "dev:full": "concurrently -k -n web,proxy -c cyan,green \"npm run dev\" \"npm run proxy:ai\"",
-    "proxy:ai": "node server/ai-proxy-server.js",
+    "proxy:ai": "node --env-file-if-exists=.env server/ai-proxy-server.js",
     "build": "vite build",
-    "smoke:verify": "npm run build && npm run import:basvurular -- --dry-run",
+    "smoke:verify": "npm run test:bundle && npm run test:reliability",
     "lint": "eslint .",
     "deploy:rules": "npx firebase-tools deploy --only firestore --project foodsense-e1bf6",
     "preview": "vite preview",
@@ -27,11 +27,16 @@
     "vardiya:dedupe:apply": "node scripts/dedupe_vardiyalar.mjs --apply",
     "izin:fix-dates": "node scripts/fix_personel_izin_dates.mjs",
     "izin:fix-dates:apply": "node scripts/fix_personel_izin_dates.mjs --apply",
-    "assets:login:optimize": "node scripts/optimize_login_scenes.mjs"
+    "assets:login:optimize": "node scripts/optimize_login_scenes.mjs",
+    "test:reliability": "node --test tests/reliability.test.mjs",
+    "test:rules": "firebase emulators:exec --only firestore,storage --project demo-syp-tests --config firebase.emulators.json \"node --test tests/firestore-rules.test.mjs\"",
+    "auth:role": "node --env-file-if-exists=.env scripts/set_panel_role.mjs",
+    "test:bundle": "node scripts/test_client_bundle.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "firebase": "^12.11.0",
+    "firebase-admin": "^14.4.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.2",
@@ -40,6 +45,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
@@ -47,6 +53,7 @@
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "firebase-tools": "^14.27.0",
     "globals": "^17.4.0",
     "sharp": "^0.34.5",
     "vite": "^8.0.1"

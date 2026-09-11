@@ -1,3 +1,5 @@
+import DataFreshnessNotice from '../shared/DataFreshnessNotice';
+import { getStatusCategory, STATUS_CATEGORIES } from '../../utils/decisionSupport';
 import React, { useMemo, useState } from 'react';
 import compiledExecutiveData from '../../data/compiledExecutiveBasvurular.json';
 
@@ -11,17 +13,17 @@ export default function OpenApplicationsSection() {
     return compiledExecutiveData?.unresolvedItems || [];
   }, []);
 
-  const totalOpenCount = compiledExecutiveData?.metadata?.totalOpen || 32;
-  const totalInProgressCount = compiledExecutiveData?.metadata?.totalInProgress || 200;
+  const totalOpenCount = compiledExecutiveData?.metadata?.totalOpen ?? 0;
+  const totalInProgressCount = compiledExecutiveData?.metadata?.totalInProgress ?? 0;
 
   // Filtered operational list (Privacy-safe: searches only safe fields)
   const filteredList = useMemo(() => {
     let list = rawUnresolvedItems;
 
     if (filterType === 'open') {
-      list = list.filter((item) => item.durum === 'Açık' || item.durum === 'Atama Bekliyor');
+      list = list.filter((item) => getStatusCategory(item.durum) === STATUS_CATEGORIES.OPEN);
     } else if (filterType === 'in_progress') {
-      list = list.filter((item) => item.durum !== 'Açık' && item.durum !== 'Atama Bekliyor');
+      list = list.filter((item) => getStatusCategory(item.durum) === STATUS_CATEGORIES.IN_PROGRESS);
     }
 
     if (searchQuery.trim()) {
@@ -64,6 +66,7 @@ export default function OpenApplicationsSection() {
 
   return (
     <section className="panel-section open-applications-section" style={{ marginTop: '1.5rem' }}>
+      <DataFreshnessNotice executiveData={compiledExecutiveData} />
       <div
         className="executive-table-container"
         style={{

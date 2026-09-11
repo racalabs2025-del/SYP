@@ -2,19 +2,6 @@ import compiledPersonelBasvurular from '../data/compiledPersonelBasvurular.json'
 
 const MAX_INSIGHTS = 6;
 
-function normalizeInsightText(value) {
-  return String(value || '')
-    .toLocaleLowerCase('tr-TR')
-    .replace(/[ıi]/g, 'i')
-    .replace(/[ğ]/g, 'g')
-    .replace(/[ü]/g, 'u')
-    .replace(/[ş]/g, 's')
-    .replace(/[ö]/g, 'o')
-    .replace(/[ç]/g, 'c')
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
 
 function isLeaveShift(type) {
   const t = String(type || '').toUpperCase();
@@ -29,20 +16,17 @@ function createMeydanNameMap(meydanlar) {
  * 1. Saha Koordinasyon Gücü (Günlük Canlı Durum)
  */
 function buildDailyCoordinationInsight(recentShifts, todayKey) {
-  const activeShifts = (recentShifts || []).filter((s) => !isLeaveShift(s?.vardiyaTipi));
-  const activeStaffCount = activeShifts.length || 15;
-  const activeMeydanCount = new Set(activeShifts.map((s) => s.meydanId).filter(Boolean)).size || 13;
+  const activeShifts = (recentShifts || []).filter((s) => s.tarih === todayKey && !isLeaveShift(s?.vardiyaTipi));
+  const activeStaffCount = new Set(activeShifts.map((s) => s.personelAdi).filter(Boolean)).size;
+  const activeMeydanCount = new Set(activeShifts.map((s) => s.meydanId).filter(Boolean)).size;
 
   return {
     title: 'Saha Koordinasyon Gücü',
-    text: `İstanbul genelinde bugün ${activeMeydanCount} meydanda toplam ${activeActiveSafe(activeStaffCount)} personel ile aktif saha koordinasyonu sağlanmaktadır. Ekipler sahada düzenli ziyaret, tespit ve yönetim faaliyetlerini sürdürmektedir.`,
+    text: `İstanbul genelinde bugün ${activeMeydanCount} meydanda toplam ${activeStaffCount} personel kayıtlı vardiya planında yer almaktadır. Plan kayıtları fiili saha varlığını doğrulamaz.`,
     severity: 'success',
   };
 }
 
-function activeActiveSafe(count) {
-  return count > 0 ? count : 15;
-}
 
 /**
  * 2. Saha Mobilite ve Esneklik Başarısı
@@ -146,7 +130,7 @@ function buildStablePairInsight(historyShifts, meydanlar) {
     const top = pairs[0];
     return {
       title: 'Meydan Deneyimi ve Uzmanlık',
-      text: `${top.name}, ${top.district} Meydanı & çevresinde ${top.count} saha faaliyetiyle bölge hakimiyetini ve saha sürekliliğini en üst düzeyde tutmaktadır.`,
+      text: `${top.name}, ${top.district} ilçesinde ${top.count} başvuru kaydıyla yer almaktadır; bu sayı tek bir meydana ait değildir.`,
       severity: 'info',
     };
   }
@@ -163,17 +147,17 @@ function buildRecordChampionInsight() {
 
   if (sorted.length > 0) {
     const top = sorted[0];
-    const rate = top.toplamBasvuru > 0 ? ((top.kapandi / top.toplamBasvuru) * 100).toFixed(1) : '98.5';
+    const rate = top.toplamBasvuru > 0 ? ((top.kapandi / top.toplamBasvuru) * 100).toFixed(1) : '0.0';
     return {
       title: 'Saha Çözüm ve Kayıt Öncüsü',
-      text: `Saha personelleri tarafından iletilen bildirimlerde %${rate} çözüm başarısı yakalanmıştır. ${top.personelAdi}, ${top.toplamBasvuru.toLocaleString('tr-TR')} saha kaydı ile saha koordinasyonunda öncü rol oynamaktadır.`,
+      text: `${top.personelAdi} adına kayıtlı başvurularda kapanma oranı %${rate} olarak hesaplanmıştır. ${top.personelAdi}, ${top.toplamBasvuru.toLocaleString('tr-TR')} saha kaydı ile saha koordinasyonunda öncü rol oynamaktadır.`,
       severity: 'success',
     };
   }
 
   return {
     title: 'Saha Çözüm ve Kayıt Öncüsü',
-    text: 'Saha personelleri tarafından iletilen bildirimlerde %98+ çözüm başarısı yakalanmış olup ekipler aktif saha koordinasyonunu başarıyla sürdürmektedir.',
+    text: 'Personel başvuru özeti bulunmuyor; çözüm oranı hesaplanamıyor.',
     severity: 'success',
   };
 }
@@ -223,8 +207,6 @@ export function buildLocalInsights({
   historyShifts = [],
   recentShifts = [],
   meydanlar = [],
-  kronikSorunlar = [],
-  basvuruCountByMeydan = {},
   todayKey = '',
 } = {}) {
   const insights = [];

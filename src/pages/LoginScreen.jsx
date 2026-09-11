@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
 import SypCircularLogo from '../components/shared/SypCircularLogo';
-import { signInAnonymouslyUser, verifyPanelPassword } from '../auth';
+import { signInPanel } from '../auth';
 import {
   ShieldCheckIcon,
   ClockIcon,
   CpuChipIcon,
   ArrowRightIcon,
   LockClosedIcon,
+  EnvelopeIcon,
 } from '@heroicons/react/24/outline';
 
 const LOGIN_SCENES = [
@@ -42,6 +43,7 @@ const LOGIN_SCENES = [
 export default function LoginScreen() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [activeScene, setActiveScene] = useState(0);
   const navigate = useNavigate();
@@ -54,14 +56,13 @@ export default function LoginScreen() {
     return () => clearInterval(timer);
   }, []);
 
-  async function handleAnonymousLogin(event) {
+  async function handleLogin(event) {
     event.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      verifyPanelPassword(passwordInput);
-      await signInAnonymouslyUser();
+      await signInPanel(emailInput, passwordInput);
       navigate('/', { replace: true });
     } catch (authError) {
       setError(authError.message || 'Giriş başarısız oldu.');
@@ -144,15 +145,20 @@ export default function LoginScreen() {
             <p>Saha Yönetim Paneli yetkili erişimi.</p>
           </div>
 
-          <form className="login-form" onSubmit={handleAnonymousLogin}>
-            <label htmlFor="panel-password-input" className="sr-only">Panel parolası</label>
+          <form className="login-form" onSubmit={handleLogin}>
+            <label htmlFor="panel-email-input" className="sr-only">E-posta</label>
+            <div className="login-form__input-wrap">
+              <EnvelopeIcon className="login-form__input-icon" width={18} height={18} />
+              <input id="panel-email-input" type="email" className="login-form__input" placeholder="E-posta adresiniz" autoComplete="username" value={emailInput} onChange={(event) => setEmailInput(event.target.value)} required />
+            </div>
+            <label htmlFor="panel-password-input" className="sr-only">Hesap parolası</label>
             <div className="login-form__input-wrap">
               <LockClosedIcon className="login-form__input-icon" width={18} height={18} />
               <input
                 id="panel-password-input"
                 type="password"
                 className="login-form__input"
-                placeholder="Panel parolası"
+                placeholder="Hesap parolası"
                 autoComplete="current-password"
                 value={passwordInput}
                 onChange={(event) => {

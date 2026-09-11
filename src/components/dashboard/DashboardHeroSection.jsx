@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import dataFreshness from '../../data/dataFreshness.json';
+import { formatDataDate } from '../../utils/dataFreshness';
 import { getMeydanYaka } from '../../utils/meydanYaka';
 
 export default function DashboardHeroSection({
   activeMeydanCount,
+  shiftDate = '',
   totalScheduledShiftCount,
   totalActiveShiftCount,
   activeStatOverlay,
@@ -18,7 +19,7 @@ export default function DashboardHeroSection({
 }) {
   const [modalYakaFilter, setModalYakaFilter] = useState('all'); // 'all' | 'avrupa' | 'anadolu'
   const overlayTitleId = `stat-overlay-title-${activeStatOverlay || 'default'}`;
-  const lastDataDateFormatted = dataFreshness?.lastApplicationDateFormatted || '14 Ağustos 2026';
+  const lastDataDateFormatted = formatDataDate(shiftDate);
 
   const modalAvrupaCount = useMemo(
     () => activeMeydanRows.filter((m) => getMeydanYaka(m) === 'avrupa').length,
@@ -45,7 +46,7 @@ export default function DashboardHeroSection({
         <div className="dashboard-hero__head">
           <span className="dashboard-hero__freshness-badge">
             <span className="freshness-icon" aria-hidden="true">🗓️</span>
-            <span>Son Saha Verisi: {lastDataDateFormatted}</span>
+            <span>Vardiya Planı: {lastDataDateFormatted}</span>
           </span>
           <span className="section-kicker">Günlük Operasyon</span>
         </div>

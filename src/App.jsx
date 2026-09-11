@@ -1,6 +1,6 @@
 import { Component, lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onIdTokenChanged } from 'firebase/auth';
 import './App.css';
 import './MeydanCard.css';
 import './MeydanGrid.css';
@@ -8,6 +8,8 @@ import MobileBottomNav from './components/shared/MobileBottomNav';
 import { SypCircularLoader } from './components/shared/SypCircularLogo';
 import { signOutAdmin } from './auth';
 import { auth } from './firebaseAuth';
+import { PanelAccessContext } from './hooks/usePanelAccess';
+import { getPanelRole, permissionsForRole } from './utils/permissions.js';
 
 function safeLazy(importFn) {
   return lazy(async () => {
@@ -137,15 +139,25 @@ function PublicRoute({ authenticated, authReady, children }) {
 
 function AppRoutes() {
   const [authReady, setAuthReady] = useState(false);
-  const [authenticated, setAuthenticated] = useState(false);
+  const [role, setRole] = useState(null);
+  const authenticated = Boolean(role);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setAuthenticated(Boolean(user));
-      setAuthReady(true);
+    let revision = 0;
+    const unsubscribe = onIdTokenChanged(auth, async (user) => {
+      const currentRevision = ++revision;
+      setAuthReady(false);
+      try {
+        const token = user && !user.isAnonymous ? await user.getIdTokenResult() : null;
+        if (currentRevision === revision) setRole(getPanelRole(token?.claims));
+      } catch {
+        if (currentRevision === revision) setRole(null);
+      } finally {
+        if (currentRevision === revision) setAuthReady(true);
+      }
     });
 
-    return () => unsubscribe();
+    return () => { revision++; unsubscribe(); };
   }, []);
 
   async function handleLogout() {
@@ -153,6 +165,7 @@ function AppRoutes() {
   }
 
   return (
+    <PanelAccessContext.Provider value={{ role, ...permissionsForRole(role) }}>
     <ErrorBoundary>
       <NavigationGuard authenticated={authenticated} />
       <Suspense fallback={<RouteLoading />}>
@@ -218,6 +231,7 @@ function AppRoutes() {
       </Suspense>
       {authenticated ? <MobileBottomNav /> : null}
     </ErrorBoundary>
+    </PanelAccessContext.Provider>
   );
 }
 

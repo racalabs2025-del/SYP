@@ -8,7 +8,10 @@ Buyuk_guncelleme/
 *.bak
 basvurudetaylar.xlsx
 scripts/
-server/
+server/ai-proxy-server.js
 .env*
 !dist
 
+
+scratch/
+tests/

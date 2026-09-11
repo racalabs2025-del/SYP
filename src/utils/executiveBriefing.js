@@ -1,3 +1,5 @@
+import { getApplicationFreshness } from './dataFreshness.js';
+import { isOpenOrInProgress } from './decisionSupport.js';
 /**
  * src/utils/executiveBriefing.js
  *
@@ -119,8 +121,9 @@ export function generateExecutiveBriefingData({
   const unresolvedItems = executiveData?.unresolvedItems || [];
   const slaItems = executiveData?.slaBreachedItems || [];
   const criticalItems = executiveData?.criticalItems || [];
-  const lastDataDate = freshnessData?.lastApplicationDate || '2026-08-14';
-  const lastDataDateFormatted = freshnessData?.lastApplicationDateFormatted || '14 Ağustos 2026';
+  const freshness = getApplicationFreshness(executiveData, freshnessData);
+  const lastDataDate = freshness.date;
+  const lastDataDateFormatted = freshness.formatted;
 
   // 1. SLA breaches by district
   const slaByDistrict = {};
@@ -156,7 +159,7 @@ export function generateExecutiveBriefingData({
 
   // 4. Critical Active vs Total
   const activeCriticalItems = criticalItems.filter(
-    (i) => i.durum !== 'Kapandı' && i.durum !== 'Çözüldü'
+    (i) => isOpenOrInProgress(i.durum)
   );
   const activeCritical = activeCriticalItems.length;
   const totalCritical = criticalItems.length;
@@ -208,9 +211,9 @@ export function generateExecutiveBriefingData({
     lastDataDate,
     lastDataDateFormatted,
     kpiSummary: {
-      totalUnresolved: meta.totalUnresolved || 232,
-      totalSlaBreached: meta.totalSlaBreached || 173,
-      totalAging30Plus: meta.totalAging30Plus || 147,
+      totalUnresolved: meta.totalUnresolved ?? unresolvedItems.length,
+      totalSlaBreached: meta.totalSlaBreached ?? slaItems.length,
+      totalAging30Plus: meta.totalAging30Plus ?? 0,
       activeCritical,
       totalCritical,
       unstaffedMeydanCount: unstaffedMeydanlar.length,
