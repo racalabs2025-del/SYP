@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
 import SypCircularLogo from '../components/shared/SypCircularLogo';
-import { signInPanel } from '../auth';
+import { signInDevBypass, signInPanel } from '../auth';
 import {
   ShieldCheckIcon,
   ClockIcon,
@@ -178,6 +178,73 @@ export default function LoginScreen() {
 
             {error ? <div className="message message-error">{error}</div> : null}
           </form>
+
+          {import.meta.env.DEV ? (
+            <div className="login-dev-bypass" style={{
+              marginTop: '1.25rem',
+              paddingTop: '1.1rem',
+              borderTop: '1px dashed rgba(255, 255, 255, 0.16)',
+              textAlign: 'center',
+            }}>
+              <div style={{
+                fontSize: '0.78rem',
+                color: '#94a3b8',
+                marginBottom: '0.6rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.45rem',
+              }}>
+                <span style={{
+                  display: 'inline-block',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#10b981',
+                  boxShadow: '0 0 8px rgba(16, 185, 129, 0.6)',
+                }} />
+                <span style={{ fontWeight: 500 }}>Yerel Geliştirici Ortamı</span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-block"
+                style={{
+                  backgroundColor: 'rgba(56, 189, 248, 0.12)',
+                  color: '#38bdf8',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
+                  padding: '0.7rem 1rem',
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
+                  borderRadius: '0.6rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.2s ease',
+                }}
+                disabled={loading}
+                onClick={async () => {
+                  setError('');
+                  setLoading(true);
+                  try {
+                    await signInDevBypass('admin');
+                    navigate('/', { replace: true });
+                  } catch (devError) {
+                    setError(devError.message || 'Geliştirici girişi yapılamadı.');
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+              >
+                <ShieldCheckIcon width={18} height={18} />
+                <span>Geliştirici Girişi (Hızlı Test - Admin)</span>
+              </button>
+              <div style={{ marginTop: '0.45rem', fontSize: '0.72rem', color: '#64748b' }}>
+                Şifre veya e-posta girmeden doğrudan yönetici yetkisiyle panele giriş yapın.
+              </div>
+            </div>
+          ) : null}
         </section>
       </main>
 

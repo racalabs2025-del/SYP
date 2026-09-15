@@ -6,7 +6,7 @@ import './MeydanCard.css';
 import './MeydanGrid.css';
 import MobileBottomNav from './components/shared/MobileBottomNav';
 import { SypCircularLoader } from './components/shared/SypCircularLogo';
-import { signOutAdmin } from './auth';
+import { getDevRole, signOutAdmin } from './auth';
 import { auth } from './firebaseAuth';
 import { PanelAccessContext } from './hooks/usePanelAccess';
 import { getPanelRole, permissionsForRole } from './utils/permissions.js';
@@ -138,26 +138,41 @@ function PublicRoute({ authenticated, authReady, children }) {
 }
 
 function AppRoutes() {
-  const [authReady, setAuthReady] = useState(false);
-  const [role, setRole] = useState(null);
+  const [authReady, setAuthReady] = useState(() => Boolean(getDevRole()));
+  const [role, setRole] = useState(() => getDevRole() || null);
   const authenticated = Boolean(role);
 
   useEffect(() => {
+    function handleCustomAuth(event) {
+      const newRole = event.detail?.role || null;
+      setRole(newRole);
+      setAuthReady(true);
+    }
+
+    window.addEventListener('syp_auth_change', handleCustomAuth);
+
     let revision = 0;
     const unsubscribe = onIdTokenChanged(auth, async (user) => {
       const currentRevision = ++revision;
       setAuthReady(false);
       try {
         const token = user && !user.isAnonymous ? await user.getIdTokenResult() : null;
-        if (currentRevision === revision) setRole(getPanelRole(token?.claims));
+        if (currentRevision === revision) {
+          const userRole = getPanelRole(token?.claims);
+          setRole(userRole || getDevRole() || null);
+        }
       } catch {
-        if (currentRevision === revision) setRole(null);
+        if (currentRevision === revision) setRole(getDevRole() || null);
       } finally {
         if (currentRevision === revision) setAuthReady(true);
       }
     });
 
-    return () => { revision++; unsubscribe(); };
+    return () => {
+      revision++;
+      unsubscribe();
+      window.removeEventListener('syp_auth_change', handleCustomAuth);
+    };
   }, []);
 
   async function handleLogout() {

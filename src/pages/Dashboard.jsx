@@ -20,7 +20,8 @@ import { db } from '../firebaseDb';
 import { useEscapeHandler } from '../hooks/useEscapeHandler';
 import { useFocusTrap } from '../hooks/useFocusTrap';
 import { useModalState } from '../hooks/useModalState';
-import { fetchDashboardBaseData } from '../service/dashboardService';
+import { fetchDashboardBaseData, fetchShiftsForDateRange, fetchAllHistoricalShifts } from '../service/dashboardService';
+import DailyDecisionCenter from '../components/dashboard/DailyDecisionCenter';
 import { COLLECTIONS, SUBCOLLECTIONS } from '../service/firestoreCollections';
 import { generateOperationalInsights } from '../service/operationalInsights';
 import { loadStoredOperationalInsights, saveOperationalInsights } from '../service/operationalInsightsStore';
@@ -502,6 +503,10 @@ export default function Dashboard({ onLogout }) {
   const [todayShifts, setTodayShifts] = useState([]);
   const [recentShifts, setRecentShifts] = useState([]);
   const [historyShifts, setHistoryShifts] = useState([]);
+  const [shiftDatePreset, setShiftDatePreset] = useState('30days');
+  const [loadedShiftDateRange, setLoadedShiftDateRange] = useState(null);
+  const [isHistoricalLoading, setIsHistoricalLoading] = useState(false);
+  const [hasFullHistoryLoaded, setHasFullHistoryLoaded] = useState(false);
   const [kronikSorunlar, setKronikSorunlar] = useState([]);
   const [, setKronikLoadError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -619,6 +624,7 @@ export default function Dashboard({ onLogout }) {
         personelIzinSnapshot,
         kronikResult,
         raporlarSnapshot,
+        loadedDateRange,
       } = await fetchDashboardBaseData(db, targetQueryDate);
 
     const rawMeydanList = meydanSnapshot.docs.map((snapshot) => ({ id: snapshot.id, ...snapshot.data() }));
@@ -742,6 +748,7 @@ export default function Dashboard({ onLogout }) {
     setTodayShifts(effectiveTodayShifts);
     setRecentShifts(normalizedRecentShifts);
     setHistoryShifts(normalizedHistoryShifts);
+    setLoadedShiftDateRange(loadedDateRange);
     setDataQualityIssues(qualityIssues);
     setDataQualityUpdatedAt(new Date().toLocaleString('tr-TR', {
       day: '2-digit',
@@ -830,6 +837,73 @@ export default function Dashboard({ onLogout }) {
       throw error;
     }
   }, [todayKey]);
+
+  const handleShiftPresetChange = async (preset) => {
+    setShiftDatePreset(preset);
+    let range = null;
+    const base = new Date(todayKey);
+    const toDateStr = (d) => d.toISOString().slice(0, 10);
+
+    if (preset === 'today') {
+      range = { from: todayKey, to: todayKey };
+    } else if (preset === '7days') {
+      const s = new Date(base);
+      s.setDate(s.getDate() - 7);
+      range = { from: toDateStr(s), to: todayKey };
+    } else if (preset === '30days') {
+      const s = new Date(base);
+      s.setDate(s.getDate() - 30);
+      range = { from: toDateStr(s), to: todayKey };
+    } else if (preset === 'all') {
+      if (hasFullHistoryLoaded) return;
+      setIsHistoricalLoading(true);
+      try {
+        const allDocs = await fetchAllHistoricalShifts(db, 1000);
+        const normalized = allDocs
+          .map((shift) => {
+            const normalizedM = normalizeMeydanInput({
+              meydanId: shift.meydanId,
+              tamAd: shift.rawLocation,
+            });
+            return normalizedM.valid ? { ...shift, meydanId: normalizedM.id } : shift;
+          })
+          .filter(Boolean);
+        setHistoryShifts(normalized);
+        setHasFullHistoryLoaded(true);
+        setStatus({ type: 'success', text: `Tüm geçmiş vardiyalar yüklendi (${normalized.length} kayıt).` });
+      } catch (err) {
+        console.error('Geçmiş vardiya yükleme hatası:', err);
+        setStatus({ type: 'error', text: 'Geçmiş vardiyalar yüklenemedi.' });
+      } finally {
+        setIsHistoricalLoading(false);
+      }
+      return;
+    }
+
+    if (range) {
+      setIsHistoricalLoading(true);
+      try {
+        const docs = await fetchShiftsForDateRange(db, range.from, range.to);
+        const normalized = docs
+          .map((shift) => {
+            const normalizedM = normalizeMeydanInput({
+              meydanId: shift.meydanId,
+              tamAd: shift.rawLocation,
+            });
+            return normalizedM.valid ? { ...shift, meydanId: normalizedM.id } : shift;
+          })
+          .filter(Boolean);
+        setHistoryShifts(normalized);
+        setLoadedShiftDateRange(range);
+        setStatus({ type: 'success', text: `${range.from} - ${range.to} arasındaki vardiyalar yüklendi (${normalized.length} kayıt).` });
+      } catch (err) {
+        console.error('Vardiya aralık sorgusu hatası:', err);
+        setStatus({ type: 'error', text: 'Vardiya aralığı yüklenemedi.' });
+      } finally {
+        setIsHistoricalLoading(false);
+      }
+    }
+  };
 
   useEffect(() => {
     let active = true;
@@ -1703,6 +1777,84 @@ export default function Dashboard({ onLogout }) {
       <Header onLogout={onLogout} />
 
       <main className="page page-dashboard">
+        {/* ─── GÜNLÜK OPERASYONEL KARAR MERKEZİ ─── */}
+        <DailyDecisionCenter
+          todayShifts={todayShifts}
+          activeDateKey={activeDateKey}
+          meydanlar={meydanlar}
+          kronikSorunlar={kronikSorunlar}
+          onSelectMeydan={(m) => {
+            setHeroMeydan(m);
+            setSelectedMeydan(null);
+          }}
+          onSelectMeydanById={(id) => {
+            const found = meydanlar.find((m) => m.id === id);
+            if (found) {
+              setHeroMeydan(found);
+              setSelectedMeydan(null);
+            }
+          }}
+        />
+
+        {/* ─── VARDİYA VERİ PENCERESİ & HIZLI ARALIK SORGUSU ─── */}
+        <div
+          className="dashboard-shift-filter-bar"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            background: '#ffffff',
+            padding: '0.45rem 0.85rem',
+            borderRadius: '10px',
+            border: '1px solid #e2e8f0',
+            marginBottom: '12px',
+            flexWrap: 'wrap',
+            gap: '0.5rem',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#0f172a' }}>🗓️ Vardiya Veri Penceresi:</span>
+            <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
+              {loadedShiftDateRange ? `${loadedShiftDateRange.from} → ${loadedShiftDateRange.to}` : 'Son 30 Gün'} ({historyShifts.length} Kayıt)
+            </span>
+            {isHistoricalLoading ? <span style={{ fontSize: '0.75rem', color: '#00498E', fontWeight: '600' }}>⏳ Veriler sorgulanıyor...</span> : null}
+          </div>
+          <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className={`btn btn-xs ${shiftDatePreset === 'today' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => handleShiftPresetChange('today')}
+              disabled={isHistoricalLoading}
+            >
+              Bugün
+            </button>
+            <button
+              type="button"
+              className={`btn btn-xs ${shiftDatePreset === '7days' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => handleShiftPresetChange('7days')}
+              disabled={isHistoricalLoading}
+            >
+              Son 7 Gün
+            </button>
+            <button
+              type="button"
+              className={`btn btn-xs ${shiftDatePreset === '30days' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => handleShiftPresetChange('30days')}
+              disabled={isHistoricalLoading}
+            >
+              Son 30 Gün
+            </button>
+            <button
+              type="button"
+              className={`btn btn-xs ${shiftDatePreset === 'all' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => handleShiftPresetChange('all')}
+              disabled={isHistoricalLoading || hasFullHistoryLoaded}
+            >
+              {hasFullHistoryLoaded ? '✓ Tüm Geçmiş Yüklü' : 'Tüm Geçmişi Yükle'}
+            </button>
+          </div>
+        </div>
+
         {/* ─── NEW EXECUTIVE 3-COLUMN DASHBOARD STAGE ─── */}
         <section className="executive-stage" aria-label="SYP Yönetici Vitrini ve Gezgini">
           {/* 1. Sol Kolon: Ana Meydan Gezgini / Explorer */}

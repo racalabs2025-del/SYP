@@ -16,7 +16,8 @@ service cloud.firestore {
       function operationalCollection() {
         return collectionId in ['meydanlar', 'vardiyalar', 'kronikSorunlar',
           'personelIzinler', 'meydanBasvurulari', 'meydanBasvuruStats',
-          'personelBasvuruOzetleri', 'meydanFaaliyetRaporlari', 'operasyonelIcgoruler'];
+          'personelBasvuruOzetleri', 'meydanFaaliyetRaporlari', 'operasyonelIcgoruler',
+          'vardiyaYuklemeLoglari'];
       }
       allow read: if operationalCollection() && member();
       allow create, update: if operationalCollection() && writer();

@@ -1567,21 +1567,21 @@ export const AVRUPA_DISTRICTS = [
           "Yeşil Alan ve Oturma Alanları"
         ],
         "aciklama": "14.000 m² büyüklüğündeki alan, 2024 yılında hizmete açılmış olup bölgenin sosyal yaşamına ve yaya kullanımına katkı sağlayan önemli kamusal alanlardan biridir. Meydan; yeşil alanları, çocuk oyun alanı ve İBB hizmet birimleriyle bölge halkına hizmet vermektedir.",
-        "heroImage": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
+        "heroImage": "/assets/meydan_photos/piyalepasa_meydani_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
-          "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
+          "/assets/meydan_photos/piyalepasa_meydani_1.jpg",
+          "/assets/meydan_photos/piyalepasa_meydani_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Piyalepaşa Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg"
+            "img": "/assets/meydan_photos/piyalepasa_meydani_1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
+            "img": "/assets/meydan_photos/piyalepasa_meydani_2.jpg"
           }
         ],
         "personnel": [
@@ -1645,21 +1645,21 @@ export const AVRUPA_DISTRICTS = [
           "Karaköy Tramvay Durağı"
         ],
         "aciklama": "25.000 m² büyüklüğündeki alanda Beyoğlu Karaköy Meydanı projesi kapsamında mevcut katlı otopark kaldırılarak, Karaköy’ün tarihî dokusuna uygun yeni bir meydan ve zemin altı otopark oluşturulması planlanmıştır. Proje ile yaya kullanımının artırılması, kamusal alanların genişletilmesi ve bölgenin kent kimliğine uygun şekilde yeniden düzenlenmesi amaçlanmaktadır.",
-        "heroImage": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
+        "heroImage": "/assets/meydan_photos/karakoy_meydani_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
-          "/assets/meydan_photos/photo_slide26_6477692101.jpg"
+          "/assets/meydan_photos/karakoy_meydani_1.jpg",
+          "/assets/meydan_photos/karakoy_meydani_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Karaköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg"
+            "img": "/assets/meydan_photos/karakoy_meydani_1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Karaköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide26_6477692101.jpg"
+            "img": "/assets/meydan_photos/karakoy_meydani_2.jpg"
           }
         ],
         "personnel": [
@@ -1762,21 +1762,21 @@ export const AVRUPA_DISTRICTS = [
           "Yeşil Alan"
         ],
         "aciklama": "70.000 m² büyüklüğündeki alan, Kabataş Transfer Merkezi ve meydan düzenleme projesi kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile yaya dolaşımı iyileştirilmiş, ulaşım entegrasyonu güçlendirilmiş ve kamusal kullanım alanları yeniden düzenlenerek bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
+        "heroImage": "/assets/meydan_photos/kabatas_meydani_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
-          "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
+          "/assets/meydan_photos/kabatas_meydani_1.jpg",
+          "/assets/meydan_photos/kabatas_meydani_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Beyoğlu Kabataş Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg"
+            "img": "/assets/meydan_photos/kabatas_meydani_1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Beyoğlu Kabataş Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
+            "img": "/assets/meydan_photos/kabatas_meydani_2.jpg"
           }
         ],
         "personnel": [
@@ -1842,21 +1842,21 @@ export const AVRUPA_DISTRICTS = [
           "İstanbul Kitapçısı"
         ],
         "aciklama": "2021 yılında tamamlanan kapsamlı meydan düzenleme çalışmalarıyla yenilenerek  İstanbulluların 8.000 m² alan kullanımına sunulmuştur. Çalışmalar kapsamında yeşil alanlar artırılmış, yaya dolaşımı iyileştirilmiş ve meydan modern bir kamusal yaşam alanı olarak yeniden düzenlenmiştir. Böylece meydan, ulaşım işlevinin yanı sıra kent yaşamına katkı sağlayan önemli kamusal alanlardan biri hâline gelmiştir.",
-        "heroImage": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
+        "heroImage": "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
-          "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
+          "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg",
+          "/assets/meydan_photos/mecidiyekoy_meydani_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Mecidiyeköy Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg"
+            "img": "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Mecidiyeköy Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
+            "img": "/assets/meydan_photos/mecidiyekoy_meydani_2.jpg"
           }
         ],
         "personnel": [
@@ -1880,21 +1880,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Halaskar Gençlik ve Yaşam Merkezi projesi çalışma kapsamında İstanbul’un en önemli merkezlerinden olan Mecidiyeköy Fulya Mahallesinde 8.000 m² alanda yer almaktadır. Mecidiyeköy bölgesine yeni bir kamusal yaşam alanı kazandırmak amacıyla geliştirilen Halaskar Gençlik ve Yaşam Merkezi projesi kapsamında düzenlenmiştir. Proje ile bölgenin kentsel yaşam kalitesinin artırılması, yaya kullanımının iyileştirilmesi ve sosyal yaşamın desteklenmesi hedeflenmiştir.",
-        "heroImage": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
+        "heroImage": "/assets/meydan_photos/halaskar_meydani_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
-          "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
+          "/assets/meydan_photos/halaskar_meydani_1.jpg",
+          "/assets/meydan_photos/halaskar_meydani_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg"
+            "img": "/assets/meydan_photos/halaskar_meydani_1.jpg"
           },
           {
             "id": "photo-2",
             "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
-            "img": "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
+            "img": "/assets/meydan_photos/halaskar_meydani_2.jpg"
           }
         ],
         "personnel": [
@@ -1917,15 +1917,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "2024 yılında gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 4.000 m² alan kullanıma açılmıştır. Proje kapsamında yapısal ve bitkisel peyzaj düzenlemeleri gerçekleştirilmiş, oturma ve dinlenme alanları oluşturularak meydan daha işlevsel ve estetik bir kamusal yaşam alanı hâline getirilmiştir. Böylece bölge sakinlerinin kullanımına yönelik nitelikli bir kent meydanı kazandırılmıştır.",
-        "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
+        "heroImage": "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
+          "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg",
+          "/assets/meydan_photos/sisli_ugur_mumcu_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şişli Uğur Mumcu Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
+            "img": "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg"
+          },
+          {
+            "id": "photo-2",
+            "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
+            "img": "/assets/meydan_photos/sisli_ugur_mumcu_2.jpg"
           }
         ],
         "personnel": [
@@ -1948,15 +1954,21 @@ export const AVRUPA_DISTRICTS = [
           "Oturma Alanları"
         ],
         "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 3.500 m² alan kullanıma açılmıştır. Çalışmalar kapsamında yapısal ve bitkisel peyzaj düzenlemeleri yapılmış, yaya dolaşımı iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür. Böylece kent yaşamına katkı sağlayan nitelikli bir meydan olarak hizmet vermeye başlamıştır.",
-        "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
+        "heroImage": "/assets/meydan_photos/sisli_cami_onu_1.jpg",
         "images": [
-          "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
+          "/assets/meydan_photos/sisli_cami_onu_1.jpg",
+          "/assets/meydan_photos/sisli_cami_onu_2.jpg"
         ],
         "landmarks": [
           {
             "id": "photo-1",
             "name": "Şişli Cami Önü Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
+            "img": "/assets/meydan_photos/sisli_cami_onu_1.jpg"
+          },
+          {
+            "id": "photo-2",
+            "name": "Şişli Cami Önü Meydanı Görsel 2",
+            "img": "/assets/meydan_photos/sisli_cami_onu_2.jpg"
           }
         ],
         "personnel": [
@@ -3932,21 +3944,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan ve Oturma Alanları"
     ],
     "aciklama": "14.000 m² büyüklüğündeki alan, 2024 yılında hizmete açılmış olup bölgenin sosyal yaşamına ve yaya kullanımına katkı sağlayan önemli kamusal alanlardan biridir. Meydan; yeşil alanları, çocuk oyun alanı ve İBB hizmet birimleriyle bölge halkına hizmet vermektedir.",
-    "heroImage": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
+    "heroImage": "/assets/meydan_photos/piyalepasa_meydani_1.jpg",
     "images": [
-      "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg",
-      "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
+      "/assets/meydan_photos/piyalepasa_meydani_1.jpg",
+      "/assets/meydan_photos/piyalepasa_meydani_2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Piyalepaşa Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/photo_slide27_f7ccb7457f.jpg"
+        "img": "/assets/meydan_photos/piyalepasa_meydani_1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Piyalepaşa Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide27_228eee7107.jpg"
+        "img": "/assets/meydan_photos/piyalepasa_meydani_2.jpg"
       }
     ],
     "personnel": [
@@ -4010,21 +4022,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Karaköy Tramvay Durağı"
     ],
     "aciklama": "25.000 m² büyüklüğündeki alanda Beyoğlu Karaköy Meydanı projesi kapsamında mevcut katlı otopark kaldırılarak, Karaköy’ün tarihî dokusuna uygun yeni bir meydan ve zemin altı otopark oluşturulması planlanmıştır. Proje ile yaya kullanımının artırılması, kamusal alanların genişletilmesi ve bölgenin kent kimliğine uygun şekilde yeniden düzenlenmesi amaçlanmaktadır.",
-    "heroImage": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
+    "heroImage": "/assets/meydan_photos/karakoy_meydani_1.jpg",
     "images": [
-      "/assets/meydan_photos/photo_slide26_1016c46c95.jpg",
-      "/assets/meydan_photos/photo_slide26_6477692101.jpg"
+      "/assets/meydan_photos/karakoy_meydani_1.jpg",
+      "/assets/meydan_photos/karakoy_meydani_2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Karaköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/photo_slide26_1016c46c95.jpg"
+        "img": "/assets/meydan_photos/karakoy_meydani_1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Karaköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide26_6477692101.jpg"
+        "img": "/assets/meydan_photos/karakoy_meydani_2.jpg"
       }
     ],
     "personnel": [
@@ -4127,21 +4139,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Yeşil Alan"
     ],
     "aciklama": "70.000 m² büyüklüğündeki alan, Kabataş Transfer Merkezi ve meydan düzenleme projesi kapsamında yeniden düzenlenerek hizmete açılmıştır. Proje ile yaya dolaşımı iyileştirilmiş, ulaşım entegrasyonu güçlendirilmiş ve kamusal kullanım alanları yeniden düzenlenerek bölgeye modern, erişilebilir ve işlevsel bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
+    "heroImage": "/assets/meydan_photos/kabatas_meydani_1.jpg",
     "images": [
-      "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg",
-      "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
+      "/assets/meydan_photos/kabatas_meydani_1.jpg",
+      "/assets/meydan_photos/kabatas_meydani_2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Beyoğlu Kabataş Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/photo_slide25_4a71b52a47.jpg"
+        "img": "/assets/meydan_photos/kabatas_meydani_1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Beyoğlu Kabataş Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide25_4c501cb3c7.jpg"
+        "img": "/assets/meydan_photos/kabatas_meydani_2.jpg"
       }
     ],
     "personnel": [
@@ -4167,21 +4179,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "İstanbul Kitapçısı"
     ],
     "aciklama": "2021 yılında tamamlanan kapsamlı meydan düzenleme çalışmalarıyla yenilenerek  İstanbulluların 8.000 m² alan kullanımına sunulmuştur. Çalışmalar kapsamında yeşil alanlar artırılmış, yaya dolaşımı iyileştirilmiş ve meydan modern bir kamusal yaşam alanı olarak yeniden düzenlenmiştir. Böylece meydan, ulaşım işlevinin yanı sıra kent yaşamına katkı sağlayan önemli kamusal alanlardan biri hâline gelmiştir.",
-    "heroImage": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
+    "heroImage": "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg",
     "images": [
-      "/assets/meydan_photos/photo_slide85_39dea70ced.jpg",
-      "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
+      "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg",
+      "/assets/meydan_photos/mecidiyekoy_meydani_2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Mecidiyeköy Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/photo_slide85_39dea70ced.jpg"
+        "img": "/assets/meydan_photos/mecidiyekoy_meydani_1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Mecidiyeköy Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide85_ee27489aaf.jpg"
+        "img": "/assets/meydan_photos/mecidiyekoy_meydani_2.jpg"
       }
     ],
     "personnel": [
@@ -4205,21 +4217,21 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Halaskar Gençlik ve Yaşam Merkezi projesi çalışma kapsamında İstanbul’un en önemli merkezlerinden olan Mecidiyeköy Fulya Mahallesinde 8.000 m² alanda yer almaktadır. Mecidiyeköy bölgesine yeni bir kamusal yaşam alanı kazandırmak amacıyla geliştirilen Halaskar Gençlik ve Yaşam Merkezi projesi kapsamında düzenlenmiştir. Proje ile bölgenin kentsel yaşam kalitesinin artırılması, yaya kullanımının iyileştirilmesi ve sosyal yaşamın desteklenmesi hedeflenmiştir.",
-    "heroImage": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
+    "heroImage": "/assets/meydan_photos/halaskar_meydani_1.jpg",
     "images": [
-      "/assets/meydan_photos/photo_slide84_ca09c75174.jpg",
-      "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
+      "/assets/meydan_photos/halaskar_meydani_1.jpg",
+      "/assets/meydan_photos/halaskar_meydani_2.jpg"
     ],
     "landmarks": [
       {
         "id": "photo-1",
         "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 1",
-        "img": "/assets/meydan_photos/photo_slide84_ca09c75174.jpg"
+        "img": "/assets/meydan_photos/halaskar_meydani_1.jpg"
       },
       {
         "id": "photo-2",
         "name": "Halaskar Gençlik ve Yaşam Merkezi Meydanı Görsel 2",
-        "img": "/assets/meydan_photos/photo_slide84_3a55ff979f.jpg"
+        "img": "/assets/meydan_photos/halaskar_meydani_2.jpg"
       }
     ],
     "personnel": [
@@ -4242,16 +4254,22 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "2024 yılında gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 4.000 m² alan kullanıma açılmıştır. Proje kapsamında yapısal ve bitkisel peyzaj düzenlemeleri gerçekleştirilmiş, oturma ve dinlenme alanları oluşturularak meydan daha işlevsel ve estetik bir kamusal yaşam alanı hâline getirilmiştir. Böylece bölge sakinlerinin kullanımına yönelik nitelikli bir kent meydanı kazandırılmıştır.",
-    "heroImage": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg",
+    "heroImage": "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg",
     "images": [
-          "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
-        ],
+      "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg",
+      "/assets/meydan_photos/sisli_ugur_mumcu_2.jpg"
+    ],
     "landmarks": [
       {
-            "id": "photo-1",
-            "name": "Şişli Uğur Mumcu Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide87_e1433cd88a.jpg"
-          }
+        "id": "photo-1",
+        "name": "Şişli Uğur Mumcu Meydanı Görsel 1",
+        "img": "/assets/meydan_photos/sisli_ugur_mumcu_1.jpg"
+      },
+      {
+        "id": "photo-2",
+        "name": "Şişli Uğur Mumcu Meydanı Görsel 2",
+        "img": "/assets/meydan_photos/sisli_ugur_mumcu_2.jpg"
+      }
     ],
     "personnel": [
       "ZEYNEP AYDEMİR",
@@ -4273,16 +4291,22 @@ export const ALL_CANONICAL_MEYDANLAR = [
       "Oturma Alanları"
     ],
     "aciklama": "Gerçekleştirilen meydan düzenleme çalışmaları kapsamında yenilenerek 3.500 m² alan kullanıma açılmıştır. Çalışmalar kapsamında yapısal ve bitkisel peyzaj düzenlemeleri yapılmış, yaya dolaşımı iyileştirilmiş ve meydan daha düzenli, erişilebilir ve işlevsel bir kamusal yaşam alanına dönüştürülmüştür. Böylece kent yaşamına katkı sağlayan nitelikli bir meydan olarak hizmet vermeye başlamıştır.",
-    "heroImage": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg",
+    "heroImage": "/assets/meydan_photos/sisli_cami_onu_1.jpg",
     "images": [
-          "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
-        ],
+      "/assets/meydan_photos/sisli_cami_onu_1.jpg",
+      "/assets/meydan_photos/sisli_cami_onu_2.jpg"
+    ],
     "landmarks": [
       {
-            "id": "photo-1",
-            "name": "Şişli Cami Önü Meydanı Görsel 1",
-            "img": "/assets/meydan_photos/photo_slide86_f0d4b23867.jpg"
-          }
+        "id": "photo-1",
+        "name": "Şişli Cami Önü Meydanı Görsel 1",
+        "img": "/assets/meydan_photos/sisli_cami_onu_1.jpg"
+      },
+      {
+        "id": "photo-2",
+        "name": "Şişli Cami Önü Meydanı Görsel 2",
+        "img": "/assets/meydan_photos/sisli_cami_onu_2.jpg"
+      }
     ],
     "personnel": [
       "ZEYNEP AYDEMİR",

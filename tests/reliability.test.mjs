@@ -8,6 +8,7 @@ import { getApplicationFreshness } from '../src/utils/dataFreshness.js';
 import { buildExecutiveBriefingDataset } from '../src/utils/executiveExportDataset.js';
 import { buildDailySummary } from '../src/utils/dailySummary.js';
 import { getExecutiveChampionsData } from '../src/utils/executiveChampions.js';
+import { getDefaultShiftDateRange } from '../src/service/dashboardService.js';
 
 test('only password users with an assigned role can enter the panel', () => {
   for (const role of ['admin', 'editor', 'viewer']) {
@@ -96,4 +97,15 @@ test('personnel summaries do not invent leaders or staffing for empty data', () 
   assert.equal(data.recordLeader.totalRecords, 0);
   assert.equal(data.mobilityLeader.distinctCount, 0);
   assert.equal(data.meydanSpecialist.assignmentCount, 0);
+});
+
+test('dashboard default shift date range spans 30 days and produces valid ISO dates', () => {
+  const range = getDefaultShiftDateRange('2026-09-11');
+  assert.equal(range.to, '2026-09-11');
+  assert.equal(range.from, '2026-08-12');
+  assert.match(range.from, /^\d{4}-\d{2}-\d{2}$/);
+  assert.match(range.to, /^\d{4}-\d{2}-\d{2}$/);
+  const fallback = getDefaultShiftDateRange(null);
+  assert.ok(fallback.from && fallback.to);
+  assert.ok(fallback.from <= fallback.to);
 });

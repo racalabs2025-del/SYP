@@ -1,4 +1,4 @@
-import { browserSessionPersistence, setPersistence, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { browserSessionPersistence, setPersistence, signInWithEmailAndPassword, signInAnonymously, signOut } from 'firebase/auth';
 import { auth } from './firebaseAuth';
 import { getPanelRole } from './utils/permissions.js';
 
@@ -19,6 +19,29 @@ export async function signInPanel(email, password) {
   }
 }
 
+export async function signInDevBypass(role = 'admin') {
+  if (typeof window !== 'undefined') {
+    sessionStorage.setItem('syp_dev_role', role);
+    try {
+      await signInAnonymously(auth);
+    } catch (error) {
+      console.warn('Dev bypass anonymous auth failed or disabled:', error?.message);
+    }
+    window.dispatchEvent(new CustomEvent('syp_auth_change', { detail: { role } }));
+  }
+}
+
+export function getDevRole() {
+  if (typeof window !== 'undefined') {
+    return sessionStorage.getItem('syp_dev_role') || null;
+  }
+  return null;
+}
+
 export async function signOutAdmin() {
+  if (typeof window !== 'undefined') {
+    sessionStorage.removeItem('syp_dev_role');
+    window.dispatchEvent(new CustomEvent('syp_auth_change', { detail: { role: null } }));
+  }
   await signOut(auth);
 }

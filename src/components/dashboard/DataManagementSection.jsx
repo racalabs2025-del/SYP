@@ -1,5 +1,7 @@
-import { useState, useMemo, Suspense } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import ExcelWizardModal from './ExcelWizardModal';
+import { db } from '../../firebaseDb';
+import { fetchLatestExcelAuditLogs } from '../../service/dashboardService';
 
 export default function DataManagementSection({
   adminUnlocked,
@@ -60,6 +62,24 @@ export default function DataManagementSection({
   const [qualitySeverityFilter, setQualitySeverityFilter] = useState('all');
   const [visibleQualityCount, setVisibleQualityCount] = useState(8);
   const [wizardModalOpen, setWizardModalOpen] = useState(false);
+  const [auditLogs, setAuditLogs] = useState([]);
+  const [auditLoading, setAuditLoading] = useState(false);
+
+  const loadAuditLogs = async () => {
+    setAuditLoading(true);
+    try {
+      const logs = await fetchLatestExcelAuditLogs(db, 10);
+      setAuditLogs(logs);
+    } finally {
+      setAuditLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (adminUnlocked) {
+      loadAuditLogs();
+    }
+  }, [adminUnlocked]);
 
   const qualitySummary = useMemo(() => {
     const list = Array.isArray(dataQualityIssues) ? dataQualityIssues : [];
@@ -701,6 +721,81 @@ export default function DataManagementSection({
             )}
           </div>
 
+          {/* Excel Yükleme Denetim İzi (Audit Trail) Tablosu */}
+          <div className="table-section" style={{ marginBottom: '2rem' }}>
+            <div className="table-section__header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div>
+                <h3 style={{ margin: 0 }}>📋 Excel Yükleme Geçmişi & Denetim İzi</h3>
+                <span style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                  Hangi yetkilinin ne zaman hangi dosyayı yüklediği ve kaç kayıt eklediği kaydedilir.
+                </span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={loadAuditLogs}
+                disabled={auditLoading}
+                style={{ fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
+              >
+                {auditLoading ? 'Yenileniyor...' : '🔄 Denetim Listesini Yenile'}
+              </button>
+            </div>
+            <div className="table-wrapper">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Tarih / Saat</th>
+                    <th>Yükleyen Yetkili</th>
+                    <th>Dosya Adı</th>
+                    <th>Tarih Aralığı</th>
+                    <th>Eklenen / Atlanan</th>
+                    <th>Format</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {auditLogs.map((log) => {
+                    const dateStr = log.createdAt?.toDate
+                      ? log.createdAt.toDate().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+                      : '-';
+                    return (
+                      <tr key={log.id}>
+                        <td style={{ fontSize: '0.82rem', fontWeight: '600' }}>{dateStr}</td>
+                        <td style={{ fontSize: '0.82rem' }}>{log.yukleyenEmail || 'Yetkili'}</td>
+                        <td style={{ fontSize: '0.82rem', fontWeight: '500' }}>📄 {log.dosyaAdi}</td>
+                        <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                          {log.tarihAraligi?.baslangic && log.tarihAraligi?.bitis
+                            ? `${log.tarihAraligi.baslangic} → ${log.tarihAraligi.bitis}`
+                            : '-'}
+                        </td>
+                        <td>
+                          <span style={{ color: '#16a34a', fontWeight: '700', marginRight: '0.5rem' }}>+{log.eklenenKayitSayisi || 0} Yeni</span>
+                          {log.mevcutKayitSayisi > 0 ? (
+                            <span style={{ color: '#d97706', fontSize: '0.76rem' }}>({log.mevcutKayitSayisi} Mevcut)</span>
+                          ) : null}
+                          {log.hataliKayitSayisi > 0 ? (
+                            <span style={{ color: '#dc2626', fontSize: '0.76rem', marginLeft: '0.35rem' }}>({log.hataliKayitSayisi} Hatalı)</span>
+                          ) : null}
+                        </td>
+                        <td>
+                          <span className="badge" style={{ fontSize: '0.72rem', padding: '0.1rem 0.45rem' }}>
+                            {log.formatTipi === 'weekly' ? 'Haftalık' : 'Aylık'}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {!auditLogs.length && !auditLoading ? (
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: 'center', color: '#94a3b8', padding: '1.25rem' }}>
+                        Henüz denetim kaydı bulunmuyor.
+                      </td>
+                    </tr>
+                  ) : null}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div className="table-section">
             <div className="table-section__header">
               <h3>Son Eklenen Vardiyalar</h3>
@@ -756,6 +851,7 @@ export default function DataManagementSection({
             onClose={() => setWizardModalOpen(false)}
             onSuccess={() => {
               setWizardModalOpen(false);
+              loadAuditLogs();
               if (onRefreshDataQuality) onRefreshDataQuality();
             }}
           />

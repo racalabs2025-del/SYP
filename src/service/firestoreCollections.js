@@ -7,6 +7,7 @@ export const COLLECTIONS = {
   MEYDAN_BASVURU_STATS: 'meydanBasvuruStats',
   MEYDAN_FAALIYET_RAPORLARI: 'meydanFaaliyetRaporlari',
   OPERASYONEL_ICGORULER: 'operasyonelIcgoruler',
+  EXCEL_AUDIT: 'vardiyaYuklemeLoglari',
 };
 
 export const SUBCOLLECTIONS = {

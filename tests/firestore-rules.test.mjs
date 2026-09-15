@@ -7,7 +7,7 @@ import { ref, uploadBytes, getBytes, deleteObject } from 'firebase/storage';
 let env;
 const paths = ['meydanlar/test', 'vardiyalar/test', 'kronikSorunlar/test', 'personelIzinler/test',
   'meydanBasvurulari/test', 'meydanBasvuruStats/test', 'personelBasvuruOzetleri/test',
-  'meydanFaaliyetRaporlari/test', 'operasyonelIcgoruler/test',
+  'meydanFaaliyetRaporlari/test', 'operasyonelIcgoruler/test', 'vardiyaYuklemeLoglari/test',
   'meydanlar/test/gunlukNotlar/test', 'meydanFaaliyetRaporlari/test/chunks/test'];
 const token = (role, provider = 'password') => ({ sypRole: role, firebase: { sign_in_provider: provider } });
 

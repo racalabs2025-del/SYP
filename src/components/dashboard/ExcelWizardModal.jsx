@@ -1,10 +1,11 @@
 import { fetchPanelAI } from '../../service/aiClient';
 import { useState } from 'react';
 import * as XLSX from 'xlsx';
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously } from 'firebase/auth';
-import { collection, doc, getDocs, getFirestore, serverTimestamp, writeBatch } from 'firebase/firestore';
-import { firebaseConfig } from '../../shared/firebaseConfig';
+import { auth } from '../../firebaseAuth';
+import { db } from '../../firebaseDb';
+import { addDoc, collection, doc, getDocs, query, serverTimestamp, where, writeBatch } from 'firebase/firestore';
+import { COLLECTIONS } from '../../service/firestoreCollections';
+import { usePanelAccess } from '../../hooks/usePanelAccess';
 import { normalizeMeydanInput } from '../../utils/meydanNormalization';
 
 const BATCH_LIMIT = 400;
@@ -90,13 +91,17 @@ function extractMeydanIds(cellValue) {
 }
 
 export default function ExcelWizardModal({ isOpen, onClose, onSuccess }) {
+  const { canWrite } = usePanelAccess();
   const [step, setStep] = useState(1);
   const [file, setFile] = useState(null);
   const [workbook, setWorkbook] = useState(null);
   const [selectedSheets, setSelectedSheets] = useState([]);
   const [formatType, setFormatType] = useState('monthly'); // 'monthly' | 'weekly'
   const [parsedShifts, setParsedShifts] = useState([]);
+  const [toBeAddedShifts, setToBeAddedShifts] = useState([]);
+  const [existingShifts, setExistingShifts] = useState([]);
   const [unresolvedCells, setUnresolvedCells] = useState([]);
+  const [activePreviewTab, setActivePreviewTab] = useState('toAdd'); // 'toAdd' | 'existing' | 'unresolved'
   const [isResolvingAI, setIsResolvingAI] = useState(false);
   const [aiResolvedCount, setAiResolvedCount] = useState(0);
   const [parseStats, setParseStats] = useState(null);
@@ -138,10 +143,10 @@ export default function ExcelWizardModal({ isOpen, onClose, onSuccess }) {
     }
   };
 
-  const handleParseAndSimulate = () => {
+  const handleParseAndSimulate = async () => {
     if (!workbook || selectedSheets.length === 0) return;
 
-    setStatusMsg('Veriler ayrıştırılıyor...');
+    setStatusMsg('Veriler ayrıştırılıyor ve veritabanı simülasyonu yapılıyor...');
     const shiftList = [];
     const unmatchedList = [];
     const seenKeys = new Set();
@@ -269,7 +274,45 @@ export default function ExcelWizardModal({ isOpen, onClose, onSuccess }) {
       }
     }
 
+    const dates = shiftList.map((s) => s.tarih).filter(Boolean).sort();
+    const minDate = dates[0] || '';
+    const maxDate = dates[dates.length - 1] || '';
+
+    const existingSet = new Set();
+    const existingList = [];
+    if (minDate && maxDate) {
+      try {
+        const snap = await getDocs(
+          query(
+            collection(db, COLLECTIONS.VARDIYALAR),
+            where('tarih', '>=', minDate),
+            where('tarih', '<=', maxDate),
+          ),
+        );
+        snap.docs.forEach((d) => {
+          const data = d.data();
+          if (data.personelAdi && data.tarih && data.meydanId) {
+            existingSet.add(`${data.personelAdi}_${data.tarih}_${data.meydanId}`);
+          }
+        });
+      } catch (err) {
+        console.warn('Mevcut kayıtları sorgulama hatası:', err);
+      }
+    }
+
+    const toAdd = [];
+    shiftList.forEach((s) => {
+      const key = `${s.personelAdi}_${s.tarih}_${s.meydanId}`;
+      if (existingSet.has(key)) {
+        existingList.push(s);
+      } else {
+        toAdd.push(s);
+      }
+    });
+
     setParsedShifts(shiftList);
+    setToBeAddedShifts(toAdd);
+    setExistingShifts(existingList);
     setUnresolvedCells(unmatchedList);
     setAiResolvedCount(0);
     setParseStats({
@@ -279,6 +322,10 @@ export default function ExcelWizardModal({ isOpen, onClose, onSuccess }) {
       skippedCells,
       totalShifts: shiftList.length,
       unresolvedCount: unmatchedList.length,
+      toAddCount: toAdd.length,
+      existingCount: existingList.length,
+      minDate,
+      maxDate,
     });
     setStatusMsg('');
     setStep(3);
@@ -323,12 +370,13 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
 
       let newlyAdded = 0;
       const updatedShifts = [...parsedShifts];
+      const newlyAddedShifts = [];
       const remainingUnresolved = [];
 
       unresolvedCells.forEach((item) => {
         const resolvedId = mapping[item.cellStr];
         if (resolvedId) {
-          updatedShifts.push({
+          const shiftItem = {
             personelAdi: item.personelAdi,
             meydanId: resolvedId,
             tarih: item.isoDate,
@@ -336,7 +384,9 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
             vardiyaTipi: 'Gunduz',
             lokasyonRaw: `${item.cellStr} (Akıllı-Eşleşti)`,
             aiResolved: true,
-          });
+          };
+          updatedShifts.push(shiftItem);
+          newlyAddedShifts.push(shiftItem);
           newlyAdded++;
         } else {
           remainingUnresolved.push(item);
@@ -344,6 +394,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
       });
 
       setParsedShifts(updatedShifts);
+      setToBeAddedShifts((prev) => [...prev, ...newlyAddedShifts]);
       setUnresolvedCells(remainingUnresolved);
       setAiResolvedCount((prev) => prev + newlyAdded);
       setStatusMsg(`✨ Akıllı analiz ile ${newlyAdded} adet tanınmayan lokasyon başarıyla çözüldü!`);
@@ -356,39 +407,21 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
   };
 
   const handleConfirmAndUpload = async () => {
-    if (parsedShifts.length === 0) return;
+    if (!canWrite) {
+      setStatusMsg('Yetkisiz işlem: Veri ekleme yetkiniz bulunmuyor.');
+      return;
+    }
+    if (toBeAddedShifts.length === 0) {
+      setStatusMsg('Eklenecek yeni kayıt bulunmuyor. Tüm kayıtlar zaten mevcut.');
+      return;
+    }
 
     setIsUploading(true);
     setUploadPercent(0);
-    setStatusMsg("Firestore'a aktarılıyor...");
+    setStatusMsg("Firestore'a güvenli aktarılıyor...");
 
     try {
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-      await signInAnonymously(auth);
-
-      const existingSnap = await getDocs(collection(db, 'vardiyalar'));
-      const existingKeys = new Set();
-      existingSnap.docs.forEach((d) => {
-        const data = d.data();
-        if (data.personelAdi && data.tarih && data.meydanId) {
-          existingKeys.add(`${data.personelAdi}_${data.tarih}_${data.meydanId}`);
-        }
-      });
-
-      const newShifts = parsedShifts.filter((s) => {
-        const key = `${s.personelAdi}_${s.tarih}_${s.meydanId}`;
-        return !existingKeys.has(key);
-      });
-
-      if (newShifts.length === 0) {
-        setStatusMsg('Tüm kayıtlar zaten veritabanında mevcut.');
-        setIsUploading(false);
-        return;
-      }
-
-      const chunks = splitIntoChunks(newShifts, BATCH_LIMIT);
+      const chunks = splitIntoChunks(toBeAddedShifts, BATCH_LIMIT);
       let written = 0;
 
       for (let i = 0; i < chunks.length; i++) {
@@ -396,7 +429,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
         const batch = writeBatch(db);
 
         for (const shift of chunk) {
-          batch.set(doc(collection(db, 'vardiyalar')), {
+          batch.set(doc(collection(db, COLLECTIONS.VARDIYALAR)), {
             ...shift,
             createdAt: serverTimestamp(),
           });
@@ -404,11 +437,30 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
 
         await batch.commit();
         written += chunk.length;
-        const pct = Math.round((written / newShifts.length) * 100);
+        const pct = Math.round((written / toBeAddedShifts.length) * 100);
         setUploadPercent(pct);
       }
 
-      setStatusMsg(`Tamamlandı! ${written} yeni vardiya kaydı başarıyla eklendi.`);
+      // Denetim izi (audit trail) kaydı
+      const currentUser = auth.currentUser;
+      const dates = parsedShifts.map((s) => s.tarih).filter(Boolean).sort();
+      const minDate = dates[0] || '';
+      const maxDate = dates[dates.length - 1] || '';
+
+      await addDoc(collection(db, COLLECTIONS.EXCEL_AUDIT), {
+        yukleyenEmail: currentUser?.email || 'Yetkili Kullanıcı',
+        yukleyenUid: currentUser?.uid || '',
+        dosyaAdi: file?.name || 'excel_dosyasi.xlsx',
+        formatTipi: formatType,
+        tarihAraligi: { baslangic: minDate, bitis: maxDate },
+        eklenenKayitSayisi: written,
+        mevcutKayitSayisi: existingShifts.length,
+        hataliKayitSayisi: unresolvedCells.length,
+        toplamSatirSayisi: parsedShifts.length,
+        createdAt: serverTimestamp(),
+      });
+
+      setStatusMsg(`Tamamlandı! ${written} yeni vardiya kaydı başarıyla eklendi (${existingShifts.length} mevcut kayıt korundu).`);
       setStep(4);
       if (onSuccess) onSuccess(written);
     } catch (err) {
@@ -424,7 +476,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
       <div className="modal-card excel-wizard-modal">
         <div className="modal-header">
           <div>
-            <span className="section-kicker">Veri Aktarım Sihirbazı</span>
+            <span className="section-kicker">Veri Aktarım & Denetim Sihirbazı</span>
             <h3>Aylık & Haftalık Excel Yükleme</h3>
           </div>
           <button type="button" className="btn-close" onClick={onClose} aria-label="Kapat">×</button>
@@ -433,7 +485,7 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
         <div className="excel-wizard-steps">
           <div className={`wizard-step-pill ${step >= 1 ? 'is-active' : ''}`}>1. Dosya Seçimi</div>
           <div className={`wizard-step-pill ${step >= 2 ? 'is-active' : ''}`}>2. Şablon & Sayfalar</div>
-          <div className={`wizard-step-pill ${step >= 3 ? 'is-active' : ''}`}>3. Simülasyon Önizleme</div>
+          <div className={`wizard-step-pill ${step >= 3 ? 'is-active' : ''}`}>3. Simülasyon & Denetim</div>
           <div className={`wizard-step-pill ${step >= 4 ? 'is-active' : ''}`}>4. Sonuç</div>
         </div>
 
@@ -481,31 +533,31 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
 
           {step === 3 ? (
             <div className="wizard-step-content">
-              <div className="wizard-stats-grid">
+              <div className="wizard-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.75rem', marginBottom: '1rem' }}>
                 <div className="stat-box">
-                  <span className="stat-label">Toplam Sayfa</span>
-                  <span className="stat-val">{parseStats?.totalSheets}</span>
+                  <span className="stat-label">Toplam Satır</span>
+                  <span className="stat-val">{parseStats?.totalShifts}</span>
                 </div>
-                <div className="stat-box">
-                  <span className="stat-label">Personel Sayısı</span>
-                  <span className="stat-val">{parseStats?.totalPersonnel}</span>
+                <div className="stat-box" style={{ background: '#f0fdf4', borderColor: '#bbf7d0' }}>
+                  <span className="stat-label" style={{ color: '#166534' }}>Eklenecek Yeni</span>
+                  <span className="stat-val" style={{ color: '#15803d' }}>{toBeAddedShifts.length}</span>
                 </div>
-                <div className="stat-box">
-                  <span className="stat-label">Bulunan Vardiya</span>
-                  <span className="stat-val stat-val--highlight">{parseStats?.totalShifts}</span>
+                <div className="stat-box" style={{ background: '#fffbeb', borderColor: '#fde68a' }}>
+                  <span className="stat-label" style={{ color: '#92400e' }}>Zaten Mevcut</span>
+                  <span className="stat-val" style={{ color: '#b45309' }}>{existingShifts.length}</span>
                 </div>
-                <div className="stat-box">
-                  <span className="stat-label">Atlanan İzin/HT Satırı</span>
-                  <span className="stat-val">{parseStats?.skippedCells}</span>
+                <div className="stat-box" style={{ background: '#fef2f2', borderColor: '#fecaca' }}>
+                  <span className="stat-label" style={{ color: '#991b1b' }}>Hatalı / Eşleşmeyen</span>
+                  <span className="stat-val" style={{ color: '#dc2626' }}>{unresolvedCells.length}</span>
                 </div>
               </div>
 
               {unresolvedCells.length > 0 ? (
-                <div className="ai-hybrid-alert-box" style={{ background: '#fffbe6', border: '1px solid #ffe58f', padding: '1rem', borderRadius: '10px', marginBottom: '1rem' }}>
+                <div className="ai-hybrid-alert-box" style={{ background: '#fffbe6', border: '1px solid #ffe58f', padding: '0.85rem', borderRadius: '10px', marginBottom: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
                     <div>
-                      <strong style={{ color: '#d48806', fontSize: '0.9rem' }}>⚠️ {unresolvedCells.length} adet tanınmayan veya kural dışı lokasyon bulundu</strong>
-                      <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.8rem', color: '#8c8c8c' }}>
+                      <strong style={{ color: '#d48806', fontSize: '0.88rem' }}>⚠️ {unresolvedCells.length} adet tanınmayan veya kural dışı lokasyon bulundu</strong>
+                      <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.78rem', color: '#8c8c8c' }}>
                         Standart kurallar ile eşleşmeyen bu hücreleri akıllı analiz ile otomatik çözümleyebilirsiniz.
                       </p>
                     </div>
@@ -514,47 +566,161 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
                       className="btn btn-warning"
                       onClick={handleResolveUnmatchedWithAI}
                       disabled={isResolvingAI}
-                      style={{ background: '#faad14', color: '#fff', border: 'none', fontWeight: '700' }}
+                      style={{ background: '#faad14', color: '#fff', border: 'none', fontWeight: '700', fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}
                     >
-                      {isResolvingAI ? '⚡ Akıllı Çözümleme Yapılıyor...' : `⚡ Akıllı Eşleştir (${unresolvedCells.length})`}
+                      {isResolvingAI ? '⚡ Çözümleniyor...' : `⚡ Akıllı Eşleştir (${unresolvedCells.length})`}
                     </button>
                   </div>
                 </div>
               ) : null}
 
               {aiResolvedCount > 0 ? (
-                <div className="ai-success-banner" style={{ background: '#f6ffed', border: '1px solid #b7eb8f', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1rem', color: '#389e0d', fontSize: '0.85rem', fontWeight: '600' }}>
-                  ✓ {aiResolvedCount} adet tanınmayan lokasyon akıllı analiz ile başarıyla eşleştirildi ve vardiyaya eklendi!
+                <div className="ai-success-banner" style={{ background: '#f6ffed', border: '1px solid #b7eb8f', padding: '0.65rem 0.9rem', borderRadius: '8px', marginBottom: '1rem', color: '#389e0d', fontSize: '0.82rem', fontWeight: '600' }}>
+                  ✓ {aiResolvedCount} adet tanınmayan lokasyon akıllı analiz ile çözülerek ekleneceklere aktarıldı!
                 </div>
               ) : null}
 
-              {parsedShifts.length > 0 ? (
-                <div className="wizard-preview-table-wrap">
-                  <table className="wizard-preview-table">
-                    <thead>
-                      <tr>
-                        <th>Personel</th>
-                        <th>Tarih</th>
-                        <th>Meydan ID</th>
-                        <th>Saat Aralığı</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {parsedShifts.slice(0, 8).map((s, idx) => (
-                        <tr key={idx}>
-                          <td>{s.personelAdi}</td>
-                          <td>{s.tarih}</td>
-                          <td>{s.meydanId}</td>
-                          <td>{s.saatAraligi}</td>
+              {/* Denetim Tabları: Eklenecekler, Zaten Mevcutlar, Hatalılar */}
+              <div style={{ display: 'flex', gap: '0.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.4rem', marginBottom: '0.75rem' }}>
+                <button
+                  type="button"
+                  onClick={() => setActivePreviewTab('toAdd')}
+                  style={{
+                    padding: '0.35rem 0.75rem',
+                    fontSize: '0.8rem',
+                    fontWeight: activePreviewTab === 'toAdd' ? '700' : '500',
+                    color: activePreviewTab === 'toAdd' ? '#15803d' : '#64748b',
+                    background: activePreviewTab === 'toAdd' ? '#dcfce7' : 'transparent',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  🟢 Eklenecekler ({toBeAddedShifts.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActivePreviewTab('existing')}
+                  style={{
+                    padding: '0.35rem 0.75rem',
+                    fontSize: '0.8rem',
+                    fontWeight: activePreviewTab === 'existing' ? '700' : '500',
+                    color: activePreviewTab === 'existing' ? '#b45309' : '#64748b',
+                    background: activePreviewTab === 'existing' ? '#fef3c7' : 'transparent',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  🟡 Zaten Mevcutlar ({existingShifts.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActivePreviewTab('unresolved')}
+                  style={{
+                    padding: '0.35rem 0.75rem',
+                    fontSize: '0.8rem',
+                    fontWeight: activePreviewTab === 'unresolved' ? '700' : '500',
+                    color: activePreviewTab === 'unresolved' ? '#dc2626' : '#64748b',
+                    background: activePreviewTab === 'unresolved' ? '#fee2e2' : 'transparent',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  🔴 Hatalı / Tanınmayan ({unresolvedCells.length})
+                </button>
+              </div>
+
+              {/* Tab İçerikleri */}
+              <div className="wizard-preview-table-wrap" style={{ maxHeight: '240px', overflowY: 'auto' }}>
+                {activePreviewTab === 'toAdd' ? (
+                  toBeAddedShifts.length > 0 ? (
+                    <table className="wizard-preview-table">
+                      <thead>
+                        <tr>
+                          <th>Personel</th>
+                          <th>Tarih</th>
+                          <th>Meydan ID</th>
+                          <th>Saat</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  {parsedShifts.length > 8 ? (
-                    <div className="wizard-more-note">...ve {parsedShifts.length - 8} kayıt daha</div>
-                  ) : null}
-                </div>
-              ) : null}
+                      </thead>
+                      <tbody>
+                        {toBeAddedShifts.slice(0, 15).map((s, idx) => (
+                          <tr key={idx}>
+                            <td>{s.personelAdi}</td>
+                            <td>{s.tarih}</td>
+                            <td><span style={{ color: '#16a34a', fontWeight: '600' }}>{s.meydanId}</span></td>
+                            <td>{s.saatAraligi}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: '1.5rem', color: '#64748b', fontSize: '0.85rem' }}>
+                      Eklenecek yeni kayıt bulunmuyor. Tüm kayıtlar zaten veritabanında mevcut.
+                    </div>
+                  )
+                ) : null}
+
+                {activePreviewTab === 'existing' ? (
+                  existingShifts.length > 0 ? (
+                    <table className="wizard-preview-table">
+                      <thead>
+                        <tr>
+                          <th>Personel</th>
+                          <th>Tarih</th>
+                          <th>Meydan ID</th>
+                          <th>Durum</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {existingShifts.slice(0, 15).map((s, idx) => (
+                          <tr key={idx}>
+                            <td>{s.personelAdi}</td>
+                            <td>{s.tarih}</td>
+                            <td>{s.meydanId}</td>
+                            <td><span style={{ color: '#d97706', fontSize: '0.78rem', fontWeight: '600' }}>Zaten Kayıtlı (Atlanacak)</span></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: '1.5rem', color: '#64748b', fontSize: '0.85rem' }}>
+                      Mevcut kayıtlarla çakışan satır bulunmuyor.
+                    </div>
+                  )
+                ) : null}
+
+                {activePreviewTab === 'unresolved' ? (
+                  unresolvedCells.length > 0 ? (
+                    <table className="wizard-preview-table">
+                      <thead>
+                        <tr>
+                          <th>Personel</th>
+                          <th>Tarih</th>
+                          <th>Hücredeki Metin</th>
+                          <th>Durum</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {unresolvedCells.slice(0, 15).map((u, idx) => (
+                          <tr key={idx}>
+                            <td>{u.personelAdi}</td>
+                            <td>{u.isoDate}</td>
+                            <td><code style={{ background: '#fef2f2', color: '#991b1b', padding: '0.1rem 0.3rem', borderRadius: '4px' }}>{u.cellStr}</code></td>
+                            <td><span style={{ color: '#dc2626', fontSize: '0.78rem', fontWeight: '600' }}>Eşleşmedi</span></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: '1.5rem', color: '#16a34a', fontSize: '0.85rem' }}>
+                      ✓ Tüm satırlar başarıyla standart meydanlarla eşleşti!
+                    </div>
+                  )
+                ) : null}
+              </div>
             </div>
           ) : null}
 
@@ -590,8 +756,8 @@ YALNIZCA geçerli bir JSON nesnesi döndür (Format: {"Metin": "meydanId"}). Ba�
           ) : null}
 
           {step === 3 ? (
-            <button type="button" className="btn btn-success" onClick={handleConfirmAndUpload} disabled={isUploading || parsedShifts.length === 0}>
-              {isUploading ? 'Yükleniyor...' : 'Veritabanına Aktar'}
+            <button type="button" className="btn btn-success" onClick={handleConfirmAndUpload} disabled={isUploading || toBeAddedShifts.length === 0 || !canWrite}>
+              {isUploading ? 'Aktarılıyor...' : `Onayla ve Kaydet (${toBeAddedShifts.length} Yeni)`}
             </button>
           ) : null}
 
